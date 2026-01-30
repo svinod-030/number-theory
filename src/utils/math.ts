@@ -3,15 +3,21 @@
  * Returns both the result and the steps taken.
  */
 export function getGCDWithSteps(a: number, b: number): { gcd: number; steps: string[] } {
-    let x = Math.abs(a);
-    let y = Math.abs(b);
+    if (isNaN(a) || isNaN(b)) return { gcd: 1, steps: ['Invalid input'] };
+
+    let x = Math.abs(Math.round(a));
+    let y = Math.abs(Math.round(b));
     const steps: string[] = [];
+
+    if (x === 0 && y === 0) return { gcd: 0, steps: ['GCD(0,0) is undefined'] };
+    if (x === 0) return { gcd: y, steps: [`GCD(0,${y}) = ${y}`] };
+    if (y === 0) return { gcd: x, steps: [`GCD(${x},0) = ${x}`] };
 
     if (x < y) {
         [x, y] = [y, x];
     }
 
-    while (y !== 0) {
+    while (y !== 0 && !isNaN(y)) {
         const remainder = x % y;
         const quotient = Math.floor(x / y);
         steps.push(`${x} = ${y} × ${quotient} + ${remainder}`);
@@ -93,4 +99,44 @@ export function getUlamSpiral(size: number): { x: number; y: number; n: number; 
         }
     }
     return points;
+}
+
+export interface FactorNode {
+    value: number;
+    left?: FactorNode;
+    right?: FactorNode;
+    isPrime: boolean;
+}
+
+/**
+ * Generates a recursive factor tree structure for a number.
+ */
+export function getFactorTree(n: number): FactorNode {
+    const val = Math.abs(n);
+    const isP = isPrime(val);
+    if (isP || val <= 1) {
+        return { value: val, isPrime: isP };
+    }
+
+    // Find the smallest factor to start the split
+    let d = 2;
+    while (val % d !== 0) {
+        d++;
+    }
+
+    return {
+        value: val,
+        isPrime: false,
+        left: { value: d, isPrime: isPrime(d) },
+        right: getFactorTree(val / d)
+    };
+}
+
+/**
+ * Computes the Least Common Multiple (LCM) of two numbers.
+ */
+export function getLCM(a: number, b: number): number {
+    if (a === 0 || b === 0) return 0;
+    const { gcd } = getGCDWithSteps(a, b);
+    return Math.abs(a * b) / gcd;
 }

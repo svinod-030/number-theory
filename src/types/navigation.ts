@@ -7,4 +7,6 @@ export type RootStackParamList = {
     EuclideanVisualizer: undefined;
     ModularTable: undefined;
     Collatz: undefined;
+    Factorization: undefined;
+    LCM: undefined;
 };

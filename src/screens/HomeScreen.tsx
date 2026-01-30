@@ -27,6 +27,12 @@ export default function HomeScreen() {
                     screen: "Sieve",
                     icon: "grid-outline",
                 },
+                {
+                    title: "Factor Tree",
+                    description: "Visualize the Fundamental Theorem of Arithmetic.",
+                    screen: "Factorization",
+                    icon: "git-branch-outline",
+                },
             ]
         },
         {
@@ -70,6 +76,12 @@ export default function HomeScreen() {
                     description: "Visualize the mysterious 3n + 1 sequences.",
                     screen: "Collatz",
                     icon: "trending-down-outline",
+                },
+                {
+                    title: "LCM Visualizer",
+                    description: "Find the smallest common multiple of two numbers.",
+                    screen: "LCM",
+                    icon: "git-commit-outline",
                 },
             ]
         }

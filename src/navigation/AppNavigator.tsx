@@ -5,8 +5,8 @@ import HomeScreen from '../screens/HomeScreen';
 import ModularPlaygroundScreen from '../screens/ModularPlaygroundScreen';
 import ToolboxScreen from '../screens/ToolboxScreen';
 import UlamSpiralScreen from '../screens/UlamSpiralScreen';
-
 import { RootStackParamList } from '../types/navigation';
+import SieveScreen from '../screens/SieveScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -24,6 +24,7 @@ export default function AppNavigator() {
                 <Stack.Screen name="ModularPlayground" component={ModularPlaygroundScreen} />
                 <Stack.Screen name="Toolbox" component={ToolboxScreen} />
                 <Stack.Screen name="UlamSpiral" component={UlamSpiralScreen} />
+                <Stack.Screen name="Sieve" component={SieveScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );

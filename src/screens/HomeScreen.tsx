@@ -21,6 +21,12 @@ export default function HomeScreen() {
                     screen: "UlamSpiral",
                     icon: "apps-outline",
                 },
+                {
+                    title: "Sieve of Eratosthenes",
+                    description: "Step-by-step visualization of prime discovery.",
+                    screen: "Sieve",
+                    icon: "grid-outline",
+                },
             ]
         },
         {

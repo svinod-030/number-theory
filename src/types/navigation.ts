@@ -3,4 +3,5 @@ export type RootStackParamList = {
     ModularPlayground: undefined;
     Toolbox: undefined;
     UlamSpiral: undefined;
+    Sieve: undefined;
 };

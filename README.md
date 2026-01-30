@@ -19,6 +19,8 @@ The application is structured around core Number Theory concepts:
     *   Euclidean Algorithm (GCD/LCM) with step-by-step visualization.
     *   Prime Factorization.
 
+For a full list of mathematical concepts planned for this app, see the [Concepts Roadmap](docs/CONCEPTS.md).
+
 ---
 
 ## 🛠 Tech Stack

@@ -7,6 +7,7 @@ import ToolboxScreen from '../screens/ToolboxScreen';
 import UlamSpiralScreen from '../screens/UlamSpiralScreen';
 import { RootStackParamList } from '../types/navigation';
 import SieveScreen from '../screens/SieveScreen';
+import EuclideanVisualizerScreen from '../screens/EuclideanVisualizerScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -25,6 +26,7 @@ export default function AppNavigator() {
                 <Stack.Screen name="Toolbox" component={ToolboxScreen} />
                 <Stack.Screen name="UlamSpiral" component={UlamSpiralScreen} />
                 <Stack.Screen name="Sieve" component={SieveScreen} />
+                <Stack.Screen name="EuclideanVisualizer" component={EuclideanVisualizerScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );

@@ -53,6 +53,12 @@ export default function HomeScreen() {
                     screen: "Toolbox",
                     icon: "construct-outline",
                 },
+                {
+                    title: "Euclidean Visualizer",
+                    description: "Learn GCD through geometric tiling.",
+                    screen: "EuclideanVisualizer",
+                    icon: "color-fill-outline",
+                },
             ]
         }
     ];

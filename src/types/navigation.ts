@@ -4,4 +4,5 @@ export type RootStackParamList = {
     Toolbox: undefined;
     UlamSpiral: undefined;
     Sieve: undefined;
+    EuclideanVisualizer: undefined;
 };

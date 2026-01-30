@@ -140,7 +140,7 @@ export default function ModularPlaygroundScreen() {
 
                 <View className="mt-8 bg-slate-900/50 p-4 rounded-2xl border border-slate-800/50">
                     <Text className="text-slate-400 text-sm leading-6">
-                        Showing lines connecting each point $i$ to $(i \times {k}) \pmod{n}$.
+                        Showing lines connecting each point i to (i * k) mod n.
                         This visualization reveals hidden symmetries in modular arithmetic.
                     </Text>
                 </View>

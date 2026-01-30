@@ -8,6 +8,8 @@ import UlamSpiralScreen from '../screens/UlamSpiralScreen';
 import { RootStackParamList } from '../types/navigation';
 import SieveScreen from '../screens/SieveScreen';
 import EuclideanVisualizerScreen from '../screens/EuclideanVisualizerScreen';
+import ModularTableScreen from '../screens/ModularTableScreen';
+import CollatzScreen from '../screens/CollatzScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -27,6 +29,8 @@ export default function AppNavigator() {
                 <Stack.Screen name="UlamSpiral" component={UlamSpiralScreen} />
                 <Stack.Screen name="Sieve" component={SieveScreen} />
                 <Stack.Screen name="EuclideanVisualizer" component={EuclideanVisualizerScreen} />
+                <Stack.Screen name="ModularTable" component={ModularTableScreen} />
+                <Stack.Screen name="Collatz" component={CollatzScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );

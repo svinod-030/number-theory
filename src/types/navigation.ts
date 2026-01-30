@@ -5,4 +5,6 @@ export type RootStackParamList = {
     UlamSpiral: undefined;
     Sieve: undefined;
     EuclideanVisualizer: undefined;
+    ModularTable: undefined;
+    Collatz: undefined;
 };

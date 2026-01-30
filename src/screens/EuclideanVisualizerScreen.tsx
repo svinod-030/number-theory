@@ -219,9 +219,9 @@ export default function EuclideanVisualizerScreen() {
 
                             <View className="bg-slate-900 p-5 rounded-2xl border border-slate-800">
                                 <Text className="text-slate-400 text-sm leading-6">
-                                    The Euclidean algorithm can be visualized as finding the largest square that tiles an $A \times B$ rectangle.
+                                    The Euclidean algorithm can be visualized as finding the largest square that tiles an AxB rectangle.
                                     {"\n\n"}
-                                    We repeatedly cut off the largest possible square from the remaining piece until only squares are left. The size of the final remaining square(s) is the **Greatest Common Divisor**.
+                                    We repeatedly cut off the largest possible square from the remaining piece until only squares are left. The size of the final remaining square(s) is the Greatest Common Divisor.
                                 </Text>
                             </View>
                         </Animated.View>

@@ -40,6 +40,12 @@ export default function HomeScreen() {
                     screen: "ModularPlayground",
                     icon: "color-palette-outline",
                 },
+                {
+                    title: "Modular Table",
+                    description: "Explore the (i * j) mod n multiplication grid.",
+                    screen: "ModularTable",
+                    icon: "grid-outline",
+                },
             ]
         },
         {
@@ -58,6 +64,12 @@ export default function HomeScreen() {
                     description: "Learn GCD through geometric tiling.",
                     screen: "EuclideanVisualizer",
                     icon: "color-fill-outline",
+                },
+                {
+                    title: "Collatz Conjecture",
+                    description: "Visualize the mysterious 3n + 1 sequences.",
+                    screen: "Collatz",
+                    icon: "trending-down-outline",
                 },
             ]
         }

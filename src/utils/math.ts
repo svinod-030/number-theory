@@ -287,6 +287,55 @@ export function combinations(n: number, r: number): number {
 }
 
 /**
+ * Calculates a sequence of powers of a modulo n: a^1, a^2, ... mod n
+ * Returns the sequence until it hits 1 or repeats.
+ */
+export function getPowerResidues(a: number, n: number): number[] {
+    if (n <= 1) return [];
+    const residues: number[] = [];
+    let current = a % n;
+    const seen = new Set<number>();
+
+    while (current > 0 && !seen.has(current)) {
+        residues.push(current);
+        if (current === 1) break;
+        seen.add(current);
+        current = (current * a) % n;
+    }
+
+    return residues;
+}
+
+/**
+ * Checks if a is a primitive root modulo n.
+ */
+export function isPrimitiveRoot(a: number, n: number): boolean {
+    if (n <= 1) return false;
+    const phi = getTotient(n);
+    const residues = getPowerResidues(a, n);
+    // a is a primitive root if its order is phi(n)
+    // and all residues are coprime to n
+    return residues.length === phi && residues.every(r => {
+        let x = n, y = r;
+        while (y) { x %= y;[x, y] = [y, x]; }
+        return x === 1;
+    });
+}
+
+/**
+ * Returns all primitive roots modulo n.
+ */
+export function getPrimitiveRoots(n: number): number[] {
+    const roots: number[] = [];
+    for (let a = 2; a < n; a++) {
+        if (isPrimitiveRoot(a, n)) {
+            roots.push(a);
+        }
+    }
+    return roots;
+}
+
+/**
  * Returns all divisors of n.
  */
 export function getDivisors(n: number): number[] {

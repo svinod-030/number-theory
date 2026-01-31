@@ -58,6 +58,12 @@ export default function HomeScreen() {
                     screen: "Totient",
                     icon: "pie-chart-outline",
                 },
+                {
+                    title: "Primitive Roots",
+                    description: "Find generators and cyclic powers in modular groups.",
+                    screen: "PrimitiveRoots",
+                    icon: "refresh-circle-outline",
+                },
             ]
         },
         {

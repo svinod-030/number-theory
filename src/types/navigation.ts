@@ -13,4 +13,5 @@ export type RootStackParamList = {
     Fibonacci: undefined;
     Totient: undefined;
     Divisors: undefined;
+    PrimitiveRoots: undefined;
 };

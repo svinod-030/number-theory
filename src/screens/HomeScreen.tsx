@@ -78,6 +78,12 @@ export default function HomeScreen() {
                     icon: "trending-down-outline",
                 },
                 {
+                    title: "Pascal's Triangle",
+                    description: "Explore binomial coefficients and Sierpinski patterns.",
+                    screen: "PascalTriangle",
+                    icon: "triangle-outline",
+                },
+                {
                     title: "LCM Visualizer",
                     description: "Find the smallest common multiple of two numbers.",
                     screen: "LCM",

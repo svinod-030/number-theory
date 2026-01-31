@@ -12,6 +12,7 @@ import FactorizationScreen from '../screens/FactorizationScreen';
 import LCMScreen from '../screens/LCMScreen';
 import CollatzScreen from '../screens/CollatzScreen';
 import ModularTableScreen from '../screens/ModularTableScreen';
+import PascalTriangleScreen from '../screens/PascalTriangleScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -35,6 +36,7 @@ export default function AppNavigator() {
                 <Stack.Screen name="Collatz" component={CollatzScreen} />
                 <Stack.Screen name="Factorization" component={FactorizationScreen} />
                 <Stack.Screen name="LCM" component={LCMScreen} />
+                <Stack.Screen name="PascalTriangle" component={PascalTriangleScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );

@@ -140,3 +140,34 @@ export function getLCM(a: number, b: number): number {
     const { gcd } = getGCDWithSteps(a, b);
     return Math.abs(a * b) / gcd;
 }
+
+/**
+ * Generates Pascal's Triangle up to a certain number of rows.
+ */
+export function getPascalTriangle(rows: number): number[][] {
+    const triangle: number[][] = [];
+    for (let i = 0; i < rows; i++) {
+        triangle[i] = new Array(i + 1);
+        triangle[i][0] = 1;
+        triangle[i][i] = 1;
+        for (let j = 1; j < i; j++) {
+            triangle[i][j] = triangle[i - 1][j - 1] + triangle[i - 1][j];
+        }
+    }
+    return triangle;
+}
+
+/**
+ * Computes the combination nCr.
+ */
+export function combinations(n: number, r: number): number {
+    if (r < 0 || r > n) return 0;
+    if (r === 0 || r === n) return 1;
+    if (r > n / 2) r = n - r;
+
+    let res = 1;
+    for (let i = 1; i <= r; i++) {
+        res = (res * (n - i + 1)) / i;
+    }
+    return Math.round(res);
+}

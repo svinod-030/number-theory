@@ -9,4 +9,5 @@ export type RootStackParamList = {
     Collatz: undefined;
     Factorization: undefined;
     LCM: undefined;
+    PascalTriangle: undefined;
 };

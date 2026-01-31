@@ -9,9 +9,6 @@ import Animated, { FadeIn, ZoomIn } from 'react-native-reanimated';
 const { width } = Dimensions.get('window');
 
 const Node = ({ node, level = 0 }: { node: FactorNode; level?: number }) => {
-    // Dynamic spacing: higher levels (top of tree) need more space to spread
-    const horizontalMargin = Math.max(12, 40 - level * 4);
-
     return (
         <View style={{ alignItems: 'center' }}>
             <Animated.View
@@ -24,11 +21,11 @@ const Node = ({ node, level = 0 }: { node: FactorNode; level?: number }) => {
 
             {node.left && node.right && (
                 <View style={{ flexDirection: 'row', marginTop: 16 }}>
-                    <View style={{ alignItems: 'center', marginHorizontal: horizontalMargin }}>
+                    <View style={{ alignItems: 'center' }}>
                         <View className="w-0.5 h-8 bg-slate-700" style={{ transform: [{ rotate: '25deg' }, { translateY: -4 }] }} />
                         <Node node={node.left} level={level + 1} />
                     </View>
-                    <View style={{ alignItems: 'center', marginHorizontal: horizontalMargin }}>
+                    <View style={{ alignItems: 'center' }}>
                         <View className="w-0.5 h-8 bg-slate-700" style={{ transform: [{ rotate: '-25deg' }, { translateY: -4 }] }} />
                         <Node node={node.right} level={level + 1} />
                     </View>

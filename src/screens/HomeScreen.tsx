@@ -84,6 +84,12 @@ export default function HomeScreen() {
                     icon: "triangle-outline",
                 },
                 {
+                    title: "Fibonacci & Spiral",
+                    description: "Visualize the Golden Ratio and growth patterns.",
+                    screen: "Fibonacci",
+                    icon: "color-wand-outline",
+                },
+                {
                     title: "LCM Visualizer",
                     description: "Find the smallest common multiple of two numbers.",
                     screen: "LCM",

@@ -142,6 +142,81 @@ export function getLCM(a: number, b: number): number {
 }
 
 /**
+ * Generates the first n Fibonacci numbers.
+ */
+export function getFibonacciSequence(n: number): number[] {
+    if (n <= 0) return [];
+    if (n === 1) return [0];
+    const seq = [0, 1];
+    for (let i = 2; i < n; i++) {
+        seq.push(seq[i - 1] + seq[i - 2]);
+    }
+    return seq;
+}
+
+export interface FibonacciRect {
+    x: number;
+    y: number;
+    size: number;
+    direction: number; // 0: Right, 1: Down, 2: Left, 3: Up
+    value: number;
+}
+
+/**
+ * Computes coordinates for Fibonacci squares in a spiral.
+ */
+export function getFibonacciRects(n: number): FibonacciRect[] {
+    const seq = getFibonacciSequence(n + 1).slice(1); // 1, 1, 2, 3, 5, 8...
+    const rects: FibonacciRect[] = [];
+
+    let minX = 0;
+    let maxX = 0;
+    let minY = 0;
+    let maxY = 0;
+
+    for (let i = 0; i < seq.length; i++) {
+        const size = seq[i];
+        const dir = i % 4;
+
+        let rectX = 0;
+        let rectY = 0;
+
+        if (i === 0) {
+            rectX = 0;
+            rectY = 0;
+            minX = 0;
+            maxX = 1;
+            minY = 0;
+            maxY = 1;
+        } else {
+            // Adjust directions based on standard clockwise spiral
+            // 1: Right, 2: Down, 3: Left, 0: Up
+            if (dir === 1) { // Right
+                rectX = maxX;
+                rectY = minY;
+                maxX += size;
+            } else if (dir === 2) { // Down
+                rectX = minX;
+                rectY = maxY;
+                maxY += size;
+            } else if (dir === 3) { // Left
+                rectX = minX - size;
+                rectY = minY;
+                minX -= size;
+            } else if (dir === 0) { // Up
+                rectX = minX;
+                rectY = minY - size;
+                minY -= size;
+            }
+        }
+
+        rects.push({ x: rectX, y: rectY, size, direction: dir, value: size });
+    }
+
+    return rects;
+}
+
+/**
  * Generates Pascal's Triangle up to a certain number of rows.
  */
 export function getPascalTriangle(rows: number): number[][] {

@@ -10,4 +10,5 @@ export type RootStackParamList = {
     Factorization: undefined;
     LCM: undefined;
     PascalTriangle: undefined;
+    Fibonacci: undefined;
 };

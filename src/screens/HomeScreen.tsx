@@ -52,6 +52,12 @@ export default function HomeScreen() {
                     screen: "ModularTable",
                     icon: "grid-outline",
                 },
+                {
+                    title: "Euler's Totient (φ)",
+                    description: "Count numbers that share no common factors.",
+                    screen: "Totient",
+                    icon: "pie-chart-outline",
+                },
             ]
         },
         {

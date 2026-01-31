@@ -217,6 +217,45 @@ export function getFibonacciRects(n: number): FibonacciRect[] {
 }
 
 /**
+ * Calculates Euler's Totient Function phi(n).
+ */
+export function getTotient(n: number): number {
+    if (n === 0) return 0;
+    let result = n;
+    let temp = Math.abs(n);
+
+    for (let i = 2; i * i <= temp; i++) {
+        if (temp % i === 0) {
+            while (temp % i === 0) {
+                temp /= i;
+            }
+            result -= result / i;
+        }
+    }
+    if (temp > 1) {
+        result -= result / temp;
+    }
+    return Math.round(result);
+}
+
+/**
+ * Returns a list of numbers up to n that are relatively prime to n.
+ */
+export function getCoprimes(n: number): number[] {
+    const coprimes = [];
+    for (let i = 1; i <= n; i++) {
+        let a = n;
+        let b = i;
+        while (b) {
+            a %= b;
+            [a, b] = [b, a];
+        }
+        if (a === 1) coprimes.push(i);
+    }
+    return coprimes;
+}
+
+/**
  * Generates Pascal's Triangle up to a certain number of rows.
  */
 export function getPascalTriangle(rows: number): number[][] {

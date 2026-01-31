@@ -11,4 +11,5 @@ export type RootStackParamList = {
     LCM: undefined;
     PascalTriangle: undefined;
     Fibonacci: undefined;
+    Totient: undefined;
 };

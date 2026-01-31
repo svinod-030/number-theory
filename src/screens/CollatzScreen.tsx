@@ -128,8 +128,9 @@ export default function CollatzScreen() {
                                     The Collatz Conjecture (also known as the 3n+1 problem) is one of the most famous unsolved problems in mathematics.
                                     {"\n\n"}
                                     Take any positive integer n:
-                                    {"\n"}• If n is even, n = n / 2
-                                    {"\n"}• If n is odd, n = 3n + 1
+                                    - If n is even, n = n / 2
+                                    {"\n"}
+                                    - If n is odd, n = 3n + 1
                                     {"\n\n"}
                                     The conjecture states that no matter what value you start with, you will always eventually reach 1.
                                 </Text>

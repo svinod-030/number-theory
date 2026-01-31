@@ -113,6 +113,12 @@ export default function HomeScreen() {
                     screen: "Divisors",
                     icon: "layers-outline",
                 },
+                {
+                    title: "Continued Fractions",
+                    description: "Represent numbers as nested fractions and recursive tiles.",
+                    screen: "ContinuedFraction",
+                    icon: "list-outline",
+                },
             ]
         }
     ];

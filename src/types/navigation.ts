@@ -14,4 +14,5 @@ export type RootStackParamList = {
     Totient: undefined;
     Divisors: undefined;
     PrimitiveRoots: undefined;
+    ContinuedFraction: undefined;
 };

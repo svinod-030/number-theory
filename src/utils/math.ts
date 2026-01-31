@@ -287,6 +287,25 @@ export function combinations(n: number, r: number): number {
 }
 
 /**
+ * Generates the coefficients of the continued fraction representation of a/b.
+ */
+export function getContinuedFraction(a: number, b: number): number[] {
+    let x = Math.abs(a);
+    let y = Math.abs(b);
+    if (y === 0) return [];
+
+    const coefficients: number[] = [];
+    while (y !== 0) {
+        const quotient = Math.floor(x / y);
+        coefficients.push(quotient);
+        const remainder = x % y;
+        x = y;
+        y = remainder;
+    }
+    return coefficients;
+}
+
+/**
  * Calculates a sequence of powers of a modulo n: a^1, a^2, ... mod n
  * Returns the sequence until it hits 1 or repeats.
  */

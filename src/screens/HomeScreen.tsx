@@ -101,6 +101,12 @@ export default function HomeScreen() {
                     screen: "LCM",
                     icon: "git-commit-outline",
                 },
+                {
+                    title: "Perfect & Divisors",
+                    description: "Explore Perfect, Abundant, and Deficient numbers.",
+                    screen: "Divisors",
+                    icon: "layers-outline",
+                },
             ]
         }
     ];

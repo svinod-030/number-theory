@@ -285,3 +285,47 @@ export function combinations(n: number, r: number): number {
     }
     return Math.round(res);
 }
+
+/**
+ * Returns all divisors of n.
+ */
+export function getDivisors(n: number): number[] {
+    const val = Math.abs(n);
+    if (val === 0) return [];
+    if (val === 1) return [1];
+
+    const divisors: number[] = [];
+    for (let i = 1; i * i <= val; i++) {
+        if (val % i === 0) {
+            divisors.push(i);
+            if (i * i !== val) {
+                divisors.push(val / i);
+            }
+        }
+    }
+    return divisors.sort((a, b) => a - b);
+}
+
+export type NumberClassification = 'Perfect' | 'Abundant' | 'Deficient';
+
+/**
+ * Classifies a number based on the sum of its proper divisors.
+ */
+export function getNumberClassification(n: number): {
+    classification: NumberClassification;
+    sum: number;
+    properDivisors: number[]
+} {
+    const divisors = getDivisors(n);
+    const properDivisors = divisors.filter(d => d < n);
+    const sum = properDivisors.reduce((acc, curr) => acc + curr, 0);
+
+    let classification: NumberClassification = 'Deficient';
+    if (sum === n && n !== 0) {
+        classification = 'Perfect';
+    } else if (sum > n) {
+        classification = 'Abundant';
+    }
+
+    return { classification, sum, properDivisors };
+}

@@ -15,6 +15,7 @@ import ModularTableScreen from '../screens/ModularTableScreen';
 import PascalTriangleScreen from '../screens/PascalTriangleScreen';
 import FibonacciScreen from '../screens/FibonacciScreen';
 import TotientScreen from '../screens/TotientScreen';
+import DivisorsScreen from '../screens/DivisorsScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -41,6 +42,7 @@ export default function AppNavigator() {
                 <Stack.Screen name="PascalTriangle" component={PascalTriangleScreen} />
                 <Stack.Screen name="Fibonacci" component={FibonacciScreen} />
                 <Stack.Screen name="Totient" component={TotientScreen} />
+                <Stack.Screen name="Divisors" component={DivisorsScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );

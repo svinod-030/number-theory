@@ -397,3 +397,87 @@ export function getNumberClassification(n: number): {
 
     return { classification, sum, properDivisors };
 }
+
+/**
+ * Extended Euclidean Algorithm.
+ * Finds x, y such that ax + by = gcd(a, b).
+ */
+export function extendedGCD(a: number, b: number): { gcd: number; x: number; y: number } {
+    if (b === 0) {
+        return { gcd: a, x: 1, y: 0 };
+    }
+    const { gcd, x: x1, y: y1 } = extendedGCD(b, a % b);
+    const x = y1;
+    const y = x1 - Math.floor(a / b) * y1;
+    return { gcd, x, y };
+}
+
+export interface ExtendedGCDStep {
+    a: number;
+    b: number;
+    q: number;
+    r: number;
+    x: number;
+    y: number;
+}
+
+/**
+ * Extended Euclidean Algorithm with steps.
+ */
+export function extendedGCDWithSteps(a: number, b: number): { 
+    gcd: number; 
+    x: number; 
+    y: number; 
+    steps: ExtendedGCDStep[] 
+} {
+    let old_r = a, r = b;
+    let old_s = 1, s = 0;
+    let old_t = 0, t = 1;
+    
+    const steps: ExtendedGCDStep[] = [];
+
+    while (r !== 0) {
+        const quotient = Math.floor(old_r / r);
+        const next_r = old_r - quotient * r;
+        const next_s = old_s - quotient * s;
+        const next_t = old_t - quotient * t;
+
+        steps.push({ a: old_r, b: r, q: quotient, r: next_r, x: old_s, y: old_t });
+
+        old_r = r;
+        r = next_r;
+        old_s = s;
+        s = next_s;
+        old_t = t;
+        t = next_t;
+    }
+
+    // Final step
+    steps.push({ a: old_r, b: 0, q: 0, r: 0, x: old_s, y: old_t });
+
+    return { gcd: old_r, x: old_s, y: old_t, steps };
+}
+
+/**
+ * Computes the modular multiplicative inverse of a modulo m.
+ */
+export function getModularInverse(a: number, m: number): number | null {
+    const { gcd, x } = extendedGCD(a, m);
+    if (gcd !== 1) return null; // Inverse doesn't exist
+    return ((x % m) + m) % m;
+}
+
+/**
+ * Computes (base^exp) % mod efficiently.
+ */
+export function powerMod(base: number, exp: number, mod: number): number {
+    if (mod === 1) return 0;
+    let res = 1;
+    base = base % mod;
+    while (exp > 0) {
+        if (exp % 2 === 1) res = (res * base) % mod;
+        base = (base * base) % mod;
+        exp = Math.floor(exp / 2);
+    }
+    return res;
+}

@@ -18,6 +18,8 @@ import TotientScreen from '../screens/TotientScreen';
 import DivisorsScreen from '../screens/DivisorsScreen';
 import PrimitiveRootsScreen from '../screens/PrimitiveRootsScreen';
 import ContinuedFractionScreen from '../screens/ContinuedFractionScreen';
+import ModularExponentiationScreen from '../screens/ModularExponentiationScreen';
+import ModularInverseScreen from '../screens/ModularInverseScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -47,6 +49,8 @@ export default function AppNavigator() {
                 <Stack.Screen name="Divisors" component={DivisorsScreen} />
                 <Stack.Screen name="PrimitiveRoots" component={PrimitiveRootsScreen} />
                 <Stack.Screen name="ContinuedFraction" component={ContinuedFractionScreen} />
+                <Stack.Screen name="ModularInverse" component={ModularInverseScreen} />
+                <Stack.Screen name="ModularExponentiation" component={ModularExponentiationScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );

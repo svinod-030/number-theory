@@ -15,4 +15,6 @@ export type RootStackParamList = {
     Divisors: undefined;
     PrimitiveRoots: undefined;
     ContinuedFraction: undefined;
+    ModularInverse: undefined;
+    ModularExponentiation: undefined;
 };

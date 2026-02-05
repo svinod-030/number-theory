@@ -64,6 +64,18 @@ export default function HomeScreen() {
                     screen: "PrimitiveRoots",
                     icon: "refresh-circle-outline",
                 },
+                {
+                    title: "Modular Inverse",
+                    description: "Find x such that ax ≡ 1 (mod m) using Extended GCD.",
+                    screen: "ModularInverse",
+                    icon: "key-outline",
+                },
+                {
+                    title: "Fermat & Exponents",
+                    description: "Efficiently calculate large powers modulo n.",
+                    screen: "ModularExponentiation",
+                    icon: "flash-outline",
+                },
             ]
         },
         {

@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, ScrollView, TextInput } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Ionicons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
 import { isPerfect } from '../utils/math';
-import Animated, { FadeIn, SlideInDown } from 'react-native-reanimated';
+import ScreenHeader from '../components/ScreenHeader';
+import MathCard from '../components/MathCard';
+import ThemedInput from '../components/ThemedInput';
+import Animated, { FadeIn } from 'react-native-reanimated';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function PerfectNumbersScreen() {
-    const navigation = useNavigation();
     const [num, setNum] = useState('28');
     const n = parseInt(num) || 0;
     const { perfect, sum, divisors } = isPerfect(n);
@@ -19,66 +20,71 @@ export default function PerfectNumbersScreen() {
 
     return (
         <SafeAreaView className="flex-1 bg-slate-950">
-            <View className="px-6 py-4 flex-row items-center justify-between border-b border-slate-900">
-                <TouchableOpacity onPress={() => navigation.goBack()}>
-                    <Ionicons name="arrow-back" size={24} color="white" />
-                </TouchableOpacity>
-                <Text className="text-xl font-bold text-white">Perfect Numbers</Text>
-                <View style={{ width: 24 }} />
-            </View>
+            <ScreenHeader title="Perfect Numbers" />
 
             <ScrollView
                 className="flex-1"
                 contentContainerStyle={{ paddingHorizontal: 24, paddingVertical: 32 }}
                 showsVerticalScrollIndicator={false}
             >
-                <View className="mb-8">
-                    <Text className="text-slate-400 text-sm mb-6 leading-6">
-                        A <Text className="text-white font-bold">Perfect Number</Text> is a positive integer that is equal to the sum of its proper divisors (excluding itself).
-                    </Text>
-
-                    <Text className="text-slate-500 text-xs font-bold mb-4 uppercase tracking-widest">Enter a Number</Text>
-                    <TextInput
+                <MathCard
+                    index={0}
+                    description="A Perfect Number is a positive integer that is equal to the sum of its proper divisors (excluding itself)."
+                >
+                    <ThemedInput
+                        label="Check Integer"
                         value={num}
                         onChangeText={setNum}
                         keyboardType="numeric"
-                        className="bg-slate-900 text-white p-6 rounded-3xl border border-slate-800 text-3xl font-black mb-8 text-center"
+                        className={`text-center text-3xl font-black ${color}`}
                     />
 
-                    <Animated.View key={n} entering={FadeIn} className={`${bgColor} ${borderColor} border p-8 rounded-3xl items-center mb-8`}>
-                        <Text className="text-slate-500 text-xs font-bold uppercase tracking-widest mb-2">Classification</Text>
+                    <Animated.View key={n} entering={FadeIn} className={`${bgColor} ${borderColor} border p-8 rounded-2xl items-center`}>
+                        <Text className="text-slate-500 text-[10px] font-bold uppercase tracking-widest mb-2">Classification</Text>
                         <Text className={`text-4xl font-black ${color} mb-4`}>{classification}</Text>
-                        <Text className="text-white text-center text-sm leading-6">
-                            Sum of proper divisors: <Text className="font-bold">{divisors.join(' + ')} = {sum}</Text>
-                        </Text>
-                    </Animated.View>
 
-                    <View className="bg-slate-900 p-6 rounded-3xl border border-slate-800 mb-8">
+                        <View className="bg-slate-950/40 p-4 rounded-xl w-full">
+                            <Text className="text-slate-500 text-[8px] font-bold uppercase mb-2 text-center">Sum Calculation</Text>
+                            <Text className="text-white text-center text-xs font-mono leading-5">
+                                {divisors.length > 0 ? divisors.join(' + ') : '0'} = <Text className={`${color} font-bold`}>{sum}</Text>
+                            </Text>
+                        </View>
+                    </Animated.View>
+                </MathCard>
+
+                <MathCard
+                    index={1}
+                    title="Number Theory Insights"
+                >
+                    <View className="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 mb-6">
                         <View className="flex-row items-center mb-4">
                             <Ionicons name="bulb-outline" size={20} color="#fbbf24" />
-                            <Text className="text-amber-400 font-bold ml-2">Did you know?</Text>
+                            <Text className="text-amber-400 font-bold ml-2">Mersenne Primes</Text>
                         </View>
-                        <Text className="text-slate-300 text-sm leading-6">
-                            The first few perfect numbers are <Text className="text-white font-bold">6, 28, 496, and 8128</Text>.{"\n\n"}
-                            Euclid discovered that <Text className="text-indigo-400 font-mono">2ᵖ⁻¹(2ᵖ - 1)</Text> is an even perfect number whenever <Text className="text-indigo-400 font-mono">2ᵖ - 1</Text> is a Mersenne prime.
+                        <Text className="text-slate-300 text-xs leading-5">
+                            Euclid discovered that <Text className="text-indigo-400 font-mono">2ᵖ⁻¹(2ᵖ - 1)</Text> is a perfect number whenever <Text className="text-indigo-400 font-mono">2ᵖ - 1</Text> is prime.
                         </Text>
                     </View>
 
-                    <View className="bg-slate-900/50 p-6 rounded-3xl border border-slate-800/50 mb-12">
-                        <Text className="text-slate-500 text-xs font-bold uppercase mb-4">Other Categories</Text>
-                        <View className="space-y-4">
-                            <View>
-                                <Text className="text-amber-400 font-bold mb-1">Abundant</Text>
-                                <Text className="text-slate-400 text-xs">Sum of divisors is greater than the number (e.g., 12).</Text>
-                            </View>
-                            <View>
-                                <Text className="text-slate-400 font-bold mb-1">Deficient</Text>
-                                <Text className="text-slate-500 text-xs">Sum of divisors is less than the number (e.g., 8).</Text>
-                            </View>
-                        </View>
+                    <View className="space-y-4">
+                        <InfoRow title="Abundant" desc="Sum of divisors exceeds the number (e.g., 12)." color="#fbbf24" />
+                        <InfoRow title="Deficient" desc="Sum of divisors is less than the number (e.g., 8)." color="#94a3b8" />
                     </View>
-                </View>
+                </MathCard>
+
+                <View style={{ height: 40 }} />
             </ScrollView>
         </SafeAreaView>
+    );
+}
+
+function InfoRow({ title, desc, color }: { title: string, desc: string, color: string }) {
+    return (
+        <View className="flex-row items-start">
+            <View style={{ backgroundColor: `${color}20` }} className="p-1 rounded-full mr-3 mt-1" />
+            <Text className="text-slate-400 text-xs flex-1">
+                <Text style={{ color }} className="font-bold">{title}:</Text> {desc}
+            </Text>
+        </View>
     );
 }

@@ -1,11 +1,11 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../types/navigation';
-import Animated, { FadeInDown } from 'react-native-reanimated';
+import ScreenHeader from '../components/ScreenHeader';
+import ToolItem from '../components/ToolItem';
 
 export default function PrimesCategoryScreen() {
     const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
@@ -39,12 +39,7 @@ export default function PrimesCategoryScreen() {
 
     return (
         <SafeAreaView className="flex-1 bg-slate-950">
-            <View className="px-6 py-4 flex-row items-center border-b border-slate-900">
-                <TouchableOpacity onPress={() => navigation.goBack()} className="mr-4">
-                    <Ionicons name="arrow-back" size={24} color="white" />
-                </TouchableOpacity>
-                <Text className="text-xl font-bold text-white">Prime Numbers</Text>
-            </View>
+            <ScreenHeader title="Prime Numbers" />
 
             <ScrollView
                 className="flex-1"
@@ -53,24 +48,15 @@ export default function PrimesCategoryScreen() {
             >
                 <View style={{ gap: 16 }}>
                     {tools.map((tool, index) => (
-                        <Animated.View
+                        <ToolItem
                             key={index}
-                            entering={FadeInDown.delay(index * 100)}
-                        >
-                            <TouchableOpacity
-                                onPress={() => navigation.navigate(tool.screen as any)}
-                                className="bg-slate-900 p-5 rounded-2xl border border-slate-800 flex-row items-center shadow-lg"
-                            >
-                                <View className="bg-slate-800 p-3 rounded-xl mr-4">
-                                    <Ionicons name={tool.icon as any} size={24} color="#34d399" />
-                                </View>
-                                <View className="flex-1">
-                                    <Text className="text-lg font-bold text-white mb-1">{tool.title}</Text>
-                                    <Text className="text-slate-400 text-sm leading-5">{tool.description}</Text>
-                                </View>
-                                <Ionicons name="chevron-forward" size={20} color="#475569" />
-                            </TouchableOpacity>
-                        </Animated.View>
+                            index={index}
+                            title={tool.title}
+                            description={tool.description}
+                            icon={tool.icon}
+                            onPress={() => navigation.navigate(tool.screen as any)}
+                            accentColor="#34d399"
+                        />
                     ))}
                 </View>
                 <View style={{ height: 40 }} />

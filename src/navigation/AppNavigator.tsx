@@ -20,6 +20,9 @@ import PrimitiveRootsScreen from '../screens/PrimitiveRootsScreen';
 import ContinuedFractionScreen from '../screens/ContinuedFractionScreen';
 import ModularExponentiationScreen from '../screens/ModularExponentiationScreen';
 import ModularInverseScreen from '../screens/ModularInverseScreen';
+import PrimesCategoryScreen from '../screens/PrimesCategoryScreen';
+import ModularCategoryScreen from '../screens/ModularCategoryScreen';
+import DivisibilityCategoryScreen from '../screens/DivisibilityCategoryScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -51,6 +54,9 @@ export default function AppNavigator() {
                 <Stack.Screen name="ContinuedFraction" component={ContinuedFractionScreen} />
                 <Stack.Screen name="ModularInverse" component={ModularInverseScreen} />
                 <Stack.Screen name="ModularExponentiation" component={ModularExponentiationScreen} />
+                <Stack.Screen name="PrimesCategory" component={PrimesCategoryScreen} />
+                <Stack.Screen name="ModularCategory" component={ModularCategoryScreen} />
+                <Stack.Screen name="DivisibilityCategory" component={DivisibilityCategoryScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );

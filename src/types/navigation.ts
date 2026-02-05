@@ -17,4 +17,7 @@ export type RootStackParamList = {
     ContinuedFraction: undefined;
     ModularInverse: undefined;
     ModularExponentiation: undefined;
+    PrimesCategory: undefined;
+    ModularCategory: undefined;
+    DivisibilityCategory: undefined;
 };

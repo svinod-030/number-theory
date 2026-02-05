@@ -44,7 +44,11 @@ export default function HomeScreen() {
 
     return (
         <SafeAreaView className="flex-1 bg-slate-950">
-            <ScrollView className="px-6 py-8">
+            <ScrollView
+                className="flex-1"
+                contentContainerStyle={{ paddingHorizontal: 24, paddingVertical: 32 }}
+                showsVerticalScrollIndicator={false}
+            >
                 <View className="flex-row items-center mb-10">
                     <View className="bg-slate-900 p-3 rounded-2xl border border-slate-800 mr-4 shadow-xl">
                         <Image
@@ -58,7 +62,7 @@ export default function HomeScreen() {
                     </View>
                 </View>
 
-                <View className="space-y-4">
+                <View style={{ gap: 16 }}>
                     {categories.map((category, index) => (
                         <TouchableOpacity
                             key={index}

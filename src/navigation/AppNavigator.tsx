@@ -23,6 +23,9 @@ import ModularInverseScreen from '../screens/ModularInverseScreen';
 import PrimesCategoryScreen from '../screens/PrimesCategoryScreen';
 import ModularCategoryScreen from '../screens/ModularCategoryScreen';
 import DivisibilityCategoryScreen from '../screens/DivisibilityCategoryScreen';
+import CRTScreen from '../screens/CRTScreen';
+import DiophantineScreen from '../screens/DiophantineScreen';
+import QuadraticReciprocityScreen from '../screens/QuadraticReciprocityScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -57,6 +60,9 @@ export default function AppNavigator() {
                 <Stack.Screen name="PrimesCategory" component={PrimesCategoryScreen} />
                 <Stack.Screen name="ModularCategory" component={ModularCategoryScreen} />
                 <Stack.Screen name="DivisibilityCategory" component={DivisibilityCategoryScreen} />
+                <Stack.Screen name="CRT" component={CRTScreen} />
+                <Stack.Screen name="QuadraticReciprocity" component={QuadraticReciprocityScreen} />
+                <Stack.Screen name="Diophantine" component={DiophantineScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );

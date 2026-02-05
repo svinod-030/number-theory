@@ -20,4 +20,7 @@ export type RootStackParamList = {
     PrimesCategory: undefined;
     ModularCategory: undefined;
     DivisibilityCategory: undefined;
+    CRT: undefined;
+    QuadraticReciprocity: undefined;
+    Diophantine: undefined;
 };

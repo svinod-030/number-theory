@@ -47,6 +47,12 @@ export default function ModularCategoryScreen() {
             screen: "ModularExponentiation",
             icon: "flash-outline",
         },
+        {
+            title: "Chinese Remainder Thm",
+            description: "Solve systems of congruences x ≡ a (mod n).",
+            screen: "CRT",
+            icon: "git-branch-outline",
+        },
     ];
 
     return (
@@ -58,8 +64,12 @@ export default function ModularCategoryScreen() {
                 <Text className="text-xl font-bold text-white">Modular Arithmetic</Text>
             </View>
 
-            <ScrollView className="flex-1 px-6 py-8">
-                <View className="space-y-4">
+            <ScrollView
+                className="flex-1"
+                contentContainerStyle={{ paddingHorizontal: 24, paddingVertical: 32 }}
+                showsVerticalScrollIndicator={false}
+            >
+                <View style={{ gap: 16 }}>
                     {tools.map((tool, index) => (
                         <Animated.View
                             key={index}
@@ -81,6 +91,7 @@ export default function ModularCategoryScreen() {
                         </Animated.View>
                     ))}
                 </View>
+                <View style={{ height: 40 }} />
             </ScrollView>
         </SafeAreaView>
     );

@@ -424,16 +424,16 @@ export interface ExtendedGCDStep {
 /**
  * Extended Euclidean Algorithm with steps.
  */
-export function extendedGCDWithSteps(a: number, b: number): { 
-    gcd: number; 
-    x: number; 
-    y: number; 
-    steps: ExtendedGCDStep[] 
+export function extendedGCDWithSteps(a: number, b: number): {
+    gcd: number;
+    x: number;
+    y: number;
+    steps: ExtendedGCDStep[]
 } {
     let old_r = a, r = b;
     let old_s = 1, s = 0;
     let old_t = 0, t = 1;
-    
+
     const steps: ExtendedGCDStep[] = [];
 
     while (r !== 0) {
@@ -480,4 +480,117 @@ export function powerMod(base: number, exp: number, mod: number): number {
         exp = Math.floor(exp / 2);
     }
     return res;
+}
+
+/**
+ * Checks if a set of numbers are pairwise coprime.
+ */
+export function arePairwiseCoprime(numbers: number[]): boolean {
+    for (let i = 0; i < numbers.length; i++) {
+        for (let j = i + 1; j < numbers.length; j++) {
+            const { gcd } = getGCDWithSteps(numbers[i], numbers[j]);
+            if (gcd !== 1) return false;
+        }
+    }
+    return true;
+}
+
+export interface CRTResult {
+    x: number;
+    N: number;
+    steps: {
+        ni: number;
+        ai: number;
+        Mi: number;
+        yi: number;
+    }[];
+}
+
+/**
+ * Solves a system of congruences using the Chinese Remainder Theorem.
+ * x ≡ ai (mod ni)
+ */
+export function solveCRT(remainders: number[], moduli: number[]): CRTResult | null {
+    if (remainders.length !== moduli.length || remainders.length === 0) return null;
+    if (!arePairwiseCoprime(moduli)) return null;
+
+    const N = moduli.reduce((acc, curr) => acc * curr, 1);
+    const steps = [];
+    let x = 0;
+
+    for (let i = 0; i < moduli.length; i++) {
+        const ni = moduli[i];
+        const ai = remainders[i];
+        const Mi = N / ni;
+        const yi = getModularInverse(Mi, ni);
+
+        if (yi === null) return null; // Should not happen if coprime
+
+        steps.push({ ni, ai, Mi, yi });
+        x = (x + ai * Mi * yi) % N;
+    }
+
+    return { x: (x + N) % N, N, steps };
+}
+
+/**
+ * Calculates the Legendre Symbol (a/p) where p is an odd prime.
+ * Returns 1 if a is a quadratic residue mod p, -1 if it's a non-residue, 0 if p|a.
+ */
+export function legendreSymbol(a: number, p: number): number {
+    if (p < 2) return 0;
+    const res = powerMod(a, (p - 1) / 2, p);
+    return res > 1 ? -1 : res;
+}
+
+/**
+ * Calculates the Jacobi Symbol (a/n) where n is any odd positive integer.
+ */
+export function jacobiSymbol(a: number, n: number): number {
+    if (n <= 0 || n % 2 === 0) return 0;
+    a = a % n;
+    if (a < 0) a += n;
+    if (a === 0) return 0;
+    if (a === 1) return 1;
+
+    let t = 1;
+    while (a !== 0) {
+        while (a % 2 === 0) {
+            a /= 2;
+            const r = n % 8;
+            if (r === 3 || r === 5) t = -t;
+        }
+        [a, n] = [n, a];
+        if (a % 4 === 3 && n % 4 === 3) t = -t;
+        a %= n;
+    }
+    return n === 1 ? t : 0;
+}
+
+/**
+ * Solves a linear Diophantine equation ax + by = c.
+ * Returns a particular solution (x0, y0) and the steps to generate the general solution.
+ */
+export function solveLinearDiophantine(a: number, b: number, c: number): {
+    x0: number,
+    y0: number,
+    g: number,
+    possible: boolean,
+    stepX: number,
+    stepY: number
+} | null {
+    if (a === 0 && b === 0) return null;
+
+    const { gcd: g, x: x_g, y: y_g } = extendedGCD(a, b);
+
+    if (c % g !== 0) {
+        return { x0: 0, y0: 0, g, possible: false, stepX: 0, stepY: 0 };
+    }
+
+    const x0 = x_g * (c / g);
+    const y0 = y_g * (c / g);
+    const stepX = b / g;
+    const stepY = a / g;
+
+    return { x0, y0, g, possible: true, stepX, stepY };
 }

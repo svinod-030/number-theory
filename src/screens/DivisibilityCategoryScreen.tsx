@@ -59,6 +59,12 @@ export default function DivisibilityCategoryScreen() {
             screen: "ContinuedFraction",
             icon: "list-outline",
         },
+        {
+            title: "Diophantine Equations",
+            description: "Solve equations of the form ax + by = c.",
+            screen: "Diophantine",
+            icon: "infinite-outline",
+        },
     ];
 
     return (
@@ -70,8 +76,12 @@ export default function DivisibilityCategoryScreen() {
                 <Text className="text-xl font-bold text-white">Divisibility & Algorithms</Text>
             </View>
 
-            <ScrollView className="flex-1 px-6 py-8">
-                <View className="space-y-4">
+            <ScrollView
+                className="flex-1"
+                contentContainerStyle={{ paddingHorizontal: 24, paddingVertical: 32 }}
+                showsVerticalScrollIndicator={false}
+            >
+                <View style={{ gap: 16 }}>
                     {tools.map((tool, index) => (
                         <Animated.View
                             key={index}
@@ -93,6 +103,7 @@ export default function DivisibilityCategoryScreen() {
                         </Animated.View>
                     ))}
                 </View>
+                <View style={{ height: 40 }} />
             </ScrollView>
         </SafeAreaView>
     );

@@ -29,6 +29,12 @@ export default function PrimesCategoryScreen() {
             screen: "Factorization",
             icon: "git-branch-outline",
         },
+        {
+            title: "Quadratic Reciprocity",
+            description: "Check if a number is a quadratic residue mod p.",
+            screen: "QuadraticReciprocity",
+            icon: "infinite-outline",
+        },
     ];
 
     return (
@@ -40,8 +46,12 @@ export default function PrimesCategoryScreen() {
                 <Text className="text-xl font-bold text-white">Prime Numbers</Text>
             </View>
 
-            <ScrollView className="flex-1 px-6 py-8">
-                <View className="space-y-4">
+            <ScrollView
+                className="flex-1"
+                contentContainerStyle={{ paddingHorizontal: 24, paddingVertical: 32 }}
+                showsVerticalScrollIndicator={false}
+            >
+                <View style={{ gap: 16 }}>
                     {tools.map((tool, index) => (
                         <Animated.View
                             key={index}
@@ -63,6 +73,7 @@ export default function PrimesCategoryScreen() {
                         </Animated.View>
                     ))}
                 </View>
+                <View style={{ height: 40 }} />
             </ScrollView>
         </SafeAreaView>
     );

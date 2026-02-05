@@ -23,4 +23,10 @@ export type RootStackParamList = {
     CRT: undefined;
     QuadraticReciprocity: undefined;
     Diophantine: undefined;
+    ApplicationsCategory: undefined;
+    RSA: undefined;
+    DiffieHellman: undefined;
+    PerfectNumbers: undefined;
+    Hashing: undefined;
+    DigitalSignature: undefined;
 };

@@ -63,6 +63,7 @@ export function getPrimeFactors(n: number): number[] {
     }
     return factors;
 }
+
 /**
  * Generates coordinates for a square spiral (Ulam Spiral).
  * Returns array of {x, y, n, isPrime}
@@ -189,8 +190,6 @@ export function getFibonacciRects(n: number): FibonacciRect[] {
             minY = 0;
             maxY = 1;
         } else {
-            // Adjust directions based on standard clockwise spiral
-            // 1: Right, 2: Down, 3: Left, 0: Up
             if (dir === 1) { // Right
                 rectX = maxX;
                 rectY = minY;
@@ -307,7 +306,6 @@ export function getContinuedFraction(a: number, b: number): number[] {
 
 /**
  * Calculates a sequence of powers of a modulo n: a^1, a^2, ... mod n
- * Returns the sequence until it hits 1 or repeats.
  */
 export function getPowerResidues(a: number, n: number): number[] {
     if (n <= 1) return [];
@@ -332,8 +330,6 @@ export function isPrimitiveRoot(a: number, n: number): boolean {
     if (n <= 1) return false;
     const phi = getTotient(n);
     const residues = getPowerResidues(a, n);
-    // a is a primitive root if its order is phi(n)
-    // and all residues are coprime to n
     return residues.length === phi && residues.every(r => {
         let x = n, y = r;
         while (y) { x %= y;[x, y] = [y, x]; }
@@ -400,7 +396,6 @@ export function getNumberClassification(n: number): {
 
 /**
  * Extended Euclidean Algorithm.
- * Finds x, y such that ax + by = gcd(a, b).
  */
 export function extendedGCD(a: number, b: number): { gcd: number; x: number; y: number } {
     if (b === 0) {
@@ -421,9 +416,6 @@ export interface ExtendedGCDStep {
     y: number;
 }
 
-/**
- * Extended Euclidean Algorithm with steps.
- */
 export function extendedGCDWithSteps(a: number, b: number): {
     gcd: number;
     x: number;
@@ -433,7 +425,6 @@ export function extendedGCDWithSteps(a: number, b: number): {
     let old_r = a, r = b;
     let old_s = 1, s = 0;
     let old_t = 0, t = 1;
-
     const steps: ExtendedGCDStep[] = [];
 
     while (r !== 0) {
@@ -441,9 +432,7 @@ export function extendedGCDWithSteps(a: number, b: number): {
         const next_r = old_r - quotient * r;
         const next_s = old_s - quotient * s;
         const next_t = old_t - quotient * t;
-
         steps.push({ a: old_r, b: r, q: quotient, r: next_r, x: old_s, y: old_t });
-
         old_r = r;
         r = next_r;
         old_s = s;
@@ -451,25 +440,16 @@ export function extendedGCDWithSteps(a: number, b: number): {
         old_t = t;
         t = next_t;
     }
-
-    // Final step
     steps.push({ a: old_r, b: 0, q: 0, r: 0, x: old_s, y: old_t });
-
     return { gcd: old_r, x: old_s, y: old_t, steps };
 }
 
-/**
- * Computes the modular multiplicative inverse of a modulo m.
- */
 export function getModularInverse(a: number, m: number): number | null {
     const { gcd, x } = extendedGCD(a, m);
-    if (gcd !== 1) return null; // Inverse doesn't exist
+    if (gcd !== 1) return null;
     return ((x % m) + m) % m;
 }
 
-/**
- * Computes (base^exp) % mod efficiently.
- */
 export function powerMod(base: number, exp: number, mod: number): number {
     if (mod === 1) return 0;
     let res = 1;
@@ -482,9 +462,6 @@ export function powerMod(base: number, exp: number, mod: number): number {
     return res;
 }
 
-/**
- * Checks if a set of numbers are pairwise coprime.
- */
 export function arePairwiseCoprime(numbers: number[]): boolean {
     for (let i = 0; i < numbers.length; i++) {
         for (let j = i + 1; j < numbers.length; j++) {
@@ -498,61 +475,39 @@ export function arePairwiseCoprime(numbers: number[]): boolean {
 export interface CRTResult {
     x: number;
     N: number;
-    steps: {
-        ni: number;
-        ai: number;
-        Mi: number;
-        yi: number;
-    }[];
+    steps: { ni: number; ai: number; Mi: number; yi: number; }[];
 }
 
-/**
- * Solves a system of congruences using the Chinese Remainder Theorem.
- * x ≡ ai (mod ni)
- */
 export function solveCRT(remainders: number[], moduli: number[]): CRTResult | null {
     if (remainders.length !== moduli.length || remainders.length === 0) return null;
     if (!arePairwiseCoprime(moduli)) return null;
-
     const N = moduli.reduce((acc, curr) => acc * curr, 1);
     const steps = [];
     let x = 0;
-
     for (let i = 0; i < moduli.length; i++) {
         const ni = moduli[i];
         const ai = remainders[i];
         const Mi = N / ni;
         const yi = getModularInverse(Mi, ni);
-
-        if (yi === null) return null; // Should not happen if coprime
-
+        if (yi === null) return null;
         steps.push({ ni, ai, Mi, yi });
         x = (x + ai * Mi * yi) % N;
     }
-
     return { x: (x + N) % N, N, steps };
 }
 
-/**
- * Calculates the Legendre Symbol (a/p) where p is an odd prime.
- * Returns 1 if a is a quadratic residue mod p, -1 if it's a non-residue, 0 if p|a.
- */
 export function legendreSymbol(a: number, p: number): number {
     if (p < 2) return 0;
     const res = powerMod(a, (p - 1) / 2, p);
     return res > 1 ? -1 : res;
 }
 
-/**
- * Calculates the Jacobi Symbol (a/n) where n is any odd positive integer.
- */
 export function jacobiSymbol(a: number, n: number): number {
     if (n <= 0 || n % 2 === 0) return 0;
     a = a % n;
     if (a < 0) a += n;
     if (a === 0) return 0;
     if (a === 1) return 1;
-
     let t = 1;
     while (a !== 0) {
         while (a % 2 === 0) {
@@ -567,30 +522,36 @@ export function jacobiSymbol(a: number, n: number): number {
     return n === 1 ? t : 0;
 }
 
-/**
- * Solves a linear Diophantine equation ax + by = c.
- * Returns a particular solution (x0, y0) and the steps to generate the general solution.
- */
 export function solveLinearDiophantine(a: number, b: number, c: number): {
-    x0: number,
-    y0: number,
-    g: number,
-    possible: boolean,
-    stepX: number,
-    stepY: number
+    x0: number, y0: number, g: number, possible: boolean, stepX: number, stepY: number
 } | null {
     if (a === 0 && b === 0) return null;
-
     const { gcd: g, x: x_g, y: y_g } = extendedGCD(a, b);
-
-    if (c % g !== 0) {
-        return { x0: 0, y0: 0, g, possible: false, stepX: 0, stepY: 0 };
-    }
-
+    if (c % g !== 0) return { x0: 0, y0: 0, g, possible: false, stepX: 0, stepY: 0 };
     const x0 = x_g * (c / g);
     const y0 = y_g * (c / g);
-    const stepX = b / g;
-    const stepY = a / g;
+    return { x0, y0, g, possible: true, stepX: b / g, stepY: a / g };
+}
 
-    return { x0, y0, g, possible: true, stepX, stepY };
+export function isPerfect(n: number): { perfect: boolean, sum: number, divisors: number[] } {
+    if (n <= 1) return { perfect: false, sum: 0, divisors: [] };
+    const divisors = getDivisors(n).filter(d => d !== n);
+    const sum = divisors.reduce((acc, d) => acc + d, 0);
+    return { perfect: sum === n, sum, divisors };
+}
+
+export function toyHash(input: string): string {
+    let hash = 5381;
+    for (let i = 0; i < input.length; i++) {
+        hash = (hash * 33) ^ input.charCodeAt(i);
+    }
+    return (hash >>> 0).toString(16).toUpperCase();
+}
+
+export function rsaSign(m: number, d: number, n: number): number {
+    return powerMod(m, d, n);
+}
+
+export function rsaVerify(s: number, e: number, n: number): number {
+    return powerMod(s, e, n);
 }

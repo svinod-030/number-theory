@@ -26,6 +26,12 @@ import DivisibilityCategoryScreen from '../screens/DivisibilityCategoryScreen';
 import CRTScreen from '../screens/CRTScreen';
 import DiophantineScreen from '../screens/DiophantineScreen';
 import QuadraticReciprocityScreen from '../screens/QuadraticReciprocityScreen';
+import ApplicationsCategoryScreen from '../screens/ApplicationsCategoryScreen';
+import DiffieHellmanScreen from '../screens/DiffieHellmanScreen';
+import RSAScreen from '../screens/RSAScreen';
+import DigitalSignatureScreen from '../screens/DigitalSignatureScreen';
+import HashingScreen from '../screens/HashingScreen';
+import PerfectNumbersScreen from '../screens/PerfectNumbersScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -63,6 +69,12 @@ export default function AppNavigator() {
                 <Stack.Screen name="CRT" component={CRTScreen} />
                 <Stack.Screen name="QuadraticReciprocity" component={QuadraticReciprocityScreen} />
                 <Stack.Screen name="Diophantine" component={DiophantineScreen} />
+                <Stack.Screen name="ApplicationsCategory" component={ApplicationsCategoryScreen} />
+                <Stack.Screen name="RSA" component={RSAScreen} />
+                <Stack.Screen name="DiffieHellman" component={DiffieHellmanScreen} />
+                <Stack.Screen name="PerfectNumbers" component={PerfectNumbersScreen} />
+                <Stack.Screen name="Hashing" component={HashingScreen} />
+                <Stack.Screen name="DigitalSignature" component={DigitalSignatureScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );

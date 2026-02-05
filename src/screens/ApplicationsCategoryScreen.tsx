@@ -7,69 +7,37 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../types/navigation';
 import Animated, { FadeInDown } from 'react-native-reanimated';
 
-export default function DivisibilityCategoryScreen() {
+export default function ApplicationsCategoryScreen() {
     const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
     const tools = [
         {
-            title: "Number Theory Toolbox",
-            description: "GCD, Primality, Factors, and more utilities.",
-            screen: "Toolbox",
-            icon: "construct-outline",
+            title: "RSA Cryptography",
+            description: "How large primes secure data transmission.",
+            screen: "RSA",
+            icon: "lock-closed-outline",
+            color: "#f43f5e",
         },
         {
-            title: "Euclidean Visualizer",
-            description: "Learn GCD through geometric tiling.",
-            screen: "EuclideanVisualizer",
-            icon: "color-fill-outline",
+            title: "Diffie-Hellman",
+            description: "Secure key exchange using modular exponentiation.",
+            screen: "DiffieHellman",
+            icon: "key-outline",
+            color: "#f43f5e",
         },
         {
-            title: "Collatz Conjecture",
-            description: "Visualize the mysterious 3n + 1 sequences.",
-            screen: "Collatz",
-            icon: "trending-down-outline",
+            title: "Hashing Algorithms",
+            description: "One-way functions used for data integrity.",
+            screen: "Hashing",
+            icon: "finger-print-outline",
+            color: "#f43f5e",
         },
         {
-            title: "Pascal's Triangle",
-            description: "Explore binomial coefficients and Sierpinski patterns.",
-            screen: "PascalTriangle",
-            icon: "triangle-outline",
-        },
-        {
-            title: "Fibonacci & Spiral",
-            description: "Visualize the Golden Ratio and growth patterns.",
-            screen: "Fibonacci",
-            icon: "color-wand-outline",
-        },
-        {
-            title: "LCM Visualizer",
-            description: "Find the smallest common multiple of two numbers.",
-            screen: "LCM",
-            icon: "git-commit-outline",
-        },
-        {
-            title: "Perfect & Divisors",
-            description: "Explore Perfect, Abundant, and Deficient numbers.",
-            screen: "Divisors",
-            icon: "layers-outline",
-        },
-        {
-            title: "Continued Fractions",
-            description: "Represent numbers as nested fractions and recursive tiles.",
-            screen: "ContinuedFraction",
-            icon: "list-outline",
-        },
-        {
-            title: "Diophantine Equations",
-            description: "Solve equations of the form ax + by = c.",
-            screen: "Diophantine",
-            icon: "infinite-outline",
-        },
-        {
-            title: "Perfect Numbers",
-            description: "Explore numbers equal to the sum of their divisors.",
-            screen: "PerfectNumbers",
-            icon: "star-outline",
+            title: "Digital Signatures",
+            description: "Verify identity and authenticity with cryptography.",
+            screen: "DigitalSignature",
+            icon: "document-text-outline",
+            color: "#f43f5e",
         },
     ];
 
@@ -79,7 +47,7 @@ export default function DivisibilityCategoryScreen() {
                 <TouchableOpacity onPress={() => navigation.goBack()} className="mr-4">
                     <Ionicons name="arrow-back" size={24} color="white" />
                 </TouchableOpacity>
-                <Text className="text-xl font-bold text-white">Divisibility & Algorithms</Text>
+                <Text className="text-xl font-bold text-white">Applications</Text>
             </View>
 
             <ScrollView
@@ -98,7 +66,7 @@ export default function DivisibilityCategoryScreen() {
                                 className="bg-slate-900 p-5 rounded-2xl border border-slate-800 flex-row items-center shadow-lg"
                             >
                                 <View className="bg-slate-800 p-3 rounded-xl mr-4">
-                                    <Ionicons name={tool.icon as any} size={24} color="#fbbf24" />
+                                    <Ionicons name={tool.icon as any} size={24} color={tool.color} />
                                 </View>
                                 <View className="flex-1">
                                     <Text className="text-lg font-bold text-white mb-1">{tool.title}</Text>

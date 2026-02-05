@@ -39,6 +39,16 @@ export default function HomeScreen() {
             iconColor: "#fbbf24",
             bgColor: "bg-amber-500/10",
             borderColor: "border-amber-500/20",
+        },
+        {
+            title: "Applications",
+            description: "RSA, Diffie-Hellman, and Security",
+            screen: "ApplicationsCategory",
+            icon: "shield-checkmark-outline",
+            color: "text-rose-400",
+            iconColor: "#f43f5e",
+            bgColor: "bg-rose-500/10",
+            borderColor: "border-rose-500/20",
         }
     ];
 

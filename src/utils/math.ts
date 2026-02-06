@@ -555,3 +555,80 @@ export function rsaSign(m: number, d: number, n: number): number {
 export function rsaVerify(s: number, e: number, n: number): number {
     return powerMod(s, e, n);
 }
+
+/**
+ * Returns all goldbach partitions for an even number n.
+ * n = p + q where p and q are primes.
+ */
+export function getGoldbachPartitions(n: number): [number, number][] {
+    if (n <= 2 || n % 2 !== 0) return [];
+    const partitions: [number, number][] = [];
+    const seen = new Set<number>();
+
+    for (let i = 2; i <= n / 2; i++) {
+        if (isPrime(i) && isPrime(n - i)) {
+            partitions.push([i, n - i]);
+        }
+    }
+    return partitions;
+}
+
+/**
+ * Finds all amicable pairs up to a certain limit.
+ * Amicable numbers are two different numbers so related that the sum 
+ * of the proper divisors of each is equal to the other number.
+ */
+export function findAmicablePairs(limit: number): [number, number][] {
+    const pairs: [number, number][] = [];
+    const sums = new Array(limit + 1).fill(0);
+
+    for (let i = 1; i <= limit; i++) {
+        const divisors = getDivisors(i).filter(d => d < i);
+        sums[i] = divisors.reduce((acc, d) => acc + d, 0);
+    }
+
+    for (let i = 1; i <= limit; i++) {
+        const j = sums[i];
+        if (j > i && j <= limit && sums[j] === i) {
+            pairs.push([i, j]);
+        }
+    }
+    return pairs;
+}
+
+/**
+ * Calculates the number of partitions of an integer n using dynamic programming.
+ * Returns the partition count p(n).
+ */
+export function getPartitionCount(n: number): number {
+    if (n < 0) return 0;
+    const dp = new Array(n + 1).fill(0);
+    dp[0] = 1;
+
+    for (let i = 1; i <= n; i++) {
+        for (let j = i; j <= n; j++) {
+            dp[j] += dp[j - i];
+        }
+    }
+    return dp[n];
+}
+
+/**
+ * Generates a list of partitions for a small integer n (for visualization).
+ */
+export function generatePartitions(n: number): number[][] {
+    const result: number[][] = [];
+    function backtrack(remaining: number, start: number, current: number[]) {
+        if (remaining === 0) {
+            result.push([...current]);
+            return;
+        }
+        for (let i = start; i <= remaining; i++) {
+            current.push(i);
+            backtrack(remaining - i, i, current);
+            current.pop();
+        }
+    }
+    backtrack(n, 1, []);
+    return result.sort((a, b) => b.length - a.length);
+}

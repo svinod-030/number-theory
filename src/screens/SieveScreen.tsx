@@ -1,19 +1,22 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { View, Text, TouchableOpacity, ScrollView, Dimensions, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView, Dimensions } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import ScreenHeader from '../components/ScreenHeader';
+import MathCard from '../components/MathCard';
 import Animated, {
     useAnimatedStyle,
     withTiming,
     useSharedValue,
     withSequence,
+    Layout,
+    FadeIn
 } from 'react-native-reanimated';
 
 const { width } = Dimensions.get('window');
 const GRID_SIZE = 10;
-const CELL_MARGIN = 4;
-const CELL_SIZE = (width - 48 - (GRID_SIZE * CELL_MARGIN * 2)) / GRID_SIZE;
+const CELL_MARGIN = 3;
+const CELL_SIZE = (width - 64 - (GRID_SIZE * CELL_MARGIN * 2)) / GRID_SIZE;
 
 interface NumberCellProps {
     num: number;
@@ -26,26 +29,26 @@ const NumberCell = ({ num, status }: NumberCellProps) => {
 
     const getColors = () => {
         switch (status) {
-            case 'prime': return { bg: 'bg-emerald-500', text: 'text-white' };
-            case 'composite': return { bg: 'bg-slate-800', text: 'text-slate-600' };
-            case 'current': return { bg: 'bg-amber-500', text: 'text-white' };
-            case 'active': return { bg: 'bg-sky-500', text: 'text-white' };
-            default: return { bg: 'bg-slate-900', text: 'text-slate-400' };
+            case 'prime': return { bg: 'bg-emerald-500', text: 'text-white', border: 'border-emerald-400' };
+            case 'composite': return { bg: 'bg-slate-900', text: 'text-slate-700', border: 'border-slate-800' };
+            case 'current': return { bg: 'bg-amber-500', text: 'text-white', border: 'border-amber-400' };
+            case 'active': return { bg: 'bg-sky-500', text: 'text-white', border: 'border-sky-400' };
+            default: return { bg: 'bg-slate-900', text: 'text-slate-500', border: 'border-slate-800' };
         }
     };
 
-    const { bg, text } = getColors();
+    const { bg, text, border } = getColors();
 
     useEffect(() => {
         if (status === 'current') {
             scale.value = withSequence(withTiming(1.2, { duration: 200 }), withTiming(1, { duration: 200 }));
         } else if (status === 'composite') {
-            opacity.value = withTiming(0.4, { duration: 500 });
+            opacity.value = withTiming(0.3, { duration: 500 });
         } else if (status === 'prime') {
-            scale.value = withTiming(1.1, { duration: 300 });
-        } else {
-            opacity.value = withTiming(1, { duration: 300 });
-            scale.value = withTiming(1, { duration: 300 });
+            scale.value = withSequence(withTiming(1.1, { duration: 200 }), withTiming(1, { duration: 200 }));
+        } else if (status === 'idle') {
+            opacity.value = 1;
+            scale.value = 1;
         }
     }, [status]);
 
@@ -60,37 +63,34 @@ const NumberCell = ({ num, status }: NumberCellProps) => {
                 { width: CELL_SIZE, height: CELL_SIZE, margin: CELL_MARGIN },
                 animatedStyle
             ]}
-            className={`rounded-lg items-center justify-center border border-slate-800/50 ${bg}`}
+            className={`rounded-lg items-center justify-center border ${border} ${bg}`}
         >
-            <Text className={`text-xs font-bold ${text}`}>{num}</Text>
+            <Text className={`text-[10px] font-black ${text}`}>{num}</Text>
         </Animated.View>
     );
 };
 
 export default function SieveScreen() {
-    const navigation = useNavigation();
     const [numbers, setNumbers] = useState<Record<number, NumberCellProps['status']>>({});
     const [currentP, setCurrentP] = useState<number | null>(null);
     const [isAnimating, setIsAnimating] = useState(false);
-    const [step, setStep] = useState(0);
 
     useEffect(() => {
+        initNumbers();
+    }, []);
+
+    const initNumbers = () => {
         const initial: Record<number, NumberCellProps['status']> = {};
         for (let i = 2; i <= 100; i++) {
             initial[i] = 'idle';
         }
         setNumbers(initial);
-    }, []);
+    };
 
     const reset = () => {
         setIsAnimating(false);
-        const initial: Record<number, NumberCellProps['status']> = {};
-        for (let i = 2; i <= 100; i++) {
-            initial[i] = 'idle';
-        }
-        setNumbers(initial);
+        initNumbers();
         setCurrentP(null);
-        setStep(0);
     };
 
     const runStep = useCallback(() => {
@@ -98,11 +98,9 @@ export default function SieveScreen() {
             const next = { ...prev };
             let p = currentP;
 
-            // Find next prime p
             if (p === null) {
                 p = 2;
             } else if (next[p] === 'current') {
-                // If already at p, mark its multiples
                 let multiple = p * 2;
                 let foundMultiple = false;
                 while (multiple <= 100) {
@@ -115,7 +113,6 @@ export default function SieveScreen() {
                 }
 
                 if (!foundMultiple) {
-                    // No more multiples for this p, mark p as prime and find next p
                     next[p] = 'prime';
                     p = null;
                     for (let i = 2; i <= 100; i++) {
@@ -125,9 +122,7 @@ export default function SieveScreen() {
                         }
                     }
                     if (p === null || p * p > 100) {
-                        // Sieve complete
                         if (p !== null) {
-                            // Mark remaining as prime
                             for (let i = p; i <= 100; i++) {
                                 if (next[i] === 'idle') next[i] = 'prime';
                             }
@@ -149,28 +144,25 @@ export default function SieveScreen() {
     useEffect(() => {
         let interval: NodeJS.Timeout;
         if (isAnimating) {
-            interval = setInterval(() => {
-                runStep();
-            }, 400);
+            interval = setInterval(runStep, 150);
         }
         return () => clearInterval(interval);
     }, [isAnimating, runStep]);
 
     return (
         <SafeAreaView className="flex-1 bg-slate-950">
-            <View className="px-6 py-4 flex-row items-center justify-between border-b border-slate-900">
-                <TouchableOpacity onPress={() => navigation.goBack()}>
-                    <Ionicons name="arrow-back" size={24} color="white" />
-                </TouchableOpacity>
-                <Text className="text-xl font-bold text-white">Sieve of Eratosthenes</Text>
-                <TouchableOpacity onPress={reset}>
-                    <Ionicons name="refresh" size={24} color="#f43f5e" />
-                </TouchableOpacity>
-            </View>
+            <ScreenHeader title="Sieve of Eratosthenes" />
 
-            <ScrollView className="flex-1">
-                <View className="p-6">
-                    <View className="bg-slate-900 p-4 rounded-3xl border border-slate-800 shadow-2xl">
+            <ScrollView
+                className="flex-1"
+                contentContainerStyle={{ paddingHorizontal: 24, paddingVertical: 16 }}
+                showsVerticalScrollIndicator={false}
+            >
+                <MathCard
+                    index={0}
+                    description="The most efficient ancient algorithm to find all primes up to 100 by progressively marking multiples of each discovered prime."
+                >
+                    <View className="bg-slate-950/50 p-3 rounded-2xl border border-slate-800/50 items-center justify-center">
                         <View className="flex-row flex-wrap justify-center">
                             {Object.keys(numbers).sort((a, b) => Number(a) - Number(b)).map((num) => (
                                 <NumberCell
@@ -182,41 +174,70 @@ export default function SieveScreen() {
                         </View>
                     </View>
 
-                    <View className="mt-8 space-y-4">
-                        <View className="flex-row justify-between items-center bg-slate-900 p-5 rounded-2xl border border-slate-800">
-                            <View>
-                                <Text className="text-slate-400 text-xs uppercase tracking-widest font-bold mb-1">Status</Text>
-                                <Text className="text-white text-lg font-bold">
-                                    {isAnimating ? 'Sieving...' : 'Ready'}
-                                </Text>
-                            </View>
-                            <TouchableOpacity
-                                onPress={() => setIsAnimating(!isAnimating)}
-                                className={`p-4 rounded-2xl ${isAnimating ? 'bg-amber-500/20' : 'bg-emerald-500/20'}`}
-                            >
-                                <Ionicons
-                                    name={isAnimating ? "pause" : "play"}
-                                    size={28}
-                                    color={isAnimating ? "#f59e0b" : "#10b981"}
-                                />
-                            </TouchableOpacity>
-                        </View>
-
-                        <View className="bg-slate-900 p-5 rounded-2xl border border-slate-800">
-                            <Text className="text-slate-400 text-sm leading-6">
-                                The Sieve of Eratosthenes is an ancient algorithm for finding all prime numbers up to any given limit.
-                                {"\n\n"}
-                                1. Find the next smallest number (p) that isn't marked.
-                                {"\n"}
-                                2. Mark p as a prime.
-                                {"\n"}
-                                3. Mark all multiples of p as composite.
+                    <View className="mt-8 flex-row items-center space-x-4">
+                        <TouchableOpacity
+                            onPress={() => setIsAnimating(!isAnimating)}
+                            className={`flex-1 flex-row items-center justify-center p-4 rounded-2xl border ${isAnimating ? 'bg-amber-500/10 border-amber-500/20' : 'bg-emerald-500/10 border-emerald-500/20'} active:opacity-80`}
+                        >
+                            <Ionicons
+                                name={isAnimating ? "pause" : "play"}
+                                size={24}
+                                color={isAnimating ? "#f59e0b" : "#10b981"}
+                            />
+                            <Text className={`font-black ml-3 uppercase tracking-widest text-xs ${isAnimating ? 'text-amber-500' : 'text-emerald-500'}`}>
+                                {isAnimating ? 'Stop Animation' : 'Start Sieve'}
                             </Text>
-                        </View>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity
+                            onPress={reset}
+                            className="bg-slate-900/50 p-4 rounded-2xl border border-slate-800/50 active:bg-slate-900"
+                        >
+                            <Ionicons name="refresh" size={24} color="#f43f5e" />
+                        </TouchableOpacity>
                     </View>
-                    <View style={{ height: 40 }} />
-                </View>
+                </MathCard>
+
+                <MathCard
+                    index={1}
+                    title="How it Works"
+                >
+                    <View className="space-y-4">
+                        <StepItem icon="1" text="Start with the first prime (2)." />
+                        <StepItem icon="2" text="Mark all its multiples as composite." />
+                        <StepItem icon="3" text="Move to the next unmarked number and repeat." />
+                        <StepItem icon="4" text="Stop when the next number's square exceeds the limit." />
+                    </View>
+                </MathCard>
+
+                <MathCard
+                    index={2}
+                    title="Math Fact"
+                >
+                    <View className="bg-emerald-500/5 p-5 rounded-2xl border border-emerald-500/10">
+                        <View className="flex-row items-center mb-3">
+                            <Ionicons name="leaf-outline" size={18} color="#10b981" />
+                            <Text className="text-emerald-400 font-bold ml-2 text-xs uppercase font-bold">Historical Brilliance</Text>
+                        </View>
+                        <Text className="text-slate-400 text-xs leading-5">
+                            Attributed to the Greek mathematician Eratosthenes (3rd century BC), this method remains the foundation for many modern sieve theories used in advanced number theory research today.
+                        </Text>
+                    </View>
+                </MathCard>
+
+                <View style={{ height: 40 }} />
             </ScrollView>
         </SafeAreaView>
+    );
+}
+
+function StepItem({ icon, text }: { icon: string, text: string }) {
+    return (
+        <View className="flex-row items-center bg-slate-900/50 p-4 rounded-2xl border border-slate-800/50">
+            <View className="w-6 h-6 rounded-full bg-slate-800 items-center justify-center mr-4 border border-slate-700">
+                <Text className="text-slate-400 text-[10px] font-black">{icon}</Text>
+            </View>
+            <Text className="text-slate-400 text-xs font-bold flex-1">{text}</Text>
+        </View>
     );
 }

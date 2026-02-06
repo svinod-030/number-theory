@@ -71,6 +71,12 @@ export default function DivisibilityCategoryScreen() {
             screen: "PerfectNumbers",
             icon: "star-outline",
         },
+        {
+            title: "Partition Theory",
+            description: "Visualize ways to split an integer into positive sums.",
+            screen: "Partition",
+            icon: "apps-outline",
+        },
     ];
 
     return (

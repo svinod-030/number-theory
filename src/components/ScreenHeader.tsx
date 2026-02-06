@@ -7,10 +7,12 @@ interface ScreenHeaderProps {
     title: string;
     showBack?: boolean;
     rightElement?: React.ReactNode;
+    navigation?: any;
 }
 
-export default function ScreenHeader({ title, showBack = true, rightElement }: ScreenHeaderProps) {
-    const navigation = useNavigation();
+export default function ScreenHeader({ title, showBack = true, rightElement, navigation: navigationProp }: ScreenHeaderProps) {
+    const navigationHook = useNavigation();
+    const navigation = navigationProp || navigationHook;
 
     return (
         <View className="px-6 py-4 flex-row items-center justify-between border-b border-slate-900 bg-slate-950/80 backdrop-blur-md">

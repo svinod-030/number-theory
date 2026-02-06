@@ -53,6 +53,12 @@ export default function ModularCategoryScreen() {
             screen: "CRT",
             icon: "git-branch-outline",
         },
+        {
+            title: "Legendre Symbol",
+            description: "Determine if a number is a quadratic residue mod p.",
+            screen: "Legendre",
+            icon: "flash-outline",
+        },
     ];
 
     return (

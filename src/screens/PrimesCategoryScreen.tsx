@@ -35,6 +35,18 @@ export default function PrimesCategoryScreen() {
             screen: "QuadraticReciprocity",
             icon: "infinite-outline",
         },
+        {
+            title: "Goldbach's Conjecture",
+            description: "Visualize even numbers as sums of two primes.",
+            screen: "Goldbach",
+            icon: "medal-outline",
+        },
+        {
+            title: "Amicable Numbers",
+            description: "Find pairs of numbers with matching divisor sums.",
+            screen: "AmicableNumbers",
+            icon: "heart-outline",
+        },
     ];
 
     return (

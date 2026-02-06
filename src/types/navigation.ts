@@ -29,4 +29,8 @@ export type RootStackParamList = {
     PerfectNumbers: undefined;
     Hashing: undefined;
     DigitalSignature: undefined;
+    Goldbach: undefined;
+    AmicableNumbers: undefined;
+    Partition: undefined;
+    Legendre: undefined;
 };

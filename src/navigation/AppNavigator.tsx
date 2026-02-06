@@ -1,3 +1,4 @@
+import "../../global.css";
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -32,6 +33,10 @@ import RSAScreen from '../screens/RSAScreen';
 import DigitalSignatureScreen from '../screens/DigitalSignatureScreen';
 import HashingScreen from '../screens/HashingScreen';
 import PerfectNumbersScreen from '../screens/PerfectNumbersScreen';
+import GoldbachScreen from '../screens/GoldbachScreen';
+import AmicableNumbersScreen from '../screens/AmicableNumbersScreen';
+import PartitionScreen from '../screens/PartitionScreen';
+import LegendreScreen from '../screens/LegendreScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -75,6 +80,10 @@ export default function AppNavigator() {
                 <Stack.Screen name="PerfectNumbers" component={PerfectNumbersScreen} />
                 <Stack.Screen name="Hashing" component={HashingScreen} />
                 <Stack.Screen name="DigitalSignature" component={DigitalSignatureScreen} />
+                <Stack.Screen name="Goldbach" component={GoldbachScreen} />
+                <Stack.Screen name="AmicableNumbers" component={AmicableNumbersScreen} />
+                <Stack.Screen name="Partition" component={PartitionScreen} />
+                <Stack.Screen name="Legendre" component={LegendreScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );

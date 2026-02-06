@@ -98,6 +98,17 @@ const GLOSSARY_DATA: GlossaryItem[] = [
         definition: "A polynomial equation, usually with two or more unknowns, such that only the integer solutions are sought.",
         category: "Divisibility",
     },
+    {
+        term: "Pythagorean Triple",
+        definition: "A set of three positive integers a, b, and c, such that a² + b² = c².",
+        category: "Patterns",
+        formula: "a^2 + b^2 = c^2",
+    },
+    {
+        term: "Constructible Polygon",
+        definition: "A regular n-gon that can be constructed using only a ruler and compass. This requires n to be a power of 2 times distinct Fermat primes.",
+        category: "Patterns",
+    },
 ];
 
 export default function GlossaryScreen() {

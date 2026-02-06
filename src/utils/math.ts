@@ -632,3 +632,45 @@ export function generatePartitions(n: number): number[][] {
     backtrack(n, 1, []);
     return result.sort((a, b) => b.length - a.length);
 }
+
+/**
+ * Generates Pythagorean triples using x and y (Euclid's formula).
+ * a = x^2 - y^2, b = 2xy, c = x^2 + y^2
+ */
+export function generatePythagoreanTriple(x: number, y: number): { a: number, b: number, c: number, isPrimitive: boolean } {
+    const a = Math.abs(x * x - y * y);
+    const b = 2 * x * y;
+    const c = x * x + y * y;
+    const { gcd } = getGCDWithSteps(a, b);
+    return { a, b, c: Math.round(c), isPrimitive: gcd === 1 };
+}
+
+/**
+ * Checks if a regular polygon with n sides is constructible with ruler and compass.
+ * n must be a product of a power of 2 and distinct Fermat primes (3, 5, 17, 257, 65537).
+ */
+export function isConstructiblePolygon(n: number): { isConstructible: boolean, reason: string } {
+    if (n < 3) return { isConstructible: false, reason: "A polygon must have at least 3 sides." };
+
+    let temp = n;
+    // Remove powers of 2
+    while (temp % 2 === 0) temp /= 2;
+
+    if (temp === 1) return { isConstructible: true, reason: `${n} is a power of 2.` };
+
+    const fermatPrimes = [3, 5, 17, 257, 65537];
+    const factors = [];
+
+    for (const p of fermatPrimes) {
+        if (temp % p === 0) {
+            factors.push(p);
+            temp /= p;
+        }
+    }
+
+    if (temp === 1) {
+        return { isConstructible: true, reason: `${n} is a product of 2^k and distinct Fermat primes: ${factors.join(', ')}.` };
+    } else {
+        return { isConstructible: false, reason: `${n} contains non-Fermat prime factors.` };
+    }
+}

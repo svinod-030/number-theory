@@ -44,6 +44,8 @@ const ALL_TOOLS: ProjectTool[] = [
     { title: "Digital Signatures", description: "Authentication with math", screen: "DigitalSignature", icon: "create-outline", accent: "#f43f5e" },
     { title: "Perfect Numbers", description: "Sum of divisors equals number", screen: "PerfectNumbers", icon: "star-outline", accent: "#f43f5e" },
     { title: "Legendre Symbol", description: "Quadratic Residues visualizer", screen: "Legendre", icon: "prism-outline", accent: "#f43f5e" },
+    { title: "Pythagorean Triples", description: "Generate right triangles with Euclid's formula", screen: "PythagoreanTriples", icon: "triangle-outline", accent: "#fbbf24" },
+    { title: "Constructible Polygons", description: "Gauss's Theorem on regular n-gons", screen: "ConstructiblePolygons", icon: "shapes-outline", accent: "#34d399" },
 ];
 
 export default function HomeScreen() {

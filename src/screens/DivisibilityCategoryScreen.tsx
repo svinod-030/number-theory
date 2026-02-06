@@ -77,6 +77,18 @@ export default function DivisibilityCategoryScreen() {
             screen: "Partition",
             icon: "apps-outline",
         },
+        {
+            title: "Pythagorean Triples",
+            description: "Generate right triangles using Euclid's formula.",
+            screen: "PythagoreanTriples",
+            icon: "triangle-outline",
+        },
+        {
+            title: "Constructible Polygons",
+            description: "Gauss's Theorem on construction with ruler & compass.",
+            screen: "ConstructiblePolygons",
+            icon: "shapes-outline",
+        },
     ];
 
     return (

@@ -37,7 +37,9 @@ import GoldbachScreen from '../screens/GoldbachScreen';
 import AmicableNumbersScreen from '../screens/AmicableNumbersScreen';
 import PartitionScreen from '../screens/PartitionScreen';
 import LegendreScreen from '../screens/LegendreScreen';
-import GlossaryScreen from '../screens/GlossaryScreen';
+import ConstructiblePolygonsScreen from "../screens/ConstructiblePolygonsScreen";
+import GlossaryScreen from "../screens/GlossaryScreen";
+import PythagoreanTriplesScreen from "../screens/PythagoreanTriplesScreen";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -86,6 +88,8 @@ export default function AppNavigator() {
                 <Stack.Screen name="Partition" component={PartitionScreen} />
                 <Stack.Screen name="Legendre" component={LegendreScreen} />
                 <Stack.Screen name="Glossary" component={GlossaryScreen} />
+                <Stack.Screen name="PythagoreanTriples" component={PythagoreanTriplesScreen} />
+                <Stack.Screen name="ConstructiblePolygons" component={ConstructiblePolygonsScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );

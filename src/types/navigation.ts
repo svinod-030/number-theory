@@ -34,4 +34,6 @@ export type RootStackParamList = {
     Partition: undefined;
     Legendre: undefined;
     Glossary: undefined;
+    PythagoreanTriples: undefined;
+    ConstructiblePolygons: undefined;
 };

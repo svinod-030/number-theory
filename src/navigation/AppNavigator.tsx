@@ -37,6 +37,7 @@ import GoldbachScreen from '../screens/GoldbachScreen';
 import AmicableNumbersScreen from '../screens/AmicableNumbersScreen';
 import PartitionScreen from '../screens/PartitionScreen';
 import LegendreScreen from '../screens/LegendreScreen';
+import GlossaryScreen from '../screens/GlossaryScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -84,6 +85,7 @@ export default function AppNavigator() {
                 <Stack.Screen name="AmicableNumbers" component={AmicableNumbersScreen} />
                 <Stack.Screen name="Partition" component={PartitionScreen} />
                 <Stack.Screen name="Legendre" component={LegendreScreen} />
+                <Stack.Screen name="Glossary" component={GlossaryScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );

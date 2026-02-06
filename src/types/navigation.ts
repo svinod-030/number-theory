@@ -33,4 +33,5 @@ export type RootStackParamList = {
     AmicableNumbers: undefined;
     Partition: undefined;
     Legendre: undefined;
+    Glossary: undefined;
 };

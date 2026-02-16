@@ -189,6 +189,16 @@ export default function HomeScreen() {
                     </Text>
                 </Animated.View>
 
+                {/* Privacy Policy Link */}
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('PrivacyPolicy')}
+                    className="mt-8 mb-4 items-center"
+                >
+                    <Text className="text-slate-600 text-[10px] font-bold uppercase tracking-widest">
+                        Privacy Policy
+                    </Text>
+                </TouchableOpacity>
+
                 <View style={{ height: 60 }} />
             </ScrollView>
         </SafeAreaView>

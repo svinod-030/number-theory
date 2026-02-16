@@ -36,4 +36,5 @@ export type RootStackParamList = {
     Glossary: undefined;
     PythagoreanTriples: undefined;
     ConstructiblePolygons: undefined;
+    PrivacyPolicy: undefined;
 };

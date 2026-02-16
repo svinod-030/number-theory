@@ -40,6 +40,7 @@ import LegendreScreen from '../screens/LegendreScreen';
 import ConstructiblePolygonsScreen from "../screens/ConstructiblePolygonsScreen";
 import GlossaryScreen from "../screens/GlossaryScreen";
 import PythagoreanTriplesScreen from "../screens/PythagoreanTriplesScreen";
+import PrivacyPolicyScreen from "../screens/PrivacyPolicyScreen";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -90,6 +91,7 @@ export default function AppNavigator() {
                 <Stack.Screen name="Glossary" component={GlossaryScreen} />
                 <Stack.Screen name="PythagoreanTriples" component={PythagoreanTriplesScreen} />
                 <Stack.Screen name="ConstructiblePolygons" component={ConstructiblePolygonsScreen} />
+                <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicyScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );

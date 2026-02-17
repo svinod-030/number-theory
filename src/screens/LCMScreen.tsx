@@ -34,6 +34,16 @@ export default function LCMScreen() {
             </View>
 
             <ScrollView className="px-6">
+                <View className="bg-emerald-500/5 p-5 rounded-2xl border border-emerald-500/10 mb-4 mt-4">
+                    <View className="flex-row items-center mb-3">
+                        <Ionicons name="bulb-outline" size={18} color="#34d399" />
+                        <Text className="text-emerald-400 font-bold ml-2 text-xs uppercase">In Simple Terms</Text>
+                    </View>
+                    <Text className="text-slate-400 text-xs leading-5">
+                        Bus A comes every <Text className="text-white font-bold">4 minutes</Text>, Bus B every <Text className="text-white font-bold">6 minutes</Text>. When will they arrive together?{"\n"}List multiples: A = 4, 8, <Text className="text-sky-400 font-bold">12</Text>, 16… and B = 6, <Text className="text-sky-400 font-bold">12</Text>, 18… The first overlap is <Text className="text-white font-bold">12</Text> — that's the LCM!
+                    </Text>
+                </View>
+
                 <View className="mb-8">
                     <Text className="text-slate-400 text-sm mb-4">
                         Least Common Multiple is the smallest positive integer that is divisible by both numbers.

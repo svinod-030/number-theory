@@ -39,6 +39,16 @@ export default function DivisorsScreen() {
 
             <ScrollView className="flex-1">
                 <View className="px-6 pt-6">
+                    <View className="bg-emerald-500/5 p-5 rounded-2xl border border-emerald-500/10 mb-6">
+                        <View className="flex-row items-center mb-3">
+                            <Ionicons name="bulb-outline" size={18} color="#34d399" />
+                            <Text className="text-emerald-400 font-bold ml-2 text-xs uppercase">In Simple Terms</Text>
+                        </View>
+                        <Text className="text-slate-400 text-xs leading-5">
+                            A number's <Text className="text-white font-bold">divisors</Text> are the numbers that divide it evenly. Add up all divisors except the number itself — if the sum <Text className="text-emerald-400 font-bold">equals the number</Text>, it's <Text className="text-white font-bold">Perfect</Text>!{"\n"}Example: 28 → divisors 1, 2, 4, 7, 14 → sum = 28. ✓ Only a handful of perfect numbers are known!
+                        </Text>
+                    </View>
+
                     <View className="flex-row items-center space-x-4 mb-8">
                         <View className="flex-1">
                             <Text className="text-slate-500 text-xs mb-2 uppercase tracking-widest font-bold">Input Number</Text>
@@ -53,7 +63,7 @@ export default function DivisorsScreen() {
                         <Animated.View
                             key={classification}
                             entering={ZoomIn}
-                            className={`${getBadgeColor()} px-6 py-4 rounded-2xl items-center justify-center min-w-[120px]`}
+                            className={`${getBadgeColor()} mt-4 px-6 py-2 rounded-2xl items-center justify-center min-w-[120px]`}
                         >
                             <Text className="text-white text-xs font-bold uppercase tracking-tighter opacity-80">Type</Text>
                             <Text className="text-white font-black text-lg">{classification}</Text>

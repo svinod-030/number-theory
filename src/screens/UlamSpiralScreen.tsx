@@ -52,6 +52,21 @@ export default function UlamSpiralScreen() {
             >
                 <MathCard
                     index={0}
+                    title="In Simple Terms"
+                >
+                    <View className="bg-emerald-500/5 p-5 rounded-2xl border border-emerald-500/10">
+                        <View className="flex-row items-center mb-3">
+                            <Ionicons name="bulb-outline" size={18} color="#34d399" />
+                            <Text className="text-emerald-400 font-bold ml-2 text-xs uppercase">The Big Idea</Text>
+                        </View>
+                        <Text className="text-slate-400 text-xs leading-5">
+                            Write the number <Text className="text-white font-bold">1</Text> in the center of a grid. Spiral outward: 2, 3, 4, 5… Now <Text className="text-sky-400 font-bold">highlight only the primes</Text>. Something weird happens — they line up along <Text className="text-white font-bold">diagonal lines</Text>! Nobody fully understands why. This doodle, discovered by accident, reveals hidden patterns in how primes are distributed.
+                        </Text>
+                    </View>
+                </MathCard>
+
+                <MathCard
+                    index={1}
                     description="Visualize primes in a square spiral. Notice how primes tend to cluster along diagonal lines, suggesting mysterious patterns in the distribution of prime numbers."
                 >
                     <View className="bg-slate-900/50 p-5 rounded-2xl border border-slate-800 mb-6 flex-row justify-between items-center">
@@ -72,13 +87,13 @@ export default function UlamSpiralScreen() {
                     </View>
 
                     <Animated.View key={size + (showPath ? 'p' : 'n')} entering={FadeIn} className="bg-slate-950 rounded-2xl p-2 items-center mb-6 border border-slate-800">
-                        <Svg width={CANVAS_SIZE} height={CANVAS_SIZE}>
+                        <Svg width={CANVAS_SIZE + 20} height={CANVAS_SIZE + 20}>
                             {showPath && (
                                 <Polyline
                                     points={pathPoints}
                                     fill="none"
-                                    stroke="#334155"
-                                    strokeWidth="0.5"
+                                    stroke="#0b94f5ff"
+                                    strokeWidth="1"
                                     opacity={0.5}
                                 />
                             )}
@@ -112,7 +127,7 @@ export default function UlamSpiralScreen() {
                 </MathCard>
 
                 <MathCard
-                    index={1}
+                    index={2}
                     title="Control Spiral"
                 >
                     <View className="flex-row items-center justify-between mb-4">
@@ -142,7 +157,7 @@ export default function UlamSpiralScreen() {
                 </MathCard>
 
                 <MathCard
-                    index={2}
+                    index={3}
                     title="Mathematical Insight"
                 >
                     <View className="bg-sky-500/5 p-5 rounded-2xl border border-sky-500/10">

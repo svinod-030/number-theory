@@ -35,6 +35,21 @@ export default function DigitalSignatureScreen() {
             >
                 <MathCard
                     index={0}
+                    title="In Simple Terms"
+                >
+                    <View className="bg-indigo-500/5 p-5 rounded-2xl border border-indigo-500/10 mb-4">
+                        <View className="flex-row items-center mb-3">
+                            <Ionicons name="bulb-outline" size={18} color="#818cf8" />
+                            <Text className="text-indigo-400 font-bold ml-2 text-xs uppercase">Math-Based Handwriting</Text>
+                        </View>
+                        <Text className="text-slate-400 text-xs leading-5">
+                            A digital signature is like signing a document, but with <Text className="text-white font-bold">unforgeable math</Text>. You sign with your <Text className="text-indigo-400 font-bold">secret private key</Text>, and anyone can verify it with your <Text className="text-white font-bold">public key</Text>.{"\n"}Used for software updates, banking transactions, email authentication, and legal documents — anywhere you need proof that a message is genuine and untampered.
+                        </Text>
+                    </View>
+                </MathCard>
+
+                <MathCard
+                    index={1}
                     description="Digital signatures verify the authenticity of a message using RSA. Encryption with a private key serves as the signature."
                 >
                     <ThemedInput
@@ -52,7 +67,7 @@ export default function DigitalSignatureScreen() {
                 </MathCard>
 
                 <MathCard
-                    index={1}
+                    index={2}
                     title="Verification (Public Key)"
                     description="Anyone with the public key can verify that the signature was created by the corresponding private key."
                 >

@@ -33,6 +33,16 @@ export default function ModularTableScreen() {
 
             <ScrollView className="flex-1">
                 <View className="p-6">
+                    <View className="bg-sky-500/5 p-5 rounded-2xl border border-sky-500/10 mb-6">
+                        <View className="flex-row items-center mb-3">
+                            <Ionicons name="bulb-outline" size={18} color="#38bdf8" />
+                            <Text className="text-sky-400 font-bold ml-2 text-xs uppercase">What You're Looking At</Text>
+                        </View>
+                        <Text className="text-slate-400 text-xs leading-5">
+                            This is a <Text className="text-white font-bold">multiplication table, but with a twist</Text> — every answer gets wrapped around using the modulus. Instead of 3 × 4 = 12, you get 3 × 4 = 12 mod 5 = <Text className="text-sky-400 font-bold">2</Text>. Tap any cell to highlight all cells with the same remainder. Try prime moduli and notice that <Text className="text-white font-bold">every non-zero row is a perfect shuffle</Text>!
+                        </Text>
+                    </View>
+
                     <View className="mb-8">
                         <View className="flex-row justify-between items-center mb-4">
                             <Text className="text-slate-400 font-medium">Modulus (n)</Text>

@@ -37,6 +37,21 @@ export default function PrimitiveRootsScreen() {
             >
                 <MathCard
                     index={0}
+                    title="In Simple Terms"
+                >
+                    <View className="bg-sky-500/5 p-5 rounded-2xl border border-sky-500/10 mb-4">
+                        <View className="flex-row items-center mb-3">
+                            <Ionicons name="bulb-outline" size={18} color="#38bdf8" />
+                            <Text className="text-sky-400 font-bold ml-2 text-xs uppercase">The Master Key</Text>
+                        </View>
+                        <Text className="text-slate-400 text-xs leading-5">
+                            Think of a <Text className="text-white font-bold">combination lock with numbers 1–6</Text>. A primitive root is like a single number that, when you keep multiplying it by itself (mod 7), visits <Text className="text-sky-400 font-bold">every number on the lock exactly once</Text> before cycling back.{"\n"}For example, 3 mod 7 → 3, 2, 6, 4, 5, 1 — all six numbers!
+                        </Text>
+                    </View>
+                </MathCard>
+
+                <MathCard
+                    index={1}
                     description="A primitive root modulo n is a number that generates all numbers coprime to n through its powers."
                 >
                     <View className="flex-row space-x-4">
@@ -133,7 +148,7 @@ export default function PrimitiveRootsScreen() {
                 </MathCard>
 
                 <MathCard
-                    index={1}
+                    index={2}
                     title="Sequence of Powers"
                     description={`Calculations for ${a}^k mod ${n}:`}
                 >
@@ -148,7 +163,7 @@ export default function PrimitiveRootsScreen() {
                 </MathCard>
 
                 <MathCard
-                    index={2}
+                    index={3}
                     title="Other Candidates"
                 >
                     <View className="flex-row flex-wrap">
@@ -167,7 +182,7 @@ export default function PrimitiveRootsScreen() {
                 </MathCard>
 
                 <MathCard
-                    index={3}
+                    index={4}
                     title="Fun Fact"
                 >
                     <View className="bg-slate-900/50 p-5 rounded-2xl border border-slate-800/50">

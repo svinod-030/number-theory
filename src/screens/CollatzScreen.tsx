@@ -50,7 +50,22 @@ export default function CollatzScreen() {
             >
                 <MathCard
                     index={0}
-                    description="The simplest impossible problem. Start with n: if even, divide by 2; if odd, multiply by 3 and add 1."
+                    title="In Simple Terms"
+                >
+                    <View className="bg-emerald-500/5 p-5 rounded-2xl border border-emerald-500/10 mb-4">
+                        <View className="flex-row items-center mb-3">
+                            <Ionicons name="bulb-outline" size={18} color="#34d399" />
+                            <Text className="text-emerald-400 font-bold ml-2 text-xs uppercase">The Simplest Unsolved Problem</Text>
+                        </View>
+                        <Text className="text-slate-400 text-xs leading-5">
+                            Pick any number. If it's <Text className="text-white font-bold">even</Text>, halve it. If it's <Text className="text-white font-bold">odd</Text>, triple it and add 1. Repeat.{"\n"}Example: <Text className="text-sky-400 font-bold">6 → 3 → 10 → 5 → 16 → 8 → 4 → 2 → 1</Text>.{"\n"}Every number ever tested reaches 1, but nobody can prove it <Text className="text-white font-bold">always</Text> works!
+                        </Text>
+                    </View>
+                </MathCard>
+
+                <MathCard
+                    index={1}
+                    description="The Collatz Conjecture states that repeatedly applying these simple rules to any starting number will eventually reach the number 1."
                 >
                     <View className="flex-row items-end space-x-4">
                         <View className="flex-1">
@@ -105,7 +120,7 @@ export default function CollatzScreen() {
                 </MathCard>
 
                 {isCalculated && sequenceData && (
-                    <MathCard index={1} title="The Journey" description="Every number tested so far eventually reaches the 4-2-1 loop.">
+                    <MathCard index={2} title="The Journey" description="Every number tested so far eventually reaches the 4-2-1 loop.">
                         <ScrollView horizontal showsHorizontalScrollIndicator={false} className="mb-2">
                             <View className="flex-row items-center space-x-2">
                                 {sequenceData.seq.map((val, i) => (

@@ -25,6 +25,21 @@ export default function AmicableNumbersScreen() {
             >
                 <MathCard
                     index={0}
+                    title="In Simple Terms"
+                >
+                    <View className="bg-emerald-500/5 p-5 rounded-2xl border border-emerald-500/10 mb-4">
+                        <View className="flex-row items-center mb-3">
+                            <Ionicons name="bulb-outline" size={18} color="#34d399" />
+                            <Text className="text-emerald-400 font-bold ml-2 text-xs uppercase">Best Friend Numbers</Text>
+                        </View>
+                        <Text className="text-slate-400 text-xs leading-5">
+                            Add up all the divisors of <Text className="text-white font-bold">220</Text> (excluding 220 itself): 1+2+4+5+10+11+20+22+44+55+110 = <Text className="text-rose-400 font-bold">284</Text>.{"\n"}Now do the same for <Text className="text-white font-bold">284</Text>: 1+2+4+71+142 = <Text className="text-rose-400 font-bold">220</Text>.{"\n"}They point back to each other — like numbers that are <Text className="text-rose-400 font-bold">best friends</Text>!
+                        </Text>
+                    </View>
+                </MathCard>
+
+                <MathCard
+                    index={1}
                     description="Two numbers are 'Amicable' if the sum of the proper divisors of one is equal to the other, and vice versa."
                 >
                     <ThemedInput
@@ -43,7 +58,7 @@ export default function AmicableNumbersScreen() {
 
                 {pairs.length > 0 && (
                     <MathCard
-                        index={1}
+                        index={2}
                         title="The Friendly Pairs"
                         description="These numbers share a special 'amicable' relationship through their divisors."
                     >
@@ -74,7 +89,7 @@ export default function AmicableNumbersScreen() {
                 )}
 
                 <MathCard
-                    index={2}
+                    index={3}
                     title="Fun Fact"
                 >
                     <View className="bg-slate-900/50 p-6 rounded-2xl border border-slate-800">

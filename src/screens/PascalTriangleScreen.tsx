@@ -61,6 +61,20 @@ export default function PascalTriangleScreen() {
                 <View className="px-6 mb-6">
                     <MathCard
                         index={0}
+                        title="In Simple Terms"
+                    >
+                        <View className="bg-emerald-500/5 p-5 rounded-2xl border border-emerald-500/10 mb-4">
+                            <View className="flex-row items-center mb-3">
+                                <Ionicons name="bulb-outline" size={18} color="#34d399" />
+                                <Text className="text-emerald-400 font-bold ml-2 text-xs uppercase">The Addition Pyramid</Text>
+                            </View>
+                            <Text className="text-slate-400 text-xs leading-5">
+                                Start with 1 at the top. Each number below is the <Text className="text-white font-bold">sum of the two numbers above it</Text>. Simple, right?{"\n"}But this humble triangle hides <Text className="text-emerald-400 font-bold">fractals, probability, combinations, and Fibonacci numbers</Text> all at once! Try the "Sierpinski" filter to see a fractal hidden inside.
+                            </Text>
+                        </View>
+                    </MathCard>
+                    <MathCard
+                        index={1}
                         description={descriptions[highlightPattern]}
                     >
                         <View className="flex-row items-center justify-between bg-slate-900 p-4 rounded-2xl border border-slate-800">

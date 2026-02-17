@@ -23,6 +23,21 @@ export default function HashingScreen() {
             >
                 <MathCard
                     index={0}
+                    title="In Simple Terms"
+                >
+                    <View className="bg-rose-500/5 p-5 rounded-2xl border border-rose-500/10 mb-4">
+                        <View className="flex-row items-center mb-3">
+                            <Ionicons name="bulb-outline" size={18} color="#f43f5e" />
+                            <Text className="text-rose-400 font-bold ml-2 text-xs uppercase">Data Fingerprints</Text>
+                        </View>
+                        <Text className="text-slate-400 text-xs leading-5">
+                            A hash is like a <Text className="text-white font-bold">fingerprint for data</Text>. Feed in any text — you always get the same fixed-length code. Change even <Text className="text-rose-400 font-bold">one letter</Text> and the hash changes completely!{"\n"}Used everywhere: password storage, file downloads (did it get corrupted?), blockchains, and digital signatures.
+                        </Text>
+                    </View>
+                </MathCard>
+
+                <MathCard
+                    index={1}
                     description="A Hash Function maps data of arbitrary size to a fixed-size value. It is a 'one-way' mathematical process typically used for data integrity."
                 >
                     <ThemedInput
@@ -50,7 +65,7 @@ export default function HashingScreen() {
                 </MathCard>
 
                 <MathCard
-                    index={1}
+                    index={2}
                     title="Key Properties"
                 >
                     <View className="space-y-4">

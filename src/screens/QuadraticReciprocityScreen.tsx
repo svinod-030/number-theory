@@ -31,6 +31,21 @@ export default function QuadraticReciprocityScreen() {
             >
                 <MathCard
                     index={0}
+                    title="In Simple Terms"
+                >
+                    <View className="bg-indigo-500/5 p-5 rounded-2xl border border-indigo-500/10 mb-4">
+                        <View className="flex-row items-center mb-3">
+                            <Ionicons name="bulb-outline" size={18} color="#818cf8" />
+                            <Text className="text-indigo-400 font-bold ml-2 text-xs uppercase">Hidden Square Roots</Text>
+                        </View>
+                        <Text className="text-slate-400 text-xs leading-5">
+                            In regular math, 9 has a square root (3). But in <Text className="text-white font-bold">modular arithmetic</Text>, the question is trickier: does x² ≡ a (mod p) have any solution?{"\n"}For example, <Text className="text-indigo-400 font-bold">x² ≡ 2 (mod 7)</Text> → try 3: 3² = 9 ≡ 2 (mod 7). ✓ So 2 is a quadratic residue mod 7.{"\n"}The Legendre symbol answers this <Text className="text-white font-bold">without testing every number</Text>!
+                        </Text>
+                    </View>
+                </MathCard>
+
+                <MathCard
+                    index={1}
                     description="Determine if an integer 'a' is a quadratic residue modulo 'p' using the Legendre or Jacobi symbol."
                 >
                     <View className="flex-row space-x-4">
@@ -82,7 +97,7 @@ export default function QuadraticReciprocityScreen() {
                 {qrApplies && (
                     <Animated.View entering={SlideInDown} className="px-1">
                         <MathCard
-                            index={1}
+                            index={2}
                             title="Law of Reciprocity"
                             description={`Since ${a} and ${p} are both odd primes, the Law of Quadratic Reciprocity applies:`}
                         >
@@ -101,7 +116,7 @@ export default function QuadraticReciprocityScreen() {
                 )}
 
                 <MathCard
-                    index={2}
+                    index={3}
                     title="What it means"
                 >
                     <View className="bg-indigo-500/5 p-5 rounded-2xl border border-indigo-500/10">

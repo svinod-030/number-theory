@@ -57,6 +57,16 @@ export default function ModularPlaygroundScreen() {
             </View>
 
             <ScrollView className="flex-1 p-6">
+                <View className="bg-sky-500/5 p-5 rounded-2xl border border-sky-500/10 mb-6">
+                    <View className="flex-row items-center mb-3">
+                        <Ionicons name="compass-outline" size={18} color="#38bdf8" />
+                        <Text className="text-sky-400 font-bold ml-2 text-xs uppercase">How to Explore</Text>
+                    </View>
+                    <Text className="text-slate-400 text-xs leading-5">
+                        Each dot on the circle is a number. A line from dot <Text className="text-white font-bold">i</Text> goes to dot <Text className="text-white font-bold">(i × k) mod n</Text>. Change the multiplier k to watch <Text className="text-sky-400 font-bold">beautiful geometric patterns</Text> emerge — cardioids, nephroids, and other shapes hidden inside modular arithmetic. Press play to animate!
+                    </Text>
+                </View>
+
                 <View className="bg-slate-900 rounded-3xl p-4 items-center mb-8 border border-slate-800">
                     <Svg width={CANVAS_SIZE} height={CANVAS_SIZE}>
                         <Circle

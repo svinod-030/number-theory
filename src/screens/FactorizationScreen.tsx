@@ -69,6 +69,30 @@ export default function FactorizationScreen() {
             </View>
 
             <ScrollView className="flex-1">
+                <View className="px-6 mb-4 mt-4">
+                    <Animated.View entering={FadeIn} className="bg-slate-900 p-6 rounded-3xl border border-slate-800 mb-4">
+                        <Text className="text-slate-500 text-xs font-bold mb-4 uppercase tracking-widest">In Simple Terms</Text>
+                        <View className="bg-emerald-500/5 p-5 rounded-2xl border border-emerald-500/10 mb-4">
+                            <View className="flex-row items-center mb-3">
+                                <Ionicons name="bulb-outline" size={18} color="#34d399" />
+                                <Text className="text-emerald-400 font-bold ml-2 text-xs uppercase">Everyday Analogy</Text>
+                            </View>
+                            <Text className="text-slate-400 text-xs leading-5">
+                                Think of any number as a <Text className="text-white font-bold">molecule</Text>. Just like water (H₂O) breaks into hydrogen and oxygen atoms, every number breaks into <Text className="text-emerald-400 font-bold">prime number "atoms"</Text>. The number <Text className="text-white font-bold">60</Text> = 2 × 2 × 3 × 5. These primes are the smallest, unbreakable building blocks.
+                            </Text>
+                        </View>
+                        <View className="bg-sky-500/5 p-5 rounded-2xl border border-sky-500/10">
+                            <View className="flex-row items-center mb-3">
+                                <Ionicons name="globe-outline" size={18} color="#38bdf8" />
+                                <Text className="text-sky-400 font-bold ml-2 text-xs uppercase">Why It Matters</Text>
+                            </View>
+                            <Text className="text-slate-400 text-xs leading-5">
+                                RSA encryption relies on the fact that multiplying two large primes is easy, but <Text className="text-white font-bold">finding the original primes from the product is extremely hard</Text>. This "one-way" difficulty keeps your online banking and messages secure.
+                            </Text>
+                        </View>
+                    </Animated.View>
+                </View>
+
                 <View className="px-6 mb-8">
                     <View className="flex-row space-x-4 mb-4">
                         <TextInput

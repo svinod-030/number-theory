@@ -146,6 +146,15 @@ export default function FibonacciScreen() {
             )}
 
             <View className="px-6 py-4 bg-slate-900 border-t border-slate-800">
+                <View className="bg-indigo-500/5 p-4 rounded-2xl border border-indigo-500/10 mb-3">
+                    <View className="flex-row items-center mb-2">
+                        <Ionicons name="bulb-outline" size={16} color="#818cf8" />
+                        <Text className="text-indigo-400 font-bold ml-2 text-[10px] uppercase">In Simple Terms</Text>
+                    </View>
+                    <Text className="text-slate-400 text-[10px] leading-4">
+                        Each number is simply the <Text className="text-white font-bold">sum of the two before it</Text>: 1, 1, 2, 3, 5, 8, 13, 21… The ratio between consecutive terms gets closer and closer to <Text className="text-indigo-400 font-bold">1.618 (the Golden Ratio)</Text>.
+                    </Text>
+                </View>
                 <View className="flex-row items-center mb-2">
                     <Ionicons name="leaf-outline" size={18} color="#818cf8" />
                     <Text className="text-indigo-400 font-bold ml-2">Nature's Code</Text>

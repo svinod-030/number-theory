@@ -29,6 +29,21 @@ export default function LegendreScreen() {
             >
                 <MathCard
                     index={0}
+                    title="In Simple Terms"
+                >
+                    <View className="bg-amber-500/5 p-5 rounded-2xl border border-amber-500/10 mb-4">
+                        <View className="flex-row items-center mb-3">
+                            <Ionicons name="bulb-outline" size={18} color="#fbbf24" />
+                            <Text className="text-amber-400 font-bold ml-2 text-xs uppercase">Is It a Hidden Square?</Text>
+                        </View>
+                        <Text className="text-slate-400 text-xs leading-5">
+                            In mod 7, is there a number whose square gives 2?  Try 3: <Text className="text-amber-400 font-bold">3² = 9 ≡ 2 (mod 7)</Text> ✓{"\n"}The Legendre symbol (a/p) answers <Text className="text-white font-bold">"does x² ≡ a (mod p) have a solution?"</Text> — it returns 1 (yes), -1 (no), or 0 (a is divisible by p).
+                        </Text>
+                    </View>
+                </MathCard>
+
+                <MathCard
+                    index={1}
                     description="The Legendre symbol (a/p) is a function that indicates whether 'a' is a quadratic residue modulo 'p'."
                 >
                     <View className="flex-row space-x-4">
@@ -74,7 +89,7 @@ export default function LegendreScreen() {
                 </MathCard>
 
                 <MathCard
-                    index={1}
+                    index={2}
                     title="Legend & Meaning"
                 >
                     <View className="space-y-4">
@@ -85,7 +100,7 @@ export default function LegendreScreen() {
                 </MathCard>
 
                 <MathCard
-                    index={2}
+                    index={3}
                     title="Euler's Criterion"
                 >
                     <View className="bg-slate-900/50 p-6 rounded-2xl border border-slate-800">

@@ -38,6 +38,21 @@ export default function DiffieHellmanScreen() {
             >
                 <MathCard
                     index={0}
+                    title="In Simple Terms"
+                >
+                    <View className="bg-rose-500/5 p-5 rounded-2xl border border-rose-500/10 mb-4">
+                        <View className="flex-row items-center mb-3">
+                            <Ionicons name="bulb-outline" size={18} color="#f43f5e" />
+                            <Text className="text-rose-400 font-bold ml-2 text-xs uppercase">The Paint-Mixing Trick</Text>
+                        </View>
+                        <Text className="text-slate-400 text-xs leading-5">
+                            Alice and Bob each pick a <Text className="text-white font-bold">secret color</Text>. They mix it with a shared <Text className="text-rose-400 font-bold">public color</Text> and swap the mixtures. Each then adds their secret again — both end up with the <Text className="text-white font-bold">same final color</Text>, but an eavesdropper can't unmix to find the secrets!{"\n"}In math, "mixing" is modular exponentiation, and "unmixing" is the discrete logarithm problem — believed to be incredibly hard.
+                        </Text>
+                    </View>
+                </MathCard>
+
+                <MathCard
+                    index={1}
                     description="Establish a shared secret over an insecure channel using modular exponentiation. Alice and Bob never share their secret keys."
                 >
                     <View className="flex-row space-x-4">
@@ -112,7 +127,7 @@ export default function DiffieHellmanScreen() {
                 </View>
 
                 <MathCard
-                    index={1}
+                    index={2}
                     title="The Computed Secret"
                     description="Alice takes Bob's public key (B) and computes Bᵃ mod p. Bob takes Alice's public key (A) and computes Aᵇ mod p."
                 >

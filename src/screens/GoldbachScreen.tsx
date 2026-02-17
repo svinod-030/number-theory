@@ -26,6 +26,21 @@ export default function GoldbachScreen() {
             >
                 <MathCard
                     index={0}
+                    title="In Simple Terms"
+                >
+                    <View className="bg-emerald-500/5 p-5 rounded-2xl border border-emerald-500/10 mb-4">
+                        <View className="flex-row items-center mb-3">
+                            <Ionicons name="bulb-outline" size={18} color="#34d399" />
+                            <Text className="text-emerald-400 font-bold ml-2 text-xs uppercase">The Big Idea</Text>
+                        </View>
+                        <Text className="text-slate-400 text-xs leading-5">
+                            Pick <Text className="text-white font-bold">any even number</Text> bigger than 2. You can always write it as the <Text className="text-emerald-400 font-bold">sum of two prime numbers</Text>. For example:{"\n"}• 20 = 3 + 17{"\n"}• 20 = 7 + 13{"\n"}Nobody has ever found an exception, yet nobody can prove it works for <Text className="text-white font-bold">every</Text> even number!
+                        </Text>
+                    </View>
+                </MathCard>
+
+                <MathCard
+                    index={1}
                     description="Christian Goldbach conjectured that every even natural number greater than 2 is the sum of two prime numbers."
                 >
                     <ThemedInput
@@ -53,7 +68,7 @@ export default function GoldbachScreen() {
 
                 {isEven && partitions.length > 0 && (
                     <MathCard
-                        index={1}
+                        index={2}
                         title="Visualizing the Pairs"
                         description={`The number ${n} can be expressed in the following ways:`}
                     >
@@ -80,7 +95,7 @@ export default function GoldbachScreen() {
                 )}
 
                 <MathCard
-                    index={2}
+                    index={3}
                     title="History & Status"
                 >
                     <View className="bg-slate-900/50 p-6 rounded-2xl border border-slate-800">

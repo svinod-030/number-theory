@@ -45,6 +45,21 @@ export default function RSAScreen() {
             >
                 <MathCard
                     index={0}
+                    title="In Simple Terms"
+                >
+                    <View className="bg-rose-500/5 p-5 rounded-2xl border border-rose-500/10 mb-4">
+                        <View className="flex-row items-center mb-3">
+                            <Ionicons name="bulb-outline" size={18} color="#f43f5e" />
+                            <Text className="text-rose-400 font-bold ml-2 text-xs uppercase">The Padlock Analogy</Text>
+                        </View>
+                        <Text className="text-slate-400 text-xs leading-5">
+                            Imagine sending someone an <Text className="text-white font-bold">open padlock</Text>. Anyone can snap it shut (encrypt), but only <Text className="text-rose-400 font-bold">you have the key</Text> to open it (decrypt).{"\n"}RSA works the same way: the public key is the open padlock, and the private key is the only key that opens it. The math relies on the fact that multiplying two huge primes is easy, but <Text className="text-white font-bold">factoring the product back is nearly impossible</Text>.
+                        </Text>
+                    </View>
+                </MathCard>
+
+                <MathCard
+                    index={1}
                     description="RSA is an asymmetric cryptographic algorithm that relies on the difficulty of factoring the product of two large prime numbers."
                 >
                     <View className="flex-row space-x-4">
@@ -95,7 +110,7 @@ export default function RSAScreen() {
 
                 {isValid && (
                     <MathCard
-                        index={1}
+                        index={2}
                         title="Encryption & Decryption"
                         description="Encryption uses the public exponent (e=17), while decryption uses the private key (d) found above."
                     >

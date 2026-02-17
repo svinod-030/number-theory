@@ -33,6 +33,21 @@ export default function ModularExponentiationScreen() {
             >
                 <MathCard
                     index={0}
+                    title="In Simple Terms"
+                >
+                    <View className="bg-sky-500/5 p-5 rounded-2xl border border-sky-500/10 mb-4">
+                        <View className="flex-row items-center mb-3">
+                            <Ionicons name="bulb-outline" size={18} color="#38bdf8" />
+                            <Text className="text-sky-400 font-bold ml-2 text-xs uppercase">The Shortcut</Text>
+                        </View>
+                        <Text className="text-slate-400 text-xs leading-5">
+                            What's <Text className="text-white font-bold">2¹⁰ mod 7</Text>? You could compute 2¹⁰ = 1024, then divide by 7. But there's a faster way: <Text className="text-sky-400 font-bold">keep taking remainders at each step</Text>.{"\n"}2→4→1→2→4→1… The answer cycles! This trick lets computers handle numbers with <Text className="text-white font-bold">hundreds of digits</Text> — the basis of all modern encryption.
+                        </Text>
+                    </View>
+                </MathCard>
+
+                <MathCard
+                    index={1}
                     description="Calculate large powers modulo n efficiently. This is the foundation of modern cryptography like RSA."
                 >
                     <View className="flex-row space-x-2">
@@ -58,7 +73,7 @@ export default function ModularExponentiationScreen() {
 
                 {canUseFermat && (
                     <MathCard
-                        index={1}
+                        index={2}
                         title="Fermat's Little Theorem"
                         description="Since the modulus is prime, we can use this theorem to simplify calculations."
                     >
@@ -78,7 +93,7 @@ export default function ModularExponentiationScreen() {
                 )}
 
                 <MathCard
-                    index={2}
+                    index={3}
                     title="Algorithm Efficiency"
                 >
                     <View className="flex-row items-center space-x-3">

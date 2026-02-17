@@ -54,6 +54,21 @@ export default function ContinuedFractionScreen() {
             >
                 <MathCard
                     index={0}
+                    title="In Simple Terms"
+                >
+                    <View className="bg-sky-500/5 p-5 rounded-2xl border border-sky-500/10 mb-4">
+                        <View className="flex-row items-center mb-3">
+                            <Ionicons name="bulb-outline" size={18} color="#38bdf8" />
+                            <Text className="text-sky-400 font-bold ml-2 text-xs uppercase">Russian Doll Fractions</Text>
+                        </View>
+                        <Text className="text-slate-400 text-xs leading-5">
+                            Imagine peeling a fraction apart layer by layer. Take <Text className="text-white font-bold">13/8</Text>: that's 1 + 5/8. Then 5/8 = 1/(8/5) = 1/(1 + 3/5). Keep going until there's nothing left.{"\n"}Each layer gives the <Text className="text-sky-400 font-bold">best possible approximation</Text> at that level — that's why continued fractions are used to design calendars!
+                        </Text>
+                    </View>
+                </MathCard>
+
+                <MathCard
+                    index={1}
                     description="Any rational number can be represented as a finite continued fraction [a₀; a₁, a₂, ...]."
                 >
                     <View className="flex-row space-x-4">
@@ -84,7 +99,7 @@ export default function ContinuedFractionScreen() {
                 </MathCard>
 
                 <MathCard
-                    index={1}
+                    index={2}
                     title="Nested Representation"
                 >
                     <View className="bg-slate-900/50 rounded-2xl border border-slate-800/50 w-full overflow-hidden">
@@ -101,7 +116,7 @@ export default function ContinuedFractionScreen() {
                 </MathCard>
 
                 <MathCard
-                    index={2}
+                    index={3}
                     title="Coefficient List"
                 >
                     <View className="space-y-3">
@@ -126,7 +141,7 @@ export default function ContinuedFractionScreen() {
                 </MathCard>
 
                 <MathCard
-                    index={3}
+                    index={4}
                     title="Connection"
                 >
                     <View className="bg-slate-900/50 p-5 rounded-2xl border border-slate-800/50">

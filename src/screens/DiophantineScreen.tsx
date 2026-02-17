@@ -30,6 +30,21 @@ export default function DiophantineScreen() {
             >
                 <MathCard
                     index={0}
+                    title="In Simple Terms"
+                >
+                    <View className="bg-amber-500/5 p-5 rounded-2xl border border-amber-500/10 mb-4">
+                        <View className="flex-row items-center mb-3">
+                            <Ionicons name="bulb-outline" size={18} color="#fbbf24" />
+                            <Text className="text-amber-400 font-bold ml-2 text-xs uppercase">The "Whole Numbers Only" Puzzle</Text>
+                        </View>
+                        <Text className="text-slate-400 text-xs leading-5">
+                            You have ₹5 and ₹3 coins. Can you make exactly ₹23?{"\n"}That's <Text className="text-white font-bold">5x + 3y = 23</Text>. We need <Text className="text-amber-400 font-bold">whole number</Text> answers only — no fractions allowed! If GCD(5,3)=1 divides 23, solutions exist. One answer: x=1, y=6 (check: 5+18=23 ✓).
+                        </Text>
+                    </View>
+                </MathCard>
+
+                <MathCard
+                    index={1}
                     description="Solve linear equations of the form ax + by = c using the Extended Euclidean Algorithm."
                 >
                     <View className="bg-slate-900/50 p-8 rounded-3xl border border-slate-800/50 mb-8 items-center border-dashed">
@@ -61,7 +76,7 @@ export default function DiophantineScreen() {
                     result.possible ? (
                         <Animated.View key={`${a}-${b}-${c}`} entering={FadeIn} className="px-1">
                             <MathCard
-                                index={1}
+                                index={2}
                                 title="Particular Solution"
                                 description="A specific integer solution discovered by the algorithm:"
                             >
@@ -102,7 +117,7 @@ export default function DiophantineScreen() {
                 ) : null}
 
                 <MathCard
-                    index={2}
+                    index={3}
                     title="Theory & Help"
                 >
                     <View className="bg-slate-900/50 p-5 rounded-2xl border border-slate-800/50">

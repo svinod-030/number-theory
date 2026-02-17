@@ -49,6 +49,21 @@ export default function CRTScreen() {
             >
                 <MathCard
                     index={0}
+                    title="In Simple Terms"
+                >
+                    <View className="bg-sky-500/5 p-5 rounded-2xl border border-sky-500/10 mb-4">
+                        <View className="flex-row items-center mb-3">
+                            <Ionicons name="bulb-outline" size={18} color="#38bdf8" />
+                            <Text className="text-sky-400 font-bold ml-2 text-xs uppercase">A Puzzle</Text>
+                        </View>
+                        <Text className="text-slate-400 text-xs leading-5">
+                            A farmer counts eggs: <Text className="text-white font-bold">2 left over</Text> when grouped by 3, <Text className="text-white font-bold">3 left over</Text> when grouped by 5, and <Text className="text-white font-bold">2 left over</Text> when grouped by 7.{"\n"}How many eggs? The CRT says there's a <Text className="text-sky-400 font-bold">unique answer</Text>: 23 (and then 23+105, 23+210, …).
+                        </Text>
+                    </View>
+                </MathCard>
+
+                <MathCard
+                    index={1}
                     description="Solve systems of simultaneous congruences. Find x such that x ≡ aᵢ (mod nᵢ) for all i."
                 >
                     <View className="mb-4">
@@ -122,7 +137,7 @@ export default function CRTScreen() {
 
                 {result && (
                     <MathCard
-                        index={1}
+                        index={2}
                         title="Algorithm Steps"
                         description="Using the Gaussian construction method:"
                     >

@@ -29,6 +29,21 @@ export default function PerfectNumbersScreen() {
             >
                 <MathCard
                     index={0}
+                    title="In Simple Terms"
+                >
+                    <View className="bg-emerald-500/5 p-5 rounded-2xl border border-emerald-500/10 mb-4">
+                        <View className="flex-row items-center mb-3">
+                            <Ionicons name="bulb-outline" size={18} color="#10b981" />
+                            <Text className="text-emerald-400 font-bold ml-2 text-xs uppercase">Numbers That "Add Up"</Text>
+                        </View>
+                        <Text className="text-slate-400 text-xs leading-5">
+                            Take <Text className="text-white font-bold">6</Text>: its divisors are 1, 2, 3. Add them: 1+2+3 = <Text className="text-emerald-400 font-bold">6</Text>. It equals itself — a <Text className="text-white font-bold">perfect number</Text>!{"\n"}Next one? <Text className="text-emerald-400 font-bold">28</Text> (1+2+4+7+14 = 28). After that, 496, then 8128. They're incredibly rare!
+                        </Text>
+                    </View>
+                </MathCard>
+
+                <MathCard
+                    index={1}
                     description="A Perfect Number is a positive integer that is equal to the sum of its proper divisors (excluding itself)."
                 >
                     <ThemedInput
@@ -53,7 +68,7 @@ export default function PerfectNumbersScreen() {
                 </MathCard>
 
                 <MathCard
-                    index={1}
+                    index={2}
                     title="Number Theory Insights"
                 >
                     <View className="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 mb-6">

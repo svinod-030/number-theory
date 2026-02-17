@@ -41,6 +41,30 @@ export default function TotientScreen() {
             >
                 <MathCard
                     index={0}
+                    title="In Simple Terms"
+                >
+                    <View className="bg-sky-500/5 p-5 rounded-2xl border border-sky-500/10 mb-4">
+                        <View className="flex-row items-center mb-3">
+                            <Ionicons name="bulb-outline" size={18} color="#38bdf8" />
+                            <Text className="text-sky-400 font-bold ml-2 text-xs uppercase">Everyday Analogy</Text>
+                        </View>
+                        <Text className="text-slate-400 text-xs leading-5">
+                            Imagine <Text className="text-white font-bold">12 lockers</Text> numbered 1-12. <Text className="text-sky-400 font-bold">φ(12) asks: how many of these numbers share NO common factor with 12?</Text>{"\n"}12 = 2×2×3, so cross off multiples of 2 and 3. What's left? <Text className="text-white font-bold">1, 5, 7, 11</Text> — four numbers. So φ(12) = 4.
+                        </Text>
+                    </View>
+                    <View className="bg-emerald-500/5 p-5 rounded-2xl border border-emerald-500/10">
+                        <View className="flex-row items-center mb-3">
+                            <Ionicons name="globe-outline" size={18} color="#34d399" />
+                            <Text className="text-emerald-400 font-bold ml-2 text-xs uppercase">Why It Matters</Text>
+                        </View>
+                        <Text className="text-slate-400 text-xs leading-5">
+                            The totient function is the <Text className="text-white font-bold">heart of RSA encryption</Text>. When you generate RSA keys, you compute φ(n) to find the private key. Without it, public-key cryptography wouldn't work!
+                        </Text>
+                    </View>
+                </MathCard>
+
+                <MathCard
+                    index={1}
                     description="Euler's totient function φ(n) counts the positive integers up to n that are relatively prime to n."
                 >
                     <View className="flex-row space-x-4 items-end">
@@ -57,7 +81,9 @@ export default function TotientScreen() {
                             <Text className="text-white text-3xl font-black">{phi}</Text>
                         </View>
                     </View>
+                </MathCard>
 
+                <MathCard index={2} title="Coprime Numbers">
                     <Text className="text-slate-500 text-[10px] mb-4 uppercase tracking-widest font-bold">Numbers coprime to {n}</Text>
                     <View className="flex-row flex-wrap">
                         {coprimes.map((c, i) => (
@@ -69,7 +95,7 @@ export default function TotientScreen() {
                 </MathCard>
 
                 <MathCard
-                    index={1}
+                    index={3}
                     title="Totient Distribution"
                     description={`Visualizing φ(n) for n = 1 to ${range}:`}
                 >

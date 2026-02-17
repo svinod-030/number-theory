@@ -160,6 +160,30 @@ export default function SieveScreen() {
             >
                 <MathCard
                     index={0}
+                    title="In Simple Terms"
+                >
+                    <View className="bg-emerald-500/5 p-5 rounded-2xl border border-emerald-500/10 mb-4">
+                        <View className="flex-row items-center mb-3">
+                            <Ionicons name="bulb-outline" size={18} color="#34d399" />
+                            <Text className="text-emerald-400 font-bold ml-2 text-xs uppercase">Everyday Analogy</Text>
+                        </View>
+                        <Text className="text-slate-400 text-xs leading-5">
+                            Imagine writing numbers 2–100 on a whiteboard. Start at <Text className="text-white font-bold">2</Text> (the first prime) and cross off every 2nd number after it (4, 6, 8…). Move to <Text className="text-white font-bold">3</Text> and cross off every 3rd number. Keep going — whatever survives the crossing is <Text className="text-emerald-400 font-bold">prime</Text>.
+                        </Text>
+                    </View>
+                    <View className="bg-sky-500/5 p-5 rounded-2xl border border-sky-500/10">
+                        <View className="flex-row items-center mb-3">
+                            <Ionicons name="globe-outline" size={18} color="#38bdf8" />
+                            <Text className="text-sky-400 font-bold ml-2 text-xs uppercase">Why It Matters</Text>
+                        </View>
+                        <Text className="text-slate-400 text-xs leading-5">
+                            Every time you shop online or send a message, <Text className="text-white font-bold">prime numbers</Text> protect your data. Modern encryption (like RSA) depends on large primes. The Sieve is the first step to finding them efficiently.
+                        </Text>
+                    </View>
+                </MathCard>
+
+                <MathCard
+                    index={1}
                     description="The most efficient ancient algorithm to find all primes up to 100 by progressively marking multiples of each discovered prime."
                 >
                     <View className="bg-slate-950/50 p-3 rounded-2xl border border-slate-800/50 items-center justify-center">
@@ -199,7 +223,7 @@ export default function SieveScreen() {
                 </MathCard>
 
                 <MathCard
-                    index={1}
+                    index={2}
                     title="How it Works"
                 >
                     <View className="space-y-4">
@@ -211,7 +235,7 @@ export default function SieveScreen() {
                 </MathCard>
 
                 <MathCard
-                    index={2}
+                    index={3}
                     title="Math Fact"
                 >
                     <View className="bg-emerald-500/5 p-5 rounded-2xl border border-emerald-500/10">

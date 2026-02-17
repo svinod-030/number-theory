@@ -217,6 +217,16 @@ export default function EuclideanVisualizerScreen() {
                                 </View>
                             </View>
 
+                            <View className="bg-emerald-500/5 p-5 rounded-2xl border border-emerald-500/10">
+                                <View className="flex-row items-center mb-3">
+                                    <Ionicons name="bulb-outline" size={18} color="#34d399" />
+                                    <Text className="text-emerald-400 font-bold ml-2 text-xs uppercase">In Simple Terms</Text>
+                                </View>
+                                <Text className="text-slate-400 text-xs leading-5">
+                                    Want to share 18 cookies and 12 brownies equally among as many friends as possible? Find <Text className="text-white font-bold">GCD(18, 12) = 6</Text>. The Euclidean algorithm finds this by repeatedly subtracting the smaller from the larger until they match.
+                                </Text>
+                            </View>
+
                             <View className="bg-slate-900 p-5 rounded-2xl border border-slate-800">
                                 <Text className="text-slate-400 text-sm leading-6">
                                     The Euclidean algorithm can be visualized as finding the largest square that tiles an AxB rectangle.

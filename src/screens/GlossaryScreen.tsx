@@ -36,7 +36,13 @@ const GLOSSARY_DATA: GlossaryItem[] = [
         term: "LCM (Least Common Multiple)",
         definition: "The smallest positive integer that is divisible by both a and b.",
         category: "Divisibility",
-        formula: "\text{lcm}(a, b) = \frac{|a \times b|}{\text{gcd}(a, b)}",
+        formula: "\\text{lcm}(a, b) = \\frac{|a \\times b|}{\\text{gcd}(a, b)}",
+    },
+    {
+        term: "Modulus (mod)",
+        definition: "An operator that finds the remainder of a number after division by another number.",
+        category: "Modular",
+        formula: "a \\% n = r",
     },
     {
         term: "Modular Arithmetic",

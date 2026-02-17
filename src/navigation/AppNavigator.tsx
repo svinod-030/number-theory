@@ -41,6 +41,7 @@ import ConstructiblePolygonsScreen from "../screens/ConstructiblePolygonsScreen"
 import GlossaryScreen from "../screens/GlossaryScreen";
 import PythagoreanTriplesScreen from "../screens/PythagoreanTriplesScreen";
 import PrivacyPolicyScreen from "../screens/PrivacyPolicyScreen";
+import ModulusBasicsScreen from "../screens/ModulusBasicsScreen";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -55,6 +56,7 @@ export default function AppNavigator() {
                 }}
             >
                 <Stack.Screen name="Home" component={HomeScreen} />
+                <Stack.Screen name="ModulusBasics" component={ModulusBasicsScreen} />
                 <Stack.Screen name="ModularPlayground" component={ModularPlaygroundScreen} />
                 <Stack.Screen name="Toolbox" component={ToolboxScreen} />
                 <Stack.Screen name="UlamSpiral" component={UlamSpiralScreen} />

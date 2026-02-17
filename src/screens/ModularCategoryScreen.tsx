@@ -12,6 +12,12 @@ export default function ModularCategoryScreen() {
 
     const tools = [
         {
+            title: "Modulus Basics",
+            description: "Understand the remainder operator and clock arithmetic.",
+            screen: "ModulusBasics",
+            icon: "help-circle-outline",
+        },
+        {
             title: "Modular Playground",
             description: "Visualize multiplication orbits in modular arithmetic.",
             screen: "ModularPlayground",

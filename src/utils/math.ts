@@ -475,7 +475,13 @@ export function arePairwiseCoprime(numbers: number[]): boolean {
 export interface CRTResult {
     x: number;
     N: number;
-    steps: { ni: number; ai: number; Mi: number; yi: number; }[];
+    steps: {
+        ni: number;
+        ai: number;
+        Mi: number;
+        yi: number;
+        term: number; // The product ai * Mi * yi
+    }[];
 }
 
 export function solveCRT(remainders: number[], moduli: number[]): CRTResult | null {
@@ -490,8 +496,9 @@ export function solveCRT(remainders: number[], moduli: number[]): CRTResult | nu
         const Mi = N / ni;
         const yi = getModularInverse(Mi, ni);
         if (yi === null) return null;
-        steps.push({ ni, ai, Mi, yi });
-        x = (x + ai * Mi * yi) % N;
+        const term = ai * Mi * yi;
+        steps.push({ ni, ai, Mi, yi, term });
+        x = (x + term) % N;
     }
     return { x: (x + N) % N, N, steps };
 }

@@ -53,10 +53,10 @@ export default function HomeScreen() {
     const [search, setSearch] = useState('');
 
     const categories = [
-        { title: "Prime Numbers", screen: "PrimesCategory", icon: "sparkles-outline", iconColor: "#34d399", bgColor: "bg-emerald-500/10", borderColor: "border-emerald-500/20" },
-        { title: "Modular Arithmetic", screen: "ModularCategory", icon: "sync-circle-outline", iconColor: "#38bdf8", bgColor: "bg-sky-500/10", borderColor: "border-sky-500/20" },
-        { title: "Divisibility & Algorithms", screen: "DivisibilityCategory", icon: "calculator-outline", iconColor: "#fbbf24", bgColor: "bg-amber-500/10", borderColor: "border-amber-500/20" },
-        { title: "Applications", screen: "ApplicationsCategory", icon: "shield-checkmark-outline", iconColor: "#f43f5e", bgColor: "bg-rose-500/10", borderColor: "border-rose-500/20" }
+        { title: "Prime Numbers", count: 6, screen: "PrimesCategory", icon: "sparkles-outline", iconColor: "#34d399", bgColor: "bg-emerald-500/10", borderColor: "border-emerald-500/20" },
+        { title: "Modular Arithmetic", count: 9, screen: "ModularCategory", icon: "sync-circle-outline", iconColor: "#38bdf8", bgColor: "bg-sky-500/10", borderColor: "border-sky-500/20" },
+        { title: "Divisibility & Algorithms", count: 13, screen: "DivisibilityCategory", icon: "calculator-outline", iconColor: "#fbbf24", bgColor: "bg-amber-500/10", borderColor: "border-amber-500/20" },
+        { title: "Applications", count: 4, screen: "ApplicationsCategory", icon: "shield-checkmark-outline", iconColor: "#f43f5e", bgColor: "bg-rose-500/10", borderColor: "border-rose-500/20" }
     ];
 
     const searchResults = useMemo(() => {
@@ -170,7 +170,9 @@ export default function HomeScreen() {
                                 </View>
                                 <View className="flex-1">
                                     <Text className="text-lg font-bold text-white tracking-tight">{category.title}</Text>
-                                    <Ionicons name="arrow-forward" size={14} color="#475569" className="mt-1" />
+                                    <Text className="text-slate-500 text-[10px] font-bold uppercase mt-1 tracking-wider">
+                                        {category.count} Concepts
+                                    </Text>
                                 </View>
                                 <Ionicons name="chevron-forward" size={20} color="#334155" />
                             </TouchableOpacity>

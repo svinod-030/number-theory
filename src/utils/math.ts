@@ -2,14 +2,14 @@
  * Computes the Greatest Common Divisor (GCD) of two numbers using the Euclidean Algorithm.
  * Returns both the result and the steps taken.
  */
-export function getGCDWithSteps(a: number, b: number): { gcd: number; steps: string[] } {
-    if (isNaN(a) || isNaN(b)) return { gcd: 1, steps: ['Invalid input'] };
+export function getGCDWithSteps(a: number, b: number): { gcd: number; steps: string[]; errorKey?: string } {
+    if (isNaN(a) || isNaN(b)) return { gcd: 1, steps: [], errorKey: 'tools.euclidean.error_invalid' };
 
     let x = Math.abs(Math.round(a));
     let y = Math.abs(Math.round(b));
     const steps: string[] = [];
 
-    if (x === 0 && y === 0) return { gcd: 0, steps: ['GCD(0,0) is undefined'] };
+    if (x === 0 && y === 0) return { gcd: 0, steps: [], errorKey: 'tools.euclidean.error_undefined' };
     if (x === 0) return { gcd: y, steps: [`GCD(0,${y}) = ${y}`] };
     if (y === 0) return { gcd: x, steps: [`GCD(${x},0) = ${x}`] };
 
@@ -654,16 +654,15 @@ export function generatePythagoreanTriple(x: number, y: number): { a: number, b:
 
 /**
  * Checks if a regular polygon with n sides is constructible with ruler and compass.
- * n must be a product of a power of 2 and distinct Fermat primes (3, 5, 17, 257, 65537).
  */
-export function isConstructiblePolygon(n: number): { isConstructible: boolean, reason: string } {
-    if (n < 3) return { isConstructible: false, reason: "A polygon must have at least 3 sides." };
+export function isConstructiblePolygon(n: number): { isConstructible: boolean, key: string, params?: any } {
+    if (n < 3) return { isConstructible: false, key: "tools.constructible.reason_min_sides" };
 
     let temp = n;
     // Remove powers of 2
     while (temp % 2 === 0) temp /= 2;
 
-    if (temp === 1) return { isConstructible: true, reason: `${n} is a power of 2.` };
+    if (temp === 1) return { isConstructible: true, key: "tools.constructible.reason_power_2", params: { n } };
 
     const fermatPrimes = [3, 5, 17, 257, 65537];
     const factors = [];
@@ -676,8 +675,8 @@ export function isConstructiblePolygon(n: number): { isConstructible: boolean, r
     }
 
     if (temp === 1) {
-        return { isConstructible: true, reason: `${n} is a product of 2^k and distinct Fermat primes: ${factors.join(', ')}.` };
+        return { isConstructible: true, key: "tools.constructible.reason_fermat_product", params: { n, factors: factors.join(', ') } };
     } else {
-        return { isConstructible: false, reason: `${n} contains non-Fermat prime factors.` };
+        return { isConstructible: false, key: "tools.constructible.reason_non_fermat", params: { n } };
     }
 }

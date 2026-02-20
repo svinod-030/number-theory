@@ -9,7 +9,9 @@
         "contact_us": "Contact Us",
         "privacy_policy": "Privacy Policy",
         "glossary": "Glossary",
-        "queen_of_math": "The Queen of Mathematics"
+        "queen_of_math": "The Queen of Mathematics",
+        "app_name": "Number Theory",
+        "select_language": "Select Language"
     },
     "categories": {
         "primes": "Prime Numbers",
@@ -136,11 +138,31 @@
         },
         "constructible": {
             "title": "Constructible Polygons",
-            "description": "Gauss's Theorem on regular n-gons"
+            "description": "Gauss's Theorem on regular polygons",
+            "reason_min_sides": "A polygon must have at least 3 sides.",
+            "reason_power_2": "{{n}} is a power of 2.",
+            "reason_fermat_product": "{{n}} is a product of 2^k and distinct Fermat primes: {{factors}}.",
+            "reason_non_fermat": "{{n}} contains non-Fermat prime factors."
         },
         "toolbox": {
             "title": "Number Theory Toolbox",
-            "description": "GCD, Primality, Factors, and more utilities"
+            "description": "GCD, Primality, Factors, and more utilities",
+            "header_title": "Utility Toolbox",
+            "gcd_title": "Euclidean Algorithm (GCD)",
+            "gcd_desc": "Find the Greatest Common Divisor using the recursive division method.",
+            "label_a": "Number A",
+            "label_b": "Number B",
+            "calculate_gcd": "Calculate GCD",
+            "result_gcd": "Resulting GCD",
+            "division_steps": "Division Steps",
+            "primality_title": "Primality & Factors",
+            "primality_desc": "Check if a number is prime and find its prime factorization.",
+            "label_check": "Number to Check",
+            "check_primality": "Check Primality",
+            "classification": "Classification",
+            "prime_number": "PRIME NUMBER",
+            "composite": "COMPOSITE",
+            "prime_factors": "Prime Factors"
         }
     },
     "glossary": {
@@ -258,6 +280,7 @@
             "step2": "Mark all its multiples as composite.",
             "step3": "Move to the next unmarked number and repeat.",
             "step4": "Stop when the next number's square exceeds the limit.",
+            "math_fact": "Mathematical Insight",
             "historical_brilliance": "Historical Brilliance",
             "history_desc": "Attributed to the Greek mathematician Eratosthenes (3rd century BC), this method remains the foundation for many modern sieve theories used in advanced number theory research today."
         },
@@ -712,6 +735,21 @@
             "error_min_sides": "Enter 3 or more sides to check constructability.",
             "known_fermat_primes": "Known Fermat Primes",
             "gauss_discovery": "Gauss's 1796 discovery showed that the heptadecagon (17 sides) is constructible, a feat that eluded mathematicians for 2000 years!"
+        },
+        "privacy": {
+            "title": "Privacy Policy",
+            "intro_title": "Introduction",
+            "intro_desc": "Welcome to Number Theory. We value your privacy and are committed to protecting it. This Privacy Policy explains how we handle your information.",
+            "data_collection_title": "Data Collection",
+            "data_collection_desc": "The Number Theory app does not collect, store, or transmit any personal data or usage information. All calculations and visualizations are performed locally on your device.",
+            "offline_title": "Offline Functionality",
+            "offline_desc": "The app is designed to work entirely offline. No internet connection is required for its core features, and no data is sent to external servers.",
+            "third_party_title": "Third-Party Services",
+            "third_party_desc": "The Number Theory app does not use any third-party analytics, advertising, or tracking services that collect your personal information.",
+            "changes_title": "Changes to This Policy",
+            "changes_desc": "We may update our Privacy Policy from time to time. Any changes will be posted on this screen, and your continued use of the app constitutes acceptance of those changes.",
+            "contact_title": "Contact Us",
+            "contact_desc": "If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us."
         }
     }
 }

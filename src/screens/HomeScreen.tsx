@@ -100,7 +100,7 @@ export default function HomeScreen() {
                             />
                         </Animated.View>
                         <View>
-                            <Text className="text-2xl font-black text-white tracking-tighter">Number Theory</Text>
+                            <Text className="text-2xl font-black text-white tracking-tighter">{t('common.app_name')}</Text>
                             <Text className="text-slate-500 font-medium text-xs">{t('common.queen_of_math')}</Text>
                         </View>
                     </View>
@@ -282,7 +282,7 @@ export default function HomeScreen() {
                         entering={ZoomIn.duration(300)}
                         className="bg-slate-900 w-full rounded-3xl border border-slate-800 p-6 shadow-2xl"
                     >
-                        <Text className="text-white text-xl font-black mb-6 tracking-tight">Select Language</Text>
+                        <Text className="text-white text-xl font-black mb-6 tracking-tight">{t('common.select_language')}</Text>
                         <View style={{ gap: 12 }}>
                             {LANGUAGES.map((lang) => (
                                 <TouchableOpacity

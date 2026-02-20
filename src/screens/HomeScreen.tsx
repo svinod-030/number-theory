@@ -191,10 +191,45 @@ export default function HomeScreen() {
                     </Text>
                 </Animated.View>
 
+                {/* Support & Feedback Section */}
+                <Animated.View
+                    entering={FadeIn.delay(1000)}
+                    className="mt-8 flex-row justify-between"
+                >
+                    <TouchableOpacity
+                        onPress={() => {
+                            const pkg = "com.vinodsigadana030.numbertheory";
+                            const url = `market://details?id=${pkg}`;
+                            const webUrl = `https://play.google.com/store/apps/details?id=${pkg}`;
+                            import('react-native').then(({ Linking }) => {
+                                Linking.canOpenURL(url).then(supported => {
+                                    Linking.openURL(supported ? url : webUrl);
+                                });
+                            });
+                        }}
+                        className="flex-1 bg-slate-900 p-4 rounded-2xl border border-slate-800 flex-row items-center justify-center mr-2"
+                    >
+                        <Ionicons name="star-outline" size={18} color="#fbbf24" />
+                        <Text className="text-white font-bold ml-2 text-xs">Rate Us</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                        onPress={() => {
+                            import('react-native').then(({ Linking }) => {
+                                Linking.openURL('mailto:scricscore3@gmail.com?subject=Number Theory App Feedback');
+                            });
+                        }}
+                        className="flex-1 bg-slate-900 p-4 rounded-2xl border border-slate-800 flex-row items-center justify-center ml-2"
+                    >
+                        <Ionicons name="mail-outline" size={18} color="#818cf8" />
+                        <Text className="text-white font-bold ml-2 text-xs">Contact Us</Text>
+                    </TouchableOpacity>
+                </Animated.View>
+
                 {/* Privacy Policy Link */}
                 <TouchableOpacity
                     onPress={() => navigation.navigate('PrivacyPolicy')}
-                    className="mt-8 mb-4 items-center"
+                    className="mt-10 mb-4 items-center"
                 >
                     <Text className="text-slate-600 text-[10px] font-bold uppercase tracking-widest">
                         Privacy Policy

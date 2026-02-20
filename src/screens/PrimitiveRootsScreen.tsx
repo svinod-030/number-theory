@@ -10,7 +10,10 @@ import { Ionicons } from '@expo/vector-icons';
 
 const { width } = Dimensions.get('window');
 
+import { useTranslation, Trans } from 'react-i18next';
+
 export default function PrimitiveRootsScreen() {
+    const { t } = useTranslation();
     const [baseInput, setBaseInput] = useState('3');
     const [modInput, setModInput] = useState('7');
 
@@ -28,7 +31,7 @@ export default function PrimitiveRootsScreen() {
 
     return (
         <SafeAreaView className="flex-1 bg-slate-950">
-            <ScreenHeader title="Primitive Roots" />
+            <ScreenHeader title={t('tools.primitive_roots.title')} />
 
             <ScrollView
                 className="flex-1"
@@ -37,27 +40,33 @@ export default function PrimitiveRootsScreen() {
             >
                 <MathCard
                     index={0}
-                    title="In Simple Terms"
+                    title={t('visualizers.sieve.in_simple_terms')}
                 >
                     <View className="bg-sky-500/5 p-5 rounded-2xl border border-sky-500/10 mb-4">
                         <View className="flex-row items-center mb-3">
                             <Ionicons name="bulb-outline" size={18} color="#38bdf8" />
-                            <Text className="text-sky-400 font-bold ml-2 text-xs uppercase">The Master Key</Text>
+                            <Text className="text-sky-400 font-bold ml-2 text-xs uppercase">{t('visualizers.primitive_roots.analogy_title')}</Text>
                         </View>
                         <Text className="text-slate-400 text-xs leading-5">
-                            Think of a <Text className="text-white font-bold">combination lock with numbers 1–6</Text>. A primitive root is like a single number that, when you keep multiplying it by itself (mod 7), visits <Text className="text-sky-400 font-bold">every number on the lock exactly once</Text> before cycling back.{"\n"}For example, 3 mod 7 → 3, 2, 6, 4, 5, 1 — all six numbers!
+                            <Trans
+                                i18nKey="visualizers.primitive_roots.analogy_desc"
+                                components={{
+                                    1: <Text className="text-white font-bold" />,
+                                    2: <Text className="text-sky-400 font-bold" />
+                                }}
+                            />
                         </Text>
                     </View>
                 </MathCard>
 
                 <MathCard
                     index={1}
-                    description="A primitive root modulo n is a number that generates all numbers coprime to n through its powers."
+                    description={t('visualizers.primitive_roots.description')}
                 >
                     <View className="flex-row space-x-4">
                         <View className="flex-1">
                             <ThemedInput
-                                label="Base (a)"
+                                label={t('visualizers.primitive_roots.base_label')}
                                 value={baseInput}
                                 onChangeText={setBaseInput}
                                 keyboardType="numeric"
@@ -65,7 +74,7 @@ export default function PrimitiveRootsScreen() {
                         </View>
                         <View className="flex-1">
                             <ThemedInput
-                                label="Modulo (n)"
+                                label={t('visualizers.primitive_roots.mod_label')}
                                 value={modInput}
                                 onChangeText={setModInput}
                                 keyboardType="numeric"
@@ -79,12 +88,18 @@ export default function PrimitiveRootsScreen() {
                         className={`bg-slate-900 rounded-3xl border ${isRoot ? 'border-sky-500/50' : 'border-slate-800'} overflow-hidden mb-4`}
                     >
                         <View className={`${isRoot ? 'bg-sky-500' : 'bg-slate-800'} px-6 py-3 flex-row items-center justify-between`}>
-                            <Text className="text-white font-bold text-xs uppercase tracking-widest">{isRoot ? 'Primitive Root' : 'Not a Generator'}</Text>
+                            <Text className="text-white font-bold text-xs uppercase tracking-widest">{isRoot ? t('visualizers.primitive_roots.is_root') : t('visualizers.primitive_roots.not_root')}</Text>
                             <Ionicons name={isRoot ? "star" : "close-circle"} size={18} color="white" />
                         </View>
                         <View className="p-6 items-center">
                             <Text className="text-slate-400 text-center mb-8 text-[11px] leading-4">
-                                Powers of {a} mod {n} generate <Text className="text-white font-bold">{residues.length}</Text> unique values. {isRoot ? `It generates the entire group of size φ(${n}) = ${phi}!` : `It falls short of φ(${n}) = ${phi}.`}
+                                <Trans
+                                    i18nKey="visualizers.primitive_roots.residues_desc"
+                                    values={{ a, n, count: residues.length, status: isRoot ? t('visualizers.primitive_roots.is_root_status', { n, phi }) : t('visualizers.primitive_roots.not_root_status', { n, phi }) }}
+                                    components={{
+                                        1: <Text className="text-white font-bold" />
+                                    }}
+                                />
                             </Text>
 
                             <View style={{ width: circleSize, height: circleSize, position: 'relative' }}>
@@ -149,8 +164,8 @@ export default function PrimitiveRootsScreen() {
 
                 <MathCard
                     index={2}
-                    title="Sequence of Powers"
-                    description={`Calculations for ${a}^k mod ${n}:`}
+                    title={t('visualizers.primitive_roots.sequence_title')}
+                    description={t('visualizers.primitive_roots.sequence_desc', { a, n })}
                 >
                     <ScrollView horizontal showsHorizontalScrollIndicator={false} className="mb-2">
                         {residues.map((r, i) => (
@@ -164,7 +179,7 @@ export default function PrimitiveRootsScreen() {
 
                 <MathCard
                     index={3}
-                    title="Other Candidates"
+                    title={t('visualizers.primitive_roots.others_title')}
                 >
                     <View className="flex-row flex-wrap">
                         {roots.length > 0 ? roots.map((root, i) => (
@@ -176,22 +191,22 @@ export default function PrimitiveRootsScreen() {
                                 <Text className="text-sky-400 font-bold text-xs">{root}</Text>
                             </TouchableOpacity>
                         )) : (
-                            <Text className="text-slate-600 italic text-xs">No primitive roots exist for modulo {n}.</Text>
+                            <Text className="text-slate-600 italic text-xs">{t('visualizers.primitive_roots.no_roots', { n })}</Text>
                         )}
                     </View>
                 </MathCard>
 
                 <MathCard
                     index={4}
-                    title="Fun Fact"
+                    title={t('visualizers.primitive_roots.fun_fact')}
                 >
                     <View className="bg-slate-900/50 p-5 rounded-2xl border border-slate-800/50">
                         <View className="flex-row items-center mb-3">
                             <Ionicons name="bulb-outline" size={18} color="#38bdf8" />
-                            <Text className="text-sky-400 font-bold ml-2 text-xs uppercase">Cyclic Groups</Text>
+                            <Text className="text-sky-400 font-bold ml-2 text-xs uppercase">{t('visualizers.primitive_roots.fun_fact')}</Text>
                         </View>
                         <Text className="text-slate-400 text-xs leading-5">
-                            Primitive roots generate the multiplicative group of integers modulo n. This is why primitive roots are the backbone of many cryptographic key exchanges, like Diffie-Hellman!
+                            {t('visualizers.primitive_roots.fun_fact_desc')}
                         </Text>
                     </View>
                 </MathCard>

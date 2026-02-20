@@ -35,7 +35,10 @@ const Node = ({ node, level = 0 }: { node: FactorNode; level?: number }) => {
     );
 };
 
+import { useTranslation, Trans } from 'react-i18next';
+
 export default function FactorizationScreen() {
+    const { t } = useTranslation();
     const navigation = useNavigation();
     const [input, setInput] = useState('60');
     const [tree, setTree] = useState<FactorNode | null>(null);
@@ -64,30 +67,41 @@ export default function FactorizationScreen() {
                 <TouchableOpacity onPress={() => navigation.goBack()}>
                     <Ionicons name="arrow-back" size={24} color="white" />
                 </TouchableOpacity>
-                <Text className="text-xl font-bold text-white">Factor Tree</Text>
+                <Text className="text-xl font-bold text-white">{t('tools.factorization.title')}</Text>
                 <View style={{ width: 24 }} />
             </View>
 
             <ScrollView className="flex-1">
                 <View className="px-6 mb-4 mt-4">
                     <Animated.View entering={FadeIn} className="bg-slate-900 p-6 rounded-3xl border border-slate-800 mb-4">
-                        <Text className="text-slate-500 text-xs font-bold mb-4 uppercase tracking-widest">In Simple Terms</Text>
+                        <Text className="text-slate-500 text-xs font-bold mb-4 uppercase tracking-widest">{t('visualizers.sieve.in_simple_terms')}</Text>
                         <View className="bg-emerald-500/5 p-5 rounded-2xl border border-emerald-500/10 mb-4">
                             <View className="flex-row items-center mb-3">
                                 <Ionicons name="bulb-outline" size={18} color="#34d399" />
-                                <Text className="text-emerald-400 font-bold ml-2 text-xs uppercase">Everyday Analogy</Text>
+                                <Text className="text-emerald-400 font-bold ml-2 text-xs uppercase">{t('visualizers.factorization.everyday_analogy')}</Text>
                             </View>
                             <Text className="text-slate-400 text-xs leading-5">
-                                Think of any number as a <Text className="text-white font-bold">molecule</Text>. Just like water (H₂O) breaks into hydrogen and oxygen atoms, every number breaks into <Text className="text-emerald-400 font-bold">prime number "atoms"</Text>. The number <Text className="text-white font-bold">60</Text> = 2 × 2 × 3 × 5. These primes are the smallest, unbreakable building blocks.
+                                <Trans
+                                    i18nKey="visualizers.factorization.analogy_desc"
+                                    components={{
+                                        1: <Text className="text-white font-bold" />,
+                                        2: <Text className="text-emerald-400 font-bold" />
+                                    }}
+                                />
                             </Text>
                         </View>
                         <View className="bg-sky-500/5 p-5 rounded-2xl border border-sky-500/10">
                             <View className="flex-row items-center mb-3">
                                 <Ionicons name="globe-outline" size={18} color="#38bdf8" />
-                                <Text className="text-sky-400 font-bold ml-2 text-xs uppercase">Why It Matters</Text>
+                                <Text className="text-sky-400 font-bold ml-2 text-xs uppercase">{t('visualizers.factorization.why_it_matters')}</Text>
                             </View>
                             <Text className="text-slate-400 text-xs leading-5">
-                                RSA encryption relies on the fact that multiplying two large primes is easy, but <Text className="text-white font-bold">finding the original primes from the product is extremely hard</Text>. This "one-way" difficulty keeps your online banking and messages secure.
+                                <Trans
+                                    i18nKey="visualizers.factorization.matters_desc"
+                                    components={{
+                                        1: <Text className="text-white font-bold" />
+                                    }}
+                                />
                             </Text>
                         </View>
                     </Animated.View>
@@ -100,7 +114,7 @@ export default function FactorizationScreen() {
                             onChangeText={setInput}
                             keyboardType="numeric"
                             className="flex-1 bg-slate-900 text-white p-4 rounded-xl border border-slate-800"
-                            placeholder="Enter a composite number"
+                            placeholder={t('visualizers.factorization.placeholder')}
                             placeholderTextColor="#475569"
                         />
                         <TouchableOpacity
@@ -114,7 +128,7 @@ export default function FactorizationScreen() {
                     {factors.length > 0 && (
                         <View className="bg-slate-900 p-4 rounded-2xl border border-slate-800">
                             <Text className="text-slate-400 text-xs uppercase mb-2 font-bold tracking-widest">
-                                Unique Factorization
+                                {t('visualizers.factorization.unique_factorization')}
                             </Text>
                             <View className="flex-row flex-wrap items-baseline">
                                 {Object.entries(factorCountMap).map(([f, count], i) => (
@@ -154,10 +168,10 @@ export default function FactorizationScreen() {
                     <View className="bg-slate-900/50 p-5 rounded-2xl border border-slate-800/50">
                         <View className="flex-row items-center mb-3">
                             <Ionicons name="information-circle-outline" size={20} color="#10b981" />
-                            <Text className="text-emerald-400 font-bold ml-2">Fundamental Theorem</Text>
+                            <Text className="text-emerald-400 font-bold ml-2">{t('visualizers.factorization.fundamental_theorem')}</Text>
                         </View>
                         <Text className="text-slate-400 text-sm leading-5">
-                            Every integer greater than 1 either is a prime number itself or can be represented as a product of prime numbers and that, moreover, this representation is unique, up to (except for) the order of the factors.
+                            {t('visualizers.factorization.theorem_desc')}
                         </Text>
                     </View>
                 </View>

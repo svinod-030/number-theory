@@ -8,7 +8,10 @@ import ThemedInput from '../components/ThemedInput';
 import Animated, { FadeIn, ZoomIn } from 'react-native-reanimated';
 import { Ionicons } from '@expo/vector-icons';
 
+import { useTranslation, Trans } from 'react-i18next';
+
 export default function ModularInverseScreen() {
+    const { t } = useTranslation();
     const [numA, setNumA] = useState('3');
     const [numM, setNumM] = useState('11');
 
@@ -20,7 +23,7 @@ export default function ModularInverseScreen() {
 
     return (
         <SafeAreaView className="flex-1 bg-slate-950">
-            <ScreenHeader title="Modular Inverse" />
+            <ScreenHeader title={t('tools.modular_inverse.title')} />
 
             <ScrollView
                 className="flex-1"
@@ -29,27 +32,33 @@ export default function ModularInverseScreen() {
             >
                 <MathCard
                     index={0}
-                    title="In Simple Terms"
+                    title={t('visualizers.sieve.in_simple_terms')}
                 >
                     <View className="bg-sky-500/5 p-5 rounded-2xl border border-sky-500/10 mb-4">
                         <View className="flex-row items-center mb-3">
                             <Ionicons name="bulb-outline" size={18} color="#38bdf8" />
-                            <Text className="text-sky-400 font-bold ml-2 text-xs uppercase">The Undo Button</Text>
+                            <Text className="text-sky-400 font-bold ml-2 text-xs uppercase">{t('visualizers.modular_inverse.the_undo_button')}</Text>
                         </View>
                         <Text className="text-slate-400 text-xs leading-5">
-                            In regular math, <Text className="text-white font-bold">dividing by 3</Text> is the same as multiplying by ⅓. But in modular arithmetic, there are no fractions! Instead, we find a number that "undoes" multiplication.{"\n"}Example: <Text className="text-sky-400 font-bold">3 × 4 = 12 ≡ 1 (mod 11)</Text>. So 4 is the modular inverse of 3 (mod 11) — multiplying by 4 is like "dividing" by 3.
+                            <Trans
+                                i18nKey="visualizers.modular_inverse.undo_desc"
+                                components={{
+                                    1: <Text className="text-white font-bold" />,
+                                    2: <Text className="text-sky-400 font-bold" />
+                                }}
+                            />
                         </Text>
                     </View>
                 </MathCard>
 
                 <MathCard
                     index={1}
-                    description="Find an integer x such that ax ≡ 1 (mod m). This is the modular equivalent of division."
+                    description={t('visualizers.modular_inverse.description')}
                 >
                     <View className="flex-row space-x-4">
                         <View className="flex-1">
                             <ThemedInput
-                                label="Number (a)"
+                                label={t('visualizers.modular_inverse.number_label')}
                                 value={numA}
                                 onChangeText={setNumA}
                                 keyboardType="numeric"
@@ -57,7 +66,7 @@ export default function ModularInverseScreen() {
                         </View>
                         <View className="flex-1">
                             <ThemedInput
-                                label="Modulus (m)"
+                                label={t('visualizers.modular_inverse.modulus_label')}
                                 value={numM}
                                 onChangeText={setNumM}
                                 keyboardType="numeric"
@@ -66,7 +75,7 @@ export default function ModularInverseScreen() {
                     </View>
 
                     <Animated.View key={`${a}-${m}`} entering={ZoomIn} className="bg-sky-500/10 border border-sky-500/20 p-8 rounded-2xl items-center my-4">
-                        <Text className="text-sky-400 text-[10px] font-bold uppercase tracking-widest mb-2">Multiplicative Inverse</Text>
+                        <Text className="text-sky-400 text-[10px] font-bold uppercase tracking-widest mb-2">{t('visualizers.modular_inverse.inverse_label')}</Text>
                         {inverse !== null ? (
                             <View className="items-center">
                                 <Text className="text-5xl font-black text-sky-400">x = {inverse}</Text>
@@ -76,9 +85,9 @@ export default function ModularInverseScreen() {
                             </View>
                         ) : (
                             <View className="items-center">
-                                <Text className="text-2xl font-black text-rose-400 text-center">NO INVERSE</Text>
+                                <Text className="text-2xl font-black text-rose-400 text-center">{t('visualizers.modular_inverse.no_inverse')}</Text>
                                 <Text className="text-slate-500 text-[10px] mt-2 text-center uppercase font-bold">
-                                    GCD({a}, {m}) = {gcd} (MUST BE 1)
+                                    {t('visualizers.modular_inverse.gcd_req', { a, m, gcd })}
                                 </Text>
                             </View>
                         )}
@@ -87,14 +96,14 @@ export default function ModularInverseScreen() {
 
                 <MathCard
                     index={2}
-                    title="Extended Euclidean Method"
-                    description="The steps taken to find the inverse using the reverse substitution of the Euclidean Algorithm."
+                    title={t('visualizers.modular_inverse.extended_euclidean')}
+                    description={t('visualizers.modular_inverse.method_desc')}
                 >
                     <View className="bg-slate-900/50 rounded-2xl border border-slate-800 overflow-hidden">
                         <View className="flex-row bg-slate-800/50 p-3">
-                            <Text className="flex-1 text-slate-500 text-[8px] font-bold uppercase">Step</Text>
-                            <Text className="flex-[3] text-slate-500 text-[8px] font-bold uppercase text-center">Equation</Text>
-                            <Text className="flex-1 text-slate-500 text-[8px] font-bold uppercase text-right">x Coeff</Text>
+                            <Text className="flex-1 text-slate-500 text-[8px] font-bold uppercase">{t('visualizers.modular_inverse.step_col')}</Text>
+                            <Text className="flex-[3] text-slate-500 text-[8px] font-bold uppercase text-center">{t('visualizers.modular_inverse.equation_col')}</Text>
+                            <Text className="flex-1 text-slate-500 text-[8px] font-bold uppercase text-right">{t('visualizers.modular_inverse.x_coeff_col')}</Text>
                         </View>
                         {steps.map((step, i) => (
                             <View key={i} className={`flex-row p-4 border-t border-slate-800/30 ${i === steps.length - 1 ? 'bg-sky-500/5' : ''}`}>
@@ -108,8 +117,9 @@ export default function ModularInverseScreen() {
                     </View>
                 </MathCard>
 
+
                 <View style={{ height: 40 }} />
-            </ScrollView>
-        </SafeAreaView>
+            </ScrollView >
+        </SafeAreaView >
     );
 }

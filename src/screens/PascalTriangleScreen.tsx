@@ -7,17 +7,20 @@ import MathCard from '../components/MathCard';
 import Animated, { FadeIn } from 'react-native-reanimated';
 import { Ionicons } from '@expo/vector-icons';
 
+import { useTranslation, Trans } from 'react-i18next';
+
 export default function PascalTriangleScreen() {
+    const { t } = useTranslation();
     const [rows, setRows] = useState(8);
     const [highlightPattern, setHighlightPattern] = useState<'none' | 'parity' | 'div3' | 'div5'>('none');
 
     const triangle = getPascalTriangle(rows);
 
     const descriptions = {
-        none: "The classic triangle of binomial coefficients. Each number is the sum of the two values directly above it.",
-        parity: "Highlighting odd numbers reveals the Sierpinski Triangle fractal, showing a deep link between numbers and geometry.",
-        div3: "Multiples of 3 create a self-similar triangular pattern (a fractal) based on the divisibility of binomial coefficients.",
-        div5: "Divisibility by 5 reveals larger scale patterns, a visual proof of Lucas's Theorem in modular arithmetic."
+        none: t('visualizers.pascal.desc_none'),
+        parity: t('visualizers.pascal.desc_parity'),
+        div3: t('visualizers.pascal.desc_div3'),
+        div5: t('visualizers.pascal.desc_div5')
     };
 
     const getHexColor = (val: number) => {
@@ -44,13 +47,13 @@ export default function PascalTriangleScreen() {
 
     return (
         <SafeAreaView className="flex-1 bg-slate-950">
-            <ScreenHeader title="Pascal's Triangle" />
+            <ScreenHeader title={t('visualizers.pascal.title')} />
 
             <View className="flex-row justify-center py-4 bg-slate-900/30 space-x-2 border-b border-slate-900 flex-wrap px-4">
-                <PatternTab active={highlightPattern === 'none'} label="Plain" onPress={() => setHighlightPattern('none')} color="slate" />
-                <PatternTab active={highlightPattern === 'parity'} label="Sierpinski" onPress={() => setHighlightPattern('parity')} color="emerald" />
-                <PatternTab active={highlightPattern === 'div3'} label="Mod 3" onPress={() => setHighlightPattern('div3')} color="sky" />
-                <PatternTab active={highlightPattern === 'div5'} label="Mod 5" onPress={() => setHighlightPattern('div5')} color="amber" />
+                <PatternTab active={highlightPattern === 'none'} label={t('visualizers.pascal.tab_plain')} onPress={() => setHighlightPattern('none')} color="slate" />
+                <PatternTab active={highlightPattern === 'parity'} label={t('visualizers.pascal.tab_sierpinski')} onPress={() => setHighlightPattern('parity')} color="emerald" />
+                <PatternTab active={highlightPattern === 'div3'} label={t('visualizers.pascal.tab_mod3')} onPress={() => setHighlightPattern('div3')} color="sky" />
+                <PatternTab active={highlightPattern === 'div5'} label={t('visualizers.pascal.tab_mod5')} onPress={() => setHighlightPattern('div5')} color="amber" />
             </View>
 
             <ScrollView
@@ -61,15 +64,21 @@ export default function PascalTriangleScreen() {
                 <View className="px-6 mb-6">
                     <MathCard
                         index={0}
-                        title="In Simple Terms"
+                        title={t('visualizers.sieve.in_simple_terms')}
                     >
                         <View className="bg-emerald-500/5 p-5 rounded-2xl border border-emerald-500/10 mb-4">
                             <View className="flex-row items-center mb-3">
                                 <Ionicons name="bulb-outline" size={18} color="#34d399" />
-                                <Text className="text-emerald-400 font-bold ml-2 text-xs uppercase">The Addition Pyramid</Text>
+                                <Text className="text-emerald-400 font-bold ml-2 text-xs uppercase">{t('visualizers.pascal.analogy_title')}</Text>
                             </View>
                             <Text className="text-slate-400 text-xs leading-5">
-                                Start with 1 at the top. Each number below is the <Text className="text-white font-bold">sum of the two numbers above it</Text>. Simple, right?{"\n"}But this humble triangle hides <Text className="text-emerald-400 font-bold">fractals, probability, combinations, and Fibonacci numbers</Text> all at once! Try the "Sierpinski" filter to see a fractal hidden inside.
+                                <Trans
+                                    i18nKey="visualizers.pascal.analogy_desc"
+                                    components={{
+                                        1: <Text className="text-white font-bold" />,
+                                        2: <Text className="text-emerald-400 font-bold" />
+                                    }}
+                                />
                             </Text>
                         </View>
                     </MathCard>
@@ -78,7 +87,7 @@ export default function PascalTriangleScreen() {
                         description={descriptions[highlightPattern]}
                     >
                         <View className="flex-row items-center justify-between bg-slate-900 p-4 rounded-2xl border border-slate-800">
-                            <Text className="text-slate-400 text-xs font-bold uppercase tracking-widest">Triangle Height</Text>
+                            <Text className="text-slate-400 text-xs font-bold uppercase tracking-widest">{t('visualizers.pascal.height_label')}</Text>
                             <View className="flex-row items-center space-x-4">
                                 <TouchableOpacity onPress={() => setRows(Math.max(2, rows - 1))} className="bg-slate-800 p-2 rounded-xl border border-slate-700">
                                     <Ionicons name="remove" size={18} color="white" />

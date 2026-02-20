@@ -6,142 +6,68 @@ import MathCard from '../components/MathCard';
 import ThemedInput from '../components/ThemedInput';
 import { Ionicons } from '@expo/vector-icons';
 import Animated, { FadeIn, FadeInDown, Layout } from 'react-native-reanimated';
+import { useTranslation } from 'react-i18next';
 
 interface GlossaryItem {
-    term: string;
-    definition: string;
-    category: 'Primes' | 'Modular' | 'Divisibility' | 'Cryptography' | 'Patterns';
+    key: string;
+    category: 'primes' | 'modular' | 'divisibility' | 'cryptography' | 'patterns';
     formula?: string;
 }
 
 const GLOSSARY_DATA: GlossaryItem[] = [
-    {
-        term: "Prime Number",
-        definition: "A natural number greater than 1 that has no positive divisors other than 1 and itself.",
-        category: "Primes",
-        formula: "p > 1, d|p \Rightarrow d \in \{1, p\}",
-    },
-    {
-        term: "Composite Number",
-        definition: "A positive integer greater than 1 that has at least one divisor other than 1 and itself.",
-        category: "Primes",
-    },
-    {
-        term: "GCD (Greatest Common Divisor)",
-        definition: "The largest positive integer that divides each of the integers.",
-        category: "Divisibility",
-        formula: "\text{gcd}(a, b)",
-    },
-    {
-        term: "LCM (Least Common Multiple)",
-        definition: "The smallest positive integer that is divisible by both a and b.",
-        category: "Divisibility",
-        formula: "\\text{lcm}(a, b) = \\frac{|a \\times b|}{\\text{gcd}(a, b)}",
-    },
-    {
-        term: "Modulus (mod)",
-        definition: "An operator that finds the remainder of a number after division by another number.",
-        category: "Modular",
-        formula: "a \\% n = r",
-    },
-    {
-        term: "Modular Arithmetic",
-        definition: "A system of arithmetic for integers, where numbers \"wrap around\" when reaching a certain value, called the modulus.",
-        category: "Modular",
-        formula: "a \equiv b \pmod{n}",
-    },
-    {
-        term: "Relative Prime (Coprime)",
-        definition: "Two integers are coprime if the only positive integer that is a divisor of both of them is 1.",
-        category: "Divisibility",
-        formula: "\text{gcd}(a, b) = 1",
-    },
-    {
-        term: "Euler's Totient Φ(n)",
-        definition: "Counts the positive integers up to n that are relatively prime to n.",
-        category: "Modular",
-    },
-    {
-        term: "Fibonacci Sequence",
-        definition: "A sequence where each number is the sum of the two preceding ones, starting from 0 and 1.",
-        category: "Patterns",
-        formula: "F_n = F_{n-1} + F_{n-2}",
-    },
-    {
-        term: "Perfect Number",
-        definition: "A positive integer that is equal to the sum of its positive proper divisors.",
-        category: "Patterns",
-        formula: "\sigma(n) = 2n",
-    },
-    {
-        term: "RSA Cryptography",
-        definition: "An asymmetric cryptographic algorithm used for secure data transmission based on the difficulty of factoring primes.",
-        category: "Cryptography",
-    },
-    {
-        term: "Congruence",
-        definition: "Two integers a and b are said to be congruent modulo n if their difference is divisible by n.",
-        category: "Modular",
-        formula: "n \mid (a - b)",
-    },
-    {
-        term: "Primitive Root",
-        definition: "A generator of the multiplicative group of integers modulo n.",
-        category: "Modular",
-    },
-    {
-        term: "Sieve of Eratosthenes",
-        definition: "An ancient algorithm for finding all prime numbers up to any given limit.",
-        category: "Primes",
-    },
-    {
-        term: "Goldbach's Conjecture",
-        definition: "Every even natural number greater than 2 is the sum of two primes.",
-        category: "Patterns",
-    },
-    {
-        term: "Diophantine Equation",
-        definition: "A polynomial equation, usually with two or more unknowns, such that only the integer solutions are sought.",
-        category: "Divisibility",
-    },
-    {
-        term: "Pythagorean Triple",
-        definition: "A set of three positive integers a, b, and c, such that a² + b² = c².",
-        category: "Patterns",
-        formula: "a^2 + b^2 = c^2",
-    },
-    {
-        term: "Constructible Polygon",
-        definition: "A regular n-gon that can be constructed using only a ruler and compass. This requires n to be a power of 2 times distinct Fermat primes.",
-        category: "Patterns",
-    },
+    { key: "prime_number", category: "primes", formula: "p > 1, d|p \\Rightarrow d \\in \\{1, p\\}" },
+    { key: "composite_number", category: "primes" },
+    { key: "gcd", category: "divisibility", formula: "\\text{gcd}(a, b)" },
+    { key: "lcm", category: "divisibility", formula: "\\text{lcm}(a, b) = \\frac{|a \\times b|}{\\text{gcd}(a, b)}" },
+    { key: "modulus", category: "modular", formula: "a \\% n = r" },
+    { key: "modular_arithmetic", category: "modular", formula: "a \\equiv b \\pmod{n}" },
+    { key: "relative_prime", category: "divisibility", formula: "\\text{gcd}(a, b) = 1" },
+    { key: "euler_totient", category: "modular" },
+    { key: "fibonacci_sequence", category: "patterns", formula: "F_n = F_{n-1} + F_{n-2}" },
+    { key: "perfect_number", category: "patterns", formula: "\\sigma(n) = 2n" },
+    { key: "rsa_cryptography", category: "cryptography" },
+    { key: "congruence", category: "modular", formula: "n \\mid (a - b)" },
+    { key: "primitive_root", category: "modular" },
+    { key: "sieve_of_eratosthenes", category: "primes" },
+    { key: "goldbach_conjecture", category: "patterns" },
+    { key: "diophantine_equation", category: "divisibility" },
+    { key: "pythagorean_triple", category: "patterns", formula: "a^2 + b^2 = c^2" },
+    { key: "constructible_polygon", category: "patterns" },
 ];
 
 export default function GlossaryScreen() {
+    const { t, i18n } = useTranslation();
     const [search, setSearch] = useState('');
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
-    const categories = ['All', 'Primes', 'Modular', 'Divisibility', 'Cryptography', 'Patterns'];
+    const categories = ['all', 'primes', 'modular', 'divisibility', 'cryptography', 'patterns'];
 
     const filteredData = useMemo(() => {
         return GLOSSARY_DATA.filter(item => {
-            const matchesSearch = item.term.toLowerCase().includes(search.toLowerCase()) ||
-                item.definition.toLowerCase().includes(search.toLowerCase());
-            const matchesCategory = !selectedCategory || selectedCategory === 'All' || item.category === selectedCategory;
+            const term = t(`glossary.items.${item.key}.term`);
+            const definition = t(`glossary.items.${item.key}.definition`);
+
+            const matchesSearch = term.toLowerCase().includes(search.toLowerCase()) ||
+                definition.toLowerCase().includes(search.toLowerCase());
+            const matchesCategory = !selectedCategory || selectedCategory === 'all' || item.category === selectedCategory;
             return matchesSearch && matchesCategory;
-        }).sort((a, b) => a.term.localeCompare(b.term));
-    }, [search, selectedCategory]);
+        }).sort((a, b) => {
+            const termA = t(`glossary.items.${a.key}.term`);
+            const termB = t(`glossary.items.${b.key}.term`);
+            return termA.localeCompare(termB);
+        });
+    }, [search, selectedCategory, i18n.language]);
 
     return (
         <SafeAreaView className="flex-1 bg-slate-950">
-            <ScreenHeader title="Math Encyclopedia" />
+            <ScreenHeader title={t('glossary.header_title')} />
 
             <View className="px-6 py-4">
                 <ThemedInput
-                    label="Search Definitions"
+                    label={t('glossary.search_label')}
                     value={search}
                     onChangeText={setSearch}
-                    placeholder="e.g. Prime, RSA, GCD..."
+                    placeholder={t('glossary.search_placeholder')}
                     icon="search-outline"
                 />
             </View>
@@ -159,7 +85,7 @@ export default function GlossaryScreen() {
                             className={`px-4 py-2 rounded-xl mr-2 border ${selectedCategory === cat ? 'bg-indigo-600 border-indigo-500' : 'bg-slate-900 border-slate-800'}`}
                         >
                             <Text className={`text-xs font-bold ${selectedCategory === cat ? 'text-white' : 'text-slate-400'}`}>
-                                {cat}
+                                {t(`glossary.categories.${cat}`)}
                             </Text>
                         </TouchableOpacity>
                     ))}
@@ -173,19 +99,19 @@ export default function GlossaryScreen() {
             >
                 {filteredData.map((item, index) => (
                     <Animated.View
-                        key={item.term}
+                        key={item.key}
                         entering={FadeInDown.delay(index * 50)}
                         layout={Layout}
                         className="bg-slate-900 p-5 rounded-3xl border border-slate-800 mb-4 shadow-sm"
                     >
                         <View className="flex-row justify-between items-start mb-2">
-                            <Text className="text-white text-lg font-bold flex-1">{item.term}</Text>
+                            <Text className="text-white text-lg font-bold flex-1">{t(`glossary.items.${item.key}.term`)}</Text>
                             <View className="bg-slate-800 px-2 py-1 rounded-lg">
-                                <Text className="text-slate-500 text-[8px] font-black uppercase">{item.category}</Text>
+                                <Text className="text-slate-500 text-[8px] font-black uppercase">{t(`glossary.categories.${item.category}`)}</Text>
                             </View>
                         </View>
                         <Text className="text-slate-400 text-sm leading-5 mb-3">
-                            {item.definition}
+                            {t(`glossary.items.${item.key}.definition`)}
                         </Text>
                         {item.formula && (
                             <View className="bg-slate-950/50 p-3 rounded-xl border border-slate-800/50">
@@ -198,7 +124,7 @@ export default function GlossaryScreen() {
                 {filteredData.length === 0 && (
                     <View className="items-center justify-center py-20">
                         <Ionicons name="search-outline" size={48} color="#334155" />
-                        <Text className="text-slate-500 font-bold mt-4">No definitions found</Text>
+                        <Text className="text-slate-500 font-bold mt-4">{t('glossary.no_results')}</Text>
                     </View>
                 )}
 

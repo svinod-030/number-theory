@@ -9,7 +9,10 @@ import MathCard from '../components/MathCard';
 import ThemedInput from '../components/ThemedInput';
 import { Ionicons } from '@expo/vector-icons';
 
+import { useTranslation, Trans } from 'react-i18next';
+
 export default function RSAScreen() {
+    const { t } = useTranslation();
     const navigation = useNavigation();
     const [p, setP] = useState('61');
     const [q, setQ] = useState('53');
@@ -36,7 +39,7 @@ export default function RSAScreen() {
 
     return (
         <SafeAreaView className="flex-1 bg-slate-950">
-            <ScreenHeader title="RSA Cryptography" />
+            <ScreenHeader title={t('visualizers.rsa.title')} />
 
             <ScrollView
                 className="flex-1"
@@ -45,61 +48,67 @@ export default function RSAScreen() {
             >
                 <MathCard
                     index={0}
-                    title="In Simple Terms"
+                    title={t('visualizers.sieve.in_simple_terms')}
                 >
                     <View className="bg-rose-500/5 p-5 rounded-2xl border border-rose-500/10 mb-4">
                         <View className="flex-row items-center mb-3">
                             <Ionicons name="bulb-outline" size={18} color="#f43f5e" />
-                            <Text className="text-rose-400 font-bold ml-2 text-xs uppercase">The Padlock Analogy</Text>
+                            <Text className="text-rose-400 font-bold ml-2 text-xs uppercase">{t('visualizers.rsa.simple_terms_title')}</Text>
                         </View>
                         <Text className="text-slate-400 text-xs leading-5">
-                            Imagine sending someone an <Text className="text-white font-bold">open padlock</Text>. Anyone can snap it shut (encrypt), but only <Text className="text-rose-400 font-bold">you have the key</Text> to open it (decrypt).{"\n"}RSA works the same way: the public key is the open padlock, and the private key is the only key that opens it. The math relies on the fact that multiplying two huge primes is easy, but <Text className="text-white font-bold">factoring the product back is nearly impossible</Text>.
+                            <Trans
+                                i18nKey="visualizers.rsa.simple_terms_desc"
+                                components={{
+                                    1: <Text className="text-white font-bold" />,
+                                    2: <Text className="text-rose-400 font-bold" />
+                                }}
+                            />
                         </Text>
                     </View>
                 </MathCard>
 
                 <MathCard
                     index={1}
-                    description="RSA is an asymmetric cryptographic algorithm that relies on the difficulty of factoring the product of two large prime numbers."
+                    description={t('visualizers.rsa.description')}
                 >
                     <View className="flex-row space-x-4">
                         <View className="flex-1">
                             <ThemedInput
-                                label="Prime p"
+                                label={t('visualizers.rsa.input_p')}
                                 value={p}
                                 onChangeText={setP}
                                 keyboardType="numeric"
                                 error={!pIsPrime && p !== ''}
-                                helperText={!pIsPrime && p !== '' ? 'Not prime' : 'First prime'}
+                                helperText={!pIsPrime && p !== '' ? t('visualizers.rsa.helper_p_not_prime') : t('visualizers.rsa.helper_p_prime')}
                             />
                         </View>
                         <View className="flex-1">
                             <ThemedInput
-                                label="Prime q"
+                                label={t('visualizers.rsa.input_q')}
                                 value={q}
                                 onChangeText={setQ}
                                 keyboardType="numeric"
                                 error={(!qIsPrime && q !== '') || (numP === numQ && q !== '')}
-                                helperText={!qIsPrime && q !== '' ? 'Not prime' : numP === numQ ? 'Must be different' : 'Second prime'}
+                                helperText={!qIsPrime && q !== '' ? t('visualizers.rsa.helper_q_not_prime') : numP === numQ ? t('visualizers.rsa.helper_q_different') : t('visualizers.rsa.helper_q_prime')}
                             />
                         </View>
                     </View>
 
                     <View className="bg-slate-950/50 p-6 rounded-2xl border border-slate-800/50 space-y-4">
                         <View className="flex-row justify-between items-center">
-                            <Text className="text-slate-500 text-[10px] font-bold uppercase tracking-wider">Modulus (n = p×q)</Text>
+                            <Text className="text-slate-500 text-[10px] font-bold uppercase tracking-wider">{t('visualizers.rsa.modulus_label')}</Text>
                             <Text className="text-white font-mono text-lg font-bold">{n}</Text>
                         </View>
                         <View className="flex-row justify-between items-center">
-                            <Text className="text-slate-500 text-[10px] font-bold uppercase tracking-wider">Totient (φ = (p-1)(q-1))</Text>
+                            <Text className="text-slate-500 text-[10px] font-bold uppercase tracking-wider">{t('visualizers.rsa.totient_label')}</Text>
                             <Text className="text-white font-mono text-lg font-bold">{phi}</Text>
                         </View>
                         {isValid && d !== null && (
                             <Animated.View entering={FadeIn} className="pt-4 border-t border-slate-900 mt-2">
                                 <View className="bg-indigo-500/10 p-4 rounded-xl border border-indigo-500/20 flex-row justify-between items-center">
                                     <View>
-                                        <Text className="text-indigo-400 text-[10px] font-bold uppercase">Private Key (d)</Text>
-                                        <Text className="text-indigo-400/60 text-[8px]">Inverse of {e} mod {phi}</Text>
+                                        <Text className="text-indigo-400 text-[10px] font-bold uppercase">{t('visualizers.rsa.private_key_label')}</Text>
+                                        <Text className="text-indigo-400/60 text-[8px]">{t('visualizers.rsa.private_key_sub', { e, phi })}</Text>
                                     </View>
                                     <Text className="text-white font-mono text-2xl font-black">{d}</Text>
                                 </View>
@@ -111,22 +120,22 @@ export default function RSAScreen() {
                 {isValid && (
                     <MathCard
                         index={2}
-                        title="Encryption & Decryption"
-                        description="Encryption uses the public exponent (e=17), while decryption uses the private key (d) found above."
+                        title={t('visualizers.rsa.encryption_title')}
+                        description={t('visualizers.rsa.encryption_desc', { e })}
                     >
                         <ThemedInput
-                            label={`Message (m < ${n})`}
+                            label={t('visualizers.rsa.message_label', { n })}
                             value={message}
                             onChangeText={setMessage}
                             keyboardType="numeric"
                             error={m >= n}
-                            helperText={m >= n ? `Message must be smaller than ${n}` : 'Raw numeric data'}
+                            helperText={m >= n ? t('visualizers.rsa.message_error', { n }) : t('visualizers.rsa.message_helper')}
                         />
 
                         {c !== null && m < n && (
                             <Animated.View entering={FadeIn} className="space-y-6 mt-4">
                                 <View className="bg-emerald-500/10 p-5 rounded-2xl border border-emerald-500/20 items-center">
-                                    <Text className="text-slate-500 text-[10px] font-bold uppercase mb-2">Encrypted Cipher (c = mᵉ mod n)</Text>
+                                    <Text className="text-slate-500 text-[10px] font-bold uppercase mb-2">{t('visualizers.rsa.cipher_label')}</Text>
                                     <Text className="text-emerald-400 text-4xl font-black">{c}</Text>
                                 </View>
 
@@ -137,7 +146,7 @@ export default function RSAScreen() {
                                 </View>
 
                                 <View className="bg-indigo-500/10 p-5 rounded-2xl border border-indigo-500/20 items-center">
-                                    <Text className="text-slate-500 text-[10px] font-bold uppercase mb-2">Original Message (m = cᵈ mod n)</Text>
+                                    <Text className="text-slate-500 text-[10px] font-bold uppercase mb-2">{t('visualizers.rsa.original_message_label')}</Text>
                                     <Text className="text-white text-4xl font-black">{decrypted}</Text>
                                 </View>
                             </Animated.View>

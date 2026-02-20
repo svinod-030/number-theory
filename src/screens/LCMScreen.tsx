@@ -6,7 +6,10 @@ import { useNavigation } from '@react-navigation/native';
 import { getGCDWithSteps, getLCM } from '../utils/math';
 import Animated, { FadeInUp } from 'react-native-reanimated';
 
+import { useTranslation, Trans } from 'react-i18next';
+
 export default function LCMScreen() {
+    const { t } = useTranslation();
     const navigation = useNavigation();
     const [numA, setNumA] = useState('4');
     const [numB, setNumB] = useState('6');
@@ -29,7 +32,7 @@ export default function LCMScreen() {
                 <TouchableOpacity onPress={() => navigation.goBack()}>
                     <Ionicons name="arrow-back" size={24} color="white" />
                 </TouchableOpacity>
-                <Text className="text-xl font-bold text-white">LCM Visualizer</Text>
+                <Text className="text-xl font-bold text-white">{t('visualizers.lcm.title')}</Text>
                 <View style={{ width: 24 }} />
             </View>
 
@@ -37,16 +40,24 @@ export default function LCMScreen() {
                 <View className="bg-emerald-500/5 p-5 rounded-2xl border border-emerald-500/10 mb-4 mt-4">
                     <View className="flex-row items-center mb-3">
                         <Ionicons name="bulb-outline" size={18} color="#34d399" />
-                        <Text className="text-emerald-400 font-bold ml-2 text-xs uppercase">In Simple Terms</Text>
+                        <Text className="text-emerald-400 font-bold ml-2 text-xs uppercase">{t('visualizers.sieve.in_simple_terms')}</Text>
                     </View>
                     <Text className="text-slate-400 text-xs leading-5">
-                        Bus A comes every <Text className="text-white font-bold">4 minutes</Text>, Bus B every <Text className="text-white font-bold">6 minutes</Text>. When will they arrive together?{"\n"}List multiples: A = 4, 8, <Text className="text-sky-400 font-bold">12</Text>, 16… and B = 6, <Text className="text-sky-400 font-bold">12</Text>, 18… The first overlap is <Text className="text-white font-bold">12</Text> — that's the LCM!
+                        <Trans
+                            i18nKey="visualizers.lcm.analogy_desc"
+                            values={{ a: numA, b: numB }}
+                            components={{
+                                1: <Text className="text-white font-bold" />,
+                                2: <Text className="text-white font-bold" />,
+                                3: <Text className="text-sky-400 font-bold" />
+                            }}
+                        />
                     </Text>
                 </View>
 
                 <View className="mb-8">
                     <Text className="text-slate-400 text-sm mb-4">
-                        Least Common Multiple is the smallest positive integer that is divisible by both numbers.
+                        {t('visualizers.lcm.description')}
                     </Text>
 
                     <View className="flex-row space-x-4 mb-4">
@@ -55,21 +66,21 @@ export default function LCMScreen() {
                             onChangeText={setNumA}
                             keyboardType="numeric"
                             className="flex-1 bg-slate-900 text-white p-4 rounded-xl border border-slate-800"
-                            placeholder="A"
+                            placeholder={t('visualizers.lcm.input_a')}
                         />
                         <TextInput
                             value={numB}
                             onChangeText={setNumB}
                             keyboardType="numeric"
                             className="flex-1 bg-slate-900 text-white p-4 rounded-xl border border-slate-800"
-                            placeholder="B"
+                            placeholder={t('visualizers.lcm.input_b')}
                         />
                     </View>
                     <TouchableOpacity
                         onPress={handleCalculate}
                         className="bg-sky-600 p-4 rounded-xl items-center"
                     >
-                        <Text className="text-white font-bold text-lg">Calculate LCM</Text>
+                        <Text className="text-white font-bold text-lg">{t('visualizers.lcm.calculate_button')}</Text>
                     </TouchableOpacity>
                 </View>
 
@@ -78,14 +89,14 @@ export default function LCMScreen() {
                         entering={FadeInUp}
                         className="bg-slate-900 p-6 rounded-3xl border border-sky-900/50 mb-8 items-center"
                     >
-                        <Text className="text-slate-400 text-sm mb-1 uppercase tracking-widest font-bold">The LCM is</Text>
+                        <Text className="text-slate-400 text-sm mb-1 uppercase tracking-widest font-bold">{t('visualizers.lcm.result_label')}</Text>
                         <Text className="text-5xl font-black text-sky-400">{lcm}</Text>
                     </Animated.View>
                 )}
 
                 <View className="space-y-6 pb-12">
                     <View>
-                        <Text className="text-sky-400 font-bold mb-3">Multiples of {numA}</Text>
+                        <Text className="text-sky-400 font-bold mb-3">{t('visualizers.lcm.multiples_label', { n: numA })}</Text>
                         <ScrollView horizontal showsHorizontalScrollIndicator={false} className="flex-row">
                             {multiplesA.map((m, i) => (
                                 <View
@@ -100,7 +111,7 @@ export default function LCMScreen() {
                     </View>
 
                     <View>
-                        <Text className="text-sky-400 font-bold mb-3">Multiples of {numB}</Text>
+                        <Text className="text-sky-400 font-bold mb-3">{t('visualizers.lcm.multiples_label', { n: numB })}</Text>
                         <ScrollView horizontal showsHorizontalScrollIndicator={false} className="flex-row">
                             {multiplesB.map((m, i) => (
                                 <View
@@ -115,12 +126,9 @@ export default function LCMScreen() {
                     </View>
 
                     <View className="bg-slate-900/50 p-5 rounded-2xl border border-slate-800/50">
-                        <Text className="text-white font-bold mb-2">The Relationship</Text>
+                        <Text className="text-white font-bold mb-2">{t('visualizers.lcm.relationship_title')}</Text>
                         <Text className="text-slate-400 text-sm leading-5">
-                            LCM(a, b) = |a × b| / GCD(a, b).
-                            {!isNaN(parseInt(numA)) && !isNaN(parseInt(numB)) && (
-                                <Text> For {numA} and {numB}, GCD is {getGCDWithSteps(parseInt(numA), parseInt(numB)).gcd}.</Text>
-                            )}
+                            {t('visualizers.lcm.relationship_desc', { a: numA, b: numB, gcd: getGCDWithSteps(parseInt(numA), parseInt(numB)).gcd })}
                         </Text>
                     </View>
                 </View>

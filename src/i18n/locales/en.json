@@ -1,0 +1,717 @@
+{
+    "common": {
+        "search_placeholder": "Find a tool or visualizer...",
+        "no_results": "No tools matching \"{{search}}\"",
+        "learning_hubs": "Learning Hubs",
+        "concepts": "{{count}} Concepts",
+        "tip": "Tip: Use the <1>Search bar</1> or visit the <2>Glossary</2> to quickly find specific formulas and definitions.",
+        "rate_us": "Rate Us",
+        "contact_us": "Contact Us",
+        "privacy_policy": "Privacy Policy",
+        "glossary": "Glossary",
+        "queen_of_math": "The Queen of Mathematics"
+    },
+    "categories": {
+        "primes": "Prime Numbers",
+        "modular": "Modular Arithmetic",
+        "divisibility": "Divisibility & Algorithms",
+        "applications": "Applications"
+    },
+    "tools": {
+        "sieve": {
+            "title": "Sieve of Eratosthenes",
+            "description": "Visualize prime finding algorithm"
+        },
+        "ulam": {
+            "title": "Ulam Spiral",
+            "description": "Patterns of primes in a square grid"
+        },
+        "factorization": {
+            "title": "Factorization Tree",
+            "description": "Unique Prime Factorization"
+        },
+        "goldbach": {
+            "title": "Goldbach Conjecture",
+            "description": "Primes that sum to even numbers"
+        },
+        "amicable": {
+            "title": "Amicable Numbers",
+            "description": "Friendly number pairs"
+        },
+        "modular_playground": {
+            "title": "Modular Playground",
+            "description": "Interactive modular calculator"
+        },
+        "modular_inverse": {
+            "title": "Modular Inverse",
+            "description": "Find modular multiplicative inverses"
+        },
+        "modular_exponentiation": {
+            "title": "Modular Exponentiation",
+            "description": "Fast powers modulo n"
+        },
+        "modular_table": {
+            "title": "Modular Table",
+            "description": "Multiplication tables mod n"
+        },
+        "totient": {
+            "title": "Totient Function Φ(n)",
+            "description": "Count coprime numbers"
+        },
+        "crt": {
+            "title": "Chinese Remainder",
+            "description": "Solve systems of congruences"
+        },
+        "primitive_roots": {
+            "title": "Primitive Roots",
+            "description": "Cyclic generators of groups"
+        },
+        "quadratic_reciprocity": {
+            "title": "Quadratic Reciprocity",
+            "description": "Square roots in modular math"
+        },
+        "euclidean": {
+            "title": "Euclidean Algorithm",
+            "description": "Step-by-step GCD visualizer"
+        },
+        "lcm": {
+            "title": "LCM Calculator",
+            "description": "Least Common Multiple steps"
+        },
+        "fibonacci": {
+            "title": "Fibonacci Spiral",
+            "description": "Golden ratio and nature's code"
+        },
+        "pascal": {
+            "title": "Pascal's Triangle",
+            "description": "Combinatorics and patterns"
+        },
+        "collatz": {
+            "title": "Collatz Conjecture",
+            "description": "Visualizing the 3n+1 sequence"
+        },
+        "continued_fractions": {
+            "title": "Continued Fractions",
+            "description": "Approximate real numbers"
+        },
+        "diophantine": {
+            "title": "Diophantine Equations",
+            "description": "Solve integer linear equations"
+        },
+        "divisors": {
+            "title": "Divisors Finder",
+            "description": "List all divisors of a number"
+        },
+        "partition": {
+            "title": "Partition Theory",
+            "description": "Young Diagrams and partitions"
+        },
+        "rsa": {
+            "title": "RSA Cryptography",
+            "description": "Encryption and prime security"
+        },
+        "diffie_hellman": {
+            "title": "Diffie-Hellman",
+            "description": "Key exchange protocol"
+        },
+        "hashing": {
+            "title": "Hashing Algorithms",
+            "description": "One-way math functions"
+        },
+        "digital_signatures": {
+            "title": "Digital Signatures",
+            "description": "Authentication with math"
+        },
+        "perfect_numbers": {
+            "title": "Perfect Numbers",
+            "description": "Sum of divisors equals number"
+        },
+        "legendre": {
+            "title": "Legendre Symbol",
+            "description": "Quadratic Residues visualizer"
+        },
+        "pythagorean": {
+            "title": "Pythagorean Triples",
+            "description": "Generate right triangles with Euclid's formula"
+        },
+        "constructible": {
+            "title": "Constructible Polygons",
+            "description": "Gauss's Theorem on regular n-gons"
+        },
+        "toolbox": {
+            "title": "Number Theory Toolbox",
+            "description": "GCD, Primality, Factors, and more utilities"
+        }
+    },
+    "glossary": {
+        "header_title": "Math Encyclopedia",
+        "search_label": "Search Definitions",
+        "search_placeholder": "e.g. Prime, RSA, GCD...",
+        "categories": {
+            "all": "All",
+            "primes": "Primes",
+            "modular": "Modular",
+            "divisibility": "Divisibility",
+            "cryptography": "Cryptography",
+            "patterns": "Patterns"
+        },
+        "no_results": "No definitions found",
+        "items": {
+            "prime_number": {
+                "term": "Prime Number",
+                "definition": "A natural number greater than 1 that has no positive divisors other than 1 and itself."
+            },
+            "composite_number": {
+                "term": "Composite Number",
+                "definition": "A positive integer greater than 1 that has at least one divisor other than 1 and itself."
+            },
+            "gcd": {
+                "term": "GCD (Greatest Common Divisor)",
+                "definition": "The largest positive integer that divides each of the integers."
+            },
+            "lcm": {
+                "term": "LCM (Least Common Multiple)",
+                "definition": "The smallest positive integer that is divisible by both a and b."
+            },
+            "modulus": {
+                "term": "Modulus (mod)",
+                "definition": "An operator that finds the remainder of a number after division by another number."
+            },
+            "modular_arithmetic": {
+                "term": "Modular Arithmetic",
+                "definition": "A system of arithmetic for integers, where numbers \"wrap around\" when reaching a certain value, called the modulus."
+            },
+            "relative_prime": {
+                "term": "Relative Prime (Coprime)",
+                "definition": "Two integers are coprime if the only positive integer that is a divisor of both of them is 1."
+            },
+            "euler_totient": {
+                "term": "Euler's Totient Φ(n)",
+                "definition": "Counts the positive integers up to n that are relatively prime to n."
+            },
+            "fibonacci_sequence": {
+                "term": "Fibonacci Sequence",
+                "definition": "A sequence where each number is the sum of the two preceding ones, starting from 0 and 1."
+            },
+            "perfect_number": {
+                "term": "Perfect Number",
+                "definition": "A positive integer that is equal to the sum of its positive proper divisors."
+            },
+            "rsa_cryptography": {
+                "term": "RSA Cryptography",
+                "definition": "An asymmetric cryptographic algorithm used for secure data transmission based on the difficulty of factoring primes."
+            },
+            "congruence": {
+                "term": "Congruence",
+                "definition": "Two integers a and b are said to be congruent modulo n if their difference is divisible by n."
+            },
+            "primitive_root": {
+                "term": "Primitive Root",
+                "definition": "A generator of the multiplicative group of integers modulo n."
+            },
+            "sieve_of_eratosthenes": {
+                "term": "Sieve of Eratosthenes",
+                "definition": "An ancient algorithm for finding all prime numbers up to any given limit."
+            },
+            "goldbach_conjecture": {
+                "term": "Goldbach's Conjecture",
+                "definition": "Every even natural number greater than 2 is the sum of two primes."
+            },
+            "diophantine_equation": {
+                "term": "Diophantine Equation",
+                "definition": "A polynomial equation, usually with two or more unknowns, such that only the integer solutions are sought."
+            },
+            "pythagorean_triple": {
+                "term": "Pythagorean Triple",
+                "definition": "A set of three positive integers a, b, and c, such that a² + b² = c²."
+            },
+            "constructible_polygon": {
+                "term": "Constructible Polygon",
+                "definition": "A regular n-gon that can be constructed using only a ruler and compass. This requires n to be a power of 2 times distinct Fermat primes."
+            }
+        }
+    },
+    "modulus_basics": {
+        "title": "Modulus Basics",
+        "explanation": "The <1>modulus operator (%)</1> gives the remainder after division. Think of it as <2>\"clock arithmetic\"</2>.",
+        "clock_visualization": "Clock Visualization",
+        "wrap_info": "Adding {{a}} to 0 wraps around {{n}} for {{quotient}} full turns + {{remainder}} units",
+        "label_a": "Number (a)",
+        "label_n": "Modulus (n)",
+        "key_properties": "Key Properties",
+        "prop_range_title": "Range of Remainder",
+        "prop_range_desc": "The result of <1>a % n</1> is always between <2>0</2> and <3>n - 1</3>.",
+        "prop_congruence_title": "Congruence (≡)",
+        "prop_congruence_desc": "If two numbers have the same remainder when divided by <1>n</1>, we say they are <2>congruent modulo n</2>."
+    },
+    "visualizers": {
+        "sieve": {
+            "everyday_analogy": "Everyday Analogy",
+            "analogy_desc": "Imagine writing numbers 2–100 on a whiteboard. Start at <1>2</1> (the first prime) and cross off every 2nd number after it (4, 6, 8…). Move to <1>3</1> and cross off every 3rd number. Keep going — whatever survives the crossing is <2>prime</2>.",
+            "why_it_matters": "Why It Matters",
+            "matters_desc": "Every time you shop online or send a message, <1>prime numbers</1> protect your data. Modern encryption (like RSA) depends on large primes. The Sieve is the first step to finding them efficiently.",
+            "efficient_algorithm": "The most efficient ancient algorithm to find all primes up to 100 by progressively marking multiples of each discovered prime.",
+            "start_sieve": "Start Sieve",
+            "stop_sieve": "Stop Animation",
+            "how_it_works": "How it Works",
+            "step1": "Start with the first prime (2).",
+            "step2": "Mark all its multiples as composite.",
+            "step3": "Move to the next unmarked number and repeat.",
+            "step4": "Stop when the next number's square exceeds the limit.",
+            "historical_brilliance": "Historical Brilliance",
+            "history_desc": "Attributed to the Greek mathematician Eratosthenes (3rd century BC), this method remains the foundation for many modern sieve theories used in advanced number theory research today."
+        },
+        "factorization": {
+            "everyday_analogy": "Everyday Analogy",
+            "analogy_desc": "Think of any number as a <1>molecule</1>. Just like water (H₂O) breaks into hydrogen and oxygen atoms, every number breaks into <2>prime number \"atoms\"</2>. The number <1>60</1> = 2 × 2 × 3 × 5. These primes are the smallest, unbreakable building blocks.",
+            "why_it_matters": "Why It Matters",
+            "matters_desc": "RSA encryption relies on the fact that multiplying two large primes is easy, but <1>finding the original primes from the product is extremely hard</1>. This \"one-way\" difficulty keeps your online banking and messages secure.",
+            "placeholder": "Enter a composite number",
+            "unique_factorization": "Unique Factorization",
+            "fundamental_theorem": "Fundamental Theorem",
+            "theorem_desc": "Every integer greater than 1 either is a prime number itself or can be represented as a product of prime numbers and that, moreover, this representation is unique, up to (except for) the order of the factors."
+        },
+        "goldbach": {
+            "big_idea": "The Big Idea",
+            "big_idea_desc": "Pick <1>any even number</1> bigger than 2. You can always write it as the <2>sum of two prime numbers</2>. For example: \n• 20 = 3 + 17\n• 20 = 7 + 13\nNobody has ever found an exception, yet nobody can prove it works for <1>every</1> even number!",
+            "description": "Christian Goldbach conjectured that every even natural number greater than 2 is the sum of two prime numbers.",
+            "input_label": "Enter Even Number (>2)",
+            "error_invalid": "Must be an even number > 2",
+            "helper_text": "Visualize prime sums",
+            "partitions_found": "Prime Partitions found",
+            "goldbach_pairs": "Goldbach Pairs",
+            "visualizing_pairs": "Visualizing the Pairs",
+            "expressed_in_ways": "The number {{n}} can be expressed in the following ways:",
+            "unsolved_mystery": "Unsolved Mystery",
+            "mystery_desc": "Despite being one of the oldest and best-known unsolved problems in number theory, it remains unproven for all numbers. It has been verified for all integers up to 4 × 10¹⁸!",
+            "prime_label": "Prime",
+            "history_status": "History & Status"
+        },
+        "amicable": {
+            "best_friend_numbers": "Best Friend Numbers",
+            "analogy_desc": "Add up all the divisors of <1>220</1> (excluding 220 itself): 1+2+4+5+10+11+20+22+44+55+110 = <2>284</2>.\nNow do the same for <1>284</1>: 1+2+4+71+142 = <2>220</2>.\nThey point back to each other — like numbers that are <2>best friends</2>!",
+            "description": "Two numbers are 'Amicable' if the sum of the proper divisors of one is equal to the other, and vice versa.",
+            "search_limit": "Search Limit",
+            "helper_text": "Search for pairs up to this number",
+            "pairs_found": "Pairs Found",
+            "friendly_pairs": "The Friendly Pairs",
+            "relationship_desc": "These numbers share a special 'amicable' relationship through their divisors.",
+            "number_a": "Number A",
+            "number_b": "Number B",
+            "fun_fact": "Fun Fact",
+            "historical_significance": "Historical Significance",
+            "history_desc": "The pair (220, 284) was known to Pythagoreans. Ancient Greeks believed these numbers were symbols of friendship. Fermat and Descartes later discovered more pairs, and Euler found over 60!"
+        },
+        "perfect_numbers": {
+            "title": "Perfect Numbers",
+            "the_perfect_balance": "The Perfect Balance",
+            "analogy_desc": "Most numbers are either <1>too small</1> (deficient) or <1>too big</1> (abundant) compared to their parts. But <2>6</2> is exactly equal to its parts: 1 + 2 + 3 = 6. It is one of the rare, perfectly balanced numbers in the universe.",
+            "description": "A positive integer that is equal to the sum of its positive proper divisors, excluding the number itself.",
+            "search_limit": "Search Limit",
+            "helper_text": "Looking for perfection up to n",
+            "perfection_found": "Perfection Found",
+            "rare_gems": "Rare Gems",
+            "gems_desc": "Perfect numbers are extremely rare. There are only 51 known today!",
+            "divisors_sum": "Sum of Proper Divisors",
+            "fun_fact": "Fun Fact",
+            "euclids_formula": "Euclid's Formula",
+            "formula_desc": "Euclid discovered that <1>2\u1d56\u207b\u00b9(2\u1d56 - 1)</1> is a perfect number whenever <1>2\u1d56 - 1</1> is prime. These are called Mersenne Primes.",
+            "classify_perfect": "Perfect",
+            "classify_abundant": "Abundant",
+            "classify_deficient": "Deficient"
+        },
+        "modular_playground": {
+            "how_to_explore": "How to Explore",
+            "explore_desc": "Each dot on the circle is a number. A line from dot <1>i</1> goes to dot <1>(i \u00d7 k) mod n</1>. Change the multiplier k to watch <2>beautiful geometric patterns</2> emerge \u2014 cardioids, nephroids, and other shapes hidden inside modular arithmetic. Press play to animate!",
+            "points_label": "Points (n)",
+            "multiplier_label": "Multiplier (k)",
+            "patterns_desc": "Showing lines connecting each point i to (i * k) mod n. This visualization reveals hidden symmetries in modular arithmetic."
+        },
+        "modular_inverse": {
+            "the_undo_button": "The Undo Button",
+            "undo_desc": "In regular math, <1>dividing by 3</1> is the same as multiplying by \u2153. But in modular arithmetic, there are no fractions! Instead, we find a number that \"undoes\" multiplication.\nExample: <2>3 \u00d7 4 = 12 \u2261 1 (mod 11)</2>. So 4 is the modular inverse of 3 (mod 11) \u2014 multiplying by 4 is like \"dividing\" by 3.",
+            "description": "Find an integer x such that ax \u2261 1 (mod m). This is the modular equivalent of division.",
+            "number_label": "Number (a)",
+            "modulus_label": "Modulus (m)",
+            "inverse_label": "Multiplicative Inverse",
+            "no_inverse": "NO INVERSE",
+            "gcd_req": "GCD({a}, {m}) = {gcd} (MUST BE 1)",
+            "extended_euclidean": "Extended Euclidean Method",
+            "method_desc": "The steps taken to find the inverse using the reverse substitution of the Euclidean Algorithm.",
+            "step_col": "Step",
+            "equation_col": "Equation",
+            "x_coeff_col": "x Coeff"
+        },
+        "modular_exponentiation": {
+            "the_shortcut": "The Shortcut",
+            "shortcut_desc": "What's <1>2\u00b9\u2070 mod 7</1>? You could compute 2\u00b9\u2070 = 1024, then divide by 7. But there's a faster way: <2>keep taking remainders at each step</2>.\n2\u21924\u21921\u21922\u21924\u21921\u2026 The answer cycles! This trick lets computers handle numbers with <1>hundreds of digits</1> \u2014 the basis of all modern encryption.",
+            "description": "Calculate large powers modulo n efficiently. This is the foundation of modern cryptography like RSA.",
+            "base_label": "Base (a)",
+            "exp_label": "Exp (k)",
+            "mod_label": "Mod (n)",
+            "result_label": "Result",
+            "fermat_little": "Fermat's Little Theorem",
+            "fermat_desc": "Since the modulus is prime, we can use this theorem to simplify calculations.",
+            "power_reduction": "Power Reduction",
+            "fermat_theorem_desc": "If <1>p</1> is prime and does not divide <1>a</1>, then <2>a\u1d56\u207b\u00b9 \u2261 1 (mod p)</2>.",
+            "algorithm_efficiency": "Algorithm Efficiency",
+            "binary_exp": "Binary Exponentiation",
+            "binary_exp_desc": "Calculates result in O(log k) steps using squaring and multiplication."
+        },
+        "modular_table": {
+            "looking_at": "What You're Looking At",
+            "table_desc": "This is a <1>multiplication table, but with a twist</1> \u2014 every answer gets wrapped around using the modulus. Instead of 3 \u00d7 4 = 12, you get 3 \u00d7 4 = 12 mod 5 = <2>2</2>. Tap any cell to highlight all cells with the same remainder. Try prime moduli and notice that <1>every non-zero row is a perfect shuffle</1>!",
+            "mod_label": "Modulus (n)",
+            "interactive_guide": "Interactive Guide",
+            "guide_desc": "Tap any cell to highlight all occurrences of that remainder.\n\nNotice how prime moduli (like 7, 11, 13) create tables where every row (except zero) contains every number exactly once. This is because every non-zero element has a modular inverse!",
+            "highlight_label": "Highlighting Residue: {{residue}}",
+            "clear": "CLEAR"
+        },
+        "crt": {
+            "puzzle_title": "A Puzzle",
+            "puzzle_desc": "A farmer counts eggs: <1>2 left over</1> when grouped by 3, <1>3 left over</1> when grouped by 5, and <1>2 left over</1> when grouped by 7.\nHow many eggs? The CRT says there's a <2>unique answer</2>: 23 (and then 23+105, 23+210, \u2026).",
+            "system_title": "System of Congruences",
+            "system_desc": "Find x that satisfies all equations simultaneously.",
+            "add_congruence": "Add Congruence",
+            "no_solution": "No Solution",
+            "moduli_coprime": "Moduli must be pairwise coprime for a unique answer.",
+            "steps_title": "Step-by-Step Construction",
+            "steps_desc": "How we constructed the solution x:",
+            "mod_col": "Mod (n\u1d62)",
+            "m_col": "M\u1d62 (N/n\u1d62)",
+            "y_col": "y\u1d62 (Inv)",
+            "term_col": "Term",
+            "final_comp": "Final Computation"
+        },
+        "totient": {
+            "analogy_title": "Everyday Analogy",
+            "analogy_desc": "Imagine <1>12 lockers</1> numbered 1-12. <2>\u03c6(12) asks: how many of these numbers share NO common factor with 12?</2>\n12 = 2\u00d72\u00d73, so cross off multiples of 2 and 3. What's left? <1>1, 5, 7, 11</1> \u2014 four numbers. So \u03c6(12) = 4.",
+            "matters_title": "Why It Matters",
+            "matters_desc": "The totient function is the <1>heart of RSA encryption</1>. When you generate RSA keys, you compute \u03c6(n) to find the private key. Without it, public-key cryptography wouldn't work!",
+            "description": "Euler's totient function \u03c6(n) counts the positive integers up to n that are relatively prime to n.",
+            "input_label": "Input Number",
+            "coprime_title": "Coprime Numbers",
+            "coprime_subtitle": "Numbers coprime to {{n}}",
+            "dist_title": "Totient Distribution",
+            "dist_desc": "Visualizing \u03c6(n) for n = 1 to {{range}}:",
+            "prime_label": "Prime (\u03c6(p) = p-1)",
+            "toggle_range": "Toggle Range",
+            "did_you_know": "Did you know?",
+            "prime_prop": "Since {{n}} is prime, \u03c6({{n}}) = {{n}}-1 = {{phi}}.",
+            "sharing_prop": "Numbers sharing prime factors with {{n}} are not coprime."
+        },
+        "primitive_roots": {
+            "analogy_title": "The Master Key",
+            "analogy_desc": "Think of a <1>combination lock with numbers 1\u20136</1>. A primitive root is like a single number that, when you keep multiplying it by itself (mod 7), visits <2>every number on the lock exactly once</2> before cycling back.\nFor example, 3 mod 7 \u2192 3, 2, 6, 4, 5, 1 \u2014 all six numbers!",
+            "description": "A primitive root modulo n is a number that generates all numbers coprime to n through its powers.",
+            "base_label": "Base (a)",
+            "mod_label": "Modulo (n)",
+            "is_root": "Primitive Root",
+            "not_root": "Not a Generator",
+            "residues_desc": "Powers of {{a}} mod {{n}} generate <1>{{count}}</1> unique values. {{status}}",
+            "is_root_status": "It generates the entire group of size \u03c6({{n}}) = {{phi}}!",
+            "not_root_status": "It falls short of \u03c6({{n}}) = {{phi}}.",
+            "sequence_title": "Sequence of Powers",
+            "sequence_desc": "Calculations for {{a}}^k mod {{n}}:",
+            "others_title": "Other Candidates",
+            "no_roots": "No primitive roots exist for modulo {{n}}.",
+            "fun_fact": "Cyclic Groups",
+            "fun_fact_desc": "Primitive roots generate the multiplicative group of integers modulo n. This is why primitive roots are the backbone of many cryptographic key exchanges, like Diffie-Hellman!"
+        },
+        "quadratic_reciprocity": {
+            "analogy_title": "Hidden Square Roots",
+            "analogy_desc": "In regular math, 9 has a square root (3). But in <1>modular arithmetic</1>, the question is trickier: does x\u00b2 \u2261 a (mod p) have any solution?\nFor example, <2>x\u00b2 \u2261 2 (mod 7)</2> \u2192 try 3: 3\u00b2 = 9 \u2261 2 (mod 7). \u2713 So 2 is a quadratic residue mod 7.\nThe Legendre symbol answers this <1>without testing every number</1>!",
+            "description": "Determine if an integer 'a' is a quadratic residue modulo 'p' using the Legendre or Jacobi symbol.",
+            "int_label": "Integer (a)",
+            "mod_label": "Modulus (p)",
+            "legendre_title": "Legendre Symbol (a/p)",
+            "jacobi_title": "Jacobi Symbol (a/n)",
+            "residue_label": "Quadratic Residue",
+            "non_residue_label": "Quadratic Non-Residue",
+            "not_coprime_label": "Not Coprime",
+            "reciprocity_title": "Law of Reciprocity",
+            "reciprocity_desc": "Since {{a}} and {{p}} are both odd primes, the Law of Quadratic Reciprocity applies:",
+            "if_mod4_1": "If either {{a}} or {{p}} is \u2261 1 (mod 4), then ({{a}}/{{p}}) = ({{p}}/{{a}}).",
+            "if_mod4_3": "If both are \u2261 3 (mod 4), then ({{a}}/{{p}}) = -({{p}}/{{a}}).",
+            "meaning_title": "Residue Property",
+            "meaning_desc": "An integer <1>a</1> is a quadratic residue mod <1>p</1> if the equation <2>x\u00b2 \u2261 a (mod p)</2> has a solution x. This tool tells you if a solution exists without having to find it!"
+        },
+        "legendre": {
+            "analogy_title": "Is It a Hidden Square?",
+            "analogy_desc": "In mod 7, is there a number whose square gives 2?  Try 3: <1>3\u00b2 = 9 \u2261 2 (mod 7)</1> \u2713\nThe Legendre symbol (a/p) answers <2>\"does x\u00b2 \u2261 a (mod p) have a solution?\"</2> \u2014 it returns 1 (yes), -1 (no), or 0 (a is divisible by p).",
+            "description": "The Legendre symbol (a/p) is a function that indicates whether 'a' is a quadratic residue modulo 'p'.",
+            "int_label": "Integer a",
+            "p_label": "Odd Prime p",
+            "divisible_label": "Divisible by p",
+            "legend_title": "Legend & Meaning",
+            "legend_1": "'a' is a square modulo 'p' (x\u00b2 \u2261 a mod p exists)",
+            "legend_neg1": "'a' is NOT a square modulo 'p'",
+            "legend_0": "'a' is a multiple of 'p'",
+            "criterion_title": "Quick Calculation",
+            "criterion_desc": "Legendre symbols can be calculated using Euler's criterion:\n<1>(a/p) \u2261 a^((p-1)/2) mod p</1>\nThis is the method used by this tool!"
+        },
+        "euclidean": {
+            "title": "Euclidean Tiling",
+            "description": "Visualize the Greatest Common Divisor (GCD) as a tiling problem.",
+            "analogy_title": "Fair Sharing",
+            "analogy_desc": "Want to share 18 cookies and 12 brownies equally among as many friends as possible? Find <1>GCD(18, 12) = 6</1>. The Euclidean algorithm finds this by repeatedly subtracting the smaller from the larger until they match.",
+            "width_label": "Width (A)",
+            "height_label": "Height (B)",
+            "visualize_button": "Visualize Tiling",
+            "step_log_title": "Step Log",
+            "step_log_entry": "Subtracted {{size}}x{{size}} square from {{a}}x{{b}} rectangle.",
+            "final_discovery": "Final Discovery",
+            "gcd_result": "GCD = {{gcd}}",
+            "subtractions_count": "Found after {{count}} subtractions",
+            "nature_code_title": "Nature's Code",
+            "nature_code_desc": "The Euclidean algorithm can be visualized as finding the largest square that tiles an AxB rectangle. We repeatedly cut off the largest possible square from the remaining piece until only squares are left. The size of the final remaining square(s) is the Greatest Common Divisor."
+        },
+        "lcm": {
+            "title": "LCM Visualizer",
+            "description": "Least Common Multiple is the smallest positive integer that is divisible by both numbers.",
+            "analogy_title": "Bus Schedules",
+            "analogy_desc": "Bus A comes every <1>{{a}} minutes</1>, Bus B every <2>{{b}} minutes</2>. When will they arrive together?\nList multiples: A = 4, 8, <3>12</3>, 16\u2026 and B = 6, <3>12</3>, 18\u2026 The first overlap is <1>12</1> \u2014 that's the LCM!",
+            "input_a": "A",
+            "input_b": "B",
+            "calculate_button": "Calculate LCM",
+            "result_label": "The LCM is",
+            "multiples_label": "Multiples of {{n}}",
+            "relationship_title": "The Relationship",
+            "relationship_desc": "LCM(a, b) = |a \u00d7 b| / GCD(a, b). For {{a}} and {{b}}, GCD is {{gcd}}."
+        },
+        "divisors": {
+            "title": "Perfect & Divisors",
+            "description": "A number's divisors are the numbers that divide it evenly.",
+            "analogy_title": "Perfect Balance",
+            "analogy_desc": "A number's <1>divisors</1> are the numbers that divide it evenly. Add up all divisors except the number itself \u2014 if the sum <2>equals the number</2>, it's <1>Perfect</1>!\nExample: 28 \u2192 divisors 1, 2, 4, 7, 14 \u2192 sum = 28. \u2713 Only a handful of perfect numbers are known!",
+            "input_label": "Input Number",
+            "type_badge": "Type",
+            "sum_label": "Sum of Proper Divisors",
+            "all_divisors_label": "All Divisors of {{n}}",
+            "proper_label": "Proper",
+            "self_label": "Self",
+            "definition_title": "Definition",
+            "perfect_title": "Perfect",
+            "perfect_desc": "Sum of proper divisors exactly equals the number (e.g. 6 = 1+2+3).",
+            "abundant_title": "Abundant",
+            "abundant_desc": "Sum of proper divisors is greater than the number.",
+            "deficient_title": "Deficient",
+            "deficient_desc": "Sum of proper divisors is less than the number."
+        },
+        "fibonacci": {
+            "title": "Fibonacci & Spiral",
+            "summary": "The ratio of consecutive Fibonacci numbers converges to the Golden Ratio (\u03c6). This pattern appears in sunflower seeds, pinecones, and galaxies!",
+            "golden_spiral": "Golden Spiral",
+            "sequence": "Sequence",
+            "analogy_title": "Nature's Math",
+            "analogy_desc": "Each number is simply the <1>sum of the two before it</1>: 1, 1, 2, 3, 5, 8, 13, 21\u2026 The ratio between consecutive terms gets closer and closer to <2>1.618 (the Golden Ratio)</2>.",
+            "nature_code_title": "Nature's Code",
+            "index_label": "Index {{n}}",
+            "ratio_label": "Ratio: {{ratio}}",
+            "approaching_phi": "Approaching \u03c6 \u2248 1.618"
+        },
+        "pascal": {
+            "title": "Pascal's Triangle",
+            "analogy_title": "The Addition Pyramid",
+            "analogy_desc": "Start with 1 at the top. Each number below is the <1>sum of the two numbers above it</1>. Simple, right?\nBut this humble triangle hides <2>fractals, probability, combinations, and Fibonacci numbers</2> all at once! Try the \"Sierpinski\" filter to see a fractal hidden inside.",
+            "height_label": "Triangle Height",
+            "desc_none": "The classic triangle of binomial coefficients. Each number is the sum of the two values directly above it.",
+            "desc_parity": "Highlighting odd numbers reveals the Sierpinski Triangle fractal, showing a deep link between numbers and geometry.",
+            "desc_div3": "Multiples of 3 create a self-similar triangular pattern (a fractal) based on the divisibility of binomial coefficients.",
+            "desc_div5": "Divisibility by 5 reveals larger scale patterns, a visual proof of Lucas's Theorem in modular arithmetic.",
+            "tab_plain": "Plain",
+            "tab_sierpinski": "Sierpinski",
+            "tab_mod3": "Mod 3",
+            "tab_mod5": "Mod 5"
+        },
+        "collatz": {
+            "title": "Collatz Conjecture",
+            "simple_terms_title": "The Simplest Unsolved Problem",
+            "simple_terms_desc": "Pick any number. If it's <1>even</1>, halve it. If it's <2>odd</2>, triple it and add 1. Repeat.\nExample: 6 → 3 → 10 → 5 → 16 → 8 → 4 → 2 → 1.\nEvery number ever tested reaches 1, but nobody can prove it <3>always</3> works!",
+            "description": "The Collatz Conjecture states that repeatedly applying these simple rules to any starting number will eventually reach the number 1.",
+            "input_label": "Starting Number (n)",
+            "start_label": "Start: {{n}}",
+            "target_label": "Target: 1",
+            "total_steps": "Total Steps",
+            "peak_height": "Peak Height",
+            "journey_title": "The Journey",
+            "journey_desc": "Every number tested so far eventually reaches the 4-2-1 loop.",
+            "mystery_title": "The Mystery",
+            "mystery_history": "Unsolved since 1937",
+            "mystery_desc": "Also called the \"Hailstone sequence\" because numbers rise and fall like hailstones in a cloud before hitting the ground (1). Mathematician Paul Erdős said, \"Mathematics may not be ready for such problems.\""
+        },
+        "ulam": {
+            "title": "Ulam Spiral",
+            "big_idea": "The Big Idea",
+            "big_idea_desc": "Write the number <1>1</1> in the center of a grid. Spiral outward: 2, 3, 4, 5… Now <2>highlight only the primes</2>. Something weird happens — they line up along <1>diagonal lines</1>! This doodle reveals hidden patterns in how primes are distributed.",
+            "spiral_desc": "Visualize primes in a square spiral. Notice how primes tend to cluster along diagonal lines, suggesting mysterious patterns in the distribution of prime numbers.",
+            "density": "Density",
+            "primes": "Primes",
+            "total": "Total Points",
+            "show_growth_path": "Show Growth Path",
+            "control_spiral": "Control Spiral",
+            "number_of_points": "Number of Points",
+            "mathematical_insight": "Mathematical Insight",
+            "ulam_insight_title": "Stanisław Ulam (1963)",
+            "ulam_insight_desc": "While listening to a \"long and very boring paper\" at a scientific meeting, Ulam doodled a grid of numbers. He noticed that prime numbers appeared to fall primarily on diagonal lines. This suggests that certain quadratic polynomials like <1>n² + n + 41</1> are remarkably rich in prime numbers."
+        },
+        "pythagorean": {
+            "title": "Pythagorean Triples",
+            "formula_title": "Euclid's Formula",
+            "formula_desc": "Generate primitive triples using two integers x and y (where x > y).",
+            "input_x": "Integer x",
+            "input_y": "Integer y",
+            "input_y_helper": "Must be < x",
+            "primitive_triple": "Primitive Triple",
+            "non_primitive": "Non-Primitive",
+            "warning_x_y": "x must be greater than y to generate a valid triangle.",
+            "fun_fact_title": "Fun Fact",
+            "fun_fact_desc": "No perfect square ends in 2, 3, 7, or 8. All squares are either 4n or 4n+1."
+        },
+        "diophantine": {
+            "title": "Diophantine Equations",
+            "simple_terms_title": "The \"Whole Numbers Only\" Puzzle",
+            "simple_terms_desc": "You have ₹5 and ₹3 coins. Can you make exactly ₹23?\nThat's <1>5x + 3y = 23</1>. We need <2>whole number</2> answers only \u2014 no fractions allowed! If GCD(5,3)=1 divides 23, solutions exist. One answer: x=1, y=6 (check: 5+18=23 \u2713).",
+            "description": "Solve linear equations of the form ax + by = c using the Extended Euclidean Algorithm.",
+            "particular_solution_title": "Particular Solution",
+            "particular_solution_desc": "A specific integer solution discovered by the algorithm:",
+            "x0_label": "x₀ =",
+            "y0_label": "y₀ =",
+            "general_solutions_title": "General Solutions",
+            "step_x_label": "Step X: b/g",
+            "step_y_label": "Step Y: a/g",
+            "k_integer_footer": "Where k is any integer",
+            "no_solution_title": "No Solution",
+            "no_solution_desc": "gcd({{a}}, {{b}}) is {{g}}. Since {{g}} does not divide {{c}}, no integer values for x and y exist.",
+            "theory_title": "Theory & Help",
+            "historical_context": "Historical Context",
+            "historical_desc": "Named after the Greek mathematician Diophantus, these equations only seek integer solutions. The linear form is solved using the Extended Euclidean Algorithm, which builds the solution from the remainders of GCD division!"
+        },
+        "continued_fraction": {
+            "title": "Continued Fractions",
+            "simple_terms_title": "Russian Doll Fractions",
+            "simple_terms_desc": "Imagine peeling a fraction apart layer by layer. Take <1>13/8</1>: that's 1 + 5/8. Then 5/8 = 1/(8/5) = 1/(1 + 3/5). Keep going until there's nothing left.\nEach layer gives the <2>best possible approximation</2> at that level \u2014 that's why continued fractions are used to design calendars!",
+            "description": "Any rational number can be represented as a finite continued fraction [a₀; a\u2081, a\u2082, ...].",
+            "numerator_label": "Numerator",
+            "denominator_label": "Denominator",
+            "list_notation": "List Notation",
+            "nested_representation": "Nested Representation",
+            "coefficient_list_title": "Coefficient List",
+            "coefficient_label": "Coefficient a{{index}}",
+            "connection_title": "Connection",
+            "euclidean_link": "Euclidean Link",
+            "connection_desc": "Continued fractions are the visual manifestation of the Euclidean Algorithm. Each coefficient corresponds to a quotient in the division steps of GCD(numerator, denominator)!"
+        },
+        "rsa": {
+            "title": "RSA Cryptography",
+            "simple_terms_title": "The Padlock Analogy",
+            "simple_terms_desc": "Imagine sending someone an <1>open padlock</1>. Anyone can snap it shut (encrypt), but only <2>you have the key</2> to open it (decrypt). RSA works the same way: the public key is the open padlock, and the private key is the only key that opens it. The math relies on the fact that multiplying two huge primes is easy, but <1>factoring the product back is nearly impossible</1>.",
+            "description": "RSA is an asymmetric cryptographic algorithm that relies on the difficulty of factoring the product of two large prime numbers.",
+            "input_p": "Prime p",
+            "helper_p_prime": "First prime",
+            "helper_p_not_prime": "Not prime",
+            "input_q": "Prime q",
+            "helper_q_prime": "Second prime",
+            "helper_q_not_prime": "Not prime",
+            "helper_q_different": "Must be different",
+            "modulus_label": "Modulus (n = p×q)",
+            "totient_label": "Totient (φ = (p-1)(q-1))",
+            "private_key_label": "Private Key (d)",
+            "private_key_sub": "Inverse of {{e}} mod {{phi}}",
+            "encryption_title": "Encryption & Decryption",
+            "encryption_desc": "Encryption uses the public exponent (e={{e}}), while decryption uses the private key (d) found above.",
+            "message_label": "Message (m < {{n}})",
+            "message_helper": "Raw numeric data",
+            "message_error": "Message must be smaller than {{n}}",
+            "cipher_label": "Encrypted Cipher (c = mᵉ mod n)",
+            "original_message_label": "Original Message (m = cᵈ mod n)"
+        },
+        "diffie_hellman": {
+            "title": "Diffie-Hellman Key Exchange",
+            "simple_terms_title": "The Paint-Mixing Trick",
+            "simple_terms_desc": "Alice and Bob each pick a <1>secret color</1>. They mix it with a shared <2>public color</2> and swap the mixtures. Each then adds their secret again — both end up with the <1>same final color</1>, but an eavesdropper can't unmix to find the secrets! In math, \"mixing\" is modular exponentiation, and \"unmixing\" is the discrete logarithm problem — believed to be incredibly hard.",
+            "description": "Establish a shared secret over an insecure channel using modular exponentiation. Alice and Bob never share their secret keys.",
+            "input_p": "Public Prime p",
+            "helper_p_prime": "Common modulus",
+            "helper_p_not_prime": "Should be prime",
+            "input_g": "Public Base g",
+            "helper_g": "Generator value",
+            "alice": "Alice",
+            "bob": "Bob",
+            "secret_a": "Secret a",
+            "secret_b": "Secret b",
+            "public_a_formula": "Public A = gᵃ mod p",
+            "public_b_formula": "Public B = gᵇ mod p",
+            "computed_secret_title": "The Computed Secret",
+            "computed_secret_desc": "Alice takes Bob's public key (B) and computes Bᵃ mod p. Bob takes Alice's public key (A) and computes Aᵇ mod p.",
+            "alice_computes": "Alice computes Bᵃ mod p",
+            "bob_computes": "Bob computes Aᵇ mod p",
+            "match_title": "Shared Secret Match!",
+            "match_desc": "Both now have the identical secret key: {{secret}}"
+        },
+        "hashing": {
+            "title": "Hashing Algorithms",
+            "simple_terms_title": "Data Fingerprints",
+            "simple_terms_desc": "A hash is like a <1>fingerprint for data</1>. Feed in any text — you always get the same fixed-length code. Change even <2>one letter</2> and the hash changes completely! Used everywhere: password storage, file downloads (did it get corrupted?), blockchains, and digital signatures.",
+            "description": "A Hash Function maps data of arbitrary size to a fixed-size value. It is a 'one-way' mathematical process typically used for data integrity.",
+            "input_label": "Input Data",
+            "placeholder": "Type something...",
+            "result_label": "Hash Result (Hex)",
+            "properties_title": "Key Properties",
+            "deterministic_title": "Deterministic",
+            "deterministic_desc": "Same input always produces the same hash.",
+            "fast_title": "Fast",
+            "fast_desc": "Computing the hash is computationally efficient.",
+            "irreversible_title": "Irreversible",
+            "irreversible_desc": "Hard to find the original input from its hash.",
+            "avalanche_title": "Avalanche Effect",
+            "avalanche_desc": "Small input changes create drastic hash changes."
+        },
+        "digital_signature": {
+            "title": "Digital Signatures",
+            "simple_terms_title": "Math-Based Handwriting",
+            "simple_terms_desc": "A digital signature is like signing a document, but with <1>unforgeable math</1>. You sign with your <2>secret private key</2>, and anyone can verify it with your <1>public key</1>. Used for software updates, banking transactions, email authentication, and legal documents — anywhere you need proof that a message is genuine and untampered.",
+            "description": "Digital signatures verify the authenticity of a message using RSA. Encryption with a private key serves as the signature.",
+            "input_label": "Message to Sign (Numeric)",
+            "helper_text": "The integer message to be signed",
+            "signature_label": "Generated Signature (s = mᵈ mod n)",
+            "verification_title": "Verification (Public Key)",
+            "verification_desc": "Anyone with the public key can verify that the signature was created by the corresponding private key.",
+            "verify_input": "Verify Signature",
+            "placeholder": "Paste signature here",
+            "authentic": "AUTHENTIC",
+            "invalid": "INVALID",
+            "decrypted_label": "Decrypted value: <1>{{val}}</1>",
+            "matches": "Matches original message!",
+            "no_match": "Does not match message."
+        },
+        "partition": {
+            "title": "Partition Theory",
+            "simple_terms_title": "Splitting Into Groups",
+            "simple_terms_desc": "How many ways can you break <1>4 coins</1> into piles? 4 = 4, or 3+1, or 2+2, or 2+1+1, or 1+1+1+1 — that's <2>5 ways</2> (p(4)=5). Order doesn't matter! This count grows shockingly fast: p(100) = 190,569,292,356.",
+            "description": "In number theory, a partition of a positive integer n is a way of writing n as a sum of positive integers.",
+            "input_label": "Number n",
+            "helper_text": "p(n) grows extremely fast!",
+            "count_label": "Partition Count p({{n}})",
+            "visual_title": "Visualizing p({{n}})",
+            "visual_desc": "Showing the {{count}} ways to split {{n}}:",
+            "limit_text": "Visualization limited to n=12 to prevent performance issues.",
+            "ramanujan_title": "Ramanujan & Hardy",
+            "growth_title": "Asymptotic Growth",
+            "growth_desc": "Srinivasa Ramanujan and G.H. Hardy developed an incredible asymptotic formula for p(n). Ramanujan also discovered surprising congruences, like p(5n+4) always being divisible by 5!"
+        },
+        "constructible_polygons": {
+            "title": "Constructible Polygons",
+            "gauss_theorem": "Gauss's Theorem",
+            "gauss_desc": "A regular n-sided polygon is constructible if n is a power of 2 times distinct Fermat primes (3, 5, 17, 257, 65537).",
+            "input_label": "Number of Sides (n)",
+            "placeholder": "e.g. 17",
+            "constructible": "Constructible",
+            "not_constructible": "Not Constructible",
+            "limit_text": "Visualization hidden for n > 100 to maintain smoothness.",
+            "error_min_sides": "Enter 3 or more sides to check constructability.",
+            "known_fermat_primes": "Known Fermat Primes",
+            "gauss_discovery": "Gauss's 1796 discovery showed that the heptadecagon (17 sides) is constructible, a feat that eluded mathematicians for 2000 years!"
+        }
+    }
+}

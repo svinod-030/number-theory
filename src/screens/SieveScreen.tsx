@@ -70,7 +70,10 @@ const NumberCell = ({ num, status }: NumberCellProps) => {
     );
 };
 
+import { useTranslation, Trans } from 'react-i18next';
+
 export default function SieveScreen() {
+    const { t } = useTranslation();
     const [numbers, setNumbers] = useState<Record<number, NumberCellProps['status']>>({});
     const [currentP, setCurrentP] = useState<number | null>(null);
     const [isAnimating, setIsAnimating] = useState(false);
@@ -151,7 +154,7 @@ export default function SieveScreen() {
 
     return (
         <SafeAreaView className="flex-1 bg-slate-950">
-            <ScreenHeader title="Sieve of Eratosthenes" />
+            <ScreenHeader title={t('tools.sieve.title')} />
 
             <ScrollView
                 className="flex-1"
@@ -160,31 +163,42 @@ export default function SieveScreen() {
             >
                 <MathCard
                     index={0}
-                    title="In Simple Terms"
+                    title={t('visualizers.sieve.in_simple_terms')}
                 >
                     <View className="bg-emerald-500/5 p-5 rounded-2xl border border-emerald-500/10 mb-4">
                         <View className="flex-row items-center mb-3">
                             <Ionicons name="bulb-outline" size={18} color="#34d399" />
-                            <Text className="text-emerald-400 font-bold ml-2 text-xs uppercase">Everyday Analogy</Text>
+                            <Text className="text-emerald-400 font-bold ml-2 text-xs uppercase">{t('visualizers.sieve.everyday_analogy')}</Text>
                         </View>
                         <Text className="text-slate-400 text-xs leading-5">
-                            Imagine writing numbers 2–100 on a whiteboard. Start at <Text className="text-white font-bold">2</Text> (the first prime) and cross off every 2nd number after it (4, 6, 8…). Move to <Text className="text-white font-bold">3</Text> and cross off every 3rd number. Keep going — whatever survives the crossing is <Text className="text-emerald-400 font-bold">prime</Text>.
+                            <Trans
+                                i18nKey="visualizers.sieve.analogy_desc"
+                                components={{
+                                    1: <Text className="text-white font-bold" />,
+                                    2: <Text className="text-emerald-400 font-bold" />
+                                }}
+                            />
                         </Text>
                     </View>
                     <View className="bg-sky-500/5 p-5 rounded-2xl border border-sky-500/10">
                         <View className="flex-row items-center mb-3">
                             <Ionicons name="globe-outline" size={18} color="#38bdf8" />
-                            <Text className="text-sky-400 font-bold ml-2 text-xs uppercase">Why It Matters</Text>
+                            <Text className="text-sky-400 font-bold ml-2 text-xs uppercase">{t('visualizers.sieve.why_it_matters')}</Text>
                         </View>
                         <Text className="text-slate-400 text-xs leading-5">
-                            Every time you shop online or send a message, <Text className="text-white font-bold">prime numbers</Text> protect your data. Modern encryption (like RSA) depends on large primes. The Sieve is the first step to finding them efficiently.
+                            <Trans
+                                i18nKey="visualizers.sieve.matters_desc"
+                                components={{
+                                    1: <Text className="text-white font-bold" />
+                                }}
+                            />
                         </Text>
                     </View>
                 </MathCard>
 
                 <MathCard
                     index={1}
-                    description="The most efficient ancient algorithm to find all primes up to 100 by progressively marking multiples of each discovered prime."
+                    description={t('visualizers.sieve.efficient_algorithm')}
                 >
                     <View className="bg-slate-950/50 p-3 rounded-2xl border border-slate-800/50 items-center justify-center">
                         <View className="flex-row flex-wrap justify-center">
@@ -209,7 +223,7 @@ export default function SieveScreen() {
                                 color={isAnimating ? "#f59e0b" : "#10b981"}
                             />
                             <Text className={`font-black ml-3 uppercase tracking-widest text-xs ${isAnimating ? 'text-amber-500' : 'text-emerald-500'}`}>
-                                {isAnimating ? 'Stop Animation' : 'Start Sieve'}
+                                {isAnimating ? t('visualizers.sieve.stop_sieve') : t('visualizers.sieve.start_sieve')}
                             </Text>
                         </TouchableOpacity>
 
@@ -224,27 +238,27 @@ export default function SieveScreen() {
 
                 <MathCard
                     index={2}
-                    title="How it Works"
+                    title={t('visualizers.sieve.how_it_works')}
                 >
                     <View className="space-y-4">
-                        <StepItem icon="1" text="Start with the first prime (2)." />
-                        <StepItem icon="2" text="Mark all its multiples as composite." />
-                        <StepItem icon="3" text="Move to the next unmarked number and repeat." />
-                        <StepItem icon="4" text="Stop when the next number's square exceeds the limit." />
+                        <StepItem icon="1" text={t('visualizers.sieve.step1')} />
+                        <StepItem icon="2" text={t('visualizers.sieve.step2')} />
+                        <StepItem icon="3" text={t('visualizers.sieve.step3')} />
+                        <StepItem icon="4" text={t('visualizers.sieve.step4')} />
                     </View>
                 </MathCard>
 
                 <MathCard
                     index={3}
-                    title="Math Fact"
+                    title={t('visualizers.sieve.math_fact')}
                 >
                     <View className="bg-emerald-500/5 p-5 rounded-2xl border border-emerald-500/10">
                         <View className="flex-row items-center mb-3">
                             <Ionicons name="leaf-outline" size={18} color="#10b981" />
-                            <Text className="text-emerald-400 font-bold ml-2 text-xs uppercase font-bold">Historical Brilliance</Text>
+                            <Text className="text-emerald-400 font-bold ml-2 text-xs uppercase font-bold">{t('visualizers.sieve.historical_brilliance')}</Text>
                         </View>
                         <Text className="text-slate-400 text-xs leading-5">
-                            Attributed to the Greek mathematician Eratosthenes (3rd century BC), this method remains the foundation for many modern sieve theories used in advanced number theory research today.
+                            {t('visualizers.sieve.history_desc')}
                         </Text>
                     </View>
                 </MathCard>
@@ -254,6 +268,7 @@ export default function SieveScreen() {
         </SafeAreaView>
     );
 }
+
 
 function StepItem({ icon, text }: { icon: string, text: string }) {
     return (

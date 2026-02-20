@@ -8,7 +8,10 @@ import ThemedInput from '../components/ThemedInput';
 import Animated, { FadeIn } from 'react-native-reanimated';
 import { Ionicons } from '@expo/vector-icons';
 
+import { useTranslation, Trans } from 'react-i18next';
+
 export default function ContinuedFractionScreen() {
+    const { t } = useTranslation();
     const [numInput, setNumInput] = useState('13');
     const [denInput, setDenInput] = useState('8');
 
@@ -45,7 +48,7 @@ export default function ContinuedFractionScreen() {
 
     return (
         <SafeAreaView className="flex-1 bg-slate-950">
-            <ScreenHeader title="Continued Fractions" />
+            <ScreenHeader title={t('visualizers.continued_fraction.title')} />
 
             <ScrollView
                 className="flex-1"
@@ -54,27 +57,33 @@ export default function ContinuedFractionScreen() {
             >
                 <MathCard
                     index={0}
-                    title="In Simple Terms"
+                    title={t('visualizers.sieve.in_simple_terms')}
                 >
                     <View className="bg-sky-500/5 p-5 rounded-2xl border border-sky-500/10 mb-4">
                         <View className="flex-row items-center mb-3">
                             <Ionicons name="bulb-outline" size={18} color="#38bdf8" />
-                            <Text className="text-sky-400 font-bold ml-2 text-xs uppercase">Russian Doll Fractions</Text>
+                            <Text className="text-sky-400 font-bold ml-2 text-xs uppercase">{t('visualizers.continued_fraction.simple_terms_title')}</Text>
                         </View>
                         <Text className="text-slate-400 text-xs leading-5">
-                            Imagine peeling a fraction apart layer by layer. Take <Text className="text-white font-bold">13/8</Text>: that's 1 + 5/8. Then 5/8 = 1/(8/5) = 1/(1 + 3/5). Keep going until there's nothing left.{"\n"}Each layer gives the <Text className="text-sky-400 font-bold">best possible approximation</Text> at that level — that's why continued fractions are used to design calendars!
+                            <Trans
+                                i18nKey="visualizers.continued_fraction.simple_terms_desc"
+                                components={{
+                                    1: <Text className="text-white font-bold" />,
+                                    2: <Text className="text-sky-400 font-bold" />
+                                }}
+                            />
                         </Text>
                     </View>
                 </MathCard>
 
                 <MathCard
                     index={1}
-                    description="Any rational number can be represented as a finite continued fraction [a₀; a₁, a₂, ...]."
+                    description={t('visualizers.continued_fraction.description')}
                 >
                     <View className="flex-row space-x-4">
                         <View className="flex-1">
                             <ThemedInput
-                                label="Numerator"
+                                label={t('visualizers.continued_fraction.numerator_label')}
                                 value={numInput}
                                 onChangeText={setNumInput}
                                 keyboardType="numeric"
@@ -82,7 +91,7 @@ export default function ContinuedFractionScreen() {
                         </View>
                         <View className="flex-1">
                             <ThemedInput
-                                label="Denominator"
+                                label={t('visualizers.continued_fraction.denominator_label')}
                                 value={denInput}
                                 onChangeText={setDenInput}
                                 keyboardType="numeric"
@@ -91,7 +100,7 @@ export default function ContinuedFractionScreen() {
                     </View>
 
                     <View className="mt-4 p-6 bg-slate-900 rounded-2xl border border-slate-800 items-center justify-between flex-row">
-                        <Text className="text-slate-500 text-[10px] font-bold uppercase tracking-widest">List Notation</Text>
+                        <Text className="text-slate-500 text-[10px] font-bold uppercase tracking-widest">{t('visualizers.continued_fraction.list_notation')}</Text>
                         <Text className="text-sky-400 font-mono text-lg font-bold">
                             [{coefficients.join('; ')}]
                         </Text>
@@ -100,7 +109,7 @@ export default function ContinuedFractionScreen() {
 
                 <MathCard
                     index={2}
-                    title="Nested Representation"
+                    title={t('visualizers.continued_fraction.nested_representation')}
                 >
                     <View className="bg-slate-900/50 rounded-2xl border border-slate-800/50 w-full overflow-hidden">
                         <ScrollView
@@ -117,7 +126,7 @@ export default function ContinuedFractionScreen() {
 
                 <MathCard
                     index={3}
-                    title="Coefficient List"
+                    title={t('visualizers.continued_fraction.coefficient_list_title')}
                 >
                     <View className="space-y-3">
                         {coefficients.map((coeff, i) => (
@@ -131,7 +140,7 @@ export default function ContinuedFractionScreen() {
                                         <Text className="text-slate-500 font-bold text-[10px]">{i}</Text>
                                     </View>
                                     <View>
-                                        <Text className="text-white font-bold text-xs">Coefficient a{i === 0 ? '₀' : i === 1 ? '₁' : `ₖ`}</Text>
+                                        <Text className="text-white font-bold text-xs">{t('visualizers.continued_fraction.coefficient_label', { count: i, index: i === 0 ? '₀' : i === 1 ? '₁' : `ₖ` })}</Text>
                                     </View>
                                 </View>
                                 <Text className="text-sky-400 text-2xl font-black">{coeff}</Text>
@@ -142,15 +151,15 @@ export default function ContinuedFractionScreen() {
 
                 <MathCard
                     index={4}
-                    title="Connection"
+                    title={t('visualizers.continued_fraction.connection_title')}
                 >
                     <View className="bg-slate-900/50 p-5 rounded-2xl border border-slate-800/50">
                         <View className="flex-row items-center mb-3">
                             <Ionicons name="link-outline" size={18} color="#38bdf8" />
-                            <Text className="text-sky-400 font-bold ml-2 text-xs uppercase font-bold">Euclidean Link</Text>
+                            <Text className="text-sky-400 font-bold ml-2 text-xs uppercase font-bold">{t('visualizers.continued_fraction.euclidean_link')}</Text>
                         </View>
                         <Text className="text-slate-400 text-xs leading-5">
-                            Continued fractions are the visual manifestation of the Euclidean Algorithm. Each coefficient corresponds to a quotient in the division steps of GCD(numerator, denominator)!
+                            {t('visualizers.continued_fraction.connection_desc')}
                         </Text>
                     </View>
                 </MathCard>

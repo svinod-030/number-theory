@@ -11,7 +11,10 @@ import { Svg, Polygon, Text as SvgText } from 'react-native-svg';
 
 const { width } = Dimensions.get('window');
 
+import { useTranslation } from 'react-i18next';
+
 export default function PythagoreanTriplesScreen() {
+    const { t } = useTranslation();
     const [x, setX] = useState('2');
     const [y, setY] = useState('1');
 
@@ -42,17 +45,17 @@ export default function PythagoreanTriplesScreen() {
 
     return (
         <SafeAreaView className="flex-1 bg-slate-950">
-            <ScreenHeader title="Pythagorean Triples" />
+            <ScreenHeader title={t('visualizers.pythagorean.title')} />
 
             <ScrollView className="flex-1" contentContainerStyle={{ paddingHorizontal: 24, paddingVertical: 12 }}>
                 <MathCard
-                    title="Euclid's Formula"
-                    description="Generate primitive triples using two integers x and y (where x > y)."
+                    title={t('visualizers.pythagorean.formula_title')}
+                    description={t('visualizers.pythagorean.formula_desc')}
                 >
                     <View className="flex-row space-x-4">
                         <View className="flex-1">
                             <ThemedInput
-                                label="Integer x"
+                                label={t('visualizers.pythagorean.input_x')}
                                 value={x}
                                 onChangeText={setX}
                                 keyboardType="numeric"
@@ -61,13 +64,13 @@ export default function PythagoreanTriplesScreen() {
                         </View>
                         <View className="flex-1">
                             <ThemedInput
-                                label="Integer y"
+                                label={t('visualizers.pythagorean.input_y')}
                                 value={y}
                                 onChangeText={setY}
                                 keyboardType="numeric"
                                 placeholder="y"
                                 error={parseInt(x) <= parseInt(y)}
-                                helperText={parseInt(x) <= parseInt(y) ? "Must be < x" : ""}
+                                helperText={parseInt(x) <= parseInt(y) ? t('visualizers.pythagorean.input_y_helper') : ""}
                             />
                         </View>
                     </View>
@@ -91,7 +94,7 @@ export default function PythagoreanTriplesScreen() {
                             <View className="flex-row items-center mb-4">
                                 <View className={`px-3 py-1 rounded-full ${triple.isPrimitive ? 'bg-emerald-500/20' : 'bg-slate-800'}`}>
                                     <Text className={`text-[10px] font-black uppercase ${triple.isPrimitive ? 'text-emerald-400' : 'text-slate-500'}`}>
-                                        {triple.isPrimitive ? 'Primitive Triple' : 'Non-Primitive'}
+                                        {triple.isPrimitive ? t('visualizers.pythagorean.primitive_triple') : t('visualizers.pythagorean.non_primitive')}
                                     </Text>
                                 </View>
                             </View>
@@ -154,14 +157,14 @@ export default function PythagoreanTriplesScreen() {
                 ) : (
                     <View className="items-center py-20">
                         <Ionicons name="warning-outline" size={48} color="#334155" />
-                        <Text className="text-slate-500 mt-4 text-center">x must be greater than y to generate a valid triangle.</Text>
+                        <Text className="text-slate-500 mt-4 text-center">{t('visualizers.pythagorean.warning_x_y')}</Text>
                     </View>
                 )}
 
                 <MathCard
                     index={2}
-                    title="Fun Fact"
-                    description="No perfect square ends in 2, 3, 7, or 8. All squares are either 4n or 4n+1."
+                    title={t('visualizers.pythagorean.fun_fact_title')}
+                    description={t('visualizers.pythagorean.fun_fact_desc')}
                 />
 
                 <View style={{ height: 40 }} />

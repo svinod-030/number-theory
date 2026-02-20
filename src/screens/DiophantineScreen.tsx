@@ -8,7 +8,10 @@ import ThemedInput from '../components/ThemedInput';
 import Animated, { FadeIn, SlideInRight } from 'react-native-reanimated';
 import { Ionicons } from '@expo/vector-icons';
 
+import { useTranslation, Trans } from 'react-i18next';
+
 export default function DiophantineScreen() {
+    const { t } = useTranslation();
     const [numA, setNumA] = useState('3');
     const [numB, setNumB] = useState('4');
     const [numC, setNumC] = useState('5');
@@ -21,7 +24,7 @@ export default function DiophantineScreen() {
 
     return (
         <SafeAreaView className="flex-1 bg-slate-950">
-            <ScreenHeader title="Diophantine Equations" />
+            <ScreenHeader title={t('visualizers.diophantine.title')} />
 
             <ScrollView
                 className="flex-1"
@@ -30,22 +33,28 @@ export default function DiophantineScreen() {
             >
                 <MathCard
                     index={0}
-                    title="In Simple Terms"
+                    title={t('visualizers.sieve.in_simple_terms')}
                 >
                     <View className="bg-amber-500/5 p-5 rounded-2xl border border-amber-500/10 mb-4">
                         <View className="flex-row items-center mb-3">
                             <Ionicons name="bulb-outline" size={18} color="#fbbf24" />
-                            <Text className="text-amber-400 font-bold ml-2 text-xs uppercase">The "Whole Numbers Only" Puzzle</Text>
+                            <Text className="text-amber-400 font-bold ml-2 text-xs uppercase">{t('visualizers.diophantine.simple_terms_title')}</Text>
                         </View>
                         <Text className="text-slate-400 text-xs leading-5">
-                            You have ₹5 and ₹3 coins. Can you make exactly ₹23?{"\n"}That's <Text className="text-white font-bold">5x + 3y = 23</Text>. We need <Text className="text-amber-400 font-bold">whole number</Text> answers only — no fractions allowed! If GCD(5,3)=1 divides 23, solutions exist. One answer: x=1, y=6 (check: 5+18=23 ✓).
+                            <Trans
+                                i18nKey="visualizers.diophantine.simple_terms_desc"
+                                components={{
+                                    1: <Text className="text-white font-bold" />,
+                                    2: <Text className="text-amber-400 font-bold" />
+                                }}
+                            />
                         </Text>
                     </View>
                 </MathCard>
 
                 <MathCard
                     index={1}
-                    description="Solve linear equations of the form ax + by = c using the Extended Euclidean Algorithm."
+                    description={t('visualizers.diophantine.description')}
                 >
                     <View className="bg-slate-900/50 p-8 rounded-3xl border border-slate-800/50 mb-8 items-center border-dashed">
                         <View className="flex-row items-center">
@@ -77,40 +86,40 @@ export default function DiophantineScreen() {
                         <Animated.View key={`${a}-${b}-${c}`} entering={FadeIn} className="px-1">
                             <MathCard
                                 index={2}
-                                title="Particular Solution"
-                                description="A specific integer solution discovered by the algorithm:"
+                                title={t('visualizers.diophantine.particular_solution_title')}
+                                description={t('visualizers.diophantine.particular_solution_desc')}
                             >
                                 <View className="flex-row justify-around mb-8 p-6 bg-amber-500/10 rounded-2xl border border-amber-500/20">
                                     <View className="items-center">
-                                        <Text className="text-slate-500 text-[10px] font-bold uppercase mb-1">x₀ =</Text>
+                                        <Text className="text-slate-500 text-[10px] font-bold uppercase mb-1">{t('visualizers.diophantine.x0_label')}</Text>
                                         <Text className="text-4xl font-black text-white">{result.x0}</Text>
                                     </View>
                                     <View className="items-center">
-                                        <Text className="text-slate-500 text-[10px] font-bold uppercase mb-1">y₀ =</Text>
+                                        <Text className="text-slate-500 text-[10px] font-bold uppercase mb-1">{t('visualizers.diophantine.y0_label')}</Text>
                                         <Text className="text-4xl font-black text-white">{result.y0}</Text>
                                     </View>
                                 </View>
 
                                 <View className="bg-slate-900 border border-slate-800 p-5 rounded-2xl">
-                                    <Text className="text-slate-400 text-xs font-bold uppercase tracking-widest mb-4">General Solutions</Text>
+                                    <Text className="text-slate-400 text-xs font-bold uppercase tracking-widest mb-4">{t('visualizers.diophantine.general_solutions_title')}</Text>
                                     <View className="flex-row items-center justify-between mb-4">
                                         <Text className="text-white font-mono text-lg">x = {result.x0} + {result.stepX}k</Text>
-                                        <Text className="text-amber-400 text-[10px] font-bold uppercase tracking-widest">Step X: b/g</Text>
+                                        <Text className="text-amber-400 text-[10px] font-bold uppercase tracking-widest">{t('visualizers.diophantine.step_x_label')}</Text>
                                     </View>
                                     <View className="flex-row items-center justify-between">
                                         <Text className="text-white font-mono text-lg">y = {result.y0} - {result.stepY}k</Text>
-                                        <Text className="text-amber-400 text-[10px] font-bold uppercase tracking-widest">Step Y: a/g</Text>
+                                        <Text className="text-amber-400 text-[10px] font-bold uppercase tracking-widest">{t('visualizers.diophantine.step_y_label')}</Text>
                                     </View>
-                                    <Text className="text-slate-600 text-[10px] mt-6 italic text-center uppercase font-bold tracking-widest">Where k is any integer</Text>
+                                    <Text className="text-slate-600 text-[10px] mt-6 italic text-center uppercase font-bold tracking-widest">{t('visualizers.diophantine.k_integer_footer')}</Text>
                                 </View>
                             </MathCard>
                         </Animated.View>
                     ) : (
                         <View className="mb-6 mx-1 bg-rose-500/10 border border-rose-500/20 p-6 rounded-3xl items-center">
                             <Ionicons name="warning-outline" size={32} color="#f43f5e" />
-                            <Text className="text-rose-400 font-black text-xl mt-2">No Solution</Text>
+                            <Text className="text-rose-400 font-black text-xl mt-2">{t('visualizers.diophantine.no_solution_title')}</Text>
                             <Text className="text-slate-400 text-xs text-center mt-3 leading-5 font-bold">
-                                gcd({a}, {b}) is {result.g}. Since {result.g} does not divide {c}, no integer values for x and y exist.
+                                {t('visualizers.diophantine.no_solution_desc', { a, b, g: result.g, c })}
                             </Text>
                         </View>
                     )
@@ -118,15 +127,15 @@ export default function DiophantineScreen() {
 
                 <MathCard
                     index={3}
-                    title="Theory & Help"
+                    title={t('visualizers.diophantine.theory_title')}
                 >
                     <View className="bg-slate-900/50 p-5 rounded-2xl border border-slate-800/50">
                         <View className="flex-row items-center mb-3">
                             <Ionicons name="infinite-outline" size={18} color="#fbbf24" />
-                            <Text className="text-amber-400 font-bold ml-2 text-xs uppercase font-bold">Historical Context</Text>
+                            <Text className="text-amber-400 font-bold ml-2 text-xs uppercase font-bold">{t('visualizers.diophantine.historical_context')}</Text>
                         </View>
                         <Text className="text-slate-400 text-xs leading-5">
-                            Named after the Greek mathematician Diophantus, these equations only seek integer solutions. The linear form is solved using the Extended Euclidean Algorithm, which builds the solution from the remainders of GCD division!
+                            {t('visualizers.diophantine.historical_desc')}
                         </Text>
                     </View>
                 </MathCard>

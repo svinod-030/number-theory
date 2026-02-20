@@ -1,71 +1,83 @@
 import React, { useState, useMemo } from 'react';
-import { View, Text, TouchableOpacity, ScrollView, Image, TextInput } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView, Image, TextInput, Modal, Pressable } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../types/navigation';
 import { Ionicons } from '@expo/vector-icons';
 import Animated, { FadeInDown, FadeInUp, ZoomIn, Layout, FadeIn } from 'react-native-reanimated';
+import { useTranslation, Trans } from 'react-i18next';
 
 interface ProjectTool {
-    title: string;
-    description: string;
+    key: string;
     screen: keyof RootStackParamList;
     icon: string;
     accent: string;
 }
 
 const ALL_TOOLS: ProjectTool[] = [
-    { title: "Sieve of Eratosthenes", description: "Visualize prime finding algorithm", screen: "Sieve", icon: "grid-outline", accent: "#34d399" },
-    { title: "Ulam Spiral", description: "Patterns of primes in a square grid", screen: "UlamSpiral", icon: "sync-outline", accent: "#34d399" },
-    { title: "Factorization Tree", description: "Unique Prime Factorization", screen: "Factorization", icon: "git-branch-outline", accent: "#34d399" },
-    { title: "Goldbach Conjecture", description: "Primes that sum to even numbers", screen: "Goldbach", icon: "flame-outline", accent: "#34d399" },
-    { title: "Amicable Numbers", description: "Friendly number pairs", screen: "AmicableNumbers", icon: "heart-outline", accent: "#34d399" },
-    { title: "Modular Playground", description: "Interactive modular calculator", screen: "ModularPlayground", icon: "calculator-outline", accent: "#38bdf8" },
-    { title: "Modular Inverse", description: "Find modular multiplicative inverses", screen: "ModularInverse", icon: "swap-horizontal-outline", accent: "#38bdf8" },
-    { title: "Modular Exponentiation", description: "Fast powers modulo n", screen: "ModularExponentiation", icon: "flash-outline", accent: "#38bdf8" },
-    { title: "Modular Table", description: "Multiplication tables mod n", screen: "ModularTable", icon: "grid-outline", accent: "#38bdf8" },
-    { title: "Totient Function Φ(n)", description: "Count coprime numbers", screen: "Totient", icon: "pie-chart-outline", accent: "#38bdf8" },
-    { title: "Chinese Remainder", description: "Solve systems of congruences", screen: "CRT", icon: "layers-outline", accent: "#38bdf8" },
-    { title: "Primitive Roots", description: "Cyclic generators of groups", screen: "PrimitiveRoots", icon: "infinite-outline", accent: "#38bdf8" },
-    { title: "Quadratic Reciprocity", description: "Square roots in modular math", screen: "QuadraticReciprocity", icon: "git-merge-outline", accent: "#38bdf8" },
-    { title: "Euclidean Algorithm", description: "Step-by-step GCD visualizer", screen: "EuclideanVisualizer", icon: "trending-down-outline", accent: "#fbbf24" },
-    { title: "LCM Calculator", description: "Least Common Multiple steps", screen: "LCM", icon: "trending-up-outline", accent: "#fbbf24" },
-    { title: "Fibonacci Spiral", description: "Golden ratio and nature's code", screen: "Fibonacci", icon: "infinite-outline", accent: "#fbbf24" },
-    { title: "Pascal's Triangle", description: "Combinatorics and patterns", screen: "PascalTriangle", icon: "triangle-outline", accent: "#fbbf24" },
-    { title: "Collatz Conjecture", description: "Visualizing the 3n+1 sequence", screen: "Collatz", icon: "stats-chart-outline", accent: "#fbbf24" },
-    { title: "Continued Fractions", description: "Approximate real numbers", screen: "ContinuedFraction", icon: "reorder-four-outline", accent: "#fbbf24" },
-    { title: "Diophantine Equations", description: "Solve integer linear equations", screen: "Diophantine", icon: "link-outline", accent: "#fbbf24" },
-    { title: "Divisors Finder", description: "List all divisors of a number", screen: "Divisors", icon: "list-outline", accent: "#fbbf24" },
-    { title: "Partition Theory", description: "Young Diagrams and partitions", screen: "Partition", icon: "apps-outline", accent: "#fbbf24" },
-    { title: "RSA Cryptography", description: "Encryption and prime security", screen: "RSA", icon: "lock-closed-outline", accent: "#f43f5e" },
-    { title: "Diffie-Hellman", description: "Key exchange protocol", screen: "DiffieHellman", icon: "key-outline", accent: "#f43f5e" },
-    { title: "Hashing Algorithms", description: "One-way math functions", screen: "Hashing", icon: "barcode-outline", accent: "#f43f5e" },
-    { title: "Digital Signatures", description: "Authentication with math", screen: "DigitalSignature", icon: "create-outline", accent: "#f43f5e" },
-    { title: "Perfect Numbers", description: "Sum of divisors equals number", screen: "PerfectNumbers", icon: "star-outline", accent: "#f43f5e" },
-    { title: "Legendre Symbol", description: "Quadratic Residues visualizer", screen: "Legendre", icon: "prism-outline", accent: "#f43f5e" },
-    { title: "Pythagorean Triples", description: "Generate right triangles with Euclid's formula", screen: "PythagoreanTriples", icon: "triangle-outline", accent: "#fbbf24" },
-    { title: "Constructible Polygons", description: "Gauss's Theorem on regular n-gons", screen: "ConstructiblePolygons", icon: "shapes-outline", accent: "#34d399" },
+    { key: "sieve", screen: "Sieve", icon: "grid-outline", accent: "#34d399" },
+    { key: "ulam", screen: "UlamSpiral", icon: "sync-outline", accent: "#34d399" },
+    { key: "factorization", screen: "Factorization", icon: "git-branch-outline", accent: "#34d399" },
+    { key: "goldbach", screen: "Goldbach", icon: "flame-outline", accent: "#34d399" },
+    { key: "amicable", screen: "AmicableNumbers", icon: "heart-outline", accent: "#34d399" },
+    { key: "modular_playground", screen: "ModularPlayground", icon: "calculator-outline", accent: "#38bdf8" },
+    { key: "modular_inverse", screen: "ModularInverse", icon: "swap-horizontal-outline", accent: "#38bdf8" },
+    { key: "modular_exponentiation", screen: "ModularExponentiation", icon: "flash-outline", accent: "#38bdf8" },
+    { key: "modular_table", screen: "ModularTable", icon: "grid-outline", accent: "#38bdf8" },
+    { key: "totient", screen: "Totient", icon: "pie-chart-outline", accent: "#38bdf8" },
+    { key: "crt", screen: "CRT", icon: "layers-outline", accent: "#38bdf8" },
+    { key: "primitive_roots", screen: "PrimitiveRoots", icon: "infinite-outline", accent: "#38bdf8" },
+    { key: "quadratic_reciprocity", screen: "QuadraticReciprocity", icon: "git-merge-outline", accent: "#38bdf8" },
+    { key: "euclidean", screen: "EuclideanVisualizer", icon: "trending-down-outline", accent: "#fbbf24" },
+    { key: "lcm", screen: "LCM", icon: "trending-up-outline", accent: "#fbbf24" },
+    { key: "fibonacci", screen: "Fibonacci", icon: "infinite-outline", accent: "#fbbf24" },
+    { key: "pascal", screen: "PascalTriangle", icon: "triangle-outline", accent: "#fbbf24" },
+    { key: "collatz", screen: "Collatz", icon: "stats-chart-outline", accent: "#fbbf24" },
+    { key: "continued_fractions", screen: "ContinuedFraction", icon: "reorder-four-outline", accent: "#fbbf24" },
+    { key: "diophantine", screen: "Diophantine", icon: "link-outline", accent: "#fbbf24" },
+    { key: "divisors", screen: "Divisors", icon: "list-outline", accent: "#fbbf24" },
+    { key: "partition", screen: "Partition", icon: "apps-outline", accent: "#fbbf24" },
+    { key: "rsa", screen: "RSA", icon: "lock-closed-outline", accent: "#f43f5e" },
+    { key: "diffie_hellman", screen: "DiffieHellman", icon: "key-outline", accent: "#f43f5e" },
+    { key: "hashing", screen: "Hashing", icon: "barcode-outline", accent: "#f43f5e" },
+    { key: "digital_signatures", screen: "DigitalSignature", icon: "create-outline", accent: "#f43f5e" },
+    { key: "perfect_numbers", screen: "PerfectNumbers", icon: "star-outline", accent: "#f43f5e" },
+    { key: "legendre", screen: "Legendre", icon: "prism-outline", accent: "#f43f5e" },
+    { key: "pythagorean", screen: "PythagoreanTriples", icon: "triangle-outline", accent: "#fbbf24" },
+    { key: "constructible", screen: "ConstructiblePolygons", icon: "shapes-outline", accent: "#34d399" },
+];
+
+const LANGUAGES = [
+    { code: 'en', name: 'English', native: 'English' },
+    { code: 'te', name: 'Telugu', native: 'తెలుగు' },
+    { code: 'ta', name: 'Tamil', native: 'தமிழ்' },
+    { code: 'kn', name: 'Kannada', native: 'ಕನ್ನಡ' },
+    { code: 'ml', name: 'Malayalam', native: 'മലയാളം' },
 ];
 
 export default function HomeScreen() {
+    const { t, i18n } = useTranslation();
     const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
     const [search, setSearch] = useState('');
+    const [langModalVisible, setLangModalVisible] = useState(false);
 
     const categories = [
-        { title: "Prime Numbers", count: 6, screen: "PrimesCategory", icon: "sparkles-outline", iconColor: "#34d399", bgColor: "bg-emerald-500/10", borderColor: "border-emerald-500/20" },
-        { title: "Modular Arithmetic", count: 9, screen: "ModularCategory", icon: "sync-circle-outline", iconColor: "#38bdf8", bgColor: "bg-sky-500/10", borderColor: "border-sky-500/20" },
-        { title: "Divisibility & Algorithms", count: 13, screen: "DivisibilityCategory", icon: "calculator-outline", iconColor: "#fbbf24", bgColor: "bg-amber-500/10", borderColor: "border-amber-500/20" },
-        { title: "Applications", count: 4, screen: "ApplicationsCategory", icon: "shield-checkmark-outline", iconColor: "#f43f5e", bgColor: "bg-rose-500/10", borderColor: "border-rose-500/20" }
+        { title: t('categories.primes'), count: 6, screen: "PrimesCategory", icon: "sparkles-outline", iconColor: "#34d399", bgColor: "bg-emerald-500/10", borderColor: "border-emerald-500/20" },
+        { title: t('categories.modular'), count: 9, screen: "ModularCategory", icon: "sync-circle-outline", iconColor: "#38bdf8", bgColor: "bg-sky-500/10", borderColor: "border-sky-500/20" },
+        { title: t('categories.divisibility'), count: 13, screen: "DivisibilityCategory", icon: "calculator-outline", iconColor: "#fbbf24", bgColor: "bg-amber-500/10", borderColor: "border-amber-500/20" },
+        { title: t('categories.applications'), count: 4, screen: "ApplicationsCategory", icon: "shield-checkmark-outline", iconColor: "#f43f5e", bgColor: "bg-rose-500/10", borderColor: "border-rose-500/20" }
     ];
 
     const searchResults = useMemo(() => {
         if (!search.trim()) return [];
-        return ALL_TOOLS.filter(t =>
-            t.title.toLowerCase().includes(search.toLowerCase()) ||
-            t.description.toLowerCase().includes(search.toLowerCase())
-        ).slice(0, 5);
-    }, [search]);
+        return ALL_TOOLS.filter(t_obj => {
+            const title = t(`tools.${t_obj.key}.title`);
+            const desc = t(`tools.${t_obj.key}.description`);
+            return title.toLowerCase().includes(search.toLowerCase()) ||
+                desc.toLowerCase().includes(search.toLowerCase());
+        }).slice(0, 5);
+    }, [search, i18n.language]);
 
     return (
         <SafeAreaView className="flex-1 bg-slate-950">
@@ -89,16 +101,24 @@ export default function HomeScreen() {
                         </Animated.View>
                         <View>
                             <Text className="text-2xl font-black text-white tracking-tighter">Number Theory</Text>
-                            <Text className="text-slate-500 font-medium text-xs">The Queen of Mathematics</Text>
+                            <Text className="text-slate-500 font-medium text-xs">{t('common.queen_of_math')}</Text>
                         </View>
                     </View>
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate('Glossary')}
-                        className="bg-indigo-600/20 px-4 py-2 rounded-xl border border-indigo-500/30 flex-row items-center"
-                    >
-                        <Ionicons name="library-outline" size={18} color="#818cf8" />
-                        <Text className="text-indigo-400 font-bold ml-2 text-xs">Glossary</Text>
-                    </TouchableOpacity>
+                    <View className="flex-row">
+                        <TouchableOpacity
+                            onPress={() => setLangModalVisible(true)}
+                            className="bg-slate-900 p-2.5 rounded-xl border border-slate-800 mr-2 shadow-sm"
+                        >
+                            <Ionicons name="globe-outline" size={20} color="#64748b" />
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Glossary')}
+                            className="bg-indigo-600/20 px-4 py-2 rounded-xl border border-indigo-500/30 flex-row items-center"
+                        >
+                            <Ionicons name="library-outline" size={18} color="#818cf8" />
+                            <Text className="text-indigo-400 font-bold ml-2 text-xs">{t('common.glossary')}</Text>
+                        </TouchableOpacity>
+                    </View>
                 </Animated.View>
 
                 {/* Global Search Bar */}
@@ -106,7 +126,7 @@ export default function HomeScreen() {
                     <View className="bg-slate-900 rounded-2xl border border-slate-800 flex-row items-center px-5 py-3.5 shadow-xl">
                         <Ionicons name="search-outline" size={20} color="#64748b" />
                         <TextInput
-                            placeholder="Find a tool or visualizer..."
+                            placeholder={t('common.search_placeholder')}
                             placeholderTextColor="#475569"
                             className="flex-1 ml-4 text-white font-medium"
                             value={search}
@@ -138,13 +158,15 @@ export default function HomeScreen() {
                                         <Ionicons name={tool.icon as any} size={16} color={tool.accent} />
                                     </View>
                                     <View>
-                                        <Text className="text-white font-bold text-sm">{tool.title}</Text>
-                                        <Text className="text-slate-500 text-[10px]">{tool.description}</Text>
+                                        <Text className="text-white font-bold text-sm">{t(`tools.${tool.key}.title`)}</Text>
+                                        <Text className="text-slate-500 text-[10px]">{t(`tools.${tool.key}.description`)}</Text>
                                     </View>
                                 </TouchableOpacity>
                             )) : (
                                 <View className="p-4 items-center">
-                                    <Text className="text-slate-500 text-xs">No tools matching "{search}"</Text>
+                                    <Text className="text-slate-500 text-xs">
+                                        {t('common.no_results', { search })}
+                                    </Text>
                                 </View>
                             )}
                         </Animated.View>
@@ -152,7 +174,7 @@ export default function HomeScreen() {
                 </Animated.View>
 
                 {/* Categories Grid */}
-                <Text className="text-slate-500 text-[10px] font-black uppercase tracking-widest mb-4 ml-1">Learning Hubs</Text>
+                <Text className="text-slate-500 text-[10px] font-black uppercase tracking-widest mb-4 ml-1">{t('common.learning_hubs')}</Text>
                 <View style={{ gap: 16 }}>
                     {categories.map((category, index) => (
                         <Animated.View
@@ -171,7 +193,7 @@ export default function HomeScreen() {
                                 <View className="flex-1">
                                     <Text className="text-lg font-bold text-white tracking-tight">{category.title}</Text>
                                     <Text className="text-slate-500 text-[10px] font-bold uppercase mt-1 tracking-wider">
-                                        {category.count} Concepts
+                                        {t('common.concepts', { count: category.count })}
                                     </Text>
                                 </View>
                                 <Ionicons name="chevron-forward" size={20} color="#334155" />
@@ -187,7 +209,13 @@ export default function HomeScreen() {
                 >
                     <Ionicons name="bulb-outline" size={24} color="#818cf8" />
                     <Text className="text-slate-400 text-xs text-center mt-3 leading-5">
-                        Tip: Use the <Text className="text-indigo-400 font-bold">Search bar</Text> or visit the <Text className="text-indigo-400 font-bold">Glossary</Text> to quickly find specific formulas and definitions.
+                        <Trans
+                            i18nKey="common.tip"
+                            components={{
+                                1: <Text className="text-indigo-400 font-bold" />,
+                                2: <Text className="text-indigo-400 font-bold" />
+                            }}
+                        />
                     </Text>
                 </Animated.View>
 
@@ -210,7 +238,7 @@ export default function HomeScreen() {
                         className="flex-1 bg-slate-900 p-4 rounded-2xl border border-slate-800 flex-row items-center justify-center mr-2"
                     >
                         <Ionicons name="star-outline" size={18} color="#fbbf24" />
-                        <Text className="text-white font-bold ml-2 text-xs">Rate Us</Text>
+                        <Text className="text-white font-bold ml-2 text-xs">{t('common.rate_us')}</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity
@@ -222,7 +250,7 @@ export default function HomeScreen() {
                         className="flex-1 bg-slate-900 p-4 rounded-2xl border border-slate-800 flex-row items-center justify-center ml-2"
                     >
                         <Ionicons name="mail-outline" size={18} color="#818cf8" />
-                        <Text className="text-white font-bold ml-2 text-xs">Contact Us</Text>
+                        <Text className="text-white font-bold ml-2 text-xs">{t('common.contact_us')}</Text>
                     </TouchableOpacity>
                 </Animated.View>
 
@@ -232,12 +260,54 @@ export default function HomeScreen() {
                     className="mt-10 mb-4 items-center"
                 >
                     <Text className="text-slate-600 text-[10px] font-bold uppercase tracking-widest">
-                        Privacy Policy
+                        {t('common.privacy_policy')}
                     </Text>
                 </TouchableOpacity>
 
                 <View style={{ height: 60 }} />
             </ScrollView>
+
+            {/* Language Selection Modal */}
+            <Modal
+                animationType="fade"
+                transparent={true}
+                visible={langModalVisible}
+                onRequestClose={() => setLangModalVisible(false)}
+            >
+                <Pressable
+                    className="flex-1 bg-slate-950/80 justify-center items-center px-6"
+                    onPress={() => setLangModalVisible(false)}
+                >
+                    <Animated.View
+                        entering={ZoomIn.duration(300)}
+                        className="bg-slate-900 w-full rounded-3xl border border-slate-800 p-6 shadow-2xl"
+                    >
+                        <Text className="text-white text-xl font-black mb-6 tracking-tight">Select Language</Text>
+                        <View style={{ gap: 12 }}>
+                            {LANGUAGES.map((lang) => (
+                                <TouchableOpacity
+                                    key={lang.code}
+                                    onPress={() => {
+                                        i18n.changeLanguage(lang.code);
+                                        setLangModalVisible(false);
+                                    }}
+                                    className={`flex-row items-center justify-between p-4 rounded-2xl border ${i18n.language === lang.code ? 'bg-indigo-600/10 border-indigo-500/50' : 'bg-slate-800/50 border-slate-700/50'}`}
+                                >
+                                    <View>
+                                        <Text className={`text-sm font-bold ${i18n.language === lang.code ? 'text-white' : 'text-slate-300'}`}>
+                                            {lang.name}
+                                        </Text>
+                                        <Text className="text-slate-500 text-[10px] mt-0.5">{lang.native}</Text>
+                                    </View>
+                                    {i18n.language === lang.code && (
+                                        <Ionicons name="checkmark-circle" size={20} color="#818cf8" />
+                                    )}
+                                </TouchableOpacity>
+                            ))}
+                        </View>
+                    </Animated.View>
+                </Pressable>
+            </Modal>
         </SafeAreaView>
     );
 }

@@ -7,31 +7,30 @@ import { RootStackParamList } from '../types/navigation';
 import ScreenHeader from '../components/ScreenHeader';
 import ToolItem from '../components/ToolItem';
 
+import { useTranslation } from 'react-i18next';
+
 export default function ApplicationsCategoryScreen() {
+    const { t } = useTranslation();
     const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
     const tools = [
         {
-            title: "RSA Cryptography",
-            description: "How large primes secure data transmission.",
+            key: "rsa",
             screen: "RSA",
             icon: "lock-closed-outline",
         },
         {
-            title: "Diffie-Hellman",
-            description: "Secure key exchange using modular exponentiation.",
+            key: "diffie_hellman",
             screen: "DiffieHellman",
             icon: "key-outline",
         },
         {
-            title: "Hashing Algorithms",
-            description: "One-way functions used for data integrity.",
+            key: "hashing",
             screen: "Hashing",
             icon: "finger-print-outline",
         },
         {
-            title: "Digital Signatures",
-            description: "Verify identity and authenticity with cryptography.",
+            key: "digital_signatures",
             screen: "DigitalSignature",
             icon: "document-text-outline",
         },
@@ -39,7 +38,7 @@ export default function ApplicationsCategoryScreen() {
 
     return (
         <SafeAreaView className="flex-1 bg-slate-950">
-            <ScreenHeader title="Applications" />
+            <ScreenHeader title={t('categories.applications')} />
 
             <ScrollView
                 className="flex-1"
@@ -51,8 +50,8 @@ export default function ApplicationsCategoryScreen() {
                         <ToolItem
                             key={index}
                             index={index}
-                            title={tool.title}
-                            description={tool.description}
+                            title={t(`tools.${tool.key}.title`)}
+                            description={t(`tools.${tool.key}.description`)}
                             icon={tool.icon}
                             onPress={() => navigation.navigate(tool.screen as any)}
                             accentColor="#f43f5e"

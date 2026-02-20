@@ -8,7 +8,10 @@ import ThemedInput from '../components/ThemedInput';
 import Animated, { FadeIn } from 'react-native-reanimated';
 import { Ionicons } from '@expo/vector-icons';
 
+import { useTranslation, Trans } from 'react-i18next';
+
 export default function DigitalSignatureScreen() {
+    const { t } = useTranslation();
     // RSA parameters for simple demo
     const n = 3233; // 61 * 53
     const e = 17;
@@ -26,7 +29,7 @@ export default function DigitalSignatureScreen() {
 
     return (
         <SafeAreaView className="flex-1 bg-slate-950">
-            <ScreenHeader title="Digital Signatures" />
+            <ScreenHeader title={t('visualizers.digital_signature.title')} />
 
             <ScrollView
                 className="flex-1"
@@ -35,47 +38,53 @@ export default function DigitalSignatureScreen() {
             >
                 <MathCard
                     index={0}
-                    title="In Simple Terms"
+                    title={t('visualizers.sieve.in_simple_terms')}
                 >
                     <View className="bg-indigo-500/5 p-5 rounded-2xl border border-indigo-500/10 mb-4">
                         <View className="flex-row items-center mb-3">
                             <Ionicons name="bulb-outline" size={18} color="#818cf8" />
-                            <Text className="text-indigo-400 font-bold ml-2 text-xs uppercase">Math-Based Handwriting</Text>
+                            <Text className="text-indigo-400 font-bold ml-2 text-xs uppercase">{t('visualizers.digital_signature.simple_terms_title')}</Text>
                         </View>
                         <Text className="text-slate-400 text-xs leading-5">
-                            A digital signature is like signing a document, but with <Text className="text-white font-bold">unforgeable math</Text>. You sign with your <Text className="text-indigo-400 font-bold">secret private key</Text>, and anyone can verify it with your <Text className="text-white font-bold">public key</Text>.{"\n"}Used for software updates, banking transactions, email authentication, and legal documents — anywhere you need proof that a message is genuine and untampered.
+                            <Trans
+                                i18nKey="visualizers.digital_signature.simple_terms_desc"
+                                components={{
+                                    1: <Text className="text-white font-bold" />,
+                                    2: <Text className="text-indigo-400 font-bold" />
+                                }}
+                            />
                         </Text>
                     </View>
                 </MathCard>
 
                 <MathCard
                     index={1}
-                    description="Digital signatures verify the authenticity of a message using RSA. Encryption with a private key serves as the signature."
+                    description={t('visualizers.digital_signature.description')}
                 >
                     <ThemedInput
-                        label="Message to Sign (Numeric)"
+                        label={t('visualizers.digital_signature.input_label')}
                         value={msg}
                         onChangeText={setMsg}
                         keyboardType="numeric"
-                        helperText="The integer message to be signed"
+                        helperText={t('visualizers.digital_signature.helper_text')}
                     />
 
                     <View className="bg-indigo-500/10 p-5 rounded-2xl border border-indigo-500/20 items-center">
-                        <Text className="text-slate-500 text-[10px] font-bold uppercase mb-2">Generated Signature (s = mᵈ mod n)</Text>
+                        <Text className="text-slate-500 text-[10px] font-bold uppercase mb-2">{t('visualizers.digital_signature.signature_label')}</Text>
                         <Text className="text-white text-3xl font-black tracking-tighter">{signature}</Text>
                     </View>
                 </MathCard>
 
                 <MathCard
                     index={2}
-                    title="Verification (Public Key)"
-                    description="Anyone with the public key can verify that the signature was created by the corresponding private key."
+                    title={t('visualizers.digital_signature.verification_title')}
+                    description={t('visualizers.digital_signature.verification_desc')}
                 >
                     <ThemedInput
-                        label="Verify Signature"
+                        label={t('visualizers.digital_signature.verify_input')}
                         value={signatureInput}
                         onChangeText={setSignatureInput}
-                        placeholder="Paste signature here"
+                        placeholder={t('visualizers.digital_signature.placeholder')}
                         keyboardType="numeric"
                     />
 
@@ -90,11 +99,17 @@ export default function DigitalSignatureScreen() {
                                 color={isValid ? "#34d399" : "#f43f5e"}
                             />
                             <Text className={`${isValid ? 'text-emerald-400' : 'text-rose-400'} font-black text-xl mt-3`}>
-                                {isValid ? 'AUTHENTIC' : 'INVALID'}
+                                {isValid ? t('visualizers.digital_signature.authentic') : t('visualizers.digital_signature.invalid')}
                             </Text>
                             <Text className="text-slate-500 text-xs mt-2 text-center leading-4">
-                                Decrypted value: <Text className="text-white font-mono">{verifiedVal}</Text>{"\n"}
-                                {isValid ? 'Matches original message!' : 'Does not match message.'}
+                                <Trans
+                                    i18nKey="visualizers.digital_signature.decrypted_label"
+                                    values={{ val: verifiedVal }}
+                                    components={{
+                                        1: <Text className="text-white font-mono" />
+                                    }}
+                                />{"\n"}
+                                {isValid ? t('visualizers.digital_signature.matches') : t('visualizers.digital_signature.no_match')}
                             </Text>
                         </Animated.View>
                     )}

@@ -1,10 +1,11 @@
 import React, { useState, useMemo } from 'react';
 import { View, Text, TouchableOpacity, ScrollView, Dimensions } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import Svg, { Circle, Text as SvgText, G, Line, Path } from 'react-native-svg';
+import Svg, { Circle, Text as SvgText, G, Line } from 'react-native-svg';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import Animated, { FadeIn, FadeInDown } from 'react-native-reanimated';
+import Animated, { FadeInDown } from 'react-native-reanimated';
+import { useTranslation, Trans } from 'react-i18next';
 
 const { width: WINDOW_WIDTH } = Dimensions.get('window');
 const CANVAS_SIZE = WINDOW_WIDTH - 48;
@@ -12,6 +13,7 @@ const CENTER = CANVAS_SIZE / 2;
 const RADIUS = CENTER - 30;
 
 export default function ModulusBasicsScreen() {
+    const { t } = useTranslation();
     const navigation = useNavigation();
     const [a, setA] = useState(7);
     const [n, setN] = useState(5);
@@ -45,7 +47,7 @@ export default function ModulusBasicsScreen() {
                 <TouchableOpacity onPress={() => navigation.goBack()}>
                     <Ionicons name="arrow-back" size={24} color="white" />
                 </TouchableOpacity>
-                <Text className="text-xl font-bold text-white">Modulus Basics</Text>
+                <Text className="text-xl font-bold text-white">{t('modulus_basics.title')}</Text>
                 <View style={{ width: 24 }} />
             </View>
 
@@ -54,8 +56,13 @@ export default function ModulusBasicsScreen() {
                     {/* Header Explanation */}
                     <Animated.View entering={FadeInDown.duration(600)} className="mb-8">
                         <Text className="text-slate-400 text-lg leading-7">
-                            The <Text className="text-sky-400 font-bold">modulus operator (%)</Text> gives the remainder after division.
-                            Think of it as <Text className="text-amber-400 font-bold">"clock arithmetic"</Text>.
+                            <Trans
+                                i18nKey="modulus_basics.explanation"
+                                components={{
+                                    1: <Text className="text-sky-400 font-bold" />,
+                                    2: <Text className="text-amber-400 font-bold" />
+                                }}
+                            />
                         </Text>
                     </Animated.View>
 
@@ -75,7 +82,7 @@ export default function ModulusBasicsScreen() {
 
                     {/* Visualizer Container */}
                     <View className="bg-slate-900 rounded-3xl p-4 items-center mb-8 border border-slate-800">
-                        <Text className="text-slate-500 text-xs font-bold uppercase tracking-widest mb-4">Clock Visualization</Text>
+                        <Text className="text-slate-500 text-xs font-bold uppercase tracking-widest mb-4">{t('modulus_basics.clock_visualization')}</Text>
                         <Svg width={CANVAS_SIZE} height={CANVAS_SIZE}>
                             {/* Main Circle */}
                             <Circle
@@ -125,7 +132,7 @@ export default function ModulusBasicsScreen() {
 
                         <View className="mt-4 px-4 py-2 bg-amber-500/10 rounded-full border border-amber-500/20">
                             <Text className="text-amber-400 text-xs font-medium text-center">
-                                Adding {a} to 0 wraps around {n} for {quotient} full turns + {remainder} units
+                                {t('modulus_basics.wrap_info', { a, n, quotient, remainder })}
                             </Text>
                         </View>
                     </View>
@@ -134,7 +141,7 @@ export default function ModulusBasicsScreen() {
                     <View className="space-y-6">
                         <View>
                             <View className="flex-row justify-between mb-4">
-                                <Text className="text-slate-400 font-medium">Number (a)</Text>
+                                <Text className="text-slate-400 font-medium">{t('modulus_basics.label_a')}</Text>
                                 <Text className="text-sky-400 font-bold text-lg">{a}</Text>
                             </View>
                             <View className="flex-row items-center space-x-3">
@@ -163,7 +170,7 @@ export default function ModulusBasicsScreen() {
 
                         <View>
                             <View className="flex-row justify-between mb-4">
-                                <Text className="text-slate-400 font-medium">Modulus (n)</Text>
+                                <Text className="text-slate-400 font-medium">{t('modulus_basics.label_n')}</Text>
                                 <Text className="text-amber-400 font-bold text-lg">{n}</Text>
                             </View>
                             <View className="flex-row items-center space-x-3">
@@ -193,25 +200,38 @@ export default function ModulusBasicsScreen() {
 
                     {/* Key Properties */}
                     <View className="mt-12 space-y-4">
-                        <Text className="text-white font-bold text-lg px-2">Key Properties</Text>
+                        <Text className="text-white font-bold text-lg px-2">{t('modulus_basics.key_properties')}</Text>
 
                         <View className="bg-slate-900 p-5 rounded-2xl border border-slate-800">
                             <View className="flex-row items-center mb-2">
                                 <View className="w-2 h-2 rounded-full bg-sky-500 mr-3" />
-                                <Text className="text-white font-bold">Range of Remainder</Text>
+                                <Text className="text-white font-bold">{t('modulus_basics.prop_range_title')}</Text>
                             </View>
                             <Text className="text-slate-400 text-sm leading-6">
-                                The result of <Text className="text-slate-200">a % n</Text> is always between <Text className="text-slate-200">0</Text> and <Text className="text-slate-200">n - 1</Text>.
+                                <Trans
+                                    i18nKey="modulus_basics.prop_range_desc"
+                                    components={{
+                                        1: <Text className="text-slate-200" />,
+                                        2: <Text className="text-slate-200" />,
+                                        3: <Text className="text-slate-200" />
+                                    }}
+                                />
                             </Text>
                         </View>
 
                         <View className="bg-slate-900 p-5 rounded-2xl border border-slate-800">
                             <View className="flex-row items-center mb-2">
                                 <View className="w-2 h-2 rounded-full bg-sky-500 mr-3" />
-                                <Text className="text-white font-bold">Congruence (≡)</Text>
+                                <Text className="text-white font-bold">{t('modulus_basics.prop_congruence_title')}</Text>
                             </View>
                             <Text className="text-slate-400 text-sm leading-6">
-                                If two numbers have the same remainder when divided by <Text className="text-slate-200">n</Text>, we say they are <Text className="text-sky-400 font-bold">congruent modulo n</Text>.
+                                <Trans
+                                    i18nKey="modulus_basics.prop_congruence_desc"
+                                    components={{
+                                        1: <Text className="text-slate-200" />,
+                                        2: <Text className="text-sky-400 font-bold" />
+                                    }}
+                                />
                             </Text>
                         </View>
                     </View>

@@ -8,7 +8,10 @@ import ThemedInput from '../components/ThemedInput';
 import Animated, { FadeIn, Layout } from 'react-native-reanimated';
 import { Ionicons } from '@expo/vector-icons';
 
+import { useTranslation, Trans } from 'react-i18next';
+
 export default function PartitionScreen() {
+    const { t } = useTranslation();
     const [num, setNum] = useState('7');
     const n = Math.min(parseInt(num) || 0, 50); // Limit count
     const visualN = Math.min(n, 12); // Limit visualization
@@ -18,7 +21,7 @@ export default function PartitionScreen() {
 
     return (
         <SafeAreaView className="flex-1 bg-slate-950">
-            <ScreenHeader title="Partition Theory" />
+            <ScreenHeader title={t('visualizers.partition.title')} />
 
             <ScrollView
                 className="flex-1"
@@ -27,33 +30,39 @@ export default function PartitionScreen() {
             >
                 <MathCard
                     index={0}
-                    title="In Simple Terms"
+                    title={t('visualizers.sieve.in_simple_terms')}
                 >
                     <View className="bg-emerald-500/5 p-5 rounded-2xl border border-emerald-500/10 mb-4">
                         <View className="flex-row items-center mb-3">
                             <Ionicons name="bulb-outline" size={18} color="#10b981" />
-                            <Text className="text-emerald-400 font-bold ml-2 text-xs uppercase">Splitting Into Groups</Text>
+                            <Text className="text-emerald-400 font-bold ml-2 text-xs uppercase">{t('visualizers.partition.simple_terms_title')}</Text>
                         </View>
                         <Text className="text-slate-400 text-xs leading-5">
-                            How many ways can you break <Text className="text-white font-bold">4 coins</Text> into piles?{"\n"}4 = 4, or 3+1, or 2+2, or 2+1+1, or 1+1+1+1 — that's <Text className="text-emerald-400 font-bold">5 ways</Text> (p(4)=5). Order doesn't matter!{"\n"}This count grows shockingly fast: p(100) = 190,569,292,356.
+                            <Trans
+                                i18nKey="visualizers.partition.simple_terms_desc"
+                                components={{
+                                    1: <Text className="text-white font-bold" />,
+                                    2: <Text className="text-emerald-400 font-bold" />
+                                }}
+                            />
                         </Text>
                     </View>
                 </MathCard>
 
                 <MathCard
                     index={1}
-                    description="In number theory, a partition of a positive integer n is a way of writing n as a sum of positive integers."
+                    description={t('visualizers.partition.description')}
                 >
                     <ThemedInput
-                        label="Number n"
+                        label={t('visualizers.partition.input_label')}
                         value={num}
                         onChangeText={setNum}
                         keyboardType="numeric"
-                        helperText="p(n) grows extremely fast!"
+                        helperText={t('visualizers.partition.helper_text')}
                     />
 
                     <View className="bg-emerald-500/10 p-6 rounded-2xl border border-emerald-500/20 items-center">
-                        <Text className="text-slate-500 text-[10px] font-bold uppercase mb-2">Partition Count p({n})</Text>
+                        <Text className="text-slate-500 text-[10px] font-bold uppercase mb-2">{t('visualizers.partition.count_label', { n })}</Text>
                         <Text className="text-emerald-400 text-5xl font-black">{count.toLocaleString()}</Text>
                     </View>
                 </MathCard>
@@ -61,8 +70,8 @@ export default function PartitionScreen() {
                 {n > 0 && (
                     <MathCard
                         index={2}
-                        title={`Visualizing p(${visualN})`}
-                        description={`Showing the ${partitions.length} ways to split ${visualN}:`}
+                        title={t('visualizers.partition.visual_title', { n: visualN })}
+                        description={t('visualizers.partition.visual_desc', { count: partitions.length, n: visualN })}
                     >
                         <View className="flex-row flex-wrap justify-between">
                             {partitions.map((p, i) => (
@@ -77,7 +86,7 @@ export default function PartitionScreen() {
                         </View>
                         {n > visualN && (
                             <Text className="text-slate-500 text-[10px] mt-4 text-center italic">
-                                Visualization limited to n=12 to prevent performance issues.
+                                {t('visualizers.partition.limit_text')}
                             </Text>
                         )}
                     </MathCard>
@@ -85,15 +94,15 @@ export default function PartitionScreen() {
 
                 <MathCard
                     index={3}
-                    title="Ramanujan & Hardy"
+                    title={t('visualizers.partition.ramanujan_title')}
                 >
                     <View className="bg-slate-900/50 p-6 rounded-2xl border border-slate-800">
                         <View className="flex-row items-center mb-4">
                             <Ionicons name="infinite-outline" size={20} color="#10b981" />
-                            <Text className="text-emerald-400 font-bold ml-2">Asymptotic Growth</Text>
+                            <Text className="text-emerald-400 font-bold ml-2">{t('visualizers.partition.growth_title')}</Text>
                         </View>
                         <Text className="text-slate-300 text-xs leading-5">
-                            Srinivasa Ramanujan and G.H. Hardy developed an incredible asymptotic formula for p(n). Ramanujan also discovered surprising congruences, like p(5n+4) always being divisible by 5!
+                            {t('visualizers.partition.growth_desc')}
                         </Text>
                     </View>
                 </MathCard>

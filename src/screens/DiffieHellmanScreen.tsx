@@ -8,7 +8,10 @@ import ThemedInput from '../components/ThemedInput';
 import Animated, { FadeIn, SlideInLeft, SlideInRight } from 'react-native-reanimated';
 import { Ionicons } from '@expo/vector-icons';
 
+import { useTranslation, Trans } from 'react-i18next';
+
 export default function DiffieHellmanScreen() {
+    const { t } = useTranslation();
     const [p, setP] = useState('23');
     const [g, setG] = useState('5');
     const [privateA, setPrivateA] = useState('6');
@@ -29,7 +32,7 @@ export default function DiffieHellmanScreen() {
 
     return (
         <SafeAreaView className="flex-1 bg-slate-950">
-            <ScreenHeader title="Diffie-Hellman Key Exchange" />
+            <ScreenHeader title={t('visualizers.diffie_hellman.title')} />
 
             <ScrollView
                 className="flex-1"
@@ -38,41 +41,47 @@ export default function DiffieHellmanScreen() {
             >
                 <MathCard
                     index={0}
-                    title="In Simple Terms"
+                    title={t('visualizers.sieve.in_simple_terms')}
                 >
                     <View className="bg-rose-500/5 p-5 rounded-2xl border border-rose-500/10 mb-4">
                         <View className="flex-row items-center mb-3">
                             <Ionicons name="bulb-outline" size={18} color="#f43f5e" />
-                            <Text className="text-rose-400 font-bold ml-2 text-xs uppercase">The Paint-Mixing Trick</Text>
+                            <Text className="text-rose-400 font-bold ml-2 text-xs uppercase">{t('visualizers.diffie_hellman.simple_terms_title')}</Text>
                         </View>
                         <Text className="text-slate-400 text-xs leading-5">
-                            Alice and Bob each pick a <Text className="text-white font-bold">secret color</Text>. They mix it with a shared <Text className="text-rose-400 font-bold">public color</Text> and swap the mixtures. Each then adds their secret again — both end up with the <Text className="text-white font-bold">same final color</Text>, but an eavesdropper can't unmix to find the secrets!{"\n"}In math, "mixing" is modular exponentiation, and "unmixing" is the discrete logarithm problem — believed to be incredibly hard.
+                            <Trans
+                                i18nKey="visualizers.diffie_hellman.simple_terms_desc"
+                                components={{
+                                    1: <Text className="text-white font-bold" />,
+                                    2: <Text className="text-rose-400 font-bold" />
+                                }}
+                            />
                         </Text>
                     </View>
                 </MathCard>
 
                 <MathCard
                     index={1}
-                    description="Establish a shared secret over an insecure channel using modular exponentiation. Alice and Bob never share their secret keys."
+                    description={t('visualizers.diffie_hellman.description')}
                 >
                     <View className="flex-row space-x-4">
                         <View className="flex-1">
                             <ThemedInput
-                                label="Public Prime p"
+                                label={t('visualizers.diffie_hellman.input_p')}
                                 value={p}
                                 onChangeText={setP}
                                 keyboardType="numeric"
                                 error={!pIsPrime && p !== ''}
-                                helperText={!pIsPrime && p !== '' ? 'Should be prime' : 'Common modulus'}
+                                helperText={!pIsPrime && p !== '' ? t('visualizers.diffie_hellman.helper_p_not_prime') : t('visualizers.diffie_hellman.helper_p_prime')}
                             />
                         </View>
                         <View className="flex-1">
                             <ThemedInput
-                                label="Public Base g"
+                                label={t('visualizers.diffie_hellman.input_g')}
                                 value={g}
                                 onChangeText={setG}
                                 keyboardType="numeric"
-                                helperText="Generator value"
+                                helperText={t('visualizers.diffie_hellman.helper_g')}
                             />
                         </View>
                     </View>
@@ -85,17 +94,17 @@ export default function DiffieHellmanScreen() {
                             className="bg-sky-500/5 border border-sky-500/10 p-5 rounded-3xl items-center"
                         >
                             <Ionicons name="person" size={24} color="#38bdf8" />
-                            <Text className="text-sky-400 text-xs font-bold mt-2 uppercase">Alice</Text>
+                            <Text className="text-sky-400 text-xs font-bold mt-2 uppercase">{t('visualizers.diffie_hellman.alice')}</Text>
                             <View className="w-full mt-4">
                                 <ThemedInput
-                                    label="Secret a"
+                                    label={t('visualizers.diffie_hellman.secret_a')}
                                     value={privateA}
                                     onChangeText={setPrivateA}
                                     keyboardType="numeric"
                                     className="text-center"
                                 />
                                 <View className="mt-2 items-center bg-slate-900/50 p-3 rounded-xl border border-slate-800">
-                                    <Text className="text-slate-500 text-[8px] uppercase font-bold text-center mb-1">Public A = gᵃ mod p</Text>
+                                    <Text className="text-slate-500 text-[8px] uppercase font-bold text-center mb-1">{t('visualizers.diffie_hellman.public_a_formula')}</Text>
                                     <Text className="text-xl font-black text-white">{publicA}</Text>
                                 </View>
                             </View>
@@ -108,17 +117,17 @@ export default function DiffieHellmanScreen() {
                             className="bg-rose-500/5 border border-rose-500/10 p-5 rounded-3xl items-center"
                         >
                             <Ionicons name="person" size={24} color="#f43f5e" />
-                            <Text className="text-rose-400 text-xs font-bold mt-2 uppercase">Bob</Text>
+                            <Text className="text-rose-400 text-xs font-bold mt-2 uppercase">{t('visualizers.diffie_hellman.bob')}</Text>
                             <View className="w-full mt-4">
                                 <ThemedInput
-                                    label="Secret b"
+                                    label={t('visualizers.diffie_hellman.secret_b')}
                                     value={privateB}
                                     onChangeText={setPrivateB}
                                     keyboardType="numeric"
                                     className="text-center"
                                 />
                                 <View className="mt-2 items-center bg-slate-900/50 p-3 rounded-xl border border-slate-800">
-                                    <Text className="text-slate-500 text-[8px] uppercase font-bold text-center mb-1">Public B = gᵇ mod p</Text>
+                                    <Text className="text-slate-500 text-[8px] uppercase font-bold text-center mb-1">{t('visualizers.diffie_hellman.public_b_formula')}</Text>
                                     <Text className="text-xl font-black text-white">{publicB}</Text>
                                 </View>
                             </View>
@@ -128,16 +137,16 @@ export default function DiffieHellmanScreen() {
 
                 <MathCard
                     index={2}
-                    title="The Computed Secret"
-                    description="Alice takes Bob's public key (B) and computes Bᵃ mod p. Bob takes Alice's public key (A) and computes Aᵇ mod p."
+                    title={t('visualizers.diffie_hellman.computed_secret_title')}
+                    description={t('visualizers.diffie_hellman.computed_secret_desc')}
                 >
                     <View className="flex-row space-x-4">
                         <View className="flex-1 bg-emerald-500/10 p-5 rounded-2xl border border-emerald-500/20 items-center">
-                            <Text className="text-slate-500 text-[8px] font-bold uppercase mb-2 text-center">Alice computes Bᵃ mod p</Text>
+                            <Text className="text-slate-500 text-[8px] font-bold uppercase mb-2 text-center">{t('visualizers.diffie_hellman.alice_computes')}</Text>
                             <Text className="text-emerald-400 text-3xl font-black">{secretA}</Text>
                         </View>
                         <View className="flex-1 bg-emerald-500/10 p-5 rounded-2xl border border-emerald-500/20 items-center">
-                            <Text className="text-slate-500 text-[8px] font-bold uppercase mb-2 text-center">Bob computes Aᵇ mod p</Text>
+                            <Text className="text-slate-500 text-[8px] font-bold uppercase mb-2 text-center">{t('visualizers.diffie_hellman.bob_computes')}</Text>
                             <Text className="text-emerald-400 text-3xl font-black">{secretB}</Text>
                         </View>
                     </View>
@@ -146,9 +155,9 @@ export default function DiffieHellmanScreen() {
                         <Animated.View entering={FadeIn} className="mt-6 bg-emerald-500/20 p-5 rounded-2xl border border-emerald-500/30 items-center">
                             <View className="flex-row items-center">
                                 <Ionicons name="shield-checkmark" size={24} color="#34d399" />
-                                <Text className="text-white font-bold ml-2">Shared Secret Match!</Text>
+                                <Text className="text-white font-bold ml-2">{t('visualizers.diffie_hellman.match_title')}</Text>
                             </View>
-                            <Text className="text-slate-300 text-[10px] mt-1">Both now have the identical secret key: {secretA}</Text>
+                            <Text className="text-slate-300 text-[10px] mt-1">{t('visualizers.diffie_hellman.match_desc', { secret: secretA })}</Text>
                         </Animated.View>
                     )}
                 </MathCard>

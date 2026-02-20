@@ -7,43 +7,40 @@ import { RootStackParamList } from '../types/navigation';
 import ScreenHeader from '../components/ScreenHeader';
 import ToolItem from '../components/ToolItem';
 
+import { useTranslation } from 'react-i18next';
+
 export default function PrimesCategoryScreen() {
+    const { t } = useTranslation();
     const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
     const tools = [
         {
-            title: "Ulam Spiral",
-            description: "Visualize prime distributions in a square spiral.",
+            key: "ulam",
             screen: "UlamSpiral",
             icon: "apps-outline",
         },
         {
-            title: "Sieve of Eratosthenes",
-            description: "Step-by-step visualization of prime discovery.",
+            key: "sieve",
             screen: "Sieve",
             icon: "grid-outline",
         },
         {
-            title: "Factor Tree",
-            description: "Visualize the Fundamental Theorem of Arithmetic.",
+            key: "factorization",
             screen: "Factorization",
             icon: "git-branch-outline",
         },
         {
-            title: "Quadratic Reciprocity",
-            description: "Check if a number is a quadratic residue mod p.",
+            key: "quadratic_reciprocity",
             screen: "QuadraticReciprocity",
             icon: "infinite-outline",
         },
         {
-            title: "Goldbach's Conjecture",
-            description: "Visualize even numbers as sums of two primes.",
+            key: "goldbach",
             screen: "Goldbach",
             icon: "medal-outline",
         },
         {
-            title: "Amicable Numbers",
-            description: "Find pairs of numbers with matching divisor sums.",
+            key: "amicable",
             screen: "AmicableNumbers",
             icon: "heart-outline",
         },
@@ -51,7 +48,7 @@ export default function PrimesCategoryScreen() {
 
     return (
         <SafeAreaView className="flex-1 bg-slate-950">
-            <ScreenHeader title="Prime Numbers" />
+            <ScreenHeader title={t('categories.primes')} />
 
             <ScrollView
                 className="flex-1"
@@ -63,8 +60,8 @@ export default function PrimesCategoryScreen() {
                         <ToolItem
                             key={index}
                             index={index}
-                            title={tool.title}
-                            description={tool.description}
+                            title={t(`tools.${tool.key}.title`)}
+                            description={t(`tools.${tool.key}.description`)}
                             icon={tool.icon}
                             onPress={() => navigation.navigate(tool.screen as any)}
                             accentColor="#34d399"

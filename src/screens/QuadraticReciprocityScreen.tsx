@@ -8,7 +8,10 @@ import ThemedInput from '../components/ThemedInput';
 import Animated, { FadeIn, SlideInDown } from 'react-native-reanimated';
 import { Ionicons } from '@expo/vector-icons';
 
+import { useTranslation, Trans } from 'react-i18next';
+
 export default function QuadraticReciprocityScreen() {
+    const { t } = useTranslation();
     const [numA, setNumA] = useState('3');
     const [numP, setNumP] = useState('13');
 
@@ -22,7 +25,7 @@ export default function QuadraticReciprocityScreen() {
 
     return (
         <SafeAreaView className="flex-1 bg-slate-950">
-            <ScreenHeader title="Quadratic Reciprocity" />
+            <ScreenHeader title={t('tools.quadratic_reciprocity.title')} />
 
             <ScrollView
                 className="flex-1"
@@ -31,27 +34,33 @@ export default function QuadraticReciprocityScreen() {
             >
                 <MathCard
                     index={0}
-                    title="In Simple Terms"
+                    title={t('visualizers.sieve.in_simple_terms')}
                 >
                     <View className="bg-indigo-500/5 p-5 rounded-2xl border border-indigo-500/10 mb-4">
                         <View className="flex-row items-center mb-3">
                             <Ionicons name="bulb-outline" size={18} color="#818cf8" />
-                            <Text className="text-indigo-400 font-bold ml-2 text-xs uppercase">Hidden Square Roots</Text>
+                            <Text className="text-indigo-400 font-bold ml-2 text-xs uppercase">{t('visualizers.quadratic_reciprocity.analogy_title')}</Text>
                         </View>
                         <Text className="text-slate-400 text-xs leading-5">
-                            In regular math, 9 has a square root (3). But in <Text className="text-white font-bold">modular arithmetic</Text>, the question is trickier: does x² ≡ a (mod p) have any solution?{"\n"}For example, <Text className="text-indigo-400 font-bold">x² ≡ 2 (mod 7)</Text> → try 3: 3² = 9 ≡ 2 (mod 7). ✓ So 2 is a quadratic residue mod 7.{"\n"}The Legendre symbol answers this <Text className="text-white font-bold">without testing every number</Text>!
+                            <Trans
+                                i18nKey="visualizers.quadratic_reciprocity.analogy_desc"
+                                components={{
+                                    1: <Text className="text-white font-bold" />,
+                                    2: <Text className="text-indigo-400 font-bold" />
+                                }}
+                            />
                         </Text>
                     </View>
                 </MathCard>
 
                 <MathCard
                     index={1}
-                    description="Determine if an integer 'a' is a quadratic residue modulo 'p' using the Legendre or Jacobi symbol."
+                    description={t('visualizers.quadratic_reciprocity.description')}
                 >
                     <View className="flex-row space-x-4">
                         <View className="flex-1">
                             <ThemedInput
-                                label="Integer (a)"
+                                label={t('visualizers.quadratic_reciprocity.int_label')}
                                 value={numA}
                                 onChangeText={setNumA}
                                 keyboardType="numeric"
@@ -59,7 +68,7 @@ export default function QuadraticReciprocityScreen() {
                         </View>
                         <View className="flex-1">
                             <ThemedInput
-                                label="Modulus (p)"
+                                label={t('visualizers.quadratic_reciprocity.mod_label')}
                                 value={numP}
                                 onChangeText={setNumP}
                                 keyboardType="numeric"
@@ -73,7 +82,7 @@ export default function QuadraticReciprocityScreen() {
                         className="p-8 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 items-center justify-center"
                     >
                         <Text className="text-indigo-400 text-[10px] font-bold uppercase tracking-widest mb-4">
-                            {pIsPrime ? 'Legendre Symbol (a/p)' : 'Jacobi Symbol (a/n)'}
+                            {pIsPrime ? t('visualizers.quadratic_reciprocity.legendre_title') : t('visualizers.quadratic_reciprocity.jacobi_title')}
                         </Text>
                         <View className="flex-row items-center mb-2">
                             <Text className="text-3xl font-mono text-slate-500">(</Text>
@@ -89,7 +98,7 @@ export default function QuadraticReciprocityScreen() {
                             </Text>
                         </View>
                         <Text className={`text-[10px] font-bold uppercase mt-2 ${symbol === 1 ? 'text-emerald-500' : 'text-rose-500'}`}>
-                            {symbol === 1 ? 'Quadratic Residue' : symbol === -1 ? 'Quadratic Non-Residue' : 'Not Coprime'}
+                            {symbol === 1 ? t('visualizers.quadratic_reciprocity.residue_label') : symbol === -1 ? t('visualizers.quadratic_reciprocity.non_residue_label') : t('visualizers.quadratic_reciprocity.not_coprime_label')}
                         </Text>
                     </Animated.View>
                 </MathCard>
@@ -98,8 +107,8 @@ export default function QuadraticReciprocityScreen() {
                     <Animated.View entering={SlideInDown} className="px-1">
                         <MathCard
                             index={2}
-                            title="Law of Reciprocity"
-                            description={`Since ${a} and ${p} are both odd primes, the Law of Quadratic Reciprocity applies:`}
+                            title={t('visualizers.quadratic_reciprocity.reciprocity_title')}
+                            description={t('visualizers.quadratic_reciprocity.reciprocity_desc', { a, p })}
                         >
                             <View className="bg-slate-900 p-6 rounded-2xl border border-slate-800 items-center">
                                 <Text className="text-white font-mono text-lg font-bold mb-4">
@@ -107,8 +116,10 @@ export default function QuadraticReciprocityScreen() {
                                 </Text>
                                 <View className="h-[1px] bg-slate-800 w-full mb-4" />
                                 <Text className="text-slate-400 text-xs leading-5 text-center px-4 italic">
-                                    If either {a} or {p} is ≡ 1 (mod 4), then ({a}/{p}) = ({p}/{a}).{"\n"}
-                                    If both are ≡ 3 (mod 4), then ({a}/{p}) = -({p}/{a}).
+                                    {a % 4 === 1 || p % 4 === 1
+                                        ? t('visualizers.quadratic_reciprocity.if_mod4_1', { a, p })
+                                        : t('visualizers.quadratic_reciprocity.if_mod4_3', { a, p })
+                                    }
                                 </Text>
                             </View>
                         </MathCard>
@@ -117,15 +128,21 @@ export default function QuadraticReciprocityScreen() {
 
                 <MathCard
                     index={3}
-                    title="What it means"
+                    title={t('visualizers.quadratic_reciprocity.meaning_title')}
                 >
                     <View className="bg-indigo-500/5 p-5 rounded-2xl border border-indigo-500/10">
                         <View className="flex-row items-center mb-3">
                             <Ionicons name="bulb-outline" size={18} color="#818cf8" />
-                            <Text className="text-indigo-400 font-bold ml-2 text-xs uppercase font-bold">Residue Property</Text>
+                            <Text className="text-indigo-400 font-bold ml-2 text-xs uppercase font-bold">{t('visualizers.quadratic_reciprocity.meaning_title')}</Text>
                         </View>
                         <Text className="text-slate-300 text-xs leading-5">
-                            An integer <Text className="text-white font-bold">a</Text> is a quadratic residue mod <Text className="text-white font-bold">p</Text> if the equation <Text className="text-indigo-400 font-mono">x² ≡ a (mod p)</Text> has a solution x. This tool tells you if a solution exists without having to find it!
+                            <Trans
+                                i18nKey="visualizers.quadratic_reciprocity.meaning_desc"
+                                components={{
+                                    1: <Text className="text-white font-bold" />,
+                                    2: <Text className="text-indigo-400 font-bold" />
+                                }}
+                            />
                         </Text>
                     </View>
                 </MathCard>

@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { View, Text, TouchableOpacity, ScrollView, Dimensions } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Svg, { Circle, Line } from 'react-native-svg';
@@ -10,13 +10,17 @@ const CANVAS_SIZE = width - 48;
 const CENTER = CANVAS_SIZE / 2;
 const RADIUS = CENTER - 10;
 
+import { useTranslation, Trans } from 'react-i18next';
+import ScreenHeader from '../components/ScreenHeader';
+
 export default function ModularPlaygroundScreen() {
+    const { t } = useTranslation();
     const navigation = useNavigation();
     const [n, setN] = useState(100);
     const [k, setK] = useState(2);
     const [isAnimating, setIsAnimating] = useState(false);
 
-    React.useEffect(() => {
+    useEffect(() => {
         let interval: NodeJS.Timeout;
         if (isAnimating) {
             interval = setInterval(() => {
@@ -46,24 +50,29 @@ export default function ModularPlaygroundScreen() {
 
     return (
         <SafeAreaView className="flex-1 bg-slate-950">
-            <View className="px-6 py-4 flex-row items-center justify-between">
-                <TouchableOpacity onPress={() => navigation.goBack()}>
-                    <Ionicons name="arrow-back" size={24} color="white" />
-                </TouchableOpacity>
-                <Text className="text-xl font-bold text-white">Modular Playground</Text>
-                <TouchableOpacity onPress={() => setIsAnimating(!isAnimating)}>
-                    <Ionicons name={isAnimating ? "pause" : "play"} size={24} color="#38bdf8" />
-                </TouchableOpacity>
-            </View>
+            <ScreenHeader
+                title={t('tools.modular_playground.title')}
+                rightElement={
+                    <TouchableOpacity onPress={() => setIsAnimating(!isAnimating)}>
+                        <Ionicons name={isAnimating ? "pause" : "play"} size={24} color="#38bdf8" />
+                    </TouchableOpacity>
+                }
+            />
 
             <ScrollView className="flex-1 p-6">
                 <View className="bg-sky-500/5 p-5 rounded-2xl border border-sky-500/10 mb-6">
                     <View className="flex-row items-center mb-3">
                         <Ionicons name="compass-outline" size={18} color="#38bdf8" />
-                        <Text className="text-sky-400 font-bold ml-2 text-xs uppercase">How to Explore</Text>
+                        <Text className="text-sky-400 font-bold ml-2 text-xs uppercase">{t('visualizers.modular_playground.how_to_explore')}</Text>
                     </View>
                     <Text className="text-slate-400 text-xs leading-5">
-                        Each dot on the circle is a number. A line from dot <Text className="text-white font-bold">i</Text> goes to dot <Text className="text-white font-bold">(i × k) mod n</Text>. Change the multiplier k to watch <Text className="text-sky-400 font-bold">beautiful geometric patterns</Text> emerge — cardioids, nephroids, and other shapes hidden inside modular arithmetic. Press play to animate!
+                        <Trans
+                            i18nKey="visualizers.modular_playground.explore_desc"
+                            components={{
+                                1: <Text className="text-white font-bold" />,
+                                2: <Text className="text-sky-400 font-bold" />
+                            }}
+                        />
                     </Text>
                 </View>
 
@@ -95,7 +104,7 @@ export default function ModularPlaygroundScreen() {
                 <View className="space-y-6">
                     <View>
                         <View className="flex-row justify-between mb-2">
-                            <Text className="text-slate-400 font-medium">Points (n)</Text>
+                            <Text className="text-slate-400 font-medium">{t('visualizers.modular_playground.points_label')}</Text>
                             <Text className="text-sky-400 font-bold">{n}</Text>
                         </View>
                         <View className="flex-row items-center space-x-4">
@@ -122,7 +131,7 @@ export default function ModularPlaygroundScreen() {
 
                     <View>
                         <View className="flex-row justify-between mb-2">
-                            <Text className="text-slate-400 font-medium">Multiplier (k)</Text>
+                            <Text className="text-slate-400 font-medium">{t('visualizers.modular_playground.multiplier_label')}</Text>
                             <Text className="text-sky-400 font-bold">{typeof k === 'number' ? k.toFixed(1) : k}</Text>
                         </View>
                         <View className="flex-row items-center space-x-4">
@@ -150,8 +159,7 @@ export default function ModularPlaygroundScreen() {
 
                 <View className="mt-8 bg-slate-900/50 p-4 rounded-2xl border border-slate-800/50">
                     <Text className="text-slate-400 text-sm leading-6">
-                        Showing lines connecting each point i to (i * k) mod n.
-                        This visualization reveals hidden symmetries in modular arithmetic.
+                        {t('visualizers.modular_playground.patterns_desc')}
                     </Text>
                 </View>
 
@@ -160,3 +168,4 @@ export default function ModularPlaygroundScreen() {
         </SafeAreaView>
     );
 }
+

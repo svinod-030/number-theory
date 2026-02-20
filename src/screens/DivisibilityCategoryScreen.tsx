@@ -7,85 +7,75 @@ import { RootStackParamList } from '../types/navigation';
 import ScreenHeader from '../components/ScreenHeader';
 import ToolItem from '../components/ToolItem';
 
+import { useTranslation } from 'react-i18next';
+
 export default function DivisibilityCategoryScreen() {
+    const { t } = useTranslation();
     const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
     const tools = [
         {
-            title: "Number Theory Toolbox",
-            description: "GCD, Primality, Factors, and more utilities.",
+            key: "toolbox",
             screen: "Toolbox",
             icon: "construct-outline",
         },
         {
-            title: "Euclidean Visualizer",
-            description: "Learn GCD through geometric tiling.",
+            key: "euclidean",
             screen: "EuclideanVisualizer",
             icon: "color-fill-outline",
         },
         {
-            title: "Collatz Conjecture",
-            description: "Visualize the mysterious 3n + 1 sequences.",
+            key: "collatz",
             screen: "Collatz",
             icon: "trending-down-outline",
         },
         {
-            title: "Pascal's Triangle",
-            description: "Explore binomial coefficients and Sierpinski patterns.",
+            key: "pascal",
             screen: "PascalTriangle",
             icon: "triangle-outline",
         },
         {
-            title: "Fibonacci & Spiral",
-            description: "Visualize the Golden Ratio and growth patterns.",
+            key: "fibonacci",
             screen: "Fibonacci",
             icon: "color-wand-outline",
         },
         {
-            title: "LCM Visualizer",
-            description: "Find the smallest common multiple of two numbers.",
+            key: "lcm",
             screen: "LCM",
             icon: "git-commit-outline",
         },
         {
-            title: "Perfect & Divisors",
-            description: "Explore Perfect, Abundant, and Deficient numbers.",
+            key: "divisors",
             screen: "Divisors",
             icon: "layers-outline",
         },
         {
-            title: "Continued Fractions",
-            description: "Represent numbers as nested fractions and recursive tiles.",
+            key: "continued_fractions",
             screen: "ContinuedFraction",
             icon: "list-outline",
         },
         {
-            title: "Diophantine Equations",
-            description: "Solve equations of the form ax + by = c.",
+            key: "diophantine",
             screen: "Diophantine",
             icon: "infinite-outline",
         },
         {
-            title: "Perfect Numbers",
-            description: "Explore numbers equal to the sum of their divisors.",
+            key: "perfect_numbers",
             screen: "PerfectNumbers",
             icon: "star-outline",
         },
         {
-            title: "Partition Theory",
-            description: "Visualize ways to split an integer into positive sums.",
+            key: "partition",
             screen: "Partition",
             icon: "apps-outline",
         },
         {
-            title: "Pythagorean Triples",
-            description: "Generate right triangles using Euclid's formula.",
+            key: "pythagorean",
             screen: "PythagoreanTriples",
             icon: "triangle-outline",
         },
         {
-            title: "Constructible Polygons",
-            description: "Gauss's Theorem on construction with ruler & compass.",
+            key: "constructible",
             screen: "ConstructiblePolygons",
             icon: "shapes-outline",
         },
@@ -93,7 +83,7 @@ export default function DivisibilityCategoryScreen() {
 
     return (
         <SafeAreaView className="flex-1 bg-slate-950">
-            <ScreenHeader title="Divisibility & Algorithms" />
+            <ScreenHeader title={t('categories.divisibility')} />
 
             <ScrollView
                 className="flex-1"
@@ -105,8 +95,8 @@ export default function DivisibilityCategoryScreen() {
                         <ToolItem
                             key={index}
                             index={index}
-                            title={tool.title}
-                            description={tool.description}
+                            title={t(`tools.${tool.key}.title`)}
+                            description={t(`tools.${tool.key}.description`)}
                             icon={tool.icon}
                             onPress={() => navigation.navigate(tool.screen as any)}
                             accentColor="#fbbf24"

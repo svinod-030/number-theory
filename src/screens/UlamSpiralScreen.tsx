@@ -11,7 +11,10 @@ import Animated, { FadeIn } from 'react-native-reanimated';
 const { width } = Dimensions.get('window');
 const CANVAS_SIZE = width - 48;
 
+import { useTranslation, Trans } from 'react-i18next';
+
 export default function UlamSpiralScreen() {
+    const { t } = useTranslation();
     const [size, setSize] = useState(400);
     const [showPath, setShowPath] = useState(false);
 
@@ -43,7 +46,7 @@ export default function UlamSpiralScreen() {
 
     return (
         <SafeAreaView className="flex-1 bg-slate-950">
-            <ScreenHeader title="Ulam Spiral" />
+            <ScreenHeader title={t('visualizers.ulam.title')} />
 
             <ScrollView
                 className="flex-1"
@@ -52,36 +55,42 @@ export default function UlamSpiralScreen() {
             >
                 <MathCard
                     index={0}
-                    title="In Simple Terms"
+                    title={t('visualizers.ulam.big_idea')}
                 >
                     <View className="bg-emerald-500/5 p-5 rounded-2xl border border-emerald-500/10">
                         <View className="flex-row items-center mb-3">
                             <Ionicons name="bulb-outline" size={18} color="#34d399" />
-                            <Text className="text-emerald-400 font-bold ml-2 text-xs uppercase">The Big Idea</Text>
+                            <Text className="text-emerald-400 font-bold ml-2 text-xs uppercase">{t('visualizers.ulam.big_idea')}</Text>
                         </View>
                         <Text className="text-slate-400 text-xs leading-5">
-                            Write the number <Text className="text-white font-bold">1</Text> in the center of a grid. Spiral outward: 2, 3, 4, 5… Now <Text className="text-sky-400 font-bold">highlight only the primes</Text>. Something weird happens — they line up along <Text className="text-white font-bold">diagonal lines</Text>! Nobody fully understands why. This doodle, discovered by accident, reveals hidden patterns in how primes are distributed.
+                            <Trans
+                                i18nKey="visualizers.ulam.big_idea_desc"
+                                components={{
+                                    1: <Text className="text-white font-bold" />,
+                                    2: <Text className="text-sky-400 font-bold" />
+                                }}
+                            />
                         </Text>
                     </View>
                 </MathCard>
 
                 <MathCard
                     index={1}
-                    description="Visualize primes in a square spiral. Notice how primes tend to cluster along diagonal lines, suggesting mysterious patterns in the distribution of prime numbers."
+                    description={t('visualizers.ulam.spiral_desc')}
                 >
                     <View className="bg-slate-900/50 p-5 rounded-2xl border border-slate-800 mb-6 flex-row justify-between items-center">
                         <View className="items-center">
-                            <Text className="text-slate-500 text-[8px] font-black uppercase mb-1">Density</Text>
+                            <Text className="text-slate-500 text-[8px] font-black uppercase mb-1">{t('visualizers.ulam.density')}</Text>
                             <Text className="text-white text-xl font-black">{primeDensity}%</Text>
                         </View>
                         <View className="w-[1px] h-8 bg-slate-800" />
                         <View className="items-center">
-                            <Text className="text-sky-400 text-[8px] font-black uppercase mb-1">Primes</Text>
+                            <Text className="text-sky-400 text-[8px] font-black uppercase mb-1">{t('visualizers.ulam.primes')}</Text>
                             <Text className="text-white text-xl font-black">{primeCount}</Text>
                         </View>
                         <View className="w-[1px] h-8 bg-slate-800" />
                         <View className="items-center">
-                            <Text className="text-slate-500 text-[8px] font-black uppercase mb-1">Total</Text>
+                            <Text className="text-slate-500 text-[8px] font-black uppercase mb-1">{t('visualizers.ulam.total')}</Text>
                             <Text className="text-white text-xl font-black">{size}</Text>
                         </View>
                     </View>
@@ -115,7 +124,7 @@ export default function UlamSpiralScreen() {
                     <View className="flex-row justify-between items-center bg-slate-900 p-4 rounded-2xl border border-slate-800">
                         <View className="flex-row items-center">
                             <Ionicons name="git-commit-outline" size={18} color="#f59e0b" />
-                            <Text className="text-slate-400 text-[10px] font-black uppercase ml-2 tracking-widest">Show Growth Path</Text>
+                            <Text className="text-slate-400 text-[10px] font-black uppercase ml-2 tracking-widest">{t('visualizers.ulam.show_growth_path')}</Text>
                         </View>
                         <Switch
                             value={showPath}
@@ -128,10 +137,10 @@ export default function UlamSpiralScreen() {
 
                 <MathCard
                     index={2}
-                    title="Control Spiral"
+                    title={t('visualizers.ulam.control_spiral')}
                 >
                     <View className="flex-row items-center justify-between mb-4">
-                        <Text className="text-slate-400 text-[10px] font-black uppercase tracking-widest">Number of Points</Text>
+                        <Text className="text-slate-400 text-[10px] font-black uppercase tracking-widest">{t('visualizers.ulam.number_of_points')}</Text>
                         <Text className="text-sky-500 font-black">{size}</Text>
                     </View>
                     <View className="flex-row items-center space-x-4">
@@ -158,15 +167,20 @@ export default function UlamSpiralScreen() {
 
                 <MathCard
                     index={3}
-                    title="Mathematical Insight"
+                    title={t('visualizers.ulam.mathematical_insight')}
                 >
                     <View className="bg-sky-500/5 p-5 rounded-2xl border border-sky-500/10">
                         <View className="flex-row items-center mb-3">
                             <Ionicons name="flash-outline" size={18} color="#38bdf8" />
-                            <Text className="text-sky-400 font-bold ml-2 text-xs uppercase font-bold">Stanisław Ulam (1963)</Text>
+                            <Text className="text-sky-400 font-bold ml-2 text-xs uppercase font-bold">{t('visualizers.ulam.ulam_insight_title')}</Text>
                         </View>
                         <Text className="text-slate-400 text-xs leading-5">
-                            While listening to a "long and very boring paper" at a scientific meeting, Ulam doodled a grid of numbers. He noticed that prime numbers appeared to fall primarily on diagonal lines. This suggests that certain quadratic polynomials like <Text className="text-white font-bold">n² + n + 41</Text> are remarkably rich in prime numbers.
+                            <Trans
+                                i18nKey="visualizers.ulam.ulam_insight_desc"
+                                components={{
+                                    1: <Text className="text-white font-bold" />
+                                }}
+                            />
                         </Text>
                     </View>
                 </MathCard>

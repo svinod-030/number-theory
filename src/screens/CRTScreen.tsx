@@ -8,7 +8,10 @@ import ThemedInput from '../components/ThemedInput';
 import Animated, { FadeIn, SlideInRight, Layout } from 'react-native-reanimated';
 import { Ionicons } from '@expo/vector-icons';
 
+import { useTranslation, Trans } from 'react-i18next';
+
 export default function CRTScreen() {
+    const { t } = useTranslation();
     const [inputs, setInputs] = useState([
         { a: '2', n: '3' },
         { a: '3', n: '5' },
@@ -40,7 +43,7 @@ export default function CRTScreen() {
 
     return (
         <SafeAreaView className="flex-1 bg-slate-950">
-            <ScreenHeader title="Chinese Remainder Theorem" />
+            <ScreenHeader title={t('tools.crt.title')} />
 
             <ScrollView
                 className="flex-1"
@@ -49,23 +52,29 @@ export default function CRTScreen() {
             >
                 <MathCard
                     index={0}
-                    title="In Simple Terms"
+                    title={t('visualizers.crt.puzzle_title')}
                 >
                     <View className="bg-sky-500/5 p-5 rounded-2xl border border-sky-500/10 mb-4">
                         <View className="flex-row items-center mb-3">
                             <Ionicons name="bulb-outline" size={18} color="#38bdf8" />
-                            <Text className="text-sky-400 font-bold ml-2 text-xs uppercase">A Puzzle</Text>
+                            <Text className="text-sky-400 font-bold ml-2 text-xs uppercase">{t('visualizers.crt.puzzle_title')}</Text>
                         </View>
                         <Text className="text-slate-400 text-xs leading-5">
-                            A farmer counts eggs: <Text className="text-white font-bold">2 left over</Text> when grouped by 3, <Text className="text-white font-bold">3 left over</Text> when grouped by 5, and <Text className="text-white font-bold">2 left over</Text> when grouped by 7.{"\n"}How many eggs? The CRT says there's a <Text className="text-sky-400 font-bold">unique answer</Text>: 23 (and then 23+105, 23+210, …).
+                            <Trans
+                                i18nKey="visualizers.crt.puzzle_desc"
+                                components={{
+                                    1: <Text className="text-white font-bold" />,
+                                    2: <Text className="text-sky-400 font-bold" />
+                                }}
+                            />
                         </Text>
                     </View>
                 </MathCard>
 
                 <MathCard
                     index={1}
-                    title="System of Congruences"
-                    description="Find x that satisfies all equations simultaneously."
+                    title={t('visualizers.crt.system_title')}
+                    description={t('visualizers.crt.system_desc')}
                 >
                     <View className="bg-slate-900/40 rounded-3xl border border-slate-800/60 p-6 shadow-2xl">
                         <View className="flex-row mb-6">
@@ -136,7 +145,7 @@ export default function CRTScreen() {
                                         className="flex-row items-center justify-center p-3 mt-2 rounded-xl border border-dashed border-slate-700/50 active:bg-slate-900"
                                     >
                                         <Ionicons name="add" size={18} color="#94a3b8" />
-                                        <Text className="text-slate-500 ml-2 font-black text-[10px] uppercase">Add Congruence</Text>
+                                        <Text className="text-slate-500 ml-2 font-black text-[10px] uppercase">{t('visualizers.crt.add_congruence')}</Text>
                                     </TouchableOpacity>
                                 )}
                             </View>
@@ -154,9 +163,9 @@ export default function CRTScreen() {
                             </Animated.View>
                         ) : (
                             <View className="bg-rose-500/10 border border-rose-500/20 p-6 rounded-2xl items-center">
-                                <Text className="text-rose-400 font-bold uppercase text-xs">No Solution</Text>
+                                <Text className="text-rose-400 font-bold uppercase text-xs">{t('visualizers.crt.no_solution')}</Text>
                                 <Text className="text-slate-500 text-[10px] text-center mt-2 font-bold leading-4">
-                                    Moduli must be pairwise coprime for a unique answer.
+                                    {t('visualizers.crt.moduli_coprime')}
                                 </Text>
                             </View>
                         )}
@@ -166,16 +175,16 @@ export default function CRTScreen() {
                 {result && (
                     <MathCard
                         index={2}
-                        title="Step-by-Step Construction"
-                        description="How we constructed the solution x:"
+                        title={t('visualizers.crt.steps_title')}
+                        description={t('visualizers.crt.steps_desc')}
                     >
                         <View className="bg-slate-950 rounded-2xl border border-slate-800 overflow-hidden">
                             {/* Header Row */}
                             <View className="flex-row bg-slate-900/50 p-3 border-b border-slate-800">
-                                <Text className="flex-1 text-slate-500 text-[9px] font-black uppercase">Mod (nᵢ)</Text>
-                                <Text className="flex-1 text-slate-500 text-[9px] font-black uppercase">Mᵢ (N/nᵢ)</Text>
-                                <Text className="flex-1 text-slate-500 text-[9px] font-black uppercase">yᵢ (Inv)</Text>
-                                <Text className="flex-1 text-slate-500 text-[9px] font-black uppercase text-right">Term</Text>
+                                <Text className="flex-1 text-slate-500 text-[9px] font-black uppercase">{t('visualizers.crt.mod_col')}</Text>
+                                <Text className="flex-1 text-slate-500 text-[9px] font-black uppercase">{t('visualizers.crt.m_col')}</Text>
+                                <Text className="flex-1 text-slate-500 text-[9px] font-black uppercase">{t('visualizers.crt.y_col')}</Text>
+                                <Text className="flex-1 text-slate-500 text-[9px] font-black uppercase text-right">{t('visualizers.crt.term_col')}</Text>
                             </View>
 
                             {result.steps.map((step, i) => (
@@ -189,7 +198,7 @@ export default function CRTScreen() {
 
                             <View className="p-5 bg-emerald-500/5">
                                 <Text className="text-slate-400 text-[10px] uppercase font-bold mb-3 text-center">
-                                    Final Computation
+                                    {t('visualizers.crt.final_comp')}
                                 </Text>
                                 <View className="bg-slate-900 p-4 rounded-xl border border-slate-800">
                                     <Text className="text-slate-300 text-[11px] font-mono text-center">

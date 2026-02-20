@@ -8,7 +8,10 @@ import Animated, { FadeIn, ZoomIn } from 'react-native-reanimated';
 
 const { width } = Dimensions.get('window');
 
+import { useTranslation, Trans } from 'react-i18next';
+
 export default function FibonacciScreen() {
+    const { t } = useTranslation();
     const navigation = useNavigation();
     const [numSquares, setNumSquares] = useState(8);
     const [viewMode, setViewMode] = useState<'spiral' | 'list'>('spiral');
@@ -33,7 +36,7 @@ export default function FibonacciScreen() {
                 <TouchableOpacity onPress={() => navigation.goBack()}>
                     <Ionicons name="arrow-back" size={24} color="white" />
                 </TouchableOpacity>
-                <Text className="text-xl font-bold text-white">Fibonacci & Spiral</Text>
+                <Text className="text-xl font-bold text-white">{t('visualizers.fibonacci.title')}</Text>
                 <View className="flex-row space-x-4">
                     <TouchableOpacity onPress={() => setNumSquares(Math.max(3, numSquares - 1))}>
                         <Ionicons name="remove" size={24} color="white" />
@@ -50,14 +53,14 @@ export default function FibonacciScreen() {
                     className={`px-6 py-2 rounded-full flex-row items-center ${viewMode === 'spiral' ? 'bg-indigo-600' : 'bg-slate-800'}`}
                 >
                     <Ionicons name="sync" size={16} color="white" className="mr-2" />
-                    <Text className="text-white font-bold ml-2">Golden Spiral</Text>
+                    <Text className="text-white font-bold ml-2">{t('visualizers.fibonacci.golden_spiral')}</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                     onPress={() => setViewMode('list')}
                     className={`px-6 py-2 rounded-full flex-row items-center ${viewMode === 'list' ? 'bg-indigo-600' : 'bg-slate-800'}`}
                 >
                     <Ionicons name="list" size={16} color="white" className="mr-2" />
-                    <Text className="text-white font-bold ml-2">Sequence</Text>
+                    <Text className="text-white font-bold ml-2">{t('visualizers.fibonacci.sequence')}</Text>
                 </TouchableOpacity>
             </View>
 
@@ -128,13 +131,13 @@ export default function FibonacciScreen() {
                                     className="bg-slate-900 p-4 rounded-2xl border border-slate-800 mb-4 flex-row items-center justify-between"
                                 >
                                     <View>
-                                        <Text className="text-slate-500 text-xs mb-1">Index {i + 1}</Text>
+                                        <Text className="text-slate-500 text-xs mb-1">{t('visualizers.fibonacci.index_label', { n: i + 1 })}</Text>
                                         <Text className="text-white text-2xl font-bold">{val}</Text>
                                     </View>
                                     <View className="items-end">
-                                        <Text className="text-indigo-400 font-mono text-sm">Ratio: {ratio}</Text>
+                                        <Text className="text-indigo-400 font-mono text-sm">{t('visualizers.fibonacci.ratio_label', { ratio })}</Text>
                                         {i === sequence.length - 1 && (
-                                            <Text className="text-slate-500 text-[10px] mt-1">Approaching φ ≈ 1.618</Text>
+                                            <Text className="text-slate-500 text-[10px] mt-1">{t('visualizers.fibonacci.approaching_phi')}</Text>
                                         )}
                                     </View>
                                 </Animated.View>
@@ -149,18 +152,24 @@ export default function FibonacciScreen() {
                 <View className="bg-indigo-500/5 p-4 rounded-2xl border border-indigo-500/10 mb-3">
                     <View className="flex-row items-center mb-2">
                         <Ionicons name="bulb-outline" size={16} color="#818cf8" />
-                        <Text className="text-indigo-400 font-bold ml-2 text-[10px] uppercase">In Simple Terms</Text>
+                        <Text className="text-indigo-400 font-bold ml-2 text-[10px] uppercase">{t('visualizers.sieve.in_simple_terms')}</Text>
                     </View>
                     <Text className="text-slate-400 text-[10px] leading-4">
-                        Each number is simply the <Text className="text-white font-bold">sum of the two before it</Text>: 1, 1, 2, 3, 5, 8, 13, 21… The ratio between consecutive terms gets closer and closer to <Text className="text-indigo-400 font-bold">1.618 (the Golden Ratio)</Text>.
+                        <Trans
+                            i18nKey="visualizers.fibonacci.analogy_desc"
+                            components={{
+                                1: <Text className="text-white font-bold" />,
+                                2: <Text className="text-indigo-400 font-bold" />
+                            }}
+                        />
                     </Text>
                 </View>
                 <View className="flex-row items-center mb-2">
                     <Ionicons name="leaf-outline" size={18} color="#818cf8" />
-                    <Text className="text-indigo-400 font-bold ml-2">Nature's Code</Text>
+                    <Text className="text-indigo-400 font-bold ml-2">{t('visualizers.fibonacci.nature_code_title')}</Text>
                 </View>
                 <Text className="text-slate-400 text-xs leading-4">
-                    The ratio of consecutive Fibonacci numbers converges to the Golden Ratio (φ). This pattern appears in sunflower seeds, pinecones, and galaxies!
+                    {t('visualizers.fibonacci.summary')}
                 </Text>
             </View>
         </SafeAreaView>

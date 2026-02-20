@@ -7,61 +7,55 @@ import { RootStackParamList } from '../types/navigation';
 import ScreenHeader from '../components/ScreenHeader';
 import ToolItem from '../components/ToolItem';
 
+import { useTranslation } from 'react-i18next';
+
 export default function ModularCategoryScreen() {
+    const { t } = useTranslation();
     const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
     const tools = [
         {
-            title: "Modulus Basics",
-            description: "Understand the remainder operator and clock arithmetic.",
+            key: "modulus_basics",
             screen: "ModulusBasics",
             icon: "help-circle-outline",
         },
         {
-            title: "Modular Playground",
-            description: "Visualize multiplication orbits in modular arithmetic.",
+            key: "modular_playground",
             screen: "ModularPlayground",
             icon: "color-palette-outline",
         },
         {
-            title: "Modular Table",
-            description: "Explore the (i * j) mod n multiplication grid.",
+            key: "modular_table",
             screen: "ModularTable",
             icon: "grid-outline",
         },
         {
-            title: "Euler's Totient (φ)",
-            description: "Count numbers that share no common factors.",
+            key: "totient",
             screen: "Totient",
             icon: "pie-chart-outline",
         },
         {
-            title: "Primitive Roots",
-            description: "Find generators and cyclic powers in modular groups.",
+            key: "primitive_roots",
             screen: "PrimitiveRoots",
             icon: "refresh-circle-outline",
         },
         {
-            title: "Modular Inverse",
-            description: "Find x such that ax ≡ 1 (mod m) using Extended GCD.",
+            key: "modular_inverse",
             screen: "ModularInverse",
             icon: "key-outline",
         },
         {
-            title: "Fermat & Exponents",
-            description: "Efficiently calculate large powers modulo n.",
+            key: "modular_exponentiation",
             screen: "ModularExponentiation",
             icon: "flash-outline",
         },
         {
-            title: "Chinese Remainder Thm",
-            description: "Solve systems of congruences x ≡ a (mod n).",
+            key: "crt",
             screen: "CRT",
             icon: "git-branch-outline",
         },
         {
-            title: "Legendre Symbol",
-            description: "Determine if a number is a quadratic residue mod p.",
+            key: "legendre",
             screen: "Legendre",
             icon: "flash-outline",
         },
@@ -69,7 +63,7 @@ export default function ModularCategoryScreen() {
 
     return (
         <SafeAreaView className="flex-1 bg-slate-950">
-            <ScreenHeader title="Modular Arithmetic" />
+            <ScreenHeader title={t('categories.modular')} />
 
             <ScrollView
                 className="flex-1"
@@ -81,8 +75,8 @@ export default function ModularCategoryScreen() {
                         <ToolItem
                             key={index}
                             index={index}
-                            title={tool.title}
-                            description={tool.description}
+                            title={t(`tools.${tool.key}.title`)}
+                            description={t(`tools.${tool.key}.description`)}
                             icon={tool.icon}
                             onPress={() => navigation.navigate(tool.screen as any)}
                             accentColor="#38bdf8"

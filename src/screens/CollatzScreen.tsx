@@ -12,7 +12,10 @@ const { width: WINDOW_WIDTH } = Dimensions.get('window');
 const CANVAS_WIDTH = WINDOW_WIDTH - 48;
 const CANVAS_HEIGHT = 180;
 
+import { useTranslation, Trans } from 'react-i18next';
+
 export default function CollatzScreen() {
+    const { t } = useTranslation();
     const [inputNum, setInputNum] = useState('27');
     const [isCalculated, setIsCalculated] = useState(true);
 
@@ -41,7 +44,7 @@ export default function CollatzScreen() {
 
     return (
         <SafeAreaView className="flex-1 bg-slate-950">
-            <ScreenHeader title="Collatz Conjecture" />
+            <ScreenHeader title={t('visualizers.collatz.title')} />
 
             <ScrollView
                 className="flex-1"
@@ -50,27 +53,34 @@ export default function CollatzScreen() {
             >
                 <MathCard
                     index={0}
-                    title="In Simple Terms"
+                    title={t('visualizers.sieve.in_simple_terms')}
                 >
                     <View className="bg-emerald-500/5 p-5 rounded-2xl border border-emerald-500/10 mb-4">
                         <View className="flex-row items-center mb-3">
                             <Ionicons name="bulb-outline" size={18} color="#34d399" />
-                            <Text className="text-emerald-400 font-bold ml-2 text-xs uppercase">The Simplest Unsolved Problem</Text>
+                            <Text className="text-emerald-400 font-bold ml-2 text-xs uppercase">{t('visualizers.collatz.simple_terms_title')}</Text>
                         </View>
                         <Text className="text-slate-400 text-xs leading-5">
-                            Pick any number. If it's <Text className="text-white font-bold">even</Text>, halve it. If it's <Text className="text-white font-bold">odd</Text>, triple it and add 1. Repeat.{"\n"}Example: <Text className="text-sky-400 font-bold">6 → 3 → 10 → 5 → 16 → 8 → 4 → 2 → 1</Text>.{"\n"}Every number ever tested reaches 1, but nobody can prove it <Text className="text-white font-bold">always</Text> works!
+                            <Trans
+                                i18nKey="visualizers.collatz.simple_terms_desc"
+                                components={{
+                                    1: <Text className="text-white font-bold" />,
+                                    2: <Text className="text-white font-bold" />,
+                                    3: <Text className="text-white font-bold" />
+                                }}
+                            />
                         </Text>
                     </View>
                 </MathCard>
 
                 <MathCard
                     index={1}
-                    description="The Collatz Conjecture states that repeatedly applying these simple rules to any starting number will eventually reach the number 1."
+                    description={t('visualizers.collatz.description')}
                 >
                     <View className="flex-row items-end space-x-4">
                         <View className="flex-1">
                             <ThemedInput
-                                label="Starting Number (n)"
+                                label={t('visualizers.collatz.input_label')}
                                 value={inputNum}
                                 onChangeText={setInputNum}
                                 keyboardType="numeric"
@@ -100,18 +110,18 @@ export default function CollatzScreen() {
                                     <Circle cx={CANVAS_WIDTH} cy={CANVAS_HEIGHT - 15} r="5" fill="#10b981" stroke="#064e3b" strokeWidth="1" />
                                 </Svg>
                                 <View className="flex-row justify-between mt-3 px-1">
-                                    <Text className="text-slate-600 text-[8px] font-black uppercase tracking-widest">Start: {sequenceData.startVal}</Text>
-                                    <Text className="text-slate-600 text-[8px] font-black uppercase tracking-widest">Target: 1</Text>
+                                    <Text className="text-slate-600 text-[8px] font-black uppercase tracking-widest">{t('visualizers.collatz.start_label', { n: sequenceData.startVal })}</Text>
+                                    <Text className="text-slate-600 text-[8px] font-black uppercase tracking-widest">{t('visualizers.collatz.target_label')}</Text>
                                 </View>
                             </View>
 
                             <View className="flex-row space-x-3">
                                 <View className="flex-1 bg-slate-900/50 p-4 rounded-2xl border border-slate-800/50 items-center">
-                                    <Text className="text-slate-500 text-[8px] font-black uppercase mb-1 tracking-widest">Total Steps</Text>
+                                    <Text className="text-slate-500 text-[8px] font-black uppercase mb-1 tracking-widest">{t('visualizers.collatz.total_steps')}</Text>
                                     <Text className="text-white text-2xl font-black">{sequenceData.steps}</Text>
                                 </View>
                                 <View className="flex-1 bg-slate-900/50 p-4 rounded-2xl border border-slate-800/50 items-center">
-                                    <Text className="text-slate-500 text-[8px] font-black uppercase mb-1 tracking-widest">Peak Height</Text>
+                                    <Text className="text-slate-500 text-[8px] font-black uppercase mb-1 tracking-widest">{t('visualizers.collatz.peak_height')}</Text>
                                     <Text className="text-amber-400 text-2xl font-black">{sequenceData.maxVal}</Text>
                                 </View>
                             </View>
@@ -120,7 +130,7 @@ export default function CollatzScreen() {
                 </MathCard>
 
                 {isCalculated && sequenceData && (
-                    <MathCard index={2} title="The Journey" description="Every number tested so far eventually reaches the 4-2-1 loop.">
+                    <MathCard index={2} title={t('visualizers.collatz.journey_title')} description={t('visualizers.collatz.journey_desc')}>
                         <ScrollView horizontal showsHorizontalScrollIndicator={false} className="mb-2">
                             <View className="flex-row items-center space-x-2">
                                 {sequenceData.seq.map((val, i) => (
@@ -140,15 +150,15 @@ export default function CollatzScreen() {
 
                 <MathCard
                     index={2}
-                    title="The Mystery"
+                    title={t('visualizers.collatz.mystery_title')}
                 >
                     <View className="bg-slate-900/50 p-5 rounded-2xl border border-slate-800/50">
                         <View className="flex-row items-center mb-3">
                             <Ionicons name="help-circle-outline" size={18} color="#38bdf8" />
-                            <Text className="text-sky-400 font-bold ml-2 text-xs uppercase font-bold">Unsolved since 1937</Text>
+                            <Text className="text-sky-400 font-bold ml-2 text-xs uppercase font-bold">{t('visualizers.collatz.mystery_history')}</Text>
                         </View>
                         <Text className="text-slate-400 text-xs leading-5">
-                            Also called the "Hailstone sequence" because numbers rise and fall like hailstones in a cloud before hitting the ground (1). Mathematician Paul Erdős said, "Mathematics may not be ready for such problems."
+                            {t('visualizers.collatz.mystery_desc')}
                         </Text>
                     </View>
                 </MathCard>

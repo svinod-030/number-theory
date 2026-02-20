@@ -8,13 +8,16 @@ import ThemedInput from '../components/ThemedInput';
 import Animated, { FadeIn, Layout } from 'react-native-reanimated';
 import { Ionicons } from '@expo/vector-icons';
 
+import { useTranslation, Trans } from 'react-i18next';
+
 export default function HashingScreen() {
+    const { t } = useTranslation();
     const [input, setInput] = useState('NumberTheory');
     const hash = toyHash(input);
 
     return (
         <SafeAreaView className="flex-1 bg-slate-950">
-            <ScreenHeader title="Hashing Algorithms" />
+            <ScreenHeader title={t('visualizers.hashing.title')} />
 
             <ScrollView
                 className="flex-1"
@@ -23,28 +26,34 @@ export default function HashingScreen() {
             >
                 <MathCard
                     index={0}
-                    title="In Simple Terms"
+                    title={t('visualizers.sieve.in_simple_terms')}
                 >
                     <View className="bg-rose-500/5 p-5 rounded-2xl border border-rose-500/10 mb-4">
                         <View className="flex-row items-center mb-3">
                             <Ionicons name="bulb-outline" size={18} color="#f43f5e" />
-                            <Text className="text-rose-400 font-bold ml-2 text-xs uppercase">Data Fingerprints</Text>
+                            <Text className="text-rose-400 font-bold ml-2 text-xs uppercase">{t('visualizers.hashing.simple_terms_title')}</Text>
                         </View>
                         <Text className="text-slate-400 text-xs leading-5">
-                            A hash is like a <Text className="text-white font-bold">fingerprint for data</Text>. Feed in any text — you always get the same fixed-length code. Change even <Text className="text-rose-400 font-bold">one letter</Text> and the hash changes completely!{"\n"}Used everywhere: password storage, file downloads (did it get corrupted?), blockchains, and digital signatures.
+                            <Trans
+                                i18nKey="visualizers.hashing.simple_terms_desc"
+                                components={{
+                                    1: <Text className="text-white font-bold" />,
+                                    2: <Text className="text-rose-400 font-bold" />
+                                }}
+                            />
                         </Text>
                     </View>
                 </MathCard>
 
                 <MathCard
                     index={1}
-                    description="A Hash Function maps data of arbitrary size to a fixed-size value. It is a 'one-way' mathematical process typically used for data integrity."
+                    description={t('visualizers.hashing.description')}
                 >
                     <ThemedInput
-                        label="Input Data"
+                        label={t('visualizers.hashing.input_label')}
                         value={input}
                         onChangeText={setInput}
-                        placeholder="Type something..."
+                        placeholder={t('visualizers.hashing.placeholder')}
                     />
 
                     <View className="items-center my-4">
@@ -59,20 +68,20 @@ export default function HashingScreen() {
                         layout={Layout}
                         className="bg-rose-500/10 p-6 rounded-2xl border border-rose-500/20 items-center shadow-inner"
                     >
-                        <Text className="text-slate-500 text-[10px] font-bold uppercase mb-2">Hash Result (Hex)</Text>
+                        <Text className="text-slate-500 text-[10px] font-bold uppercase mb-2">{t('visualizers.hashing.result_label')}</Text>
                         <Text className="text-rose-400 text-2xl font-mono font-black tracking-tight">{hash}</Text>
                     </Animated.View>
                 </MathCard>
 
                 <MathCard
                     index={2}
-                    title="Key Properties"
+                    title={t('visualizers.hashing.properties_title')}
                 >
                     <View className="space-y-4">
-                        <PropertyItem title="Deterministic" desc="Same input always produces the same hash." color="#f43f5e" />
-                        <PropertyItem title="Fast" desc="Computing the hash is computationally efficient." color="#f43f5e" />
-                        <PropertyItem title="Irreversible" desc="Hard to find the original input from its hash." color="#f43f5e" />
-                        <PropertyItem title="Avalanche Effect" desc="Small input changes create drastic hash changes." color="#f43f5e" />
+                        <PropertyItem title={t('visualizers.hashing.deterministic_title')} desc={t('visualizers.hashing.deterministic_desc')} color="#f43f5e" />
+                        <PropertyItem title={t('visualizers.hashing.fast_title')} desc={t('visualizers.hashing.fast_desc')} color="#f43f5e" />
+                        <PropertyItem title={t('visualizers.hashing.irreversible_title')} desc={t('visualizers.hashing.irreversible_desc')} color="#f43f5e" />
+                        <PropertyItem title={t('visualizers.hashing.avalanche_title')} desc={t('visualizers.hashing.avalanche_desc')} color="#f43f5e" />
                     </View>
                 </MathCard>
 

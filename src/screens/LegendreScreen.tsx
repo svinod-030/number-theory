@@ -8,7 +8,10 @@ import ThemedInput from '../components/ThemedInput';
 import Animated, { FadeIn, ZoomIn } from 'react-native-reanimated';
 import { Ionicons } from '@expo/vector-icons';
 
+import { useTranslation, Trans } from 'react-i18next';
+
 export default function LegendreScreen() {
+    const { t } = useTranslation();
     const [aStr, setAStr] = useState('2');
     const [pStr, setPStr] = useState('7');
 
@@ -20,7 +23,7 @@ export default function LegendreScreen() {
 
     return (
         <SafeAreaView className="flex-1 bg-slate-950">
-            <ScreenHeader title="Legendre Symbol" />
+            <ScreenHeader title={t('tools.legendre.title')} />
 
             <ScrollView
                 className="flex-1"
@@ -29,27 +32,33 @@ export default function LegendreScreen() {
             >
                 <MathCard
                     index={0}
-                    title="In Simple Terms"
+                    title={t('visualizers.sieve.in_simple_terms')}
                 >
                     <View className="bg-amber-500/5 p-5 rounded-2xl border border-amber-500/10 mb-4">
                         <View className="flex-row items-center mb-3">
                             <Ionicons name="bulb-outline" size={18} color="#fbbf24" />
-                            <Text className="text-amber-400 font-bold ml-2 text-xs uppercase">Is It a Hidden Square?</Text>
+                            <Text className="text-amber-400 font-bold ml-2 text-xs uppercase">{t('visualizers.legendre.analogy_title')}</Text>
                         </View>
                         <Text className="text-slate-400 text-xs leading-5">
-                            In mod 7, is there a number whose square gives 2?  Try 3: <Text className="text-amber-400 font-bold">3² = 9 ≡ 2 (mod 7)</Text> ✓{"\n"}The Legendre symbol (a/p) answers <Text className="text-white font-bold">"does x² ≡ a (mod p) have a solution?"</Text> — it returns 1 (yes), -1 (no), or 0 (a is divisible by p).
+                            <Trans
+                                i18nKey="visualizers.legendre.analogy_desc"
+                                components={{
+                                    1: <Text className="text-amber-400 font-bold" />,
+                                    2: <Text className="text-white font-bold" />
+                                }}
+                            />
                         </Text>
                     </View>
                 </MathCard>
 
                 <MathCard
                     index={1}
-                    description="The Legendre symbol (a/p) is a function that indicates whether 'a' is a quadratic residue modulo 'p'."
+                    description={t('visualizers.legendre.description')}
                 >
                     <View className="flex-row space-x-4">
                         <View className="flex-1">
                             <ThemedInput
-                                label="Integer a"
+                                label={t('visualizers.legendre.int_label')}
                                 value={aStr}
                                 onChangeText={setAStr}
                                 keyboardType="numeric"
@@ -57,7 +66,7 @@ export default function LegendreScreen() {
                         </View>
                         <View className="flex-1">
                             <ThemedInput
-                                label="Odd Prime p"
+                                label={t('visualizers.legendre.p_label')}
                                 value={pStr}
                                 onChangeText={setPStr}
                                 keyboardType="numeric"
@@ -83,35 +92,40 @@ export default function LegendreScreen() {
                         </View>
 
                         <Text className={`font-bold mt-2 uppercase text-[10px] ${result === 1 ? 'text-emerald-400' : result === -1 ? 'text-rose-400' : 'text-slate-500'}`}>
-                            {result === 1 ? 'Quadratic Residue' : result === -1 ? 'Quadratic Non-Residue' : 'Divisible by p'}
+                            {result === 1 ? t('visualizers.quadratic_reciprocity.residue_label') : result === -1 ? t('visualizers.quadratic_reciprocity.non_residue_label') : t('visualizers.legendre.divisible_label')}
                         </Text>
                     </Animated.View>
                 </MathCard>
 
                 <MathCard
                     index={2}
-                    title="Legend & Meaning"
+                    title={t('visualizers.legendre.legend_title')}
                 >
                     <View className="space-y-4">
-                        <LegendRow val="1" desc="'a' is a square modulo 'p' (x² ≡ a mod p exists)" color="#34d399" />
-                        <LegendRow val="-1" desc="'a' is NOT a square modulo 'p'" color="#f43f5e" />
-                        <LegendRow val="0" desc="'a' is a multiple of 'p'" color="#94a3b8" />
+                        <LegendRow val="1" desc={t('visualizers.legendre.legend_1')} color="#34d399" />
+                        <LegendRow val="-1" desc={t('visualizers.legendre.legend_neg1')} color="#f43f5e" />
+                        <LegendRow val="0" desc={t('visualizers.legendre.legend_0')} color="#94a3b8" />
                     </View>
                 </MathCard>
 
                 <MathCard
                     index={3}
-                    title="Euler's Criterion"
+                    title={t('visualizers.legendre.criterion_title')}
                 >
                     <View className="bg-slate-900/50 p-6 rounded-2xl border border-slate-800">
                         <View className="flex-row items-center mb-4">
                             <Ionicons name="flash-outline" size={20} color="#fbbf24" />
-                            <Text className="text-amber-400 font-bold ml-2">Quick Calculation</Text>
+                            <Text className="text-amber-400 font-bold ml-2">{t('visualizers.legendre.criterion_title')}</Text>
                         </View>
                         <Text className="text-slate-300 text-xs leading-5">
-                            Legendre symbols can be calculated using Euler's criterion:{"\n"}
-                            <Text className="text-white font-mono">(a/p) ≡ a^((p-1)/2) mod p</Text>{"\n\n"}
-                            This is the method used by this tool!
+                            <Trans
+                                i18nKey="visualizers.legendre.criterion_desc"
+                                components={{
+                                    1: <Text className="text-white font-mono font-bold" />
+                                }}
+                            />
+                            {"\n\n"}
+                            {t('visualizers.legendre.criterion_footer', { defaultValue: 'This is the method used by this tool!' })}
                         </Text>
                     </View>
                 </MathCard>

@@ -11,7 +11,10 @@ import { Svg, Polygon } from 'react-native-svg';
 
 const { width } = Dimensions.get('window');
 
+import { useTranslation, Trans } from 'react-i18next';
+
 export default function ConstructiblePolygonsScreen() {
+    const { t } = useTranslation();
     const [sides, setSides] = useState('17');
     const n = parseInt(sides) || 0;
 
@@ -37,19 +40,19 @@ export default function ConstructiblePolygonsScreen() {
 
     return (
         <SafeAreaView className="flex-1 bg-slate-950">
-            <ScreenHeader title="Constructible Polygons" />
+            <ScreenHeader title={t('visualizers.constructible_polygons.title')} />
 
             <ScrollView className="flex-1" contentContainerStyle={{ paddingHorizontal: 24, paddingVertical: 12 }}>
                 <MathCard
-                    title="Gauss's Theorem"
-                    description="A regular n-sided polygon is constructible if n is a power of 2 times distinct Fermat primes (3, 5, 17, 257, 65537)."
+                    title={t('visualizers.constructible_polygons.gauss_theorem')}
+                    description={t('visualizers.constructible_polygons.gauss_desc')}
                 >
                     <ThemedInput
-                        label="Number of Sides (n)"
+                        label={t('visualizers.constructible_polygons.input_label')}
                         value={sides}
                         onChangeText={setSides}
                         keyboardType="numeric"
-                        placeholder="e.g. 17"
+                        placeholder={t('visualizers.constructible_polygons.placeholder')}
                     />
                 </MathCard>
 
@@ -63,7 +66,7 @@ export default function ConstructiblePolygonsScreen() {
                                     color={result.isConstructible ? "#34d399" : "#f43f5e"}
                                 />
                                 <Text className={`ml-3 text-xl font-bold ${result.isConstructible ? 'text-emerald-400' : 'text-rose-400'}`}>
-                                    {result.isConstructible ? 'Constructible' : 'Not Constructible'}
+                                    {result.isConstructible ? t('visualizers.constructible_polygons.constructible') : t('visualizers.constructible_polygons.not_constructible')}
                                 </Text>
                             </View>
                             <Text className="text-slate-400 text-sm leading-5">
@@ -90,7 +93,7 @@ export default function ConstructiblePolygonsScreen() {
                         {n > 100 && (
                             <View className="bg-slate-900 p-4 rounded-2xl border border-slate-800 mb-8">
                                 <Text className="text-slate-500 text-xs text-center italic">
-                                    Visualization hidden for n &gt; 100 to maintain smoothness.
+                                    {t('visualizers.constructible_polygons.limit_text')}
                                 </Text>
                             </View>
                         )}
@@ -98,12 +101,12 @@ export default function ConstructiblePolygonsScreen() {
                 ) : (
                     <View className="items-center py-20">
                         <Ionicons name="help-circle-outline" size={48} color="#334155" />
-                        <Text className="text-slate-500 mt-4 text-center">Enter 3 or more sides to check constructability.</Text>
+                        <Text className="text-slate-500 mt-4 text-center">{t('visualizers.constructible_polygons.error_min_sides')}</Text>
                     </View>
                 )}
 
                 <View className="bg-slate-900 p-6 rounded-3xl border border-slate-800">
-                    <Text className="text-white font-bold mb-4">Known Fermat Primes</Text>
+                    <Text className="text-white font-bold mb-4">{t('visualizers.constructible_polygons.known_fermat_primes')}</Text>
                     <View className="flex-row flex-wrap">
                         {[3, 5, 17, 257, 65537].map((p, i) => (
                             <Animated.View
@@ -116,7 +119,7 @@ export default function ConstructiblePolygonsScreen() {
                         ))}
                     </View>
                     <Text className="text-slate-500 text-[10px] mt-2 leading-4">
-                        Gauss's 1796 discovery showed that the heptadecagon (17 sides) is constructible, a feat that eluded mathematicians for 2000 years!
+                        {t('visualizers.constructible_polygons.gauss_discovery')}
                     </Text>
                 </View>
 

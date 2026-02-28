@@ -92,7 +92,7 @@ export default function HomeScreen() {
             >
                 {/* Header Section */}
                 <Animated.View entering={FadeInUp.duration(600)} className="flex-row items-center justify-between mb-8">
-                    <View className="flex-row items-center">
+                    <View className="flex-row items-center flex-1 mr-4">
                         <Animated.View
                             entering={ZoomIn.delay(200).duration(400)}
                             className="bg-slate-900 p-3 rounded-2xl border border-slate-800 mr-4 shadow-2xl"
@@ -102,26 +102,35 @@ export default function HomeScreen() {
                                 style={{ width: 48, height: 48, borderRadius: 12 }}
                             />
                         </Animated.View>
-                        <View>
-                            <Text className="text-2xl font-black text-white tracking-tighter">{t('common.app_name')}</Text>
-                            <Text className="text-slate-500 font-medium text-xs">{t('common.queen_of_math')}</Text>
+                        <View className="flex-1">
+                            <Text className="text-2xl font-black text-white tracking-tighter" numberOfLines={1}>{t('common.app_name')}</Text>
+                            <View className="flex-column flex-wrap items-left mt-2">
+                                <Text className="text-slate-500 font-medium text-[10px] sm:text-xs">{t('common.queen_of_math')}</Text>
+                                <View className="mx-1 mt-1 w-1 h-1 rounded-full bg-slate-800" />
+                                <TouchableOpacity
+                                    onPress={() => setLangModalVisible(true)}
+                                    className="flex-row items-center bg-slate-900/50 px-2 py-1 rounded-lg border border-slate-800"
+                                >
+                                    <Ionicons name="language-outline" size={10} color="#818cf8" />
+                                    <View className="flex-row items-center ml-1">
+                                        <Text className="text-slate-400 text-[9px] font-bold uppercase">
+                                            {LANGUAGES.find(l => l.code === currentLanguage)?.native || 'English'}
+                                        </Text>
+                                        <Text className="text-slate-500 text-[8px] font-medium ml-1 uppercase">
+                                            ({LANGUAGES.find(l => l.code === currentLanguage)?.name || 'English'})
+                                        </Text>
+                                    </View>
+                                </TouchableOpacity>
+                            </View>
                         </View>
                     </View>
-                    <View className="flex-row">
-                        <TouchableOpacity
-                            onPress={() => setLangModalVisible(true)}
-                            className="bg-slate-900 p-2.5 rounded-xl border border-slate-800 mr-2 shadow-sm"
-                        >
-                            <Ionicons name="globe-outline" size={20} color="#64748b" />
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            onPress={() => navigation.navigate('Glossary')}
-                            className="bg-indigo-600/20 px-4 py-2 rounded-xl border border-indigo-500/30 flex-row items-center"
-                        >
-                            <Ionicons name="library-outline" size={18} color="#818cf8" />
-                            <Text className="text-indigo-400 font-bold ml-2 text-xs">{t('common.glossary')}</Text>
-                        </TouchableOpacity>
-                    </View>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Glossary')}
+                        className="bg-indigo-600/20 px-3 py-2 rounded-xl border border-indigo-500/30 flex-row items-center"
+                    >
+                        <Ionicons name="library-outline" size={16} color="#818cf8" />
+                        <Text className="text-indigo-400 font-bold ml-2 text-[10px]">{t('common.glossary')}</Text>
+                    </TouchableOpacity>
                 </Animated.View>
 
                 {/* Global Search Bar */}

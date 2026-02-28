@@ -1,660 +1,755 @@
 {
-    "common": {
-        "search_placeholder": "ഒരു ടൂൾ അല്ലെങ്കിൽ വിഷ്വലൈസർ കണ്ടെത്തുക...",
-        "no_results": "\"{{search}}\" മായി പൊരുത്തപ്പെടുന്ന ടൂളുകൾ ഒന്നുമില്ല",
-        "learning_hubs": "ലേണിംഗ് ഹബ്ബുകൾ",
-        "concepts": "{{count}} ആശയങ്ങൾ",
-        "tip": "സൂചന: പ്രത്യേക സൂത്രവാക്യങ്ങളും നിർവചനങ്ങളും വേഗത്തിൽ കണ്ടെത്താൻ <1>തിരയൽ ബാർ</1> ഉപയോഗിക്കുക അല്ലെങ്കിൽ <2>പദകോശം</2> സന്ദർശിക്കുക.",
-        "rate_us": "ഞങ്ങളെ വിലയിരുത്തുക",
-        "contact_us": "ഞങ്ങളെ ബന്ധപ്പെടുക",
-        "privacy_policy": "സ്വകാര്യതാ നയം",
-        "glossary": "പദകോശം",
-        "queen_of_math": "ഗണിതശാസ്ത്രത്തിന്റെ റാണി"
-    },
     "categories": {
-        "primes": "അഭാജ്യാഖ്യകൾ",
-        "modular": "മോഡുലാർ അരിത്മെറ്റിക്",
+        "applications": "അപ്ലിക്കേഷനുകൾ",
         "divisibility": "ഭാജ്യതയും അൽഗോരിതങ്ങളും",
-        "applications": "അപ്ലിക്കേഷനുകൾ"
+        "modular": "മോഡുലാർ അരിത്മെറ്റിക്",
+        "primes": "അഭാജ്യാഖ്യകൾ"
     },
-    "tools": {
-        "sieve": {
-            "title": "എറാത്തോസ്തനീസിന്റെ അരിപ്പ",
-            "description": "അഭാജ്യ സംഖ്യകൾ കണ്ടെത്തുന്ന അൽഗോരിതം"
-        },
-        "ulam": {
-            "title": "ഉലാം സ്പൈറൽ",
-            "description": "അഭാജ്യ സംഖ്യകളുടെ പാറ്റേണുകൾ"
-        },
-        "factorization": {
-            "title": "ഘടക മരം",
-            "description": "അഭാജ്യ ഘടക വിഭജനം"
-        },
-        "goldbach": {
-            "title": "ഗോൾഡ്ബാക്ക് അനുമാനം",
-            "description": "ഇരട്ട സംഖ്യകളുടെ തുകയായി അഭാജ്യ സംഖ്യകൾ"
-        },
-        "amicable": {
-            "title": "അമിക്യബിൾ സംഖ്യകൾ",
-            "description": "സ്നേഹപൂർണ്ണമായ സംഖ്യാ ജോഡികൾ"
-        },
-        "modular_playground": {
-            "title": "മോഡുലാർ പ്ലേഗ്രൗണ്ട്",
-            "description": "ഇന്ററാക്ടീവ് മോഡുലാർ കാൽക്കുലേറ്റർ"
-        },
-        "modular_inverse": {
-            "title": "മോഡുലാർ ഇൻവേഴ്സ്",
-            "description": "മോഡുലാർ ഗുണന വിപരീതങ്ങൾ കണ്ടെത്തുക"
-        },
-        "modular_exponentiation": {
-            "title": "മോഡുലാർ എക്സ്പോണൻഷ്യേഷൻ",
-            "description": "വേഗത്തിലുള്ള മോഡുലാർ ഘാതങ്ങൾ"
-        },
-        "modular_table": {
-            "title": "മോഡുലാർ ടേബിൾ",
-            "description": "മോഡുലാർ ഗുണനപ്പട്ടികകൾ"
-        },
-        "totient": {
-            "title": "ടോട്ടന്റ് ഫംഗ്ഷൻ Φ(n)",
-            "description": "കോപ്രൈം സംഖ്യകൾ എണ്ണുക"
-        },
-        "crt": {
-            "title": "ചൈനീസ് റിമൈൻഡർ തിയറം",
-            "description": "കോൺഗ്രുവൻസ് സിസ്റ്റങ്ങൾ പരിഹരിക്കുക"
-        },
-        "primitive_roots": {
-            "title": "പ്രിമിറ്റീവ് റൂട്ടുകൾ",
-            "description": "ഗ്രൂപ്പുകളുടെ സൈക്ലിക് ജനറേറ്ററുകൾ"
-        },
-        "quadratic_reciprocity": {
-            "title": "ക്വാഡ്രാറ്റിക് റെസിപ്രോസിറ്റി",
-            "description": "മോഡുലാർ ഗണിതത്തിലെ വർഗ്ഗമൂലങ്ങൾ"
-        },
-        "euclidean": {
-            "title": "യൂക്ലിഡിയൻ അൽഗോരിതം",
-            "description": "GCD വിഷ്വലൈസർ"
-        },
-        "lcm": {
-            "title": "LCM കാൽക്കുലേറ്റർ",
-            "description": "ലഘുതമ സാധാരണ ഗുണിതം"
-        },
-        "fibonacci": {
-            "title": "ഫിബൊനാച്ചി സ്പൈറൽ",
-            "description": "സുവർണ്ണ അനുപാതവും പ്രകൃതിയിലെ കോഡും"
-        },
-        "pascal": {
-            "title": "പാസ്കൽ ത്രികോണം",
-            "description": "കോമ്പിനേറ്റോറിക്സും പാറ്റേണുകളും"
-        },
-        "collatz": {
-            "title": "കൊളാറ്റ്സ് അനുമാനം",
-            "description": "3n+1 ശ്രേണി വിഷ്വലൈസ് ചെയ്യുന്നു"
-        },
-        "continued_fractions": {
-            "title": "തുടർച്ചയായ ഭിന്നസംഖ്യകൾ",
-            "description": "യഥാർത്ഥ സംഖ്യകളുടെ ഏകദേശ മൂല്യം"
-        },
-        "diophantine": {
-            "title": "ഡിയോഫാന്റൈൻ സമവാക്യങ്ങൾ",
-            "description": "ലിനിയർ ഇന്റീജർ സമവാക്യങ്ങൾ പരിഹരിക്കുക"
-        },
-        "divisors": {
-            "title": "ഘടകങ്ങൾ കണ്ടെത്തുക",
-            "description": "ഒരു സംഖ്യയുടെ എല്ലാ ഘടകങ്ങളും പട്ടികപ്പെടുത്തുക"
-        },
-        "partition": {
-            "title": "പാർട്ടീഷൻ സിദ്ധാന്തം",
-            "description": "യംഗ് ഡയഗ്രാമുകളും പാർട്ടീഷനുകളും"
-        },
-        "rsa": {
-            "title": "RSA ക്രിപ്റ്റോഗ്രഫി",
-            "description": "എൻക്രിപ്ഷനും അഭാജ്യ സുരക്ഷയും"
-        },
-        "diffie_hellman": {
-            "title": "ഡിഫി-ഹെൽമാൻ",
-            "description": "കീ എക്സ്ചേഞ്ച് പ്രോട്ടോക്കോൾ"
-        },
-        "hashing": {
-            "title": "ഹാഷിംഗ് അൽഗോരിതങ്ങൾ",
-            "description": "വൺ-വേ മാത്ത് ഫംഗ്ഷനുകൾ"
-        },
-        "digital_signatures": {
-            "title": "ഡിജിറ്റൽ സിഗ്നേച്ചറുകൾ",
-            "description": "ഗണിതം ഉപയോഗിച്ചുള്ള പ്രാമാണീകരണം"
-        },
-        "perfect_numbers": {
-            "title": "പെർഫെക്റ്റ് സംഖ്യകൾ",
-            "description": "ഘടകങ്ങളുടെ തുക സംഖ്യയ്ക്ക് തുല്യമാണ്"
-        },
-        "legendre": {
-            "title": "ലെജൻഡ്രെ ചിഹ്നം",
-            "description": "ക്വാഡ്രാറ്റിക് റെസിഡ്യൂ വിഷ്വലൈസർ"
-        },
-        "pythagorean": {
-            "title": "പൈതഗോറിയൻ ട്രിപ്പിൾസ്",
-            "description": "യൂക്ലിഡ് ഫോർമുല ഉപയോഗിച്ച് മട്ടത്രികോണങ്ങൾ നിർമ്മിക്കുക"
-        },
-        "constructible": {
-            "title": "നിർമ്മിക്കാൻ കഴിയുന്ന ബഹുഭുജങ്ങൾ",
-            "description": "ഗൗസ് തിയറം ഓൺ റെഗുലർ n-ഗോൺസ്"
-        },
-        "toolbox": {
-            "title": "സംഖ്യാ സിദ്ധാന്ത ടൂൾബോക്സ്",
-            "description": "GCD, അഭാജ്യത, ഘടകങ്ങൾ എന്നിവയും അതിലേറെയും"
-        }
+    "common": {
+        "app_name": "സംഖ്യാ സിദ്ധാന്തം",
+        "concepts": "{{count}} ആശയങ്ങൾ",
+        "contact_us": "ഞങ്ങളെ ബന്ധപ്പെടുക",
+        "glossary": "പദകോശം",
+        "learning_hubs": "ലേണിംഗ് ഹബ്ബുകൾ",
+        "no_results": "\"{{search}}\" മായി പൊരുത്തപ്പെടുന്ന ടൂളുകൾ ഒന്നുമില്ല",
+        "privacy_policy": "സ്വകാര്യതാ നയം",
+        "queen_of_math": "ഗണിതശാസ്ത്രത്തിന്റെ റാണി",
+        "rate_us": "ഞങ്ങളെ വിലയിരുത്തുക",
+        "search_placeholder": "ഒരു ടൂൾ അല്ലെങ്കിൽ വിഷ്വലൈസർ കണ്ടെത്തുക...",
+        "select_language": "ഭാഷ തിരഞ്ഞെടുക്കുക",
+        "tip": "സൂചന: പ്രത്യേക സൂത്രവാക്യങ്ങളും നിർവചനങ്ങളും വേഗത്തിൽ കണ്ടെത്താൻ <1>തിരയൽ ബാർ</1> ഉപയോഗിക്കുക അല്ലെങ്കിൽ <2>പദകോശം</2> സന്ദർശിക്കുക."
     },
     "glossary": {
-        "header_title": "ഗണിത വിജ്ഞാനകോശം",
-        "search_label": "നിർവചനങ്ങൾ തിരയുക",
-        "search_placeholder": "ഉദാ: അഭാജ്യ സംഖ്യ, RSA, GCD...",
         "categories": {
             "all": "എല്ലാം",
-            "primes": "അഭാജ്യാഖ്യകൾ",
-            "modular": "മോഡുലാർ",
-            "divisibility": "ഭാജ്യത",
             "cryptography": "ക്രിപ്റ്റോഗ്രഫി",
-            "patterns": "പാറ്റേണുകൾ"
+            "divisibility": "ഭാജ്യത",
+            "modular": "മോഡുലാർ",
+            "patterns": "പാറ്റേണുകൾ",
+            "primes": "അഭാജ്യാഖ്യകൾ"
         },
-        "no_results": "നിർവചനങ്ങൾ ഒന്നും കണ്ടെത്തിയില്ല",
+        "header_title": "ഗണിത വിജ്ഞാനകോശം",
         "items": {
-            "prime_number": {
-                "term": "അഭാജ്യ സംഖ്യ (Prime Number)",
-                "definition": "1-നേക്കാൾ വലിയതും 1-ഉം ആ സംഖ്യയും ഒഴികെ മറ്റ് ഘടകങ്ങളില്ലാത്തതുമായ സംഖ്യ."
-            },
             "composite_number": {
-                "term": "സമിശ്ര സംఖ్య (Composite Number)",
-                "definition": "1-നേക്കാൾ വലിയതും കുറഞ്ഞത് ഒരു മറ്റ് ഘടകമെങ്കിലും ഉള്ളതുമായ സംഖ്യ."
-            },
-            "gcd": {
-                "term": "ഉത്തമ സാധാരണ ഘടകം (GCD)",
-                "definition": "രണ്ട് സംഖ്യകളെയും നിശ്ശേഷം ഹരിക്കാൻ കഴിയുന്ന ഏറ്റവും വലിയ സംഖ്യ."
-            },
-            "lcm": {
-                "term": "ലഘുതമ സാധാരണ ഗുണിതം (LCM)",
-                "definition": "a, b എന്നീ രണ്ട് സംഖ്യകൾ കൊണ്ട് നിശ്ശേഷം ഹരിക്കാൻ കഴിയുന്ന ഏറ്റവും ചെറിയ സംഖ്യ."
-            },
-            "modulus": {
-                "term": "മോഡുലസ് (mod)",
-                "definition": "ഹരണത്തിന് ശേഷം ബാക്കി വരുന്ന സംഖ്യ (ശിഷ്ടം) കണ്ടെത്തുന്ന പ്രക്രിയ."
-            },
-            "modular_arithmetic": {
-                "term": "മോഡുലാർ അരിത്മെറ്റിക്",
-                "definition": "ശിഷ്ടങ്ങളെ അടിസ്ഥാനമാക്കിയുള്ള ഗണിതശാസ്ത്ര രീതി."
-            },
-            "relative_prime": {
-                "term": "സപേക്ഷ അഭാജ്യ സംഖ്യകൾ (Coprime)",
-                "definition": "രണ്ട് സംഖ്യകളുടെ ഉത്തമ സാധാരണ ഘടകം 1 ആണെങ്കിൽ അവ സപേക്ഷ അഭാജ്യ സംഖ്യകൾ."
-            },
-            "euler_totient": {
-                "term": "ഓയിലർ ടോട്ടന്റ് Φ(n)",
-                "definition": "n-വരെയുള്ള സംഖ്യകളിൽ n-നോട് സപേക്ഷ അഭാജ്യമായിട്ടുള്ള സംഖ്യകളുടെ എണ്ണം."
-            },
-            "fibonacci_sequence": {
-                "term": "ഫിബൊനാച്ചി ശ്രേണി",
-                "definition": "ഓരോ സംഖ്യയും തൊട്ടുപിന്നിലെ രണ്ട് സംഖ്യകളുടെ തുകയായി വരുന്ന ശ്രేണി."
-            },
-            "perfect_number": {
-                "term": "പെർഫെക്റ്റ് സംഖ്യ (Perfect Number)",
-                "definition": "ഒരു സംഖ്യയുടെ ഘടകങ്ങളുടെ തുക (ആ സംഖ്യ ഒഴികെ) ആ സംഖ്യയ്ക്ക് തന്നെ തുല്യമാണെങ്കിൽ."
-            },
-            "rsa_cryptography": {
-                "term": "RSA ക്രിപ്റ്റോഗ്രഫി",
-                "definition": "അഭാജ്യ സംഖ്യകളുടെ ഘടക വിഭജനം പ്രയാസകരമാണ് എന്ന തത്വത്തിൽ അധിഷ്ഠിതമായ സുരക്ഷാ രീതി."
+                "definition": "1-നേക്കാൾ വലിയതും കുറഞ്ഞത് ഒരു മറ്റ് ഘടകമെങ്കിലും ഉള്ളതുമായ സംഖ്യ.",
+                "term": "സമിശ്ര സംఖ్య (Composite Number)"
             },
             "congruence": {
-                "term": "കോൺഗ്രുവൻസ് (Congruence)",
-                "definition": "രണ്ട് സംഖ്യകളുടെ വ്യത്യാസം ഒരു പ്രത്യേക സംഖ്യ കൊണ്ട് ഹരിക്കാൻ കഴിയുമെങ്കിൽ അവ കോൺഗ്രുവന്റ് ആണ്."
-            },
-            "primitive_root": {
-                "term": "പ്രിമിറ്റീവ് റൂട്ട് (Primitive Root)",
-                "definition": "ഒരു മോഡുലാർ ഗ്രൂപ്പിന്റെ ജനറേറ്റർ."
-            },
-            "sieve_of_eratosthenes": {
-                "term": "എറാത്തോസ്തനീസിന്റെ അരിപ്പ",
-                "definition": "അഭാജ്യ സംഖ്യകൾ വേഗത്തിൽ കണ്ടെത്താനുള്ള പുരാതന രീതി."
-            },
-            "goldbach_conjecture": {
-                "term": "ഗോൾഡ്ബാക്ക് അനുമാനം",
-                "definition": "ഓരോ ഇരട്ട സംഖ്യയെയും രണ്ട് അഭാജ്യ സംഖ്യകളുടെ തുകയായി എഴുതാം എന്ന അനുമാനം."
-            },
-            "diophantine_equation": {
-                "term": "ഡിയോഫാന്റൈൻ സമവാക്യം",
-                "definition": "പൂർണ്ണസംഖ്യാ പരിഹാരങ്ങൾ മാത്രം തരുന്ന സമവാക്യം."
-            },
-            "pythagorean_triple": {
-                "term": "പൈതഗോറിയൻ ട്രിപ്പിൾസ്",
-                "definition": "a² + b² = c² എന്ന രീതിയിലുള്ള മൂന്ന് പൂർണ്ണസംഖ്യകൾ."
+                "definition": "രണ്ട് സംഖ്യകളുടെ വ്യത്യാസം ഒരു പ്രത്യേക സംഖ്യ കൊണ്ട് ഹരിക്കാൻ കഴിയുമെങ്കിൽ അവ കോൺഗ്രുവന്റ് ആണ്.",
+                "term": "കോൺഗ്രുവൻസ് (Congruence)"
             },
             "constructible_polygon": {
-                "term": "നിർമ്മിക്കാൻ കഴിയുന്ന ബഹുഭുജം",
-                "definition": "റൂളറും കോമ്പസും മാത്രം ഉപയോഗിച്ച് നിർമ്മിക്കാൻ കഴിയുന്ന ബహుഭുജം."
+                "definition": "റൂളറും കോമ്പസും മാത്രം ഉപയോഗിച്ച് നിർമ്മിക്കാൻ കഴിയുന്ന ബహుഭുജം.",
+                "term": "നിർമ്മിക്കാൻ കഴിയുന്ന ബഹുഭുജം"
+            },
+            "diophantine_equation": {
+                "definition": "പൂർണ്ണസംഖ്യാ പരിഹാരങ്ങൾ മാത്രം തരുന്ന സമവാക്യം.",
+                "term": "ഡിയോഫാന്റൈൻ സമവാക്യം"
+            },
+            "euler_totient": {
+                "definition": "n-വരെയുള്ള സംഖ്യകളിൽ n-നോട് സപേക്ഷ അഭാജ്യമായിട്ടുള്ള സംഖ്യകളുടെ എണ്ണം.",
+                "term": "ഓയിലർ ടോട്ടന്റ് Φ(n)"
+            },
+            "fibonacci_sequence": {
+                "definition": "ഓരോ സംഖ്യയും തൊട്ടുപിന്നിലെ രണ്ട് സംഖ്യകളുടെ തുകയായി വരുന്ന ശ്രేണി.",
+                "term": "ഫിബൊനാച്ചി ശ്രേണി"
+            },
+            "gcd": {
+                "definition": "രണ്ട് സംഖ്യകളെയും നിശ്ശേഷം ഹരിക്കാൻ കഴിയുന്ന ഏറ്റവും വലിയ സംഖ്യ.",
+                "term": "ഉത്തമ സാധാരണ ഘടകം (GCD)"
+            },
+            "goldbach_conjecture": {
+                "definition": "ഓരോ ഇരട്ട സംഖ്യയെയും രണ്ട് അഭാജ്യ സംഖ്യകളുടെ തുകയായി എഴുതാം എന്ന അനുമാനം.",
+                "term": "ഗോൾഡ്ബാക്ക് അനുമാനം"
+            },
+            "lcm": {
+                "definition": "a, b എന്നീ രണ്ട് സംഖ്യകൾ കൊണ്ട് നിശ്ശേഷം ഹരിക്കാൻ കഴിയുന്ന ഏറ്റവും ചെറിയ സംഖ്യ.",
+                "term": "ലഘുതമ സാധാരണ ഗുണിതം (LCM)"
+            },
+            "modular_arithmetic": {
+                "definition": "ശിഷ്ടങ്ങളെ അടിസ്ഥാനമാക്കിയുള്ള ഗണിതശാസ്ത്ര രീതി.",
+                "term": "മോഡുലാർ അരിത്മെറ്റിക്"
+            },
+            "modulus": {
+                "definition": "ഹരണത്തിന് ശേഷം ബാക്കി വരുന്ന സംഖ്യ (ശിഷ്ടം) കണ്ടെത്തുന്ന പ്രക്രിയ.",
+                "term": "മോഡുലസ് (mod)"
+            },
+            "perfect_number": {
+                "definition": "ഒരു സംഖ്യയുടെ ഘടകങ്ങളുടെ തുക (ആ സംഖ്യ ഒഴികെ) ആ സംഖ്യയ്ക്ക് തന്നെ തുല്യമാണെങ്കിൽ.",
+                "term": "പെർഫെക്റ്റ് സംഖ്യ (Perfect Number)"
+            },
+            "prime_number": {
+                "definition": "1-നേക്കാൾ വലിയതും 1-ഉം ആ സംഖ്യയും ഒഴികെ മറ്റ് ഘടകങ്ങളില്ലാത്തതുമായ സംഖ്യ.",
+                "term": "അഭാജ്യ സംഖ്യ (Prime Number)"
+            },
+            "primitive_root": {
+                "definition": "ഒരു മോഡുലാർ ഗ്രൂപ്പിന്റെ ജനറേറ്റർ.",
+                "term": "പ്രിമിറ്റീവ് റൂട്ട് (Primitive Root)"
+            },
+            "pythagorean_triple": {
+                "definition": "a² + b² = c² എന്ന രീതിയിലുള്ള മൂന്ന് പൂർണ്ണസംഖ്യകൾ.",
+                "term": "പൈതഗോറിയൻ ട്രിപ്പിൾസ്"
+            },
+            "relative_prime": {
+                "definition": "രണ്ട് സംഖ്യകളുടെ ഉത്തമ സാധാരണ ഘടകം 1 ആണെങ്കിൽ അവ സപേക്ഷ അഭാജ്യ സംഖ്യകൾ.",
+                "term": "സപേക്ഷ അഭാജ്യ സംഖ്യകൾ (Coprime)"
+            },
+            "rsa_cryptography": {
+                "definition": "അഭാജ്യ സംഖ്യകളുടെ ഘടക വിഭജനം പ്രയാസകരമാണ് എന്ന തത്വത്തിൽ അധിഷ്ഠിതമായ സുരക്ഷാ രീതി.",
+                "term": "RSA ക്രിപ്റ്റോഗ്രഫി"
+            },
+            "sieve_of_eratosthenes": {
+                "definition": "അഭാജ്യ സംഖ്യകൾ വേഗത്തിൽ കണ്ടെത്താനുള്ള പുരാതന രീതി.",
+                "term": "എറാത്തോസ്തനീസിന്റെ അരിപ്പ"
             }
-        }
+        },
+        "no_results": "നിർവചനങ്ങൾ ഒന്നും കണ്ടെത്തിയില്ല",
+        "search_label": "നിർവചനങ്ങൾ തിരയുക",
+        "search_placeholder": "ഉദാ: അഭാജ്യ സംഖ്യ, RSA, GCD..."
     },
     "modulus_basics": {
-        "title": "മോഡുലസ് അടിസ്ഥാനങ്ങൾ (Modulus Basics)",
-        "explanation": "<1>മോഡುലസ് ഓപ്പറേറ്റർ (%)</1> ഹരണത്തിന് ശേഷമുള്ള ശിഷ്ടം നൽകുന്നു. ഇതിനെ <2>\"ക്ലോക്ക് അരിത്മെറ്റിക്\"</2> ആയി കരുതാം.",
         "clock_visualization": "ക്ലോക്ക് വിഷ്വലൈസേഷൻ",
-        "wrap_info": "0-നോട് {{a}} കൂട്ടുമ്പോൾ അത് {{n}}-ന് ചുറ്റും {{quotient}} വട്ടം പൂർത്തിയാക്കി + {{remainder}} യൂണിറ്റുകളിൽ നിൽക്കുന്നു",
+        "explanation": "<1>മോഡುലസ് ഓപ്പറേറ്റർ (%)</1> ഹരണത്തിന് ശേഷമുള്ള ശിഷ്ടം നൽകുന്നു. ഇതിനെ <2>\"ക്ലോക്ക് അരിത്മെറ്റിക്\"</2> ആയി കരുതാം.",
+        "key_properties": "പ്രധാന സവിശേഷതകൾ",
         "label_a": "സംഖ്യ (a)",
         "label_n": "മോഡുലസ് (n)",
-        "key_properties": "പ്രധാന സവിശേഷതകൾ",
-        "prop_range_title": "ശിഷ്ടത്തിന്റെ പരിധി",
-        "prop_range_desc": "<1>a % n</1> ന്റെ ഫലം എപ്പോഴും <2>0</2>-നും <3>n - 1</3>-നും ഇടയിലായിരിക്കും.",
+        "prop_congruence_desc": "രണ്ട് സംഖ്യകളെ <1>n</1> കൊണ്ട് ഹരിക്കുമ്പോൾ ഒരേ ശിഷ്ടം ലഭിക്കുകയാണെങ്കിൽ, അവ <2>മൊഡ്യൂളോ n-ൽ കോൺഗ്രുവന്റ്</2> ആണെന്ന് പറയാം.",
         "prop_congruence_title": "കോൺഗ്രുവൻസ് (≡)",
-        "prop_congruence_desc": "രണ്ട് സംഖ്യകളെ <1>n</1> കൊണ്ട് ഹരിക്കുമ്പോൾ ഒരേ ശിഷ്ടം ലഭിക്കുകയാണെങ്കിൽ, അവ <2>മൊഡ്യൂളോ n-ൽ കോൺഗ്രുവന്റ്</2> ആണെന്ന് പറയാം."
+        "prop_range_desc": "<1>a % n</1> ന്റെ ഫലം എപ്പോഴും <2>0</2>-നും <3>n - 1</3>-നും ഇടയിലായിരിക്കും.",
+        "prop_range_title": "ശിഷ്ടത്തിന്റെ പരിധി",
+        "title": "മോഡുലസ് അടിസ്ഥാനങ്ങൾ (Modulus Basics)",
+        "wrap_info": "0-നോട് {{a}} കൂട്ടുമ്പോൾ അത് {{n}}-ന് ചുറ്റും {{quotient}} വട്ടം പൂർത്തിയാക്കി + {{remainder}} യൂണിറ്റുകളിൽ നിൽക്കുന്നു"
     },
-    "visualizers": {
-        "sieve": {
-            "everyday_analogy": "അരിപ്പത്തിലൂടെ അരിക്കുക",
-            "analogy_desc": "സംഖ്യകളെ ഒരു അരിപ്പയിലൂടെ കടത്തിവിടുന്നത് സങ്കൽപ്പിക്കുക. <1>2</1> (ആദ്യത്തെ അഭാജ്യ സംഖ്യ) എടുത്ത് അതിന്റെ എല്ലാ ഗുണിതങ്ങളെയും (4, 6, 8...) ഒഴുവാക്കുക. അടുത്തതായി <1>3</1> എടുത്ത് അതിന്റെ ഗുണിതങ്ങളെ ഒഴുവാക്കുക. ഈ പ്രക്രിയ തുടരുക — ബാക്കിയാകുന്നത് <2>അഭാജ്യ സംഖ്യകൾ</2> മാത്രമാണ്.",
-            "why_it_matters": "എന്തുകൊണ്ട് ഇത് പ്രധാനം?",
-            "matters_desc": "നിങ്ങൾ ഓൺലൈനായി സാധനങ്ങൾ വാങ്ങുമ്പോഴോ സന്ദേശങ്ങൾ അയക്കുമ്പോഴോ <1>അഭാജ്യ സംഖ്യകളാണ്</1> നിങ്ങളുടെ വിവരങ്ങളെ സംരക്ഷിക്കുന്നത്. RSA പോലുള്ള ആധുനിക എൻക്രിപ്ഷനുകൾ വലിയ അഭാജ്യ സംഖ്യകളെ ആശ്രയിക്കുന്നു. അവ കണ്ടെത്താനുള്ള ആദ്യപടിയാണ് ഈ അരിപ്പ.",
-            "efficient_algorithm": "100 വരെയുള്ള എല്ലാ അഭാജ്യ സംഖ്യകളെയും ഓരോന്നായി അരിച്ചെടുക്കുന്ന പുരാതനവും കാര്യക്ഷമവുമായ രീതി.",
-            "start_sieve": "അരിപ്പ ആരംഭിക്കുക",
-            "stop_sieve": "നിർത്തുക",
-            "how_it_works": "ഇത് എങ്ങനെ പ്രവർത്തിക്കുന്നു?",
-            "step1": "ആദ്യത്തെ അഭാജ്യ സംഖ്യയിൽ (2) തുടങ്ങുക.",
-            "step2": "അതിന്റെ എല്ലാ ഗുണിതങ്ങളെയും സംയുക്ത സംഖ്യകളായി അടയാളപ്പെടുത്തുക.",
-            "step3": "അടുത്ത അടയാളപ്പെടുത്താത്ത സംഖ്യയിലേക്ക് പോയി ഇത് ആവർത്തിക്കുക.",
-            "step4": "അടുത്ത സംഖ്യയുടെ വർഗ്ഗം പരിധിക്ക് പുറത്താകുമ്പോൾ നിർത്തുക.",
-            "math_fact": "ഗണിത വസ്തുത",
-            "historical_brilliance": "ചരിത്രപരമായ ലാളിത്യം",
-            "history_desc": "ബി.സി. മൂന്നാം നൂറ്റാണ്ടിൽ ഗ്രീക്ക് ഗണിതശാസ്ത്രജ്ഞനായ എരറ്റോസ്തനീസാണ് ഈ രീതി കണ്ടെത്തിയത്. ഇന്നും പല ആധുനിക സീവ് സിദ്ധാന്തങ്ങൾക്കും ഇത് അടിസ്ഥാനമാണ്."
+    "tools": {
+        "amicable": {
+            "description": "സ്നേഹപൂർണ്ണമായ സംഖ്യാ ജോഡികൾ",
+            "title": "അമിക്യബിൾ സംഖ്യകൾ"
+        },
+        "collatz": {
+            "description": "3n+1 ശ്രേണി വിഷ്വലൈസ് ചെയ്യുന്നു",
+            "title": "കൊളാറ്റ്സ് അനുമാനം"
+        },
+        "constructible": {
+            "description": "ഗൗസ് തിയറം ഓൺ റെഗുലർ n-ഗോൺസ്",
+            "reason_fermat_product": "ഫെർമാ പ്രൈമുകളുടെ ഗുണനഫലം",
+            "reason_min_sides": "കുറഞ്ഞത് 3 വശങ്ങൾ വേണം",
+            "reason_non_fermat": "ഫെർമാ ഇല്ലാത്ത അഭാജ്യ ഘടകം",
+            "reason_power_2": "2-ന്റെ ഘാതം",
+            "title": "നിർമ്മിക്കാൻ കഴിയുന്ന ബഹുഭുജങ്ങൾ"
+        },
+        "continued_fractions": {
+            "description": "യഥാർത്ഥ സംഖ്യകളുടെ ഏകദേശ മൂല്യം",
+            "title": "തുടർച്ചയായ ഭിന്നസംഖ്യകൾ"
+        },
+        "crt": {
+            "description": "കോൺഗ്രുവൻസ് സിസ്റ്റങ്ങൾ പരിഹരിക്കുക",
+            "title": "ചൈനീസ് റിമൈൻഡർ തിയറം"
+        },
+        "diffie_hellman": {
+            "description": "കീ എക്സ്ചേഞ്ച് പ്രോട്ടോക്കോൾ",
+            "title": "ഡിഫി-ഹെൽമാൻ"
+        },
+        "digital_signatures": {
+            "description": "ഗണിതം ഉപയോഗിച്ചുള്ള പ്രാമാണീകരണം",
+            "title": "ഡിജിറ്റൽ സിഗ്നേച്ചറുകൾ"
+        },
+        "diophantine": {
+            "description": "ലിനിയർ ഇന്റീജർ സമവാക്യങ്ങൾ പരിഹരിക്കുക",
+            "title": "ഡിയോഫാന്റൈൻ സമവാക്യങ്ങൾ"
+        },
+        "divisors": {
+            "description": "ഒരു സംഖ്യയുടെ എല്ലാ ഘടകങ്ങളും പട്ടികപ്പെടുത്തുക",
+            "title": "ഘടകങ്ങൾ കണ്ടെത്തുക"
+        },
+        "euclidean": {
+            "description": "GCD വിഷ്വലൈസർ",
+            "title": "യൂക്ലിഡിയൻ അൽഗോരിതം"
         },
         "factorization": {
+            "description": "അഭാജ്യ ഘടക വിഭജനം",
+            "title": "ഘടക മരം"
+        },
+        "fibonacci": {
+            "description": "സുവർണ്ണ അനുപാതവും പ്രകൃതിയിലെ കോഡും",
+            "title": "ഫിബൊനാച്ചി സ്പൈറൽ"
+        },
+        "goldbach": {
+            "description": "ഇരട്ട സംഖ്യകളുടെ തുകയായി അഭാജ്യ സംഖ്യകൾ",
+            "title": "ഗോൾഡ്ബാക്ക് അനുമാനം"
+        },
+        "hashing": {
+            "description": "വൺ-വേ മാത്ത് ഫംഗ്ഷനുകൾ",
+            "title": "ഹാഷിംഗ് അൽഗോരിതങ്ങൾ"
+        },
+        "lcm": {
+            "description": "ലഘുതമ സാധാരണ ഗുണിതം",
+            "title": "LCM കാൽക്കുലേറ്റർ"
+        },
+        "legendre": {
+            "description": "ക്വാഡ്രാറ്റിക് റെസിഡ്യൂ വിഷ്വലൈസർ",
+            "title": "ലെജൻഡ്രെ ചിഹ്നം"
+        },
+        "modular_exponentiation": {
+            "description": "വേഗത്തിലുള്ള മോഡുലാർ ഘാതങ്ങൾ",
+            "title": "മോഡുലാർ എക്സ്പോണൻഷ്യേഷൻ"
+        },
+        "modular_inverse": {
+            "description": "മോഡുലാർ ഗുണന വിപരീതങ്ങൾ കണ്ടെത്തുക",
+            "title": "മോഡുലാർ ഇൻവേഴ്സ്"
+        },
+        "modular_playground": {
+            "description": "ഇന്ററാക്ടീവ് മോഡുലാർ കാൽക്കുലേറ്റർ",
+            "title": "മോഡുലാർ പ്ലേഗ്രൗണ്ട്"
+        },
+        "modular_table": {
+            "description": "മോഡുലാർ ഗുണനപ്പട്ടികകൾ",
+            "title": "മോഡുലാർ ടേബിൾ"
+        },
+        "partition": {
+            "description": "യംഗ് ഡയഗ്രാമുകളും പാർട്ടീഷനുകളും",
+            "title": "പാർട്ടീഷൻ സിദ്ധാന്തം"
+        },
+        "pascal": {
+            "description": "കോമ്പിനേറ്റോറിക്സും പാറ്റേണുകളും",
+            "title": "പാസ്കൽ ത്രികോണം"
+        },
+        "perfect_numbers": {
+            "description": "ഘടകങ്ങളുടെ തുക സംഖ്യയ്ക്ക് തുല്യമാണ്",
+            "title": "പെർഫെക്റ്റ് സംഖ്യകൾ"
+        },
+        "primitive_roots": {
+            "description": "ഗ്രൂപ്പുകളുടെ സൈക്ലിക് ജനറേറ്ററുകൾ",
+            "title": "പ്രിമിറ്റീവ് റൂട്ടുകൾ"
+        },
+        "pythagorean": {
+            "description": "യൂക്ലിഡ് ഫോർമുല ഉപയോഗിച്ച് മട്ടത്രികോണങ്ങൾ നിർമ്മിക്കുക",
+            "title": "പൈതഗോറിയൻ ട്രിപ്പിൾസ്"
+        },
+        "quadratic_reciprocity": {
+            "description": "മോഡുലാർ ഗണിതത്തിലെ വർഗ്ഗമൂലങ്ങൾ",
+            "title": "ക്വാഡ്രാറ്റിക് റെസിപ്രോസിറ്റി"
+        },
+        "rsa": {
+            "description": "എൻക്രിപ്ഷനും അഭാജ്യ സുരക്ഷയും",
+            "title": "RSA ക്രിപ്റ്റോഗ്രഫി"
+        },
+        "sieve": {
+            "description": "അഭാജ്യ സംഖ്യകൾ കണ്ടെത്തുന്ന അൽഗോരിതം",
+            "title": "എറാത്തോസ്തനീസിന്റെ അരിപ്പ"
+        },
+        "toolbox": {
+            "calculate_gcd": "GCD & LCM കണക്കാക്കുക",
+            "check_primality": "അഭാജ്യത പരിശോധിക്കുക",
+            "classification": "തരംതിരിക്കൽ",
+            "composite": "സംയുക്ത സംഖ്യ",
+            "description": "GCD, അഭാജ്യത, ഘടകങ്ങൾ എന്നിവയും അതിലേറെയും",
+            "division_steps": "ഹരണ ഘട്ടങ്ങൾ",
+            "gcd_desc": "രണ്ട് സംഖ്യകളുടെ GCD-യും LCM-ഉം കണ്ടെത്തുക",
+            "gcd_title": "GCD & LCM",
+            "header_title": "ടൂൾബോക്സ്",
+            "label_a": "സംഖ്യ A",
+            "label_b": "സംഖ്യ B",
+            "label_check": "പരിശോധിക്കാനുള്ള സംഖ്യ",
+            "primality_desc": "ഒരു സംഖ്യ അഭാജ്യമാണോ എന്ന് പരിശോധിക്കുക",
+            "primality_title": "അഭാജ്യതാ പരിശോധന",
+            "prime_factors": "അഭാജ്യ ഘടകങ്ങൾ",
+            "prime_number": "അഭാജ്യ സംഖ്യ",
+            "result_gcd": "ഫലങ്ങൾ",
+            "title": "സംഖ്യാ സിദ്ധാന്ത ടൂൾബോക്സ്"
+        },
+        "totient": {
+            "description": "കോപ്രൈം സംഖ്യകൾ എണ്ണുക",
+            "title": "ടോട്ടന്റ് ഫംഗ്ഷൻ Φ(n)"
+        },
+        "ulam": {
+            "description": "അഭാജ്യ സംഖ്യകളുടെ പാറ്റേണുകൾ",
+            "title": "ഉലാം സ്പൈറൽ"
+        }
+    },
+    "visualizers": {
+        "amicable": {
+            "analogy_desc": "<1>220</1>-ന്റെ ഘടകങ്ങൾ (220 ഒഴികെ) കൂട്ടിയാൽ: 1+2+4+5+10+11+20+22+44+55+110 = <2>284</2> എന്ന് ലഭിക്കും.\nഇനി <1>284</1>-ന്റെ ഘടകങ്ങൾ കൂട്ടിയാൽ: 1+2+4+71+142 = <2>220</2> എന്നും ലഭിക്കും.",
+            "best_friend_numbers": "ഉറ്റ സുഹൃത്തുക്കളായ സംഖ്യകൾ",
+            "description": "രണ്ട് സംഖ്യകളിൽ ഒന്നിന്റെ ഘടകങ്ങളുടെ തുക മറ്റേ സംഖ്യയ്ക്ക് തുല്യമാകുമ്പോൾ അവയെ 'അമിക്ബിൾ നമ്പറുകൾ' എന്ന് വിളിക്കുന്നു.",
+            "friendly_pairs": "സൗഹൃദ സംഖ്യകൾ",
+            "fun_fact": "കൗതുകകരമായ വസ്തുത",
+            "helper_text": "ഈ സംഖ്യ വരെയുള്ള ജോടികൾ തിരയുക",
+            "historical_significance": "ചരിത്രപരമായ പ്രാധാന്യം",
+            "history_desc": "(220, 284) എന്ന ജോടിയെക്കുറിച്ച് പുരാതന ഗ്രീക്കുകാർക്ക് അറിയാമായിരുന്നു.",
+            "number_a": "സംഖ്യ A",
+            "number_b": "സംഖ്യ B",
+            "pairs_found": "കണ്ടെത്തിയ ജോടികൾ",
+            "relationship_desc": "ഘടകങ്ങളിലൂടെ ഈ സംഖ്യകൾ തമ്മിൽ ഒരു പ്രത്യേക ബന്ധം പങ്കുവെക്കുന്നു.",
+            "search_limit": "തിരയൽ പരിധി"
+        },
+        "collatz": {
+            "description": "ലളിതമായ നിയമങ്ങളിലൂടെ സങ്കീർണ്ണമായ പാറ്റേണുകൾ സൃഷ്ടിക്കുന്ന ഒരു ഗണിത പസിൽ.",
+            "input_label": "ആരംഭ സംഖ്യ",
+            "journey_desc": "Every number tested so far eventually reaches the 4-2-1 loop.",
+            "journey_title": "The Journey",
+            "mystery_desc": "Also called the \"Hailstone sequence\" because numbers rise and fall like hailstones in a cloud before hitting the ground (1). Mathematician Paul Erdős said, \"Mathematics may not be ready for such problems.\"",
+            "mystery_history": "Unsolved since 1937",
+            "mystery_title": "The Mystery",
+            "peak_height": "Peak Height",
+            "simple_terms_desc": "Pick any number. If it's <1>even</1>, halve it. If it's <2>odd</2>, triple it and add 1. Repeat.\nExample: 6 → 3 → 10 → 5 → 16 → 8 → 4 → 2 → 1.\nEvery number ever tested reaches 1, but nobody can prove it <3>always</3> works!",
+            "simple_terms_title": "The Simplest Unsolved Problem",
+            "start_label": "Start: {{n}}",
+            "target_label": "Target: 1",
+            "title": "കൊളാറ്റ്സ് അനുമാനം",
+            "total_steps": "Total Steps"
+        },
+        "constructible_polygons": {
+            "constructible": "Constructible",
+            "error_min_sides": "Enter 3 or more sides to check constructability.",
+            "gauss_desc": "A regular n-sided polygon is constructible if n is a power of 2 times distinct Fermat primes (3, 5, 17, 257, 65537).",
+            "gauss_discovery": "Gauss's 1796 discovery showed that the heptadecagon (17 sides) is constructible, a feat that eluded mathematicians for 2000 years!",
+            "gauss_theorem": "Gauss's Theorem",
+            "input_label": "Number of Sides (n)",
+            "known_fermat_primes": "Known Fermat Primes",
+            "limit_text": "Visualization hidden for n > 100 to maintain smoothness.",
+            "not_constructible": "Not Constructible",
+            "placeholder": "e.g. 17",
+            "title": "Constructible Polygons"
+        },
+        "continued_fraction": {
+            "coefficient_label": "Coefficient a{{index}}",
+            "coefficient_list_title": "Coefficient List",
+            "connection_desc": "Continued fractions are the visual manifestation of the Euclidean Algorithm. Each coefficient corresponds to a quotient in the division steps of GCD(numerator, denominator)!",
+            "connection_title": "Connection",
+            "denominator_label": "Denominator",
+            "description": "Any rational number can be represented as a finite continued fraction [a₀; a₁, a₂, ...].",
+            "euclidean_link": "Euclidean Link",
+            "list_notation": "List Notation",
+            "nested_representation": "Nested Representation",
+            "numerator_label": "Numerator",
+            "simple_terms_desc": "Imagine peeling a fraction apart layer by layer. Take <1>13/8</1>: that's 1 + 5/8. Then 5/8 = 1/(8/5) = 1/(1 + 3/5). Keep going until there's nothing left.\nEach layer gives the <2>best possible approximation</2> at that level — that's why continued fractions are used to design calendars!",
+            "simple_terms_title": "Russian Doll Fractions",
+            "title": "Continued Fractions"
+        },
+        "crt": {
+            "add_congruence": "Add Congruence",
+            "final_comp": "Final Computation",
+            "m_col": "Mᵢ (N/nᵢ)",
+            "mod_col": "Mod (nᵢ)",
+            "moduli_coprime": "Moduli must be pairwise coprime for a unique answer.",
+            "no_solution": "പരിഹാരമില്ല",
+            "puzzle_desc": "A farmer counts eggs: <1>2 left over</1> when grouped by 3, <1>3 left over</1> when grouped by 5, and <1>2 left over</1> when grouped by 7.\nHow many eggs? The CRT says there's a <2>unique answer</2>: 23 (and then 23+105, 23+210, …).",
+            "puzzle_title": "A Puzzle",
+            "steps_desc": "How we constructed the solution x:",
+            "steps_title": "Step-by-Step Construction",
+            "system_desc": "Find x that satisfies all equations simultaneously.",
+            "system_title": "System of Congruences",
+            "term_col": "Term",
+            "y_col": "yᵢ (Inv)"
+        },
+        "diffie_hellman": {
+            "alice": "Alice",
+            "alice_computes": "Alice computes Bᵃ mod p",
+            "bob": "Bob",
+            "bob_computes": "Bob computes Aᵇ mod p",
+            "computed_secret_desc": "Alice takes Bob's public key (B) and computes Bᵃ mod p. Bob takes Alice's public key (A) and computes Aᵇ mod p.",
+            "computed_secret_title": "The Computed Secret",
+            "description": "സുരക്ഷിതമല്ലാത്ത ഒരു മാധ്യമത്തിലൂടെ രണ്ട് വ്യക്തികൾക്ക് ഒരു രഹസ്യ താക്കോൽ പരസ്പരം പങ്കുവെക്കാനുള്ള രീതി.",
+            "helper_g": "Generator value",
+            "helper_p_not_prime": "Should be prime",
+            "helper_p_prime": "Common modulus",
+            "input_g": "Public Base g",
+            "input_p": "Public Prime p",
+            "match_desc": "Both now have the identical secret key: {{secret}}",
+            "match_title": "Shared Secret Match!",
+            "public_a_formula": "Public A = gᵃ mod p",
+            "public_b_formula": "Public B = gᵇ mod p",
+            "secret_a": "Secret a",
+            "secret_b": "Secret b",
+            "simple_terms_desc": "Alice and Bob each pick a <1>secret color</1>. They mix it with a shared <2>public color</2> and swap the mixtures. Each then adds their secret again — both end up with the <1>same final color</1>, but an eavesdropper can't unmix to find the secrets! In math, \"mixing\" is modular exponentiation, and \"unmixing\" is the discrete logarithm problem — believed to be incredibly hard.",
+            "simple_terms_title": "The Paint-Mixing Trick",
+            "title": "ഡിഫി-ഹെൽമാൻ കീ എക്സ്ചേഞ്ച്"
+        },
+        "digital_signature": {
+            "authentic": "AUTHENTIC",
+            "decrypted_label": "Decrypted value: <1>{{val}}</1>",
+            "description": "Digital signatures verify the authenticity of a message using RSA. Encryption with a private key serves as the signature.",
+            "helper_text": "The integer message to be signed",
+            "input_label": "Message to Sign (Numeric)",
+            "invalid": "INVALID",
+            "matches": "Matches original message!",
+            "no_match": "Does not match message.",
+            "placeholder": "Paste signature here",
+            "signature_label": "Generated Signature (s = mᵈ mod n)",
+            "simple_terms_desc": "A digital signature is like signing a document, but with <1>unforgeable math</1>. You sign with your <2>secret private key</2>, and anyone can verify it with your <1>public key</1>. Used for software updates, banking transactions, email authentication, and legal documents — anywhere you need proof that a message is genuine and untampered.",
+            "simple_terms_title": "Math-Based Handwriting",
+            "title": "Digital Signatures",
+            "verification_desc": "Anyone with the public key can verify that the signature was created by the corresponding private key.",
+            "verification_title": "Verification (Public Key)",
+            "verify_input": "Verify Signature"
+        },
+        "diophantine": {
+            "description": "ax + by = c എന്ന രൂപത്തിലുള്ള സമവാക്യങ്ങൾക്ക് പൂർണ്ണസംഖ്യാ പരിഹാരങ്ങൾ കണ്ടെത്തുക.",
+            "general_solutions_title": "General Solutions",
+            "historical_context": "Historical Context",
+            "historical_desc": "Named after the Greek mathematician Diophantus, these equations only seek integer solutions. The linear form is solved using the Extended Euclidean Algorithm, which builds the solution from the remainders of GCD division!",
+            "k_integer_footer": "Where k is any integer",
+            "no_solution_desc": "gcd({{a}}, {{b}}) is {{g}}. Since {{g}} does not divide {{c}}, no integer values for x and y exist.",
+            "no_solution_title": "No Solution",
+            "particular_solution_desc": "A specific integer solution discovered by the algorithm:",
+            "particular_solution_title": "Particular Solution",
+            "simple_terms_desc": "You have ₹5 and ₹3 coins. Can you make exactly ₹23?\nThat's <1>5x + 3y = 23</1>. We need <2>whole number</2> answers only — no fractions allowed! If GCD(5,3)=1 divides 23, solutions exist. One answer: x=1, y=6 (check: 5+18=23 ✓).",
+            "simple_terms_title": "The \"Whole Numbers Only\" Puzzle",
+            "step_x_label": "Step X: b/g",
+            "step_y_label": "Step Y: a/g",
+            "theory_title": "Theory & Help",
+            "title": "ഡിയോഫാന്റൈൻ സമവാക്യങ്ങൾ",
+            "x0_label": "x₀ =",
+            "y0_label": "y₀ ="
+        },
+        "divisors": {
+            "abundant_desc": "Sum of proper divisors is greater than the number.",
+            "abundant_title": "Abundant",
+            "all_divisors_label": "All Divisors of {{n}}",
+            "analogy_desc": "ഒരു സംഖ്യയെ നിശ്ശേഷം ഹരിക്കാൻ കഴിയുന്ന സംഖ്യകളാണ് അതിന്റെ <1>ഘടകങ്ങൾ (Divisors)</1>. ഒരു പെട്ടിക്കുള്ളിൽ എത്ര ചെറിയ പെട്ടികൾ അടുക്കിവെക്കാം എന്ന് ചിന്തിക്കുന്നത് പോലെയാണിത്. ഉദാഹരണത്തിന് 12-നെ 1, 2, 3, 4, 6, 12 എന്നീ രീതികളിൽ ഭാഗിക്കാം.",
+            "analogy_title": "Perfect Balance",
+            "deficient_desc": "Sum of proper divisors is less than the number.",
+            "deficient_title": "Deficient",
+            "definition_title": "Definition",
+            "description": "ഒരു സംഖ്യയുടെ എല്ലാ ഘടകങ്ങളും (Divisors) അവയുടെ തുകയും കണ്ടെത്തുക.",
+            "input_label": "Input Number",
+            "perfect_desc": "Sum of proper divisors exactly equals the number (e.g. 6 = 1+2+3).",
+            "perfect_title": "Perfect",
+            "proper_label": "Proper",
+            "self_label": "Self",
+            "sum_label": "Sum of Proper Divisors",
+            "title": "Perfect & Divisors",
+            "type_badge": "Type"
+        },
+        "euclidean": {
+            "analogy_desc": "<1>a × b</1> വലിപ്പമുള്ള ഒരു തറയുണ്ടെന്ന് സങ്കൽപ്പിക്കുക. ഈ തറയിൽ പാകാൻ കഴിയുന്ന <2>ഏറ്റവും വലിയ ചതുരശ്ര ടൈലിന്റെ</2> അളവായിരിക്കും ആ രണ്ട് സംഖ്യകളുടെ GCD. വലിയ സംഖ്യകളെ വെട്ടിചെറുതാക്കി താങ്കൾക്ക് ഇത് കണ്ടെത്താം.",
+            "analogy_title": "Fair Sharing",
+            "description": "രണ്ട് സംഖ്യകളുടെ ഉത്തമ സാധാരണ ഘടകം (GCD) കണ്ടെത്തുന്നതിനുള്ള പുരാതനമായ രീതി.",
+            "final_discovery": "Final Discovery",
+            "gcd_result": "GCD = {{gcd}}",
+            "height_label": "Height (B)",
+            "nature_code_desc": "The Euclidean algorithm can be visualized as finding the largest square that tiles an AxB rectangle. We repeatedly cut off the largest possible square from the remaining piece until only squares are left. The size of the final remaining square(s) is the Greatest Common Divisor.",
+            "nature_code_title": "Nature's Code",
+            "step_log_entry": "Subtracted {{size}}x{{size}} square from {{a}}x{{b}} rectangle.",
+            "step_log_title": "Step Log",
+            "subtractions_count": "Found after {{count}} subtractions",
+            "title": "യൂക്ലിഡിയൻ അൽഗോരിതം",
+            "visualize_button": "Visualize Tiling",
+            "width_label": "Width (A)"
+        },
+        "factorization": {
+            "analogy_desc": "ഏതൊരു സംഖ്യയെയും ഒരു <1>തന്മാത്ര (Molecule)</1> പോലെ കരുതാം. ജലം (H₂O) ഹൈഡ്രജൻ, ഓക്സിജൻ ആറ്റങ്ങൾ കൊണ്ട് നിർമ്മിച്ചിരിക്കുന്നത് പോലെ, ഓരോ സംഖ്യയും <2>അഭാജ്യ സംഖ്യകളാകുന്ന \"ആറ്റങ്ങൾ\"</2> കൊണ്ട് നിർമ്മിച്ചതാണ്. ഉദാഹരണത്തിന്, 60 = 2 × 2 × 3 × 5. ഈ അഭാജ്യ സംഖ്യകളാണ് സംഖ്യാലോകത്തെ അടിസ്ഥാന ഘടകങ്ങൾ.",
             "everyday_analogy": "സംഖ്യകളുടെ തന്മാത്രകൾ",
-            "analogy_desc": "ഏതൊരു സംഖ്യയെയും ഒരു <1>തന്മാത്ര (Molecule)</1> പോലെ കരുതാം. ജലം (H₂O) ഹൈഡ്രജൻ, ഓക്സിജൻ ആറ്റങ്ങൾ കൊണ്ട് നിർമ്മിച്ചിരിക്കുന്നത് പോലെ, ഓരോ സംഖ്യയും <2>അഭാജ്യ സംഖ്യകളാകുന്ന \"ആറ്റങ്ങൾ\"</2> കൊണ്ട് നിർമ്മിച്ചതാണ്. ഉദാഹരണത്തിന്, 60 = 2 \u00d7 2 \u00d7 3 \u00d7 5. ഈ അഭാജ്യ സംഖ്യകളാണ് സംഖ്യാലോകത്തെ അടിസ്ഥാന ഘടകങ്ങൾ.",
-            "why_it_matters": "എന്തുകൊണ്ട് ഇത് പ്രധാനം?",
+            "fundamental_theorem": "അടിസ്ഥാന സിദ്ധാന്തം",
             "matters_desc": "രണ്ട് വലിയ അഭാജ്യ സംഖ്യകൾ തമ്മിൽ ഗുണിക്കുന്നത് എളുപ്പമാണ്, എന്നാൽ <1>ഗുണനഫലത്തിൽ നിന്ന് യഥാർത്ഥ സംഖ്യകളെ കണ്ടെത്തുന്നത് അങ്ങേയറ്റം പ്രയാസകരമാണ്</1>. ഇതാണ് ഇന്റർനെറ്റ് ബാങ്കിംഗിന്റെയും സന്ദേശങ്ങളുടെയും സുരക്ഷാ രഹസ്യം.",
             "placeholder": "ഒരു സംയുക്ത സംഖ്യ നൽകുക",
+            "theorem_desc": "ഒന്നിൽ വലിയ ഏതൊരു പൂർണ്ണസംഖ്യയെയും അഭാജ്യ സംഖ്യകളുടെ ഗുണനഫലമായി എഴുതാൻ സാധിക്കും.",
             "unique_factorization": "അനന്യമായ ഘടകീകരണം",
-            "fundamental_theorem": "അടിസ്ഥാന സിദ്ധാന്തം",
-            "theorem_desc": "ഒന്നിൽ വലിയ ഏതൊരു പൂർണ്ണസംഖ്യയെയും അഭാജ്യ സംഖ്യകളുടെ ഗുണനഫലമായി എഴുതാൻ സാധിക്കും. സംഖ്യകളുടെ ക്രമം മാറ്റാമെങ്കിലും ആ അഭാജ്യ സംഖ്യകൾ എപ്പോഴും ഒന്നുതന്നെയായിരിക്കും."
+            "why_it_matters": "എന്തുകൊണ്ട് ഇത് പ്രധാനം?"
+        },
+        "fibonacci": {
+            "analogy_desc": "സൂര്യകാന്തിപ്പൂക്കളിലും കടൽച്ചിപ്പികളിലും ഈ പാറ്റേൺ കാണാം (1, 1, 2, 3, 5, 8, 13...). ഓരോ സംഖ്യയും തൊട്ടുപിന്നിലെ രണ്ട് സംഖ്യകളുടെ തുകയായിരിക്കും. ഇത് <1>സുവർണ്ണ അനുപാതത്തിലേക്ക് (Golden Ratio)</1> നയിക്കുന്നു.",
+            "analogy_title": "പ്രകൃതിയിലെ രഹസ്യകോഡ്",
+            "approaching_phi": "Approaching φ ≈ 1.618",
+            "golden_spiral": "Golden Spiral",
+            "index_label": "Index {{n}}",
+            "nature_code_title": "Nature's Code",
+            "ratio_label": "Ratio: {{ratio}}",
+            "sequence": "Sequence",
+            "summary": "The ratio of consecutive Fibonacci numbers converges to the Golden Ratio (φ). This pattern appears in sunflower seeds, pinecones, and galaxies!",
+            "title": "ഫിബൊനാച്ചി സ്പിറൽ"
         },
         "goldbach": {
             "big_idea": "വലിയ ആശയം",
-            "big_idea_desc": "2-ൽ വലിയ <1>ഏതൊരു ഇരട്ട സംഖ്യയെയും</1> <2>രണ്ട് അഭാജ്യ സംഖ്യകളുടെ തുകയായി</2> എഴുതാൻ സാധിക്കും. ഉദാഹരണത്തിന്:\n\u2022 20 = 3 + 17\n\u2022 20 = 7 + 13\nഇതുവരെ ഇതിന് ഒരു അപവാദവും ആർക്കും കണ്ടെത്താൻ കഴിഞ്ഞിട്ടില്ല, എന്നാൽ എല്ലാ ഇരട്ട സംഖ്യകൾക്കും ഇത് ശരിയാണെന്ന് തെളിയിക്കാനും ആർക്കും വർഷങ്ങളായി സാധിച്ചിട്ടില്ല!",
+            "big_idea_desc": "2-ൽ വലിയ <1>ഏതൊരു ഇരട്ട സംഖ്യയെയും</1> <2>രണ്ട് അഭാജ്യ സംഖ്യകളുടെ തുകയായി</2> എഴുതാൻ സാധിക്കും. ഉദാഹരണത്തിന്:\n• 20 = 3 + 17\n• 20 = 7 + 13\nഇതുവരെ ഇതിന് ഒരു അപവാദവും ആർക്കും കണ്ടെത്താൻ കഴിഞ്ഞിട്ടില്ല!",
             "description": "ക്രിസ്റ്റ്യൻ ഗോൾഡ്ബാക്ക് ആവിഷ്കരിച്ച ഈ അനുമാനം അനുസരിച്ച്, രണ്ടിൽ വലിയ ഏതൊരു ഇരട്ട സംഖ്യയെയും രണ്ട് അഭാജ്യ സംഖ്യകളുടെ തുകയായി രേഖപ്പെടുത്താം.",
-            "input_label": "ഇരട്ട സംഖ്യ നൽകുക (>2)",
             "error_invalid": "2-ൽ വലിയ ഇരട്ട സംഖ്യ വേണം",
-            "helper_text": "അഭാജ്യ തുകകൾ കാണുക",
-            "partitions_found": "കണ്ടെത്തിയ ജോടികൾ",
-            "goldbach_pairs": "ഗോൾഡ്ബാക്ക് ജോടികൾ",
-            "visualizing_pairs": "ജോടികളുടെ വിഷ്വലൈസേഷൻ",
             "expressed_in_ways": "{{n}} എന്ന സംഖ്യയെ താഴെ പറയുന്ന രീതികളിൽ എഴുതാം:",
-            "unsolved_mystery": "അനാവരണം ചെയ്യപ്പെടാത്ത രഹസ്യം",
-            "mystery_desc": "ഗണിതശാസ്ത്രത്തിലെ ഏറ്റവും പഴയതും പ്രശസ്തവുമായ തെളിയിക്കപ്പെടാത്ത പ്രശ്നങ്ങളിൽ ഒന്നാണിത്. 4 \u00d7 10\u00b9\u2078 വരെയുള്ള വലിയ സംഖ്യകളിൽ ഇത് ശരിയാണെന്ന് പരീക്ഷിച്ചുറപ്പിച്ചിട്ടുണ്ട്!",
+            "goldbach_pairs": "ഗോൾഡ്ബാക്ക് ജോടികൾ",
+            "helper_text": "അഭാജ്യ തുകകൾ കാണുക",
+            "history_status": "ചриത്രവും അവസ്ഥയും",
+            "input_label": "ഇരട്ട സംഖ്യ നൽകുക (>2)",
+            "mystery_desc": "ഗണിതശാസ്ത്രത്തിലെ ഏറ്റവും പഴയതും പ്രശസ്തവുമായ തെളിയിക്കപ്പെടാത്ത പ്രശ്നങ്ങളിൽ ഒന്നാണിത്.",
+            "partitions_found": "കണ്ടെത്തിയ ജോടികൾ",
             "prime_label": "അഭാജ്യ സംഖ്യ",
-            "history_status": "ചരിത്രവും അവസ്ഥയും"
-        },
-        "amicable": {
-            "best_friend_numbers": "ഉറ്റ സുഹൃത്തുക്കളായ സംഖ്യകൾ",
-            "analogy_desc": "<1>220</1>-ന്റെ ഘടകങ്ങൾ (220 ഒഴികെ) കൂട്ടിയാൽ: 1+2+4+5+10+11+20+22+44+55+110 = <2>284</2> എന്ന് ലഭിക്കും.\nഇനി <1>284</1>-ന്റെ ഘടകങ്ങൾ കൂട്ടിയാൽ: 1+2+4+71+142 = <2>220</2> എന്നും ലഭിക്കും.\nഇവർ പരസ്പരം വിരൽ ചൂണ്ടുന്നു — ഉറ്റ സുഹൃത്തുക്കളെപ്പോലെ!",
-            "description": "രണ്ട് സംഖ്യകളിൽ ഒന്നിന്റെ ഘടകങ്ങളുടെ തുക മറ്റേ സംഖ്യയ്ക്ക് തുല്യമാകുമ്പോൾ അവയെ 'അമിക്ബിൾ നമ്പറുകൾ' എന്ന് വിളിക്കുന്നു.",
-            "search_limit": "തിരയൽ പരിധി",
-            "helper_text": "ഈ സംഖ്യ വരെയുള്ള ജോടികൾ തിരയുക",
-            "pairs_found": "കണ്ടെത്തിയ ജോടികൾ",
-            "friendly_pairs": "സൗഹൃദ സംഖ്യകൾ",
-            "relationship_desc": "ഘടകങ്ങളിലൂടെ ഈ സംഖ്യകൾ തമ്മിൽ ഒരു പ്രത്യേക ബന്ധം പങ്കുവെക്കുന്നു.",
-            "number_a": "സംഖ്യ A",
-            "number_b": "സംഖ്യ B",
-            "fun_fact": "കൗതുകകരമായ വസ്തുത",
-            "historical_significance": "ചരിത്രപരമായ പ്രാധാന്യം",
-            "history_desc": "(220, 284) എന്ന ജോടിയെക്കുറിച്ച് പുരാതന ഗ്രീക്കുകാർക്ക് അറിയാമായിരുന്നു. ഫെർമയും ദെക്കാർത്തെയും പിന്നീട് കൂടുതൽ ജോടികൾ കണ്ടെത്തുകയും ഓയിലർ 60-ലധികം ജോടികൾ കണ്ടെത്തുകയും ചെയ്തു."
-        },
-        "perfect_numbers": {
-            "title": "പെർഫെക്റ്റ് നമ്പറുകൾ",
-            "the_perfect_balance": "തികഞ്ഞ സന്തുലിതാവസ്ഥ",
-            "analogy_desc": "മിക്ക സംഖ്യകളും അവയുടെ ഘടകങ്ങളെക്കാൾ <1>ചെറുതോ</1> അല്ലെങ്കിൽ <1>വലുതോ</1> ആയിരിക്കും. എന്നാൽ <2>6</2> എന്ന സംഖ്യ അതിന്റെ ഘടകങ്ങളുടെ തുകയ്ക്ക് കൃത്യമായി തുല്യമാണ്: 1 + 2 + 3 = 6. പ്രപഞ്ചത്തിലെ അപൂർവ്വമായ സന്തുലിത സംഖ്യകളാണിവ.",
-            "description": "ഒരു സംഖ്യയുടെ ഘടകങ്ങളുടെ തുക (ആ സംഖ്യ ഒഴികെ) ആ സംഖ്യയ്ക്ക് തന്നെ തുല്യമാകുമ്പോൾ അതിനെ പെർഫെക്റ്റ് നമ്പർ എന്ന് വിളിക്കുന്നു.",
-            "search_limit": "തിരയൽ പരിധി",
-            "helper_text": "n വരെയുള്ള പെർഫെക്റ്റ് സംഖ്യകൾ കണ്ടെത്തുക",
-            "perfection_found": "പെർഫെക്ഷൻ കണ്ടെത്തി",
-            "rare_gems": "അപൂർവ്വ രത്നങ്ങൾ",
-            "gems_desc": "ഇത്തരം സംഖ്യകൾ വളരെ അപൂർവ്വമാണ്. ഇതുവരെ 51 എണ്ണം മാത്രമേ കണ്ടെത്തിയിട്ടുള്ളൂ!",
-            "divisors_sum": "ഘടകങ്ങളുടെ തുക",
-            "fun_fact": "കൗതുകകരമായ വസ്തുത",
-            "euclids_formula": "യൂക്ലിഡ് ഫോർമുല",
-            "formula_desc": "<1>2\u1d56\u207b\u00b9(2\u1d56 - 1)</1> എന്ന രൂപത്തിലുള്ള സംഖ്യകൾ പെർഫെക്റ്റ് നമ്പറുകളായിരിക്കും (ഇവിടെ 2\u1d56 - 1 ഒരു അഭാജ്യ സംഖ്യയായിരിക്കണം).",
-            "classify_perfect": "പെർഫെക്റ്റ്",
-            "classify_abundant": "അബണ്ടന്റ്",
-            "classify_deficient": "ഡെഫിഷ്യന്റ്"
-        },
-        "modular_playground": {
-            "title": "മോഡുലാർ പ്ലേഗ്രൗണ്ട്",
-            "the_art_of_math": "ഗണിതത്തിലെ കല",
-            "analogy_desc": "ഒരു വൃത്തത്തിന് ചുറ്റും സംഖ്യകൾ ക്രമീകരിക്കുന്നത് സങ്കൽപ്പിക്കുക. ഓരോ സംഖ്യയെയും ഒരു <1>ഗുണിതം (Multiplier)</1> കൊണ്ട് ഗുണിക്കുന്നു. ആ ഫലത്തെ വൃത്തത്തിലെ മറ്റൊരു സംഖ്യയുമായി വരകൾ കൊണ്ട് യോജിപ്പിക്കുന്നു. ഇത് <2>അതിശയിപ്പിക്കുന്ന ജ്യാമിതീയ രൂപങ്ങൾ</2> സൃഷ്ടിക്കുന്നു. സംഖ്യകൾ എങ്ങനെ കലയായി മാറുന്നു എന്ന് ശ്രദ്ധിക്കുക!",
-            "description": "വൃത്തങ്ങളും വരകളും ഉപയോഗിച്ച് മോഡുലാർ ഗുണനത്തിന്റെ ദൃശ്യപരമായ ഭംഗി ആസ്വദിക്കുക.",
-            "points": "ബിന്ദുക്കൾ",
-            "multiplier": "ഗുണിതം",
-            "animate": "അനിമേഷൻ",
-            "stop": "നിർത്തുക",
-            "show_labels": "ലേബലുകൾ",
-            "mathematical_insight": "ഗണിതശാസ്ത്ര ഉൾക്കാഴ്ച",
-            "geometric_patterns": "ജ്യാമിതീയ പാറ്റേണുകൾ",
-            "pattern_desc": "ഗുണിതം 2 ആകുമ്പോൾ നിങ്ങൾക്ക് ഒരു ഹൃദയാകൃതി (Cardioid) ലഭിക്കും. ഗുണിതം മാറുന്നതിനനുസരിച്ച് പാറ്റേണുകൾ കൂടുതൽ സങ്കീർണ്ണമാകുന്നു. ഇത് പ്രകൃതിയിലെ പല ക്രമങ്ങളുമായും ബന്ധപ്പെട്ടിരിക്കുന്നു."
-        },
-        "modular_inverse": {
-            "the_math_key": "ഗണിതത്തിലെ താക്കോൽ",
-            "analogy_desc": "സാധാരണ ഗണിതത്തിൽ ഒരു സംഖ്യയെ മറ്റൊന്ന് കൊണ്ട് ഹരിക്കുന്നത് എളുപ്പമാണ്. എന്നാൽ മോഡുലാർ ഗണിതത്തിൽ ഹരണത്തിന് പകരം <1>ഇൻവേഴ്സ് (Inverse)</1> എന്ന താക്കോൽ ഉപയോഗിച്ച് ഗുണിക്കുക എന്ന മാർഗ്ഗമാണ് ഉപയോഗിക്കുന്നത്. ഒരു പൂട്ടും അതിന് ചേരുന്ന പ്രത്യേക താക്കോലും പോലെയാണിവ. <2>GCD(a, n) = 1</2> ആണെങ്കിൽ മാത്രമേ ഈ താക്കോൽ നിലനിൽക്കൂ.",
-            "description": "മൊഡ്യൂളോ n-ൽ ഒരു സംഖ്യയുടെ ഗുണന വിപരീതം (Multiplicative Inverse) കണ്ടെത്തുക.",
-            "number_a": "സംഖ്യ (a)",
-            "modulus_n": "മോഡുലസ് (n)",
-            "calculate_inverse": "ഇൻവേഴ്സ് കണ്ടെത്തുക",
-            "no_inverse": "ഇൻവേഴ്സ് നിലവിലില്ല",
-            "inverse_is": "ഇൻവേഴ്സ്:",
-            "mathematical_insight": "ഗണിതശാസ്ത്ര ഉൾക്കാഴ്ച",
-            "modular_division": "മോഡുലാർ ഹരണം",
-            "division_desc": "നിങ്ങൾ x \u2261 1/a (mod n) കാണാൻ ശ്രമിക്കുകയാണെങ്കിൽ, നിങ്ങൾ യഥാർത്ഥത്തിൽ ax \u2261 1 (mod n) എന്ന സമവാക്യം തൃപ്തിപ്പെടുത്തുന്ന x കണ്ടെത്തുകയാണ് ചെയ്യുന്നത്. ഇത് ക്രിപ്റ്റോഗ്രഫിയിലെ സന്ദേശങ്ങൾ ഡീകോഡ് ചെയ്യാൻ അത്യാവശ്യമാണ്."
-        },
-        "modular_exponentiation": {
-            "fast_powers": "വേഗത്തിലുള്ള ഘാതങ്ങൾ",
-            "analogy_desc": "2¹\u2070\u2070\u2070 (മൊഡ്യൂളോ 10) കാണാൻ താങ്കൾക്ക് 2-നെ ആയിരം തവണ ഗുണിക്കേണ്ടതില്ല. <1>\"ബിനറി എക്സ്പോണൻഷ്യേഷൻ\"</1> എന്ന വിദ്യയിലൂടെ വലിയ സംഖ്യകളെ പടിപടിയായി ചെറുതാക്കി നിമിഷങ്ങൾക്കുള്ളിൽ ഉത്തരം കണ്ടെത്താം. ഇതാണ് ഇന്റർനെറ്റ് സുരക്ഷയുടെ നട്ടെല്ല്.",
-            "description": "വലിയ കൃതികൾ (Powers) മോഡുലാർ രീതിയിൽ അതിവേഗം കണക്കാക്കുന്ന രീതി കാണുക.",
-            "base": "ആധാരം (Base)",
-            "exponent": "ഘാതം (Exponent)",
-            "modulus": "മോഡുലസ് (Modulus)",
-            "calculate": "കണക്കാക്കുക",
-            "result": "ഫലം:",
-            "mathematical_insight": "ഗണിതശാസ്ത്ര ഉൾക്കാഴ്ച",
-            "efficiency": "കാര്യക്ഷമത",
-            "efficiency_desc": "ഈ അൽഗോരിതം ഘാതത്തെ 2-ന്റെ കൃതികളായി വിഭജിക്കുന്നു. ഇത് ദശലക്ഷക്കണക്കിന് ഗുണനങ്ങളെ ഏതാനും പടികളായി കുറയ്ക്കുന്നു. RSA പോലുള്ള സുരക്ഷാ സംവിധാനങ്ങൾ ഇത്ര വേഗത്തിൽ പ്രവർത്തിക്കാൻ കാരണം ഇതാണ്."
-        },
-        "modular_table": {
-            "visual_patterns": "ദൃശ്യപരമായ പാറ്റേണുകൾ",
-            "analogy_desc": "ഇതൊരു സാധാരണ ഗുണനപ്പട്ടിക പോലെയാണ്, എന്നാൽ ഓരോ ഫലവും <1>മൊഡ്യൂളോ n</1> ഉപയോഗിച്ച് ചെറുതാക്കുന്നു. പട്ടികയിൽ രൂപപ്പെടുന്ന വർണ്ണങ്ങൾ ശ്രദ്ധിക്കുക. അഭാജ്യ സംഖ്യകളും സമിശ്ര സംഖ്യകളും വ്യത്യസ്തമായ പാറ്റേണുകളാണ് സൃഷ്ടിക്കുന്നത്.",
-            "description": "മോഡുലാർ ഗുണനപ്പട്ടിക പരിശോധിക്കുക, അതിലെ രസകരമായ സവിശേഷതകൾ കണ്ടെത്തുക.",
-            "modulus": "മോഡുലസ് (n)",
-            "show_grid": "ഗ്രിഡ് കാണിക്കുക",
-            "highlight_primes": "പ്രൈമുകൾ ഹൈലൈറ്റ് ചെയ്യുക",
-            "mathematical_insight": "ഗണിതശാസ്ത്ര ഉൾക്കാഴ്ച",
-            "structure": "ഘടനയും സമമിതിയും",
-            "structure_desc": "പട്ടികയിലെ പാറ്റേണുകൾ സബ്ഗ്രൂപ്പുകളെയും സൈക്ലിക് സ്ട്രക്ച്ചറുകളെയും സൂചിപ്പിക്കുന്നു. മോഡുലസ് ഒരു അഭാജ്യ സംഖ്യയാകുമ്പോൾ പട്ടിക കൂടുതൽ ക്രമബദ്ധമായിരിക്കും."
-        },
-        "crt": {
-            "ancient_puzzle": "പുരാതന കടങ്കഥ",
-            "analogy_desc": "1500 വർഷങ്ങൾക്ക് മുമ്പ് ചൈനീസ് ഗണിതശാസ്ത്രജ്ഞൻ സൺ സി ചോദിച്ചു: \"3 കൊണ്ട് ഹരിച്ചാൽ 2 ശിഷ്ടവും, 5 കൊണ്ട് ഹരിച്ചാൽ 3 ശിഷ്ടവും, 7 കൊണ്ട് ഹരിച്ചാൽ 2 ശിഷ്ടവും വരുന്ന ഏറ്റവും ചെറിയ സംഖ്യ ഏതാണ്?\" ഉത്തരം <1>23</1>. കടങ്കഥകൾ ലളിതമായി പരിഹരിക്കാൻ ഈ സിദ്ധാന്തം സഹായിക്കുന്നു.",
-            "description": "ഏതാനും ശിഷ്ടങ്ങളിൽ നിന്ന് (Remainders) യഥാർത്ഥ സംഖ്യയെ വീണ്ടെടുക്കുന്ന ചൈനീസ് റിമൈൻഡർ തിയറം.",
-            "add_equation": "സമവാക്യം ചേർക്കുക",
-            "solve": "പരിഹരിക്കുക",
-            "solution": "പരിഹാരം:",
-            "no_solution": "പരിഹാരമില്ല",
-            "mathematical_insight": "ഗണിതശാസ്ത്ര ഉൾക്കാഴ്ച",
-            "security": "സുരക്ഷയിലെ പങ്കു്",
-            "security_desc": "വലിയ കണക്കുകൂട്ടലുകളെ ചെറിയ ഭാഗങ്ങളായി വിഭജിക്കാൻ ഈ സിദ്ധാന്തം ഉപയോഗിക്കുന്നു. കമ്പ്യൂട്ടറുകളുടെ വേഗത വർദ്ധിപ്പിക്കാനും ക്രിപ്റ്റോഗ്രഫിയിലെ ഹാർഡ്‌വെയർ തകരാറുകൾ കണ്ടുപിടിക്കാനും ഇത് ഉപകരിക്കുന്നു."
-        },
-        "totient": {
-            "title": "ഓയിലർ ടോട്ടന്റ് ഫംഗ്ഷൻ \u03a6(n)",
-            "the_coprime_count": "സപേക്ഷ അഭാജ്യങ്ങളുടെ എണ്ണം",
-            "analogy_desc": "ഒരു സംഖ്യ n-ന് <1>\"സപേക്ഷ അഭാജ്യമായ\" (Coprime)</1> സുഹൃത്തുക്കൾ ആരെല്ലാമാണ്? n-മായി <2>1 ഒഴികെ മറ്റ് പൊതു ഘടകങ്ങളില്ലാത്ത</2> സംഖ്യകളാണവർ. \u03a6(10) = 4, കാരണം 1, 3, 7, 9 എന്നീ സംഖ്യകൾക്ക് 10-മായി പൊതു ഘടകങ്ങളില്ല.",
-            "description": "n-നോട് സപേക്ഷ അഭാജ്യമായ n-ൽ താഴെയുള്ള സംഖ്യകളുടെ എണ്ണം കണക്കാക്കുന്നു.",
-            "number_n": "സംഖ്യ (n)",
-            "calculate_phi": "\u03a6(n) കണക്കാക്കുക",
-            "phi_result": "\u03a6(n) =",
-            "mathematical_insight": "ഗണിതശാസ്ത്ര ഉൾക്കാഴ്ച",
-            "prime_connection": "അഭാജ്യ സംഖ്യയുമായുള്ള ബന്ധം",
-            "prime_desc": "n ഒരു അഭാജ്യ സംഖ്യയാണെങ്കിൽ, \u03a6(n) = n - 1 ആയിരിക്കും. കാരണം അഭാജ്യ സംഖ്യയ്ക്ക് അതിനേക്കാൾ ചെറിയ എല്ലാ സംഖ്യകളും സുഹൃത്തുക്കളാണ്. ഇന്റർനെറ്റ് ബാങ്കിംഗിലും മറ്റും ഉപയോഗിക്കുന്ന RSA എൻക്രിപ്ഷന്റെ അടിസ്ഥാനം ഇതാണ്."
-        },
-        "primitive_roots": {
-            "title": "പ്രിമിറ്റീവ് റൂട്ടുകൾ",
-            "the_generator": "ജനറേറ്റർ (Generator)",
-            "analogy_desc": "മൊഡ്യൂളോ n-ലെ എല്ലാ സംഖ്യകളും ഒരു ചക്രത്തിന് ചുറ്റും ഉണ്ടെന്ന് കരുതുക. <1>പ്രിമിറ്റീവ് റൂട്ട്</1> എന്നത് അതിന്റെ ഘാതങ്ങൾ (Powers) കണക്കാക്കുമ്പോൾ ആ ചക്രത്തിലെ <2>എല്ലാ പ്രധാന ബിന്ദുക്കളെയും (Coprimes)</2> സ്പർശിക്കുന്ന ഒരു മാന്ത്രിക സംഖ്യയാണ്. ഇതൊരു സൈക്ലിക് സ്പൈറൽ പോലെയാണ്.",
-            "description": "മൊഡ്യൂളോ n-ലെ എല്ലാ സപേക്ഷ അഭാജ്യ സംഖ്യകളെയും സ്വന്തം ഘാതങ്ങളിലൂടെ ഉൽപ്പാദിപ്പിക്കാൻ കഴിയുന്ന സംഖ്യ കണ്ടെത്തുക.",
-            "modulus_n": "മോഡുലസ് (n)",
-            "find_roots": "റൂട്ടുകൾ കണ്ടെത്തുക",
-            "no_roots": "പ്риമിറ്റീവ് റൂട്ടുകൾ ഇല്ല",
-            "roots_are": "പ്രിമിറ്റീവ് റൂട്ടുകൾ:",
-            "mathematical_insight": "ഗണിതശാസ്ത്ര ഉൾക്കാഴ്ച",
-            "discrete_log": "ഡിസ്ക്രീറ്റ് ലോഗരിതം",
-            "log_desc": "പ്രിമിറ്റീവ് റൂട്ടുകൾ ഉണ്ടെങ്കിൽ, ആ മോഡുലസിലെ എല്ലാ സംഖ്യകളെയും ഈ റൂട്ടിന്റെ ഘാതങ്ങളായി എഴുതാൻ സാധിക്കും. ഇത് ഡിജിറ്റൽ സിഗ്നേച്ചറുകളിലും സുരക്ഷിതമായ കീ കൈമാറ്റത്തിലും (Diffie-Hellman) ഉപയോഗിക്കുന്നു."
-        },
-        "quadratic_reciprocity": {
-            "the_perfect_square_puzzle": "വർഗ്ഗങ്ങളുടെ കടങ്കഥ",
-            "analogy_desc": "മൊഡ്യൂളോ p-ൽ ഒരു സംഖ്യ <1>\"പെർഫെക്റ്റ് സ്ക്വയർ\"</1> (Quadratic Residue) ആണോ എന്ന് എങ്ങനെ അറിയാം? രണ്ട് അഭാജ്യ സംഖ്യകൾ (p, q) തമ്മിലുള്ള ഈ സവിശേഷതയെ ബന്ധിപ്പിക്കുന്ന മാന്ത്രിക കണ്ണിയാണ് <2>ക്വാഡ്രാറ്റിക് റെസിപ്രോസിറ്റി</2>. ഗണിതത്തിലെ 'സുവർണ്ണ നിയമം' (Golden Theorem) എന്ന് ഗോസ് ഇതിനെ വിളിച്ചു.",
-            "description": "രണ്ട് അഭാജ്യ സംഖ്യകൾ തമ്മിലുള്ള വർഗ്ഗ ശിഷ്ടങ്ങളുടെ (Quadratic Residues) ബന്ധം പരിശോധിക്കുക.",
-            "prime_p": "അഭാജ്യ സംഖ്യ (p)",
-            "prime_q": "അഭാജ്യ സംഖ്യ (q)",
-            "calculate": "കണക്കാക്കുക",
-            "legendre_p_q": "ലെജൻഡർ (p/q):",
-            "legendre_q_p": "ലെജൻഡർ (q/p):",
-            "mathematical_insight": "ഗണിതശാസ്ത്ര ഉൾക്കാഴ്ച",
-            "gauss_golden_rule": "ഗോസിന്റെ സുവർണ്ണ നിയമം",
-            "gauss_desc": "ഈ സിദ്ധാന്തം അനുസരിച്ച്, p എന്നത് q-വിന്റെ വർഗ്ഗ ശിഷ്ടമാണോ എന്നത് q എന്നത് p-യുടെ വർഗ്ഗ ശിഷ്ടമാണോ എന്നതിനെ ആശ്രയിച്ചിരിക്കുന്നു. ഇത് സംഖ്യാ സിദ്ധാന്തത്തിലെ ഏറ്റവും മനോഹരവും ആഴമേറിയതുമായ നിയമങ്ങളിലൊന്നാണ്."
-        },
-        "legendre": {
-            "is_it_a_square": "ഇതൊരു വർഗ്ഗമാണോ?",
-            "analogy_desc": "മൊഡ്യൂളോ p-ൽ ഒരു സംഖ്യ 'a' ഒരു വർഗ്ഗമാണോ (a \u2261 x\u00b2 mod p) എന്ന് ലെജൻഡർ സിംബൽ പറഞ്ഞുതരുന്നു. ഉത്തരം <1>1</1> ആണെങ്കിൽ അത് ഒരു വർഗ്ഗമാണ്, <1>-1</1> ആണെങ്കിൽ അല്ല. <2>0</2> ആണെങ്കിൽ അത് p-യുടെ ഗുണിതമാണ്. വേഗത്തിൽ വർഗ്ഗങ്ങൾ കണ്ടെത്താനുള്ള എളുപ്പവഴിയാണിത്.",
-            "description": "ലെജൻഡർ സിംബൽ (a/p) ഉപയോഗിച്ച് ഒരു സംഖ്യ മൊഡ്യൂളോ p-ൽ ക്വാഡ്രാറ്റിക് റെസിഡ്യൂ ആണോ എന്ന് പരിശോധിക്കുക.",
-            "number_a": "സംഖ്യ (a)",
-            "prime_p": "അഭാജ്യ സംഖ്യ (p)",
-            "calculate": "കണക്കാക്കുക",
-            "result": "ഫലം:",
-            "mathematical_insight": "ഗണിതശാസ്ത്ര ഉൾക്കാഴ്ച",
-            "residue_check": "റെസിഡ്യൂ പരിശോധന",
-            "residue_desc": "ലെജൻഡർ സിംബൽ ഒയിലർ ക്രൈറ്റീരിയനുമായി (Euler's Criterion) ബന്ധപ്പെട്ടിരിക്കുന്നു: (a/p) \u2261 a^((p-1)/2) mod p. ഇത് വലിയ സംഖ്യകൾ വർഗ്ഗങ്ങളാണോ എന്ന് പരിശോധിക്കാനുള്ള കാര്യക്ഷമമായ മാർഗ്ഗമാണ്."
-        },
-        "euclidean": {
-            "title": "യൂക്ലിഡിയൻ അൽഗോരിതം",
-            "the_tiling_problem": "ടൈലിംഗ് പ്രശ്നം",
-            "analogy_desc": "<1>a \u00d7 b</1> വലിപ്പമുള്ള ഒരു തറയുണ്ടെന്ന് സങ്കൽപ്പിക്കുക. ഈ തറയിൽ പാകാൻ കഴിയുന്ന <2>ഏറ്റവും വലിയ ചതുരശ്ര ടൈലിന്റെ</2> അളവായിരിക്കും ആ രണ്ട് സംഖ്യകളുടെ GCD. വലിയ സംഖ്യകളെ വെട്ടിചെറുതാക്കി താങ്കൾക്ക് ഇത് കണ്ടെത്താം.",
-            "description": "രണ്ട് സംഖ്യകളുടെ ഉത്തമ സാധാരണ ഘടകം (GCD) കണ്ടെത്തുന്നതിനുള്ള പുരാതനമായ രീതി.",
-            "number_a": "സംഖ്യ 1 (a)",
-            "number_b": "സംഖ്യ 2 (b)",
-            "calculate_gcd": "GCD കണ്ടെത്തുക",
-            "gcd_is": "GCD:",
-            "mathematical_insight": "ഗണിതശാസ്ത്ര ഉൾക്കാഴ്ച",
-            "efficiency": "കാര്യക്ഷമത",
-            "efficiency_desc": "2000 വർഷങ്ങൾക്ക് മുമ്പ് യൂക്ലിഡ് വിവരിച്ച ഈ രീതി ഇന്നും കമ്പ്യൂട്ടറുകൾ വ്യാപകമായി ഉപയോഗിക്കുന്നു. വലിയ സംഖ്യകളുടെ ഘടകങ്ങൾ ഓരോന്നായി കാണുന്നതിനേക്കാൾ വളരെ വേഗത്തിൽ ഹരണത്തിലൂടെ ഇത് ഉത്തരം നൽകുന്നു."
-        },
-        "lcm": {
-            "rhythmic_alignment": "താളങ്ങളുടെ ഒത്തുചേരൽ",
-            "analogy_desc": "രണ്ട് വ്യത്യസ്ത താളത്തിലുള്ള മണികൾ ഉണ്ടെന്ന് കരുതുക. ഒന്ന് ഓരോ <1>3</1> സെക്കൻഡിലും രണ്ടാമത്തേത് ഓരോ <1>4</1> സെക്കൻഡിലും മുഴങ്ങുന്നു. അവ രണ്ടും ഒരുമിച്ച് മുഴങ്ങുന്ന സമയം <2>12</2> സെക്കൻഡ് ആയിരിക്കും. ഇതാണ് LCM!",
-            "description": "രണ്ട് സംഖ്യകൾ ഒരേപോലെ ഹരിക്കാൻ കഴിയുന്ന ഏറ്റവും ചെറിയ സംഖ്യ (Least Common Multiple) കണ്ടെത്തുക.",
-            "number_a": "സംഖ്യ 1 (a)",
-            "number_b": "സംഖ്യ 2 (b)",
-            "calculate_lcm": "LCM കണ്ടെത്തുക",
-            "lcm_is": "LCM:",
-            "mathematical_insight": "ഗണിതശാസ്ത്ര ഉൾക്കാഴ്ച",
-            "gcd_relation": "GCD-യുമായുള്ള ബന്ധം",
-            "relation_desc": "രണ്ട് സംഖ്യകളുടെ ഗുണനഫലത്തെ അവയുടെ GCD കൊണ്ട് ഹരിച്ചാൽ LCM ലഭിക്കും. (a \u00d7 b) / GCD(a, b) = LCM(a, b). ഇത് വലിയ സംഖ്യകളുടെ LCM എളുപ്പത്തിൽ കണക്കാക്കാൻ സഹായിക്കുന്നു."
-        },
-        "divisors": {
-            "building_blocks": "നിർമ്മാണ ഘടകങ്ങൾ",
-            "analogy_desc": "ഒരു സംഖ്യയെ നിശ്ശേഷം ഹരിക്കാൻ കഴിയുന്ന സംഖ്യകളാണ് അതിന്റെ <1>ഘടകങ്ങൾ (Divisors)</1>. ഒരു പെട്ടിക്കുള്ളിൽ എത്ര ചെറിയ പെട്ടികൾ അടുക്കിവെക്കാം എന്ന് ചിന്തിക്കുന്നത് പോലെയാണിത്. ഉദാഹരണത്തിന് 12-നെ 1, 2, 3, 4, 6, 12 എന്നീ രീതികളിൽ ഭാഗിക്കാം.",
-            "description": "ഒരു സംഖ്യയുടെ എല്ലാ ഘടകങ്ങളും (Divisors) അവയുടെ തുകയും കണ്ടെത്തുക.",
-            "number_n": "സംഖ്യ (n)",
-            "find_divisors": "ഘടകങ്ങൾ കണ്ടെത്തുക",
-            "divisors_are": "ഘടകങ്ങൾ:",
-            "sum_is": "ഘടകങ്ങളുടെ തുക:",
-            "mathematical_insight": "ഗണിതശാസ്ത്ര ഉൾക്കാഴ്ച",
-            "aliquot_sum": "അലിക്വാട്ട് തുക",
-            "aliquot_desc": "ഒരു സംഖ്യ ഒഴികെയുള്ള അതിന്റെ ഘടകങ്ങളുടെ തുകയാണ് അലിക്വാട്ട് സം. ഇത് പെർഫെക്റ്റ് നമ്പറുകളും അമിക്ബിൾ നമ്പറുകളും തിരിച്ചറിയാൻ സഹായിക്കുന്നു."
-        },
-        "fibonacci": {
-            "title": "ഫിബൊനാച്ചി സ്പിറൽ",
-            "description": "പ്രകൃതിയിൽ തന്നെ കാണപ്പെടുന്ന മനോഹരമായ ഒരു ഗണിത പാറ്റേണാണ് ഫിബൊനാച്ചി ശ്രേണി.",
-            "analogy_title": "പ്രകൃതിയിലെ രഹസ്യകോഡ്",
-            "analogy_desc": "സൂര്യകാന്തിപ്പൂക്കളിലും കടൽച്ചിപ്പികളിലും ഈ പാറ്റേൺ കാണാം (1, 1, 2, 3, 5, 8, 13...). ഓരോ സംഖ്യയും തൊട്ടുപിന്നിലെ രണ്ട് സംഖ്യകളുടെ തുകയായിരിക്കും. ഇത് <1>സുവർണ്ണ അനുപാതത്തിലേക്ക് (Golden Ratio)</1> നയിക്കുന്നു.",
-            "limit_label": "എത്ര സംഖ്യകൾ വേണം?",
-            "generate_button": "സ്പിറൽ നിർമ്മിക്കുക",
-            "sequence_label": "ശ്രേണി",
-            "golden_ratio_label": "അനുപാതം (\u03c6) \u2248 {{ratio}}",
-            "spiral_view": "സുവർണ്ണ സ്പിറൽ കാഴ്ച"
-        },
-        "pascal": {
-            "title": "പാസ്കൽ ത്രികോണം",
-            "description": "സംഖ്യകളുടെ ഈ ത്രികോണത്തിൽ കോമ്പിനേറ്റോറിക്സിന്റെയും പ്രോബബിലിറ്റിയുടെയും രഹസ്യങ്ങൾ ഒളിഞ്ഞിരിക്കുന്നു.",
-            "analogy_title": "സംഖ്യകളുടെ പിരമിഡ്",
-            "analogy_desc": "ഓരോ സംഖ്യയും തൊട്ടുമുകളിലുള്ള <1>രണ്ട് സംഖ്യകളുടെ തുകയാണ്</1>. ത്രികോണത്തിന്റെ വശങ്ങളിൽ എപ്പോഴും 1 ആയിരിക്കും. ഇതിനുള്ളിൽ അഭാജ്യ സംഖ്യകൾ, ഫിബൊനാച്ചി സംഖ്യകൾ, 2-ന്റെ ഘാതങ്ങൾ എന്നിവയെല്ലാം കണ്ടെത്താം!",
-            "rows_label": "വരികളുടെ എണ്ണം",
-            "show_patterns": "പാറ്റേണുകൾ കാണിക്കുക",
-            "tab_sierpinski": "സിയർപിൻസ്‌കി",
-            "tab_mod3": "മോഡ് 3",
-            "tab_mod5": "മോഡ് 5"
-        },
-        "collatz": {
-            "title": "കൊളാറ്റ്സ് അനുമാനം",
-            "description": "ലളിതമായ നിയമങ്ങളിലൂടെ സങ്കീർണ്ണമായ പാറ്റേണുകൾ സൃഷ്ടിക്കുന്ന ഒരു ഗണിത പസിൽ.",
-            "analogy_title": "ഭാഗ്യ സംഖ്യകൾ",
-            "analogy_desc": "ഏതെങ്കിലും ഒരു പോസിറ്റീവ് പൂർണ്ണസംഖ്യ എടുക്കുക. അത് <1>ഇരട്ട സംഖ്യയാണെങ്കിൽ 2 കൊണ്ട് ഹരിക്കുക</1>, <2>ഒറ്റ സംഖ്യയാണെങ്കിൽ 3 കൊണ്ട് ഗുണിച്ച് 1 കൂട്ടുക</2>. ഈ പ്രക്രിയ ആവർത്തിച്ചാൽ ഏതൊരു സംഖ്യയും അന്തിമമായി 1-ൽ എത്തും എന്നതാണ് ഈ അനുമാനം. 1937 മുതൽ ഇന്നുവരെ ഇത് ആർക്കും തെളിയിക്കാൻ കഴിഞ്ഞിട്ടില്ല!",
-            "input_label": "ആരംഭ സംഖ്യ",
-            "start_button": "വിഷ്വലൈസ് ചെയ്യുക",
-            "steps_label": "ഘട്ടങ്ങൾ: {{count}}",
-            "peak_label": "ഉയർന്ന മൂല്യം: {{peak}}",
-            "sequence_path": "ശ്രേണിയുടെ പാത",
-            "hailstone_title": "ഹെയിൽസ്റ്റോൺ സംഖ്യകൾ (Hailstone Numbers)",
-            "hailstone_desc": "മേഘങ്ങൾക്കുള്ളിലെ ആലിപ്പഴങ്ങളെപ്പോലെ ഈ സംഖ്യകൾ മുകളിലേക്കും താഴേക്കും സഞ്ചരിക്കുകയും ഒടുവിൽ നിലത്തു (1) പതിക്കുകയും ചെയ്യുന്നു. അതിനാൽ ഇവയെ ഹെയിൽസ്റ്റോൺ സംഖ്യകൾ എന്ന് വിളിക്കുന്നു."
-        },
-        "ulam": {
-            "title": "ഉലാം സ്പൈറൽ",
-            "description": "സംഖ്യകളെ ഒരു സ്പൈറൽ രൂപത്തിൽ ക്രമീകരിക്കുമ്പോൾ അഭാജ്യ സംഖ്യകൾ സൃഷ്ടിക്കുന്ന അത്ഭുതകരമായ പാറ്റേണുകൾ.",
-            "analogy_title": "ഗണിതത്തിലെ ഭൂപടം",
-            "analogy_desc": "1963-ൽ ഒരു മീറ്റിംഗിനിടെ സ്റ്റാനിസ്ലാവ് ഉലാം വെറുതെ ഒരു പേപ്പറിൽ സംഖ്യകളെ <1>സ്പൈറൽ രൂപത്തിൽ</1> എഴുതി. അതിൽ അഭാജ്യ സംഖ്യകളെ മാത്രം അടയാളപ്പെടുത്തിയപ്പോൾ, അവ <2>ചെരിഞ്ഞ വരകളിൽ (Diagonal lines)</2> പ്രത്യക്ഷപ്പെടുന്നത് അദ്ദേഹം കണ്ടു! അഭാജ്യ സംഖ്യകൾ വെറുമൊരു ക്രമരഹിതമായ കൂട്ടമല്ലെന്ന് ഇത് തെളിയിക്കുന്നു.",
-            "size_label": "സ്പൈറൽ വലുപ്പം",
-            "primes_only": "അഭാജ്യങ്ങൾ മാത്രം",
-            "show_lines": "വരകൾ കാണിക്കുക",
-            "zoom_hint": "പാറ്റേണുകൾ കാണാൻ സൂം ചെയ്യുക",
-            "discovery_note": "അഭാജ്യ സംഖ്യകളുടെ വിതരണത്തിലെ ഒരു നിഗൂഢമായ ക്രമം ഉലാം സ്പൈറൽ വെളിപ്പെടുത്തുന്നു."
-        },
-        "pythagorean": {
-            "title": "പൈതഗോറിയൻ ട്രിപ്പിൾസ്",
-            "description": "a\u00b2 + b\u00b2 = c\u00b2 എന്ന സമവാക്യം പാലിക്കുന്ന മൂന്ന് പൂർണ്ണസംഖ്യകൾ.",
-            "analogy_title": "മട്ടത്രികോണങ്ങൾ",
-            "analogy_desc": "ഏറ്റവും പ്രശസ്തമായ പൈതഗോറിയൻ ട്രിപ്പിൾ 3, 4, 5 ആണ്. 3\u00b2 + 4\u00b2 = 5\u00b2. <1>യൂക്ലിഡ് ഫോർമുല</1> ഉപയോഗിച്ച് ആയിരക്കണക്കിന് ട്രിപ്പിൾസ് നിർമ്മിക്കാൻ കഴിയും. ഇവ കൃത്യമായ മട്ടത്രികോണങ്ങളുടെ വശങ്ങളെ പ്രതിനിധീകരിക്കുന്നു.",
-            "input_limit": "പരമാവധി മൂല്യം",
-            "generate_button": "ട്രിപ്പിൾസ് നിർമ്മിക്കുക",
-            "triples_found": "{{count}} ട്രിപ്പിൾസ് കണ്ടെത്തി",
-            "formula_label": "യൂക്ലിഡ് ഫോർമുല: m > n > 0",
-            "triple_card": "a={{a}}, b={{b}}, c={{c}}",
-            "primitive_only": "പ്രിമിറ്റീവ് ട്രിപ്പിൾസ് മാത്രം"
-        },
-        "diophantine": {
-            "title": "ഡിയോഫാന്റൈൻ സമവാക്യങ്ങൾ",
-            "description": "ax + by = c എന്ന രൂപത്തിലുള്ള സമവാക്യങ്ങൾക്ക് പൂർണ്ണസംഖ്യാ പരിഹാരങ്ങൾ കണ്ടെത്തുക.",
-            "analogy_title": "നാണയങ്ങളുടെ പസിൽ",
-            "analogy_desc": "നിങ്ങളുടെ കൈവശം <1>5 രൂപയുടെയും</1> <2>2 രൂപയുടെയും</2> നാണയങ്ങളുണ്ട്. ആകെ <3>23 രൂപ</3> ലഭിക്കാൻ എത്ര വീതം നാണയങ്ങൾ വേണം? ഇതാണ് ഡിയോഫാന്റൈൻ സമവാക്യം: 5x + 2y = 23. <4>GCD(a, b)</4> എന്ന സംഖ്യ 'c'-യെ ഹരിക്കുമെങ്കിൽ മാത്രമേ പരിഹാരം ഉണ്ടാവുകയുള്ളൂ!",
-            "input_a": "a (ഉദാ: 5)",
-            "input_b": "b (ഉദാ: 2)",
-            "input_c": "c (ഉദാ: 23)",
-            "solve_button": "പരിഹരിക്കുക",
-            "general_solution": "പൊതുവായ പരിഹാരം",
-            "particular_solution": "പ്രത്യേക പരിഹാരം",
-            "no_solution": "പരിഹാരമില്ല! GCD({{a}}, {{b}}) = {{gcd}} എന്നത് {{c}}-യെ ഹരിക്കുന്നില്ല.",
-            "steps_title": "യൂക്ലിഡിയൻ രീതിയിലുള്ള ഘട്ടങ്ങൾ",
-            "solution_x": "x = {{x\u2080}} + ({{b}}/{{gcd}})k",
-            "solution_y": "y = {{y\u2080}} - ({{a}}/{{gcd}})k"
-        },
-        "continued_fractions": {
-            "title": "തുടർച്ചയായ ഭിന്നസംഖ്യകൾ",
-            "description": "സംഖ്യകളെ ഒന്നിനുള്ളിൽ ഒന്നായി വരുന്ന ഭിന്നസംഖ്യകളായി രേഖപ്പെടുത്തുന്നു. ഇത് വളരെ കൃത്യമായ ഏകദേശ മൂല്യങ്ങൾ നൽകുന്നു.",
-            "analogy_title": "അനന്തമായ വിപുലീകരണം",
-            "analogy_desc": "ഒരു സംഖ്യയെ <1>ഒരു പൂർണ്ണസംഖ്യയും ഒരു ഭിന്നസംഖ്യയുമായി</1> വിഭജിക്കുക. എന്നിട്ട് ആ ഭിന്നസംഖ്യയെ തലതിരിച്ചിട്ട് വീണ്ടും വിഭജിക്കുക! പൈ (\u03c0) പോലുള്ള സംഖ്യകളെ ഇങ്ങനെ എഴുതുമ്പോഴാണ് <2>22/7</2> പോലുള്ള നല്ല ഏകദേശ മൂല്യങ്ങൾ എങ്ങനെ ലഭിക്കുന്നു എന്ന് മനസ്സിലാകുന്നത്.",
-            "input_decimal": "ദശാംശമോ ഭിന്നസംഖ്യയോ",
-            "expand_button": "വിസ്തരിക്കുക",
-            "convergents_label": "ഏകദേശ ഭിന്നസംഖ്യകൾ (Convergents)",
-            "notation_label": "തുടർച്ചയായ ഭിന്നസംഖ്യാ രീതി",
-            "irrational_note": "\u03c0, \u221a2, e പോലുള്ള സംഖ്യകൾ അനന്തമായി തുടരുന്നു."
-        },
-        "rsa": {
-            "title": "RSA ക്രിപ്റ്റോഗ്രഫി",
-            "description": "വലിയ അഭാജ്യ സംഖ്യകളെ ഘടകങ്ങളാക്കുക എന്നത് പ്രയാസകരമാണ് എന്ന തത്വത്തിൽ അധിഷ്ഠിതമായ ഒരു 'പബ്ലിക് കീ' എൻക്രിപ്ഷൻ രീതിയാണിത്.",
-            "analogy_title": "പൂട്ടും താക്കോലും",
-            "analogy_desc": "ആർക്കും പൂട്ടാൻ കഴിയുന്ന ഒരു <1>തുറന്ന പൂട്ട് (Public Key)</1> നിങ്ങൾ എല്ലാവർക്കും നൽകുന്നു എന്ന് കരുതുക. എന്നാൽ ആ പൂട്ട് തുറക്കാൻ നിങ്ങളുടെ പക്കൽ മാത്രമുള്ള ഒരു <2>രഹസ്യ താക്കോൽ (Private Key)</2> ആവശ്യമാണ്. രണ്ട് വലിയ അഭാജ്യ സംഖ്യകൾ ഗുണിക്കുന്നത് എളുപ്പമാണ്, എന്നാൽ ആ ഗുണനഫലത്തിൽ നിന്ന് മൂല സംഖ്യകൾ കണ്ടെത്താൻ ഇന്നത്തെ കംപ്യൂട്ടറുകൾക്ക് പോലും ആയിരക്കണക്കിന് വർഷങ്ങൾ വേണ്ടിവരും!",
-            "step_1_title": "ഘട്ടം 1: അഭാജ്യ സംഖ്യകൾ തിരഞ്ഞെടുക്കുക",
-            "step_1_desc": "രണ്ട് വ്യത്യസ്ത അഭാജ്യ സംഖ്യകൾ (p, q) തിരഞ്ഞെടുക്കുക.",
-            "step_2_title": "ഘട്ടം 2: മൂല്യങ്ങൾ കണക്കാക്കുക",
-            "step_2_desc": "n = p \u00d7 q, \u03a6(n) = (p-1)(q-1).",
-            "step_3_title": "ഘട്ടം 3: കീകൾ നിർമ്മിക്കുക",
-            "step_3_desc": "പബ്ലിക് കീ 'e' എന്നും പ്രൈവറ്റ് കീ 'd' എന്നും കണ്ടെത്തുക.",
-            "encrypt_button": "എൻക്രിപ്റ്റ് ചെയ്യുക",
-            "decrypt_button": "ഡീക്രിപ്റ്റ് ചെയ്യുക",
-            "input_msg": "സന്ദേശം (സംഖ്യ)",
-            "public_key_label": "പബ്ലിക് കീ (n, e)",
-            "private_key_label": "പ്രൈവറ്റ് കീ (d)",
-            "encrypted_msg": "എൻക്രിപ്റ്റ് ചെയ്ത സന്ദേശം: {{val}}",
-            "decrypted_msg": "യഥാർത്ഥ സന്ദേശം: {{val}}",
-            "security_note": "യഥാർത്ഥ RSA സിസ്റ്റങ്ങളിൽ 2048-ബിറ്റ് നീളമുള്ള വലിയ അഭാജ്യ സംഖ്യകളാണ് ഉപയോഗിക്കുന്നത്. ഇതാണ് ഇന്റർനെറ്റ് സുരക്ഷയുടെ അടിസ്ഥാനം."
-        },
-        "diffie_hellman": {
-            "title": "ഡിഫി-ഹെൽമാൻ കീ എക്സ്ചേഞ്ച്",
-            "description": "സുരക്ഷിതമല്ലാത്ത ഒരു മാധ്യമത്തിലൂടെ രണ്ട് വ്യക്തികൾക്ക് ഒരു രഹസ്യ താക്കോൽ പരസ്പരം പങ്കുവെക്കാനുള്ള രീതി.",
-            "analogy_title": "നിറങ്ങളുടെ മിശ്രിതം",
-            "analogy_desc": "ആലീസിനും ബോബിനും ഒരു <1>പൊതുവായ നിറവും (Base)</1>, അവരവരുടേതായ ഒരു <2>രഹസ്യ നിറവുമുണ്ട്</2>. അവർ തങ്ങളുടെ രഹസ്യ നിറം പൊതുവായ നിറവുമായി കലർത്തി പരസ്പരം കൈമാറുന്നു. പുറത്തുനിന്നൊരാൾക്ക് ആ മിശ്രിതം കാണാൻ കഴിഞ്ഞാലും, അതിൽ നിന്ന് യഥാർത്ഥ രഹസ്യ നിറങ്ങൾ വേർതിരിച്ചെടുക്കാൻ കഴിയില്ല. ഒടുവിൽ രണ്ടുപേരുടെയും പക്കൽ ഒരേ രഹസ്യ നിറമുണ്ടാകും!",
-            "base_g": "ആധാരം (g)",
-            "mod_p": "മോഡുലസ് (p)",
-            "alice_secret": "ആലീസിന്റെ രഹസ്യ സംഖ്യ (a)",
-            "bob_secret": "ബോബിന്റെ രഹസ്യ സംഖ്യ (b)",
-            "alice_public": "ആലീസ് അയച്ചത് (g\u1d43 mod p)",
-            "bob_public": "ബോബ് അയച്ചത് (g\u1dbb mod p)",
-            "shared_secret": "പങ്കുവെച്ച രഹസ്യ താക്കോൽ (Shared Secret)",
-            "calculate_button": "രഹസ്യ താക്കോൽ കണക്കാക്കുക",
-            "step_desc": "രണ്ടുപേരും ഒരേ താക്കോലിൽ ({{secret}}) എത്തിച്ചേർന്നു! ഇനി അവർക്ക് സുരക്ഷിതമായി ആശയവിനിമയം നടത്താം."
+            "unsolved_mystery": "അനാവരണം ചെയ്യപ്പെടാത്ത രഹസ്യം",
+            "visualizing_pairs": "ജോടികളുടെ വിഷ്വലൈസേഷൻ"
         },
         "hashing": {
-            "title": "ഹാഷിംഗ് അൽഗോരിതങ്ങൾ",
+            "avalanche_desc": "ഇൻപുട്ടിൽ ഒരു ചെറിയ മാറ്റം വരുത്തിയാൽ പോലും (ഉദാ: 'A' എന്നതിന് പകരം 'a'), ഹാഷ് മൂല്യം പൂർണ്ണമായും മാറുന്നു.",
+            "avalanche_title": "Avalanche Effect",
             "description": "ഏത് വലുപ്പത്തിലുള്ള ഡാറ്റയെയും ഒരു നിശ്ചിത നീളമുള്ള സവിശേഷമായ ഒരു കോഡായി മാറ്റുന്ന ഏകമുഖ പ്രക്രിയ (One-way process).",
-            "analogy_title": "ഡിജിറ്റൽ വിരലടയാളം",
-            "analogy_desc": "ഒരു വലിയ പുസ്തകത്തിലെ മുഴുവൻ വിവരങ്ങളും ഒരു ചെറിയ <1>ഡിജിറ്റൽ അടയാളമായി (Hash)</1> മാറ്റുന്നത് സങ്കൽപ്പിക്കുക. പുസ്തകത്തിലെ ഒരു അക്ഷരം മാറിയാൽ പോലും ഈ അടയാളം പൂർണ്ണമായും മാറും. എന്നാൽ ആ അടയാളം നോക്കി യഥാർത്ഥ പുസ്തകം നിർമ്മിക്കാൻ കഴിയില്ല. വിവരങ്ങൾ മാറ്റപ്പെട്ടിട്ടില്ലെന്ന് ഉറപ്പാക്കാൻ ഇത് സഹായിക്കുന്നു.",
-            "input_text": "ഡാറ്റ നൽകുക",
-            "hash_button": "ഹാഷ് നിർമ്മിക്കുക",
-            "algorithm_label": "അൽഗോരിതം",
-            "hash_result": "ഫലം (Hash Value)",
-            "collision_fail": "സംഘട്ടനങ്ങൾ (Collisions) ഒന്നുമില്ല - ഇത് സുരക്ഷിതമാണ്!",
-            "avalanche_effect": "അവലാഞ്ച് ഇഫക്റ്റ് (Avalanche Effect)",
-            "avalanche_desc": "ഇൻപുട്ടിൽ ഒരു ചെറിയ മാറ്റം വരുത്തിയാൽ പോലും (ഉദാ: 'A' എന്നതിന് പകരം 'a'), ഹാഷ് മൂല്യം പൂർണ്ണമായും മാറുന്നു."
+            "deterministic_desc": "Same input always produces the same hash.",
+            "deterministic_title": "Deterministic",
+            "fast_desc": "Computing the hash is computationally efficient.",
+            "fast_title": "Fast",
+            "input_label": "Input Data",
+            "irreversible_desc": "Hard to find the original input from its hash.",
+            "irreversible_title": "Irreversible",
+            "placeholder": "Type something...",
+            "properties_title": "Key Properties",
+            "result_label": "Hash Result (Hex)",
+            "simple_terms_desc": "A hash is like a <1>fingerprint for data</1>. Feed in any text — you always get the same fixed-length code. Change even <2>one letter</2> and the hash changes completely! Used everywhere: password storage, file downloads (did it get corrupted?), blockchains, and digital signatures.",
+            "simple_terms_title": "Data Fingerprints",
+            "title": "ഹാഷിംഗ് അൽഗോരിതങ്ങൾ"
         },
-        "digital_signatures": {
-            "title": "ഡിജിറ്റൽ സിഗ്നേച്ചറുകൾ",
-            "description": "ഒരു ഡിജിറ്റൽ સന്ദേശം അയച്ചയാൾ തന്നെയാണെന്നും അതിനിടയിൽ മാറ്റങ്ങൾ വന്നിട്ടില്ലെന്നും ഉറപ്പാക്കാനുള്ള രീതി.",
-            "analogy_title": "മാന്ത്രിക മുദ്ര",
-            "analogy_desc": "ഇത് നിങ്ങളുടെ <1>പ്രൈവറ്റ് കീ (Private Key)</1> ഉപയോഗിച്ച് സന്ദേശത്തിൽ പതിപ്പിക്കുന്ന ഒരു ഡിജിറ്റൽ മുദ്രയാണ്. നിങ്ങളുടെ <2>പബ്ലിക് കീ (Public Key)</2> ഉള്ള ആർക്കും ആ മുദ്ര നിങ്ങളുടെ തന്നെയാണെന്ന് പരിശോധിക്കാം. ബാങ്ക് ഇടപാടുകളിലും സോഫ്റ്റ്‌വെയർ സുരക്ഷയിലും ഇത് ഉപയോഗിക്കുന്നു.",
-            "sign_button": "ഒപ്പിടുക",
-            "verify_button": "പരിശോധിക്കുക",
-            "status_verified": "\u2705 ഒപ്പ് സ്ഥിരീകരിച്ചു!",
-            "status_failed": "\u274c ഒപ്പ് തെറ്റാണ് അല്ലെങ്കിൽ സന്ദേശത്തിൽ മാറ്റം വന്നിട്ടുണ്ട്!",
-            "process_label": "ഒപ്പിടുന്ന പ്രക്രിയയും പരിശോധനയും"
+        "lcm": {
+            "analogy_desc": "രണ്ട് വ്യത്യസ്ത താളത്തിലുള്ള മണികൾ ഉണ്ടെന്ന് കരുതുക. ഒന്ന് ഓരോ <1>3</1> സെക്കൻഡിലും രണ്ടാമത്തേത് ഓരോ <1>4</1> സെക്കൻഡിലും മുഴങ്ങുന്നു. അവ രണ്ടും ഒരുമിച്ച് മുഴങ്ങുന്ന സമയം <2>12</2> സെക്കൻഡ് ആയിരിക്കും. ഇതാണ് LCM!",
+            "analogy_title": "Bus Schedules",
+            "calculate_button": "Calculate LCM",
+            "description": "രണ്ട് സംഖ്യകൾ ഒരേപോലെ ഹരിക്കാൻ കഴിയുന്ന ഏറ്റവും ചെറിയ സംഖ്യ (Least Common Multiple) കണ്ടെത്തുക.",
+            "input_a": "A",
+            "input_b": "B",
+            "multiples_label": "Multiples of {{n}}",
+            "relationship_desc": "LCM(a, b) = |a × b| / GCD(a, b). For {{a}} and {{b}}, GCD is {{gcd}}.",
+            "relationship_title": "The Relationship",
+            "result_label": "The LCM is",
+            "title": "LCM Visualizer"
+        },
+        "legendre": {
+            "analogy_desc": "മൊഡ്യൂളോ p-ൽ ഒരു സംഖ്യ 'a' ഒരു വർഗ്ഗമാണോ (a ≡ x² mod p) എന്ന് ലെജൻഡർ സിംബൽ പറഞ്ഞുതരുന്നു. ഉത്തരം <1>1</1> ആണെങ്കിൽ അത് ഒരു വർഗ്ഗമാണ്, <1>-1</1> ആണെങ്കിൽ അല്ല. <2>0</2> ആണെങ്കിൽ അത് p-യുടെ ഗുണിതമാണ്. വേഗത്തിൽ വർഗ്ഗങ്ങൾ കണ്ടെത്താനുള്ള എളുപ്പവഴിയാണിത്.",
+            "analogy_title": "Is It a Hidden Square?",
+            "criterion_desc": "Legendre symbols can be calculated using Euler's criterion:\n<1>(a/p) ≡ a^((p-1)/2) mod p</1>\nThis is the method used by this tool!",
+            "criterion_title": "Quick Calculation",
+            "description": "ലെജൻഡർ സിംബൽ (a/p) ഉപയോഗിച്ച് ഒരു സംഖ്യ മൊഡ്യൂളോ p-ൽ ക്വാഡ്രാറ്റിക് റെസിഡ്യൂ ആണോ എന്ന് പരിശോധിക്കുക.",
+            "divisible_label": "Divisible by p",
+            "int_label": "Integer a",
+            "legend_0": "'a' is a multiple of 'p'",
+            "legend_1": "'a' is a square modulo 'p' (x² ≡ a mod p exists)",
+            "legend_neg1": "'a' is NOT a square modulo 'p'",
+            "legend_title": "Legend & Meaning",
+            "p_label": "Odd Prime p"
+        },
+        "modular_exponentiation": {
+            "algorithm_efficiency": "Algorithm Efficiency",
+            "base_label": "Base (a)",
+            "binary_exp": "Binary Exponentiation",
+            "binary_exp_desc": "Calculates result in O(log k) steps using squaring and multiplication.",
+            "description": "വലിയ കൃതികൾ (Powers) മോഡുലാർ രീതിയിൽ അതിവേഗം കണക്കാക്കുന്ന രീതി കാണുക.",
+            "exp_label": "Exp (k)",
+            "fermat_desc": "Since the modulus is prime, we can use this theorem to simplify calculations.",
+            "fermat_little": "Fermat's Little Theorem",
+            "fermat_theorem_desc": "If <1>p</1> is prime and does not divide <1>a</1>, then <2>aᵖ⁻¹ ≡ 1 (mod p)</2>.",
+            "mod_label": "Mod (n)",
+            "power_reduction": "Power Reduction",
+            "result_label": "Result",
+            "shortcut_desc": "What's <1>2¹⁰ mod 7</1>? You could compute 2¹⁰ = 1024, then divide by 7. But there's a faster way: <2>keep taking remainders at each step</2>.\n2→4→1→2→4→1… The answer cycles! This trick lets computers handle numbers with <1>hundreds of digits</1> — the basis of all modern encryption.",
+            "the_shortcut": "The Shortcut"
+        },
+        "modular_inverse": {
+            "description": "മൊഡ്യൂളോ n-ൽ ഒരു സംഖ്യയുടെ ഗുണന വിപരീതം (Multiplicative Inverse) കണ്ടെത്തുക.",
+            "equation_col": "Equation",
+            "extended_euclidean": "Extended Euclidean Method",
+            "gcd_req": "GCD({a}, {m}) = {gcd} (MUST BE 1)",
+            "inverse_label": "Multiplicative Inverse",
+            "method_desc": "The steps taken to find the inverse using the reverse substitution of the Euclidean Algorithm.",
+            "modulus_label": "Modulus (m)",
+            "no_inverse": "ഇൻവേഴ്സ് നിലവിലില്ല",
+            "number_label": "Number (a)",
+            "step_col": "Step",
+            "the_undo_button": "The Undo Button",
+            "undo_desc": "In regular math, <1>dividing by 3</1> is the same as multiplying by ⅓. But in modular arithmetic, there are no fractions! Instead, we find a number that \"undoes\" multiplication.\nExample: <2>3 × 4 = 12 ≡ 1 (mod 11)</2>. So 4 is the modular inverse of 3 (mod 11) — multiplying by 4 is like \"dividing\" by 3.",
+            "x_coeff_col": "x Coeff"
+        },
+        "modular_playground": {
+            "explore_desc": "Each dot on the circle is a number. A line from dot <1>i</1> goes to dot <1>(i × k) mod n</1>. Change the multiplier k to watch <2>beautiful geometric patterns</2> emerge — cardioids, nephroids, and other shapes hidden inside modular arithmetic. Press play to animate!",
+            "how_to_explore": "How to Explore",
+            "multiplier_label": "Multiplier (k)",
+            "patterns_desc": "Showing lines connecting each point i to (i * k) mod n. This visualization reveals hidden symmetries in modular arithmetic.",
+            "points_label": "Points (n)"
+        },
+        "modular_table": {
+            "clear": "CLEAR",
+            "guide_desc": "Tap any cell to highlight all occurrences of that remainder.\n\nNotice how prime moduli (like 7, 11, 13) create tables where every row (except zero) contains every number exactly once. This is because every non-zero element has a modular inverse!",
+            "highlight_label": "Highlighting Residue: {{residue}}",
+            "interactive_guide": "Interactive Guide",
+            "looking_at": "What You're Looking At",
+            "mod_label": "Modulus (n)",
+            "table_desc": "This is a <1>multiplication table, but with a twist</1> — every answer gets wrapped around using the modulus. Instead of 3 × 4 = 12, you get 3 × 4 = 12 mod 5 = <2>2</2>. Tap any cell to highlight all cells with the same remainder. Try prime moduli and notice that <1>every non-zero row is a perfect shuffle</1>!"
         },
         "partition": {
-            "title": "പാർട്ടീഷൻ സിദ്ധാന്തം",
+            "count_label": "Partition Count p({{n}})",
             "description": "ഒരു പോസിറ്റീവ് പൂർണ്ണസംഖ്യയെ മറ്റ് പോസിറ്റീവ് പൂർണ്ണസംഖ്യകളുടെ തുകയായി എത്ര വിധത്തിൽ എഴുതാം എന്നതിനെക്കുറിച്ചുള്ള പഠനം.",
-            "analogy_title": "നാണയങ്ങൾ വീതം വെക്കുക",
-            "analogy_desc": "നിങ്ങളുടെ പക്കൽ <1>4 രൂപയുണ്ട്</1>. അത് എത്ര വ്യത്യസ്ത രീതികളിൽ വിഭജിക്കാം? {4}, {3+1}, {2+2}, {2+1+1}, {1+1+1+1}. ആകെ <2>5 രീതികൾ</2>. സംഖ്യ വലുതാകുന്തോറും വിഭജനങ്ങളുടെ എണ്ണം വളരെ വേഗത്തിൽ വർദ്ധിക്കുന്നു!",
-            "input_n": "സംഖ്യ (n)",
-            "calculate_button": "വിഭജനങ്ങൾ കണ്ടെത്തുക",
-            "total_partitions": "ആകെ വിഭജനങ്ങൾ: P({{n}}) = {{count}}",
-            "young_diagrams": "യംഗ് ഡയഗ്രാമുകൾ (Young Diagrams)",
-            "ferrers_diagrams": "ഫെറർസ് ഡയഗ്രാമുകൾ (Ferrers Diagrams)",
-            "hardy_ramanujan": "ഹാർഡി-രാമാനുജൻ ഏകദേശ മൂല്യം",
-            "ramanujan_note": "ശ്രീനിവാസ രാമാനുജൻ പാർട്ടീഷൻ സിദ്ധാന്തത്തിൽ വിപ്ലവകരമായ കണ്ടെത്തലുകൾ നടത്തിയിട്ടുണ്ട്."
+            "growth_desc": "Srinivasa Ramanujan and G.H. Hardy developed an incredible asymptotic formula for p(n). Ramanujan also discovered surprising congruences, like p(5n+4) always being divisible by 5!",
+            "growth_title": "Asymptotic Growth",
+            "helper_text": "p(n) grows extremely fast!",
+            "input_label": "Number n",
+            "limit_text": "Visualization limited to n=12 to prevent performance issues.",
+            "ramanujan_title": "Ramanujan & Hardy",
+            "simple_terms_desc": "How many ways can you break <1>4 coins</1> into piles? 4 = 4, or 3+1, or 2+2, or 2+1+1, or 1+1+1+1 — that's <2>5 ways</2> (p(4)=5). Order doesn't matter! This count grows shockingly fast: p(100) = 190,569,292,356.",
+            "simple_terms_title": "Splitting Into Groups",
+            "title": "പാർട്ടീഷൻ സിദ്ധാന്തം",
+            "visual_desc": "Showing the {{count}} ways to split {{n}}:",
+            "visual_title": "Visualizing p({{n}})"
         },
-        "constructible": {
-            "title": "നിർമ്മിക്കാൻ കഴിയുന്ന ബഹുഭുജങ്ങൾ",
-            "description": "സ്കെയിലും കോമ്പസും മാത്രം ഉപയോഗിച്ച് നിർമ്മിക്കാൻ കഴിയുന്ന റെഗുലർ ബഹുഭുജങ്ങൾ.",
-            "analogy_title": "ഗണിതത്തിലെ കല",
-            "analogy_desc": "ഒരു വൃത്തത്തെ തുല്യ ഭാഗങ്ങളായി എങ്ങനെ വിഭജിക്കാം? <1>ത്രികോണം, ചതുരം, പഞ്ചഭുജം</1> എന്നിവ എളുപ്പത്തിൽ നിർമ്മിക്കാം. എന്നാൽ <2>17 വശങ്ങളുള്ള ബഹുഭുജം (Heptadecagon)</2> നിർമ്മിക്കാൻ കഴിയുമോ? ഗൗസ് (Gauss) തന്റെ 19-ാം വയസ്സിൽ ഇത് സാധ്യമാണെന്ന് തെളിയിച്ചു!",
-            "sides_label": "വശങ്ങളുടെ എണ്ണം (n)",
-            "check_button": "സാധ്യമാണോ എന്ന് നോക്കുക",
-            "is_constructible": "അതെ, റെഗുലർ {{n}}-ഭുജം നിർമ്മിക്കാൻ സാധിക്കും!",
-            "not_constructible": "ഇല്ല, റെഗുലർ {{n}}-ഭുജം സ്കെയിലും കോമ്പസും മാത്രം ഉപയോഗിച്ച് നിർമ്മിക്കാൻ കഴിയില്ല.",
-            "fermat_primes": "ഫെർമാ പ്രൈംസ് (Fermat Primes)",
-            "gauss_wantzel": "ഗൗസ്-വാണ്ട്സെൽ സിദ്ധാന്തം",
-            "condition_desc": "ഒരു ബഹുഭുജം നിർമ്മിക്കാൻ കഴിയണമെങ്കിൽ, അതിന്റെ വശങ്ങളുടെ എണ്ണം 'n', 2-ന്റെ ഘാതങ്ങളുടെയും വ്യത്യസ്ത ഫെർമാ പ്രൈമുകളുടെയും ഗുണനഫലമായിരിക്കണം."
+        "pascal": {
+            "analogy_desc": "ഓരോ സംഖ്യയും തൊട്ടുമുകളിലുള്ള <1>രണ്ട് സംഖ്യകളുടെ തുകയാണ്</1>. ത്രികോണത്തിന്റെ വശങ്ങളിൽ എപ്പോഴും 1 ആയിരിക്കും. ഇതിനുള്ളിൽ അഭാജ്യ സംഖ്യകൾ, ഫിബൊനാച്ചി സംഖ്യകൾ, 2-ന്റെ ഘാതങ്ങൾ എന്നിവയെല്ലാം കണ്ടെത്താം!",
+            "analogy_title": "സംഖ്യകളുടെ പിരമിഡ്",
+            "desc_div3": "Multiples of 3 create a self-similar triangular pattern (a fractal) based on the divisibility of binomial coefficients.",
+            "desc_div5": "Divisibility by 5 reveals larger scale patterns, a visual proof of Lucas's Theorem in modular arithmetic.",
+            "desc_none": "The classic triangle of binomial coefficients. Each number is the sum of the two values directly above it.",
+            "desc_parity": "Highlighting odd numbers reveals the Sierpinski Triangle fractal, showing a deep link between numbers and geometry.",
+            "height_label": "Triangle Height",
+            "tab_mod3": "മോഡ് 3",
+            "tab_mod5": "മോഡ് 5",
+            "tab_plain": "Plain",
+            "tab_sierpinski": "സിയർപിൻസ്‌കി",
+            "title": "പാസ്കൽ ത്രികോണം"
         },
-        "privacy_policy": {
-            "title": "സ്വകാര്യതാ നയം",
-            "last_updated": "അവസാനമായി പുതുക്കിയത്: ഫെബ്രുവരി 2024",
-            "introduction": "നമ്പർ തിയറി (Number Theory) ആപ്പ് ഉപയോഗിച്ചതിന് നന്ദി. നിങ്ങളുടെ സ്വകാര്യത ഞങ്ങൾക്ക് വളരെ പ്രധാനമാണ്.",
-            "data_collection": "വിവര ശേഖരണം",
-            "data_collection_desc": "ഞങ്ങളുടെ ആപ്പ് നിങ്ങളുടെ വ്യക്തിഗത വിവരങ്ങൾ ഒന്നും തന്നെ ശേഖരിക്കുന്നില്ല. എല്ലാ ഗണിത കണക്കുകൂട്ടലുകളും നിങ്ങളുടെ ഉപകരണത്തിൽ തന്നെ (Locally) നടക്കുന്നു.",
-            "cookies": "കുക്കികളും സംഭരണവും",
-            "cookies_desc": "ഭാഷാ മുൻഗണനകളും ആപ്പ് ക്രമീകരണങ്ങളും സംരക്ഷിക്കാൻ മാത്രം ഞങ്ങൾ ലോക്കൽ സ്റ്റോറേജ് (Local Storage) ഉപയോഗിക്കുന്നു.",
-            "third_party": "മൂന്നാം കക്ഷി സേവനങ്ങൾ",
-            "third_party_desc": "ഞങ്ങൾ പരസ്യങ്ങളോ നിങ്ങളുടെ വിവരങ്ങൾ പങ്കുവെക്കുന്ന മൂന്നാം കക്ഷി സേവനങ്ങളോ ഉപയോഗിക്കുന്നില്ല.",
-            "consent": "സമ്മതം",
-            "consent_desc": "ഞങ്ങളുടെ ആപ്പ് ഉപയോഗിക്കുന്നതിലൂടെ, നിങ്ങൾ ഈ സ്വകാര്യതാ നയം അംഗീകരിക്കുന്നു.",
-            "contact": "ബന്ധപ്പെടുക",
-            "contact_desc": "നിങ്ങൾക്ക് എന്തെങ്കിലും ചോദ്യങ്ങളുണ്ടെങ്കിൽ, ദയവായി ഇവിടെ ബന്ധപ്പെടുക: support@numbertheoryapp.com"
+        "perfect_numbers": {
+            "analogy_desc": "Most numbers are either <1>too small</1> (deficient) or <1>too big</1> (abundant) compared to their parts. But <2>6</2> is exactly equal to its parts: 1 + 2 + 3 = 6. It is one of the rare, perfectly balanced numbers in the universe.",
+            "classify_abundant": "Abundant",
+            "classify_deficient": "Deficient",
+            "classify_perfect": "Perfect",
+            "description": "A positive integer that is equal to the sum of its positive proper divisors, excluding the number itself.",
+            "divisors_sum": "Sum of Proper Divisors",
+            "euclids_formula": "Euclid's Formula",
+            "formula_desc": "Euclid discovered that <1>2ᵖ⁻¹(2ᵖ - 1)</1> is a perfect number whenever <1>2ᵖ - 1</1> is prime. These are called Mersenne Primes.",
+            "fun_fact": "Fun Fact",
+            "gems_desc": "Perfect numbers are extremely rare. There are only 51 known today!",
+            "helper_text": "Looking for perfection up to n",
+            "perfection_found": "Perfection Found",
+            "rare_gems": "Rare Gems",
+            "search_limit": "Search Limit",
+            "the_perfect_balance": "The Perfect Balance",
+            "title": "Perfect Numbers"
+        },
+        "primitive_roots": {
+            "analogy_desc": "മൊഡ്യൂളോ n-ലെ എല്ലാ സംഖ്യകളും ഒരു ചക്രത്തിന് ചുറ്റും ഉണ്ടെന്ന് കരുതുക. <1>പ്രിമിറ്റീവ് റൂട്ട്</1> എന്നത് അതിന്റെ ഘാതങ്ങൾ (Powers) കണക്കാക്കുമ്പോൾ ആ ചക്രത്തിലെ <2>എല്ലാ പ്രധാന ബിന്ദുക്കളെയും (Coprimes)</2> സ്പർശിക്കുന്ന ഒരു മാന്ത്രിക സംഖ്യയാണ്. ഇതൊരു സൈക്ലിക് സ്പൈറൽ പോലെയാണ്.",
+            "analogy_title": "The Master Key",
+            "base_label": "Base (a)",
+            "description": "മൊഡ്യൂളോ n-ലെ എല്ലാ സപേക്ഷ അഭാജ്യ സംഖ്യകളെയും സ്വന്തം ഘാതങ്ങളിലൂടെ ഉൽപ്പാദിപ്പിക്കാൻ കഴിയുന്ന സംഖ്യ കണ്ടെത്തുക.",
+            "fun_fact": "Cyclic Groups",
+            "fun_fact_desc": "Primitive roots generate the multiplicative group of integers modulo n. This is why primitive roots are the backbone of many cryptographic key exchanges, like Diffie-Hellman!",
+            "is_root": "Primitive Root",
+            "is_root_status": "It generates the entire group of size φ({{n}}) = {{phi}}!",
+            "mod_label": "Modulo (n)",
+            "no_roots": "പ്риമിറ്റീവ് റൂട്ടുകൾ ഇല്ല",
+            "not_root": "Not a Generator",
+            "not_root_status": "It falls short of φ({{n}}) = {{phi}}.",
+            "others_title": "Other Candidates",
+            "residues_desc": "Powers of {{a}} mod {{n}} generate <1>{{count}}</1> unique values. {{status}}",
+            "sequence_desc": "Calculations for {{a}}^k mod {{n}}:",
+            "sequence_title": "Sequence of Powers"
+        },
+        "privacy": {
+            "changes_desc": "We may update our Privacy Policy from time to time. Any changes will be posted on this screen, and your continued use of the app constitutes acceptance of those changes.",
+            "changes_title": "Changes to This Policy",
+            "contact_desc": "If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us.",
+            "contact_title": "Contact Us",
+            "data_collection_desc": "The Number Theory app does not collect, store, or transmit any personal data or usage information. All calculations and visualizations are performed locally on your device.",
+            "data_collection_title": "Data Collection",
+            "intro_desc": "Welcome to Number Theory. We value your privacy and are committed to protecting it. This Privacy Policy explains how we handle your information.",
+            "intro_title": "Introduction",
+            "offline_desc": "The app is designed to work entirely offline. No internet connection is required for its core features, and no data is sent to external servers.",
+            "offline_title": "Offline Functionality",
+            "third_party_desc": "The Number Theory app does not use any third-party analytics, advertising, or tracking services that collect your personal information.",
+            "third_party_title": "Third-Party Services",
+            "title": "Privacy Policy"
+        },
+        "pythagorean": {
+            "formula_desc": "Generate primitive triples using two integers x and y (where x > y).",
+            "formula_title": "Euclid's Formula",
+            "fun_fact_desc": "No perfect square ends in 2, 3, 7, or 8. All squares are either 4n or 4n+1.",
+            "fun_fact_title": "Fun Fact",
+            "input_x": "Integer x",
+            "input_y": "Integer y",
+            "input_y_helper": "Must be < x",
+            "non_primitive": "Non-Primitive",
+            "primitive_triple": "Primitive Triple",
+            "title": "പൈതഗോറിയൻ ട്രിപ്പിൾസ്",
+            "warning_x_y": "x must be greater than y to generate a valid triangle."
+        },
+        "quadratic_reciprocity": {
+            "analogy_desc": "മൊഡ്യൂളോ p-ൽ ഒരു സംഖ്യ <1>\"പെർഫെക്റ്റ് സ്ക്വയർ\"</1> (Quadratic Residue) ആണോ എന്ന് എങ്ങനെ അറിയാം? രണ്ട് അഭാജ്യ സംഖ്യകൾ (p, q) തമ്മിലുള്ള ഈ സവിശേഷതയെ ബന്ധിപ്പിക്കുന്ന മാന്ത്രിക കണ്ണിയാണ് <2>ക്വാഡ്രാറ്റിക് റെസിപ്രോസിറ്റി</2>. ഗണിതത്തിലെ 'സുവർണ്ണ നിയമം' (Golden Theorem) എന്ന് ഗോസ് ഇതിനെ വിളിച്ചു.",
+            "analogy_title": "Hidden Square Roots",
+            "description": "രണ്ട് അഭാജ്യ സംഖ്യകൾ തമ്മിലുള്ള വർഗ്ഗ ശിഷ്ടങ്ങളുടെ (Quadratic Residues) ബന്ധം പരിശോധിക്കുക.",
+            "if_mod4_1": "If either {{a}} or {{p}} is ≡ 1 (mod 4), then ({{a}}/{{p}}) = ({{p}}/{{a}}).",
+            "if_mod4_3": "If both are ≡ 3 (mod 4), then ({{a}}/{{p}}) = -({{p}}/{{a}}).",
+            "int_label": "Integer (a)",
+            "jacobi_title": "Jacobi Symbol (a/n)",
+            "legendre_title": "Legendre Symbol (a/p)",
+            "meaning_desc": "An integer <1>a</1> is a quadratic residue mod <1>p</1> if the equation <2>x² ≡ a (mod p)</2> has a solution x. This tool tells you if a solution exists without having to find it!",
+            "meaning_title": "Residue Property",
+            "mod_label": "Modulus (p)",
+            "non_residue_label": "Quadratic Non-Residue",
+            "not_coprime_label": "Not Coprime",
+            "reciprocity_desc": "Since {{a}} and {{p}} are both odd primes, the Law of Quadratic Reciprocity applies:",
+            "reciprocity_title": "Law of Reciprocity",
+            "residue_label": "Quadratic Residue"
+        },
+        "rsa": {
+            "cipher_label": "Encrypted Cipher (c = mᵉ mod n)",
+            "description": "വലിയ അഭാജ്യ സംഖ്യകളെ ഘടകങ്ങളാക്കുക എന്നത് പ്രയാസകരമാണ് എന്ന തത്വത്തിൽ അധിഷ്ഠിതമായ ഒരു 'പബ്ലിക് കീ' എൻക്രിപ്ഷൻ രീതിയാണിത്.",
+            "encryption_desc": "Encryption uses the public exponent (e={{e}}), while decryption uses the private key (d) found above.",
+            "encryption_title": "Encryption & Decryption",
+            "helper_p_not_prime": "Not prime",
+            "helper_p_prime": "First prime",
+            "helper_q_different": "Must be different",
+            "helper_q_not_prime": "Not prime",
+            "helper_q_prime": "Second prime",
+            "input_p": "Prime p",
+            "input_q": "Prime q",
+            "message_error": "Message must be smaller than {{n}}",
+            "message_helper": "Raw numeric data",
+            "message_label": "Message (m < {{n}})",
+            "modulus_label": "Modulus (n = p×q)",
+            "original_message_label": "Original Message (m = cᵈ mod n)",
+            "private_key_label": "പ്രൈവറ്റ് കീ (d)",
+            "private_key_sub": "Inverse of {{e}} mod {{phi}}",
+            "simple_terms_desc": "Imagine sending someone an <1>open padlock</1>. Anyone can snap it shut (encrypt), but only <2>you have the key</2> to open it (decrypt). RSA works the same way: the public key is the open padlock, and the private key is the only key that opens it. The math relies on the fact that multiplying two huge primes is easy, but <1>factoring the product back is nearly impossible</1>.",
+            "simple_terms_title": "The Padlock Analogy",
+            "title": "RSA ക്രിപ്റ്റോഗ്രഫി",
+            "totient_label": "Totient (φ = (p-1)(q-1))"
+        },
+        "sieve": {
+            "analogy_desc": "അഭാജ്യ സംഖ്യകൾ ഒഴികെ മറ്റെല്ലാം അരിച്ചെടുക്കുന്നത് സങ്കൽപ്പിക്കുക. <1>2</1>-ൽ തുടങ്ങുക, അതിന്റെ എല്ലാ ഗുണിതങ്ങളെയും (4, 6, 8...) ഒഴിവാക്കുക. അടുത്തതായി <2>3</2>-ലേക്ക് പോയി അതിന്റെ ഗുണിതങ്ങളെ ഒഴിവാക്കുക. ബാക്കിയുള്ളവ അഭാജ്യ സംഖ്യകളാണ്!",
+            "efficient_algorithm": "The most efficient ancient algorithm to find all primes up to 100 by progressively marking multiples of each discovered prime.",
+            "everyday_analogy": "Everyday Analogy",
+            "historical_brilliance": "Historical Brilliance",
+            "history_desc": "Attributed to the Greek mathematician Eratosthenes (3rd century BC), this method remains the foundation for many modern sieve theories used in advanced number theory research today.",
+            "how_it_works": "How it Works",
+            "math_fact": "Mathematical Insight",
+            "matters_desc": "Every time you shop online or send a message, <1>prime numbers</1> protect your data. Modern encryption (like RSA) depends on large primes. The Sieve is the first step to finding them efficiently.",
+            "start_sieve": "Start Sieve",
+            "step1": "Start with the first prime (2).",
+            "step2": "Mark all its multiples as composite.",
+            "step3": "Move to the next unmarked number and repeat.",
+            "step4": "Stop when the next number's square exceeds the limit.",
+            "stop_sieve": "Stop Animation",
+            "why_it_matters": "Why It Matters"
+        },
+        "totient": {
+            "analogy_desc": "ഒരു സംഖ്യ n-ന് <1>\"സപേക്ഷ അഭാജ്യമായ\" (Coprime)</1> സുഹൃത്തുക്കൾ ആരെല്ലാമാണ്? n-മായി <2>1 ഒഴികെ മറ്റ് പൊതു ഘടകങ്ങളില്ലാത്ത</2> സംഖ്യകളാണവർ. Φ(10) = 4, കാരണം 1, 3, 7, 9 എന്നീ സംഖ്യകൾക്ക് 10-മായി പൊതു ഘടകങ്ങളില്ല.",
+            "analogy_title": "Everyday Analogy",
+            "coprime_subtitle": "Numbers coprime to {{n}}",
+            "coprime_title": "Coprime Numbers",
+            "description": "n-നോട് സപേക്ഷ അഭാജ്യമായ n-ൽ താഴെയുള്ള സംഖ്യകളുടെ എണ്ണം കണക്കാക്കുന്നു.",
+            "did_you_know": "Did you know?",
+            "dist_desc": "Visualizing φ(n) for n = 1 to {{range}}:",
+            "dist_title": "Totient Distribution",
+            "input_label": "Input Number",
+            "matters_desc": "The totient function is the <1>heart of RSA encryption</1>. When you generate RSA keys, you compute φ(n) to find the private key. Without it, public-key cryptography wouldn't work!",
+            "matters_title": "Why It Matters",
+            "prime_label": "Prime (φ(p) = p-1)",
+            "prime_prop": "Since {{n}} is prime, φ({{n}}) = {{n}}-1 = {{phi}}.",
+            "sharing_prop": "Numbers sharing prime factors with {{n}} are not coprime.",
+            "toggle_range": "Toggle Range"
+        },
+        "ulam": {
+            "big_idea": "The Big Idea",
+            "big_idea_desc": "Write the number <1>1</1> in the center of a grid. Spiral outward: 2, 3, 4, 5… Now <2>highlight only the primes</2>. Something weird happens — they line up along <1>diagonal lines</1>! This doodle reveals hidden patterns in how primes are distributed.",
+            "control_spiral": "Control Spiral",
+            "density": "Density",
+            "mathematical_insight": "Mathematical Insight",
+            "number_of_points": "Number of Points",
+            "primes": "Primes",
+            "show_growth_path": "Show Growth Path",
+            "spiral_desc": "Visualize primes in a square spiral. Notice how primes tend to cluster along diagonal lines, suggesting mysterious patterns in the distribution of prime numbers.",
+            "title": "ഉലാം സ്പൈറൽ",
+            "total": "Total Points",
+            "ulam_insight_desc": "While listening to a \"long and very boring paper\" at a scientific meeting, Ulam doodled a grid of numbers. He noticed that prime numbers appeared to fall primarily on diagonal lines. This suggests that certain quadratic polynomials like <1>n² + n + 41</1> are remarkably rich in prime numbers.",
+            "ulam_insight_title": "Stanisław Ulam (1963)"
         }
     }
 }

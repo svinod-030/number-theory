@@ -37,7 +37,7 @@ export default function ModularInverseScreen() {
                     <View className="bg-sky-500/5 p-5 rounded-2xl border border-sky-500/10 mb-4">
                         <View className="flex-row items-center mb-3">
                             <Ionicons name="bulb-outline" size={18} color="#38bdf8" />
-                            <Text className="text-sky-400 font-bold ml-2 text-xs uppercase">{t('visualizers.modular_inverse.the_undo_button')}</Text>
+                            <Text className="text-sky-400 font-bold ml-2 text-xs uppercase">{t('visualizers.modular_inverse.analogy_title')}</Text>
                         </View>
                         <Text className="text-slate-400 text-xs leading-5">
                             <Trans

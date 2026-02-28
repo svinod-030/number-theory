@@ -537,6 +537,7 @@
             "the_shortcut": "The Shortcut"
         },
         "modular_inverse": {
+            "analogy_title": "Everyday Analogy",
             "description": "മൊഡ്യൂളോ n-ൽ ഒരു സംഖ്യയുടെ ഗുണന വിപരീതം (Multiplicative Inverse) കണ്ടെത്തുക.",
             "equation_col": "Equation",
             "extended_euclidean": "Extended Euclidean Method",
@@ -547,7 +548,6 @@
             "no_inverse": "ഇൻവേഴ്സ് നിലവിലില്ല",
             "number_label": "Number (a)",
             "step_col": "Step",
-            "the_undo_button": "The Undo Button",
             "undo_desc": "In regular math, <1>dividing by 3</1> is the same as multiplying by ⅓. But in modular arithmetic, there are no fractions! Instead, we find a number that \"undoes\" multiplication.\nExample: <2>3 × 4 = 12 ≡ 1 (mod 11)</2>. So 4 is the modular inverse of 3 (mod 11) — multiplying by 4 is like \"dividing\" by 3.",
             "x_coeff_col": "x Coeff"
         },
@@ -709,6 +709,7 @@
             "historical_brilliance": "Historical Brilliance",
             "history_desc": "Attributed to the Greek mathematician Eratosthenes (3rd century BC), this method remains the foundation for many modern sieve theories used in advanced number theory research today.",
             "how_it_works": "How it Works",
+            "in_simple_terms": "In Simple Terms",
             "math_fact": "Mathematical Insight",
             "matters_desc": "Every time you shop online or send a message, <1>prime numbers</1> protect your data. Modern encryption (like RSA) depends on large primes. The Sieve is the first step to finding them efficiently.",
             "start_sieve": "Start Sieve",
@@ -730,9 +731,11 @@
             "dist_title": "Totient Distribution",
             "input_label": "Input Number",
             "matters_desc": "The totient function is the <1>heart of RSA encryption</1>. When you generate RSA keys, you compute φ(n) to find the private key. Without it, public-key cryptography wouldn't work!",
+            "matters_desc_simple": "The totient function is a key component of the RSA encryption algorithm!",
             "matters_title": "Why It Matters",
             "prime_label": "Prime (φ(p) = p-1)",
             "prime_prop": "Since {{n}} is prime, φ({{n}}) = {{n}}-1 = {{phi}}.",
+            "properties": "Function Properties",
             "sharing_prop": "Numbers sharing prime factors with {{n}} are not coprime.",
             "toggle_range": "Toggle Range"
         },

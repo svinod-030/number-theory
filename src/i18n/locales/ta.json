@@ -537,6 +537,7 @@
             "the_shortcut": "குறுக்குவழி (The Shortcut)"
         },
         "modular_inverse": {
+            "analogy_title": "Everyday Analogy",
             "description": "மட்டு எண்கணிதத்தில் வகுத்தல் என்பது தலைகீழ் எண்ணால் பெருக்குவதற்கு சமம்.",
             "equation_col": "சமன்பாடு",
             "extended_euclidean": "Extended Euclidean Method",
@@ -547,7 +548,6 @@
             "no_inverse": "NO INVERSE",
             "number_label": "எண் (a)",
             "step_col": "நிலை",
-            "the_undo_button": "கணித 'Undo' பொத்தான்",
             "undo_desc": "மட்டு 10-ல், <1>3 × 7 ≡ 1</1>. எனவே, 3-ஐ 'நீக்க' நீங்கள் 7-ஆல் பெருக்கலாம். இது ஒரு பூட்டைத் திறக்க சரியான சாவியைத் தேடுவது போன்றது. <2>GCD(a, n) = 1</2> ஆக இருந்தால் மட்டுமே அந்தச் சாவி (தலைகீழ் எண்) கிடைக்கும்.",
             "x_coeff_col": "x-ன் குணகம்"
         },
@@ -709,6 +709,7 @@
             "historical_brilliance": "வரலாற்றுச் சிறப்பு",
             "history_desc": "கிரேக்க கணிதவியலாளர் எரடோஸ்தீனஸால் (கி.மு. 3-ஆம் நூற்றாண்டு) உருவாக்கப்பட்ட இந்த முறை, இன்றும் மேம்பட்ட எண் கோட்பாட்டு ஆராய்ச்சிகளில் அடிப்படைத் தூணாக உள்ளது.",
             "how_it_works": "இது எப்படி வேலை செய்கிறது?",
+            "in_simple_terms": "In Simple Terms",
             "math_fact": "கணித நுண்ணறிவு",
             "matters_desc": "நீங்கள் ஆன்லைனில் ஷாப்பிங் செய்யும் போதும் அல்லது செய்தி அனுப்பும் போதும், <1>பகா எண்கள்</1> உங்கள் தரவைப் பாதுகாக்கின்றன. RSA போன்ற நவீன குறியாக்க முறைகள் பெரிய பகா எண்களைச் சார்ந்தே உள்ளன. அவற்றை திறமையாகக் கண்டறிய இந்த முறையே முதல் படி.",
             "start_sieve": "சல்லடையைத் தொடங்கு",
@@ -730,9 +731,11 @@
             "dist_title": "டோஷியன்ட் மதிப்புகளின் பரவல்",
             "input_label": "Input Number",
             "matters_desc": "பொதுச் சாவி குறியாக்க முறைகளில் (Public-key cryptography) எண்களைப் பாதுகாப்பாகப் பெருக்கவும் பிரிக்கவும் இது பயன்படுகிறது.",
+            "matters_desc_simple": "The totient function is a key component of the RSA encryption algorithm!",
             "matters_title": "இது ஏன் முக்கியம்?",
             "prime_label": "பகா எண்",
             "prime_prop": "n ஒரு பகா எண்ணாக (p) இருந்தால், Φ(p) = p - 1.",
+            "properties": "Function Properties",
             "sharing_prop": "Φ(p × q) = Φ(p) × Φ(q) — இது குறியாக்கவியலில் மிக முக்கிய பண்பாகும்.",
             "toggle_range": "வரம்பைக் காட்டு"
         },

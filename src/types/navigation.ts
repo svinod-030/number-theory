@@ -38,4 +38,5 @@ export type RootStackParamList = {
     ConstructiblePolygons: undefined;
     PrivacyPolicy: undefined;
     ModulusBasics: undefined;
+    LanguageSelection: undefined;
 };

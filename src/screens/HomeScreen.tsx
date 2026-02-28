@@ -56,8 +56,11 @@ const LANGUAGES = [
     { code: 'ml', name: 'Malayalam', native: 'മലയാളം' },
 ];
 
+import { useSettingsStore } from '../store/useSettingsStore';
+
 export default function HomeScreen() {
     const { t, i18n } = useTranslation();
+    const { setLanguage, language: currentLanguage } = useSettingsStore();
     const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
     const [search, setSearch] = useState('');
     const [langModalVisible, setLangModalVisible] = useState(false);
@@ -77,7 +80,7 @@ export default function HomeScreen() {
             return title.toLowerCase().includes(search.toLowerCase()) ||
                 desc.toLowerCase().includes(search.toLowerCase());
         }).slice(0, 5);
-    }, [search, i18n.language]);
+    }, [search, currentLanguage]);
 
     return (
         <SafeAreaView className="flex-1 bg-slate-950">
@@ -289,17 +292,18 @@ export default function HomeScreen() {
                                     key={lang.code}
                                     onPress={() => {
                                         i18n.changeLanguage(lang.code);
+                                        setLanguage(lang.code);
                                         setLangModalVisible(false);
                                     }}
-                                    className={`flex-row items-center justify-between p-4 rounded-2xl border ${i18n.language === lang.code ? 'bg-indigo-600/10 border-indigo-500/50' : 'bg-slate-800/50 border-slate-700/50'}`}
+                                    className={`flex-row items-center justify-between p-4 rounded-2xl border ${currentLanguage === lang.code ? 'bg-indigo-600/10 border-indigo-500/50' : 'bg-slate-800/50 border-slate-700/50'}`}
                                 >
                                     <View>
-                                        <Text className={`text-sm font-bold ${i18n.language === lang.code ? 'text-white' : 'text-slate-300'}`}>
+                                        <Text className={`text-sm font-bold ${currentLanguage === lang.code ? 'text-white' : 'text-slate-300'}`}>
                                             {lang.name}
                                         </Text>
                                         <Text className="text-slate-500 text-[10px] mt-0.5">{lang.native}</Text>
                                     </View>
-                                    {i18n.language === lang.code && (
+                                    {currentLanguage === lang.code && (
                                         <Ionicons name="checkmark-circle" size={20} color="#818cf8" />
                                     )}
                                 </TouchableOpacity>

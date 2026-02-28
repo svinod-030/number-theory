@@ -8,6 +8,7 @@ import te from './locales/te.json';
 import ta from './locales/ta.json';
 import kn from './locales/kn.json';
 import ml from './locales/ml.json';
+import { useSettingsStore } from '../store/useSettingsStore';
 
 const resources = {
     en: { translation: en },
@@ -21,7 +22,7 @@ i18n
     .use(initReactI18next)
     .init({
         resources,
-        lng: Localization.getLocales()[0].languageCode ?? 'en',
+        lng: useSettingsStore.getState().language || Localization.getLocales()[0].languageCode || 'en',
         fallbackLng: 'en',
         interpolation: {
             escapeValue: false,

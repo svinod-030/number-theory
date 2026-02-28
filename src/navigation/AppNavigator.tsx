@@ -42,19 +42,36 @@ import GlossaryScreen from "../screens/GlossaryScreen";
 import PythagoreanTriplesScreen from "../screens/PythagoreanTriplesScreen";
 import PrivacyPolicyScreen from "../screens/PrivacyPolicyScreen";
 import ModulusBasicsScreen from "../screens/ModulusBasicsScreen";
+import LanguageSelectionScreen from "../screens/LanguageSelectionScreen";
+import { useSettingsStore } from '../store/useSettingsStore';
+import { useTranslation } from 'react-i18next';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function AppNavigator() {
+    const isFirstLaunch = useSettingsStore(state => state.isFirstLaunch);
+    const hasHydrated = useSettingsStore(state => state._hasHydrated);
+    const language = useSettingsStore(state => state.language);
+    const { i18n } = useTranslation();
+
+    React.useEffect(() => {
+        if (hasHydrated && language) {
+            i18n.changeLanguage(language);
+        }
+    }, [hasHydrated, language]);
+
+    if (!hasHydrated) return null; // Or a splash screen
+
     return (
         <NavigationContainer>
             <Stack.Navigator
-                initialRouteName="Home"
+                initialRouteName={isFirstLaunch ? "LanguageSelection" : "Home"}
                 screenOptions={{
                     headerShown: false,
                     animation: 'fade_from_bottom',
                 }}
             >
+                <Stack.Screen name="LanguageSelection" component={LanguageSelectionScreen} />
                 <Stack.Screen name="Home" component={HomeScreen} />
                 <Stack.Screen name="ModulusBasics" component={ModulusBasicsScreen} />
                 <Stack.Screen name="ModularPlayground" component={ModularPlaygroundScreen} />

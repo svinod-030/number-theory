@@ -357,12 +357,12 @@
             "input_p": "ಸಾರ್ವಜನಿಕ ಅವಿಭಾಜ್ಯ p",
             "match_desc": "ಇಬ್ಬರಲ್ಲೂ ಈಗ ಒಂದೇ ರೀತಿಯ ರಹಸ್ಯ ಕೀ ಇದೆ: {{secret}}",
             "match_title": "ಹಂಚಿಕೆಯ ರಹಸ್ಯ ಕೀ ಹೊಂದಿಕೆಯಾಗಿದೆ!",
-            "public_a_formula": "Public A = gᵃ mod p",
-            "public_b_formula": "Public B = gᵇ mod p",
+            "public_a_formula": "ಸಾರ್ವಜನಿಕ A = gᵃ mod p",
+            "public_b_formula": "ಸಾರ್ವಜನಿಕ B = gᵇ mod p",
             "secret_a": "ರಹಸ್ಯ a",
             "secret_b": "ರಹಸ್ಯ b",
-            "simple_terms_desc": "Alice and Bob each pick a <1>secret color</1>. They mix it with a shared <2>public color</2> and swap the mixtures. Each then adds their secret again — both end up with the <1>same final color</1>, but an eavesdropper can't unmix to find the secrets! In math, \"mixing\" is modular exponentiation, and \"unmixing\" is the discrete logarithm problem — believed to be incredibly hard.",
-            "simple_terms_title": "The Paint-Mixing Trick",
+            "simple_terms_desc": "ಆಲಿಸ್ ಮತ್ತು ಬಾಬ್ ಪ್ರತಿಯೊಬ್ಬರೂ <1>ರಹಸ್ಯ ಬಣ್ಣವನ್ನು</1> ಆರಿಸಿಕೊಳ್ಳುತ್ತಾರೆ. ಅವರು ಅದನ್ನು ಹಂಚಿಕೆಯ <2>ಸಾರ್ವಜನಿಕ ಬಣ್ಣದೊಂದಿಗೆ</2> ಬೆರೆಸಿ ಮಿಶ್ರಣಗಳನ್ನು ವಿನಿಮಯ ಮಾಡಿಕೊಳ್ಳುತ್ತಾರೆ. ಪ್ರತಿಯೊಬ್ಬರೂ ಮತ್ತೆ ತಮ್ಮ ರಹಸ್ಯವನ್ನು ಸೇರಿಸುತ್ತಾರೆ — ಇಬ್ಬರೂ <1>ಅದೇ ಅಂತಿಮ ಬಣ್ಣವನ್ನು</1> ಪಡೆಯುತ್ತಾರೆ, ಆದರೆ ಕದ್ದಾಲಿಸುವವನು ರಹಸ್ಯಗಳನ್ನು ಕಂಡುಹಿಡಿಯಲು ಮಿಶ್ರಣವನ್ನು ಬಿಡಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ! ಗಣಿತದಲ್ಲಿ, \"ಬೆರೆಸುವುದು\" ಎಂದರೆ ಮಾಡ್ಯುಲರ್ ಎಕ್ಸ್ಪೋನೆನ್ಸಿಯೇಷನ್, ಮತ್ತು \"ಬಿಡಿಸುವುದು\" ಎಂದರೆ ಡಿಸ್ಕ್ರೀಟ್ ಲಾಗರಿಥಮ್ ಸಮಸ್ಯೆ — ಇದು ನಂಬಲಾಗದಷ್ಟು ಕಷ್ಟ ಎಂದು ನಂಬಲಾಗಿದೆ.",
+            "simple_terms_title": "ಬಣ್ಣ ಬೆರೆಸುವ ತಂತ್ರ",
             "title": "ಡಿಫಿ-ಹೆಲ್ಮನ್ ಕೀ ವಿನಿಮಯ"
         },
         "digital_signature": {
@@ -379,9 +379,9 @@
             "simple_terms_desc": "ಡಿಜಿಟಲ್ ಸಹಿಯಯ <1>ತಿರುಚಲು ಸಾಧ್ಯವಾಗದ ಗಣಿತದೊಂದಿಗೆ</1> ದಾಖಲೆಗೆ ಸಹಿ ಹಾಕಿದಂತೆ. ನಿಮ್ಮ <2>ರಹಸ್ಯ ಪ್ರೈವೇಟ್ ಕೀ</2> ಮೂಲಕ ಸಹಿ ಹಾಕುತ್ತೀರಿ ಮತ್ತು ಯಾರಾದರೂ ನಿಮ್ಮ <1>ಸಾರ್ವಜನಿಕ ಕೀ</1> ಮೂಲಕ ಅದನ್ನು ಪರಿಶೀಲಿಸಬಹುದು. ಸಾಫ್ಟ್‌ವೇರ್ ಅಪ್‌ಡೇಟ್‌ಗಳು, ಬ್ಯಾಂಕಿಂಗ್ ವಹಿವಾಟುಗಳು, ಇಮೇಲ್ ದೃಢೀಕರಣ ಮತ್ತು ಕಾನೂನು ದಾಖಲೆಗಳಿಗೆ - ಸಂದೇಶವು ನೈಜವಾಗಿದೆ ಮತ್ತು ಬದಲಾಗಿಲ್ಲ ಎಂಬುದಕ್ಕೆ ಪುರಾವೆ ಬೇಕಾದಲ್ಲಿ ಇದನ್ನು ಬಳಸಲಾಗುತ್ತದೆ.",
             "simple_terms_title": "ಗಣಿತ ಆಧಾರಿತ ಕೈಬರಹ",
             "title": "ಡಿಜಿಟಲ್ ಸಹಿಗಳು",
-            "verification_desc": "Anyone with the public key can verify that the signature was created by the corresponding private key.",
-            "verification_title": "Verification (Public Key)",
-            "verify_input": "Verify Signature"
+            "verification_desc": "ಸಾರ್ವಜನಿಕ ಕೀ ಹೊಂದಿರುವ ಯಾರಾದರೂ ಸಹಿಯನ್ನು ಅನುಗುಣವಾದ ಪ್ರೈವೇಟ್ ಕೀ ಮೂಲಕ ರಚಿಸಲಾಗಿದೆ ಎಂದು ಪರಿಶೀಲಿಸಬಹುದು.",
+            "verification_title": "ಪರಿಶೀಲನೆ (ಸಾರ್ವಜನಿಕ ಕೀ)",
+            "verify_input": "ಸಹಿಯನ್ನು ಪರಿಶೀಲಿಸಿ"
         },
         "diophantine": {
             "description": "ax + by = c ರೂಪದ ರೇಖೀಯ ಸಮೀಕರಣಗಳಿಗೆ ಪೂರ್ಣಾಂಕ ಪರಿಹಾರಗಳನ್ನು ಕಂಡುಹಿಡಿಯುವುದು.",

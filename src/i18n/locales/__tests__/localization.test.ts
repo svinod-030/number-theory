@@ -43,6 +43,7 @@ describe('Localization Integrity', () => {
             }
 
             expect(missingKeys).toEqual([]);
+            expect(extraKeys).toEqual([]);
         });
     });
 });

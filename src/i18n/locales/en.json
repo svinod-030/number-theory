@@ -40,6 +40,10 @@
             "title": "Amicable Numbers",
             "description": "Friendly number pairs"
         },
+        "modulus_basics": {
+            "title": "Modulus Basics",
+            "description": "Introduction to clock arithmetic"
+        },
         "modular_playground": {
             "title": "Modular Playground",
             "description": "Interactive modular calculator"

@@ -15,6 +15,7 @@ const LANGUAGES = [
     { code: 'ta', name: 'Tamil', native: 'தமிழ்' },
     { code: 'kn', name: 'Kannada', native: 'ಕನ್ನಡ' },
     { code: 'ml', name: 'Malayalam', native: 'മലയാളം' },
+    { code: 'hi', name: 'Hindi', native: 'हिन्दी' },
 ];
 
 export default function LanguageSelectionScreen() {

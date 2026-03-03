@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 const localesDir = path.resolve(__dirname, '../');
-const languages = ['kn', 'ml', 'ta', 'te'];
+const languages = ['kn', 'ml', 'ta', 'te', 'hi'];
 const baseLanguage = 'en';
 
 const getKeys = (obj: any, prefix = ''): string[] => {

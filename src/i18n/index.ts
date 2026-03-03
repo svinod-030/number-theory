@@ -8,6 +8,7 @@ import te from './locales/te.json';
 import ta from './locales/ta.json';
 import kn from './locales/kn.json';
 import ml from './locales/ml.json';
+import hi from './locales/hi.json';
 import { useSettingsStore } from '../store/useSettingsStore';
 
 const resources = {
@@ -16,6 +17,7 @@ const resources = {
     ta: { translation: ta },
     kn: { translation: kn },
     ml: { translation: ml },
+    hi: { translation: hi },
 };
 
 i18n

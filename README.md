@@ -43,7 +43,7 @@ A comprehensive, interactive educational mobile application designed to explore 
 ### Prerequisites
 - Node.js (v18 or newer)
 - npm or yarn
-- Expo Go app on your mobile device (for testing)
+- Android Studio / Xcode (for native development builds)
 
 ### Installation
 
@@ -60,11 +60,12 @@ A comprehensive, interactive educational mobile application designed to explore 
 
 3. **Start the development server**:
    ```bash
-   npm start
+   npm run android
    ```
-
-4. **Run on device**:
-   Scan the QR code displayed in the terminal using the Expo Go app (Android) or the Camera app (iOS).
+   OR
+   ```bash
+   npm run ios
+   ```
 
 ## 📂 Project Structure
 

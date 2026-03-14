@@ -13,6 +13,7 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "local:apk": "cd android && ./gradlew assembleRelease",
+    "postversion": "node scripts/sync-version.js",
     "local:aab": "cd android && ./gradlew bundleRelease"
   },
   "dependencies": {

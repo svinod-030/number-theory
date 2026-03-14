@@ -7,6 +7,8 @@ import { RootStackParamList } from '../types/navigation';
 import { Ionicons } from '@expo/vector-icons';
 import Animated, { FadeInDown, FadeInUp, ZoomIn, Layout, FadeIn } from 'react-native-reanimated';
 import { useTranslation, Trans } from 'react-i18next';
+import { useSettingsStore } from '../store/useSettingsStore';
+import { UpdateService } from '../services/UpdateService';
 
 interface ProjectTool {
     key: string;
@@ -69,14 +71,29 @@ const LANGUAGES = [
     { code: 'hi', name: 'Hindi', native: 'हिन्दी' },
 ];
 
-import { useSettingsStore } from '../store/useSettingsStore';
-
 export default function HomeScreen() {
     const { t, i18n } = useTranslation();
     const { setLanguage, language: currentLanguage } = useSettingsStore();
     const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
     const [search, setSearch] = useState('');
     const [langModalVisible, setLangModalVisible] = useState(false);
+    const [updateModalVisible, setUpdateModalVisible] = useState(false);
+    const [updateInfo, setUpdateInfo] = useState<{ latestVersion: string; storeUrl: string } | null>(null);
+
+    React.useEffect(() => {
+        checkUpdates();
+    }, []);
+
+    const checkUpdates = async () => {
+        const res = await UpdateService.checkForUpdate();
+        if (res.isUpdateAvailable) {
+            setUpdateInfo({ 
+                latestVersion: res.latestVersion,
+                storeUrl: res.storeUrl
+            });
+            setUpdateModalVisible(true);
+        }
+    };
 
     const categories = [
         { title: t('categories.primes'), count: 9, screen: "PrimesCategory", icon: "sparkles-outline", iconColor: "#34d399", bgColor: "bg-emerald-500/10", borderColor: "border-emerald-500/20" },
@@ -252,16 +269,7 @@ export default function HomeScreen() {
                     className="mt-8 flex-row justify-between"
                 >
                     <TouchableOpacity
-                        onPress={() => {
-                            const pkg = "com.vinodsigadana030.numbertheory";
-                            const url = `market://details?id=${pkg}`;
-                            const webUrl = `https://play.google.com/store/apps/details?id=${pkg}`;
-                            import('react-native').then(({ Linking }) => {
-                                Linking.canOpenURL(url).then(supported => {
-                                    Linking.openURL(supported ? url : webUrl);
-                                });
-                            });
-                        }}
+                        onPress={() => UpdateService.openStore()}
                         className="flex-1 bg-slate-900 p-4 rounded-2xl border border-slate-800 flex-row items-center justify-center mr-2"
                     >
                         <Ionicons name="star-outline" size={18} color="#fbbf24" />
@@ -335,6 +343,61 @@ export default function HomeScreen() {
                         </View>
                     </Animated.View>
                 </Pressable>
+            </Modal>
+
+            {/* Update Available Modal */}
+            <Modal
+                animationType="fade"
+                transparent={true}
+                visible={updateModalVisible}
+                onRequestClose={() => setUpdateModalVisible(false)}
+            >
+                <View className="flex-1 bg-slate-950/85 justify-center items-center px-10">
+                    <Animated.View
+                        entering={ZoomIn.duration(400)}
+                        className="bg-slate-900 w-full rounded-[40px] border border-slate-800/80 p-8 shadow-2xl overflow-hidden"
+                    >
+                        {/* Decorative Background Element */}
+                        <View className="absolute -top-20 -right-20 w-40 h-40 bg-indigo-600/10 rounded-full blur-3xl" />
+
+                        <View className="items-center">
+                            <View className="bg-indigo-600/20 p-5 rounded-3xl border border-indigo-500/20 mb-6 mt-2 shadow-inner">
+                                <Ionicons name="cloud-download-outline" size={42} color="#818cf8" />
+                            </View>
+
+                            <Text className="text-white text-2xl font-black mb-3 tracking-tight text-center">
+                                {t('updates.title')}
+                            </Text>
+
+                            <Text className="text-slate-400 text-sm leading-6 text-center mb-8 px-2">
+                                {t('updates.message')}
+                            </Text>
+
+                            <View className="w-full space-y-3" style={{ gap: 12 }}>
+                                <TouchableOpacity
+                                    onPress={() => {
+                                        setUpdateModalVisible(false);
+                                        UpdateService.openStore(updateInfo?.storeUrl);
+                                    }}
+                                    className="bg-indigo-600 w-full py-4 rounded-2xl shadow-lg shadow-indigo-600/30 active:scale-[0.98]"
+                                >
+                                    <Text className="text-white font-black text-center text-base tracking-tighter">
+                                        {t('updates.action_now')}
+                                    </Text>
+                                </TouchableOpacity>
+
+                                <TouchableOpacity
+                                    onPress={() => setUpdateModalVisible(false)}
+                                    className="w-full py-3 active:scale-[0.98]"
+                                >
+                                    <Text className="text-slate-500 font-bold text-center text-sm uppercase tracking-widest">
+                                        {t('updates.action_later')}
+                                    </Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                    </Animated.View>
+                </View>
             </Modal>
         </SafeAreaView>
     );

@@ -4,11 +4,11 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 interface SettingsState {
     language: string | null;
-    setLanguage: (language: string) => void;
     isFirstLaunch: boolean;
-    setFirstLaunch: (isFirstLaunch: boolean) => void;
     _hasHydrated: boolean;
-    setHasHydrated: (state: boolean) => void;
+    setLanguage: (lang: string) => void;
+    setIsFirstLaunch: (value: boolean) => void;
+    setHasHydrated: (value: boolean) => void;
 }
 
 export const useSettingsStore = create<SettingsState>()(
@@ -20,7 +20,7 @@ export const useSettingsStore = create<SettingsState>()(
             setLanguage: (language: string) => {
                 set({ language });
             },
-            setFirstLaunch: (isFirstLaunch: boolean) => set({ isFirstLaunch }),
+            setIsFirstLaunch: (isFirstLaunch: boolean) => set({ isFirstLaunch }),
             setHasHydrated: (state: boolean) => set({ _hasHydrated: state }),
         }),
         {

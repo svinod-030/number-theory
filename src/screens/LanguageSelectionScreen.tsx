@@ -21,12 +21,12 @@ const LANGUAGES = [
 export default function LanguageSelectionScreen() {
     const { t, i18n } = useTranslation();
     const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
-    const { setLanguage, setFirstLaunch, language: currentLanguage } = useSettingsStore();
+    const { setLanguage, setIsFirstLaunch, language: currentLanguage } = useSettingsStore();
 
     const handleSelectLanguage = (code: string) => {
         i18n.changeLanguage(code);
         setLanguage(code);
-        setFirstLaunch(false);
+        setIsFirstLaunch(false);
         navigation.replace('Home');
     };
 
@@ -78,16 +78,7 @@ export default function LanguageSelectionScreen() {
                     </View>
                 </ScrollView>
 
-                <Animated.View
-                    entering={FadeInDown.delay(800).duration(500)}
-                    className="mt-8 items-center"
-                >
-                    <View className="bg-indigo-600/10 px-6 py-3 rounded-2xl border border-indigo-500/20">
-                        <Text className="text-indigo-400 font-bold text-xs uppercase tracking-widest">
-                            You can change this later in settings
-                        </Text>
-                    </View>
-                </Animated.View>
+
             </View>
         </SafeAreaView>
     );

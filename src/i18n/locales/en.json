@@ -13,6 +13,12 @@
         "app_name": "Number Theory",
         "select_language": "Select Language"
     },
+    "updates": {
+        "title": "Update Available",
+        "message": "A new version of Number Theory is available. Update now to get the latest features and fixes.",
+        "action_now": "Update Now",
+        "action_later": "Later"
+    },
     "categories": {
         "primes": "Prime Numbers",
         "modular": "Modular Arithmetic",

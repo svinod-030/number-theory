@@ -148,6 +148,54 @@
             "reason_fermat_product": "{{n}} is a product of 2^k and distinct Fermat primes: {{factors}}.",
             "reason_non_fermat": "{{n}} contains non-Fermat prime factors."
         },
+        "fermat_primality": {
+            "title": "Fermat Primality Test",
+            "description": "Probabilistic prime testing"
+        },
+        "carmichael_numbers": {
+            "title": "Carmichael Numbers",
+            "description": "Absolute pseudoprimes"
+        },
+        "twin_primes": {
+            "title": "Twin Primes",
+            "description": "Primes with a gap of two"
+        },
+        "fermats_little_theorem": {
+            "title": "Fermat's little theorem",
+            "description": "a^(p-1) ≡ 1 (mod p)"
+        },
+        "wilsons_theorem": {
+            "title": "Wilson's Theorem",
+            "description": "(p-1)! ≡ -1 (mod p)"
+        },
+        "mobius_function": {
+            "title": "Möbius Function",
+            "description": "μ(n) for square-free numbers"
+        },
+        "liouville_function": {
+            "title": "Liouville Function",
+            "description": "λ(n) based on prime factors"
+        },
+        "pells_equation": {
+            "title": "Pell's Equation",
+            "description": "Solve x² - ny² = 1 for integers x, y"
+        },
+        "bezouts_identity": {
+            "title": "Bézout's Identity",
+            "description": "Find coefficients for ax + by = gcd(a,b)"
+        },
+        "farey_sequences": {
+            "title": "Farey Sequences",
+            "description": "Fractions between 0 and 1 in order"
+        },
+        "lucas_numbers": {
+            "title": "Lucas Numbers",
+            "description": "Like Fibonacci, but starting with 2 and 1"
+        },
+        "happy_numbers": {
+            "title": "Happy Numbers",
+            "description": "Numbers whose sum of squared digits reaches 1"
+        },
         "toolbox": {
             "title": "Number Theory Toolbox",
             "description": "GCD, Primality, Factors, and more utilities",
@@ -271,6 +319,114 @@
         "prop_congruence_desc": "If two numbers have the same remainder when divided by <1>n</1>, we say they are <2>congruent modulo n</2>."
     },
     "visualizers": {
+        "fermats_little_theorem": {
+            "title": "Fermat's Little Theorem",
+            "simple_terms_title": "The Power Cycle",
+            "simple_terms_desc": "If we take any number <1>a</1>, multiply it by itself <1>p-1</1> times, and divide by a prime number <1>p</1>, the remainder is always exactly <2>1</2>! This beautifully simple cycle is the basis for many prime testing and encryption algorithms.",
+            "description": "Verify Fermat's little theorem by calculating a^(p-1) mod p.",
+            "input_a": "Base (a)",
+            "input_p": "Prime (p)",
+            "calculate": "Calculate",
+            "result_success": "Success! The remainder is 1.",
+            "result_fail": "Note: p must be prime and not divide a.",
+            "equation": "Equation: {{a}}^{{pMinus1}} ≡ 1 (mod {{p}})",
+            "history_title": "Pierre de Fermat",
+            "history_desc": "Fermat stated this theorem in a letter in 1640. He didn't provide a proof (as usual for him!), but Euler finally proved it nearly a century later in 1736."
+        },
+        "wilsons_theorem": {
+            "title": "Wilson's Theorem",
+            "simple_terms_title": "The Factorial Test",
+            "simple_terms_desc": "Multiply all numbers less than a number <1>n</1> (this is called a factorial). Add 1 to the result. If this new number is exactly divisible by <1>n</1>, then <1>n</1> must be a <2>prime number</2>. It works in reverse too!",
+            "description": "Confirm Wilson's theorem: (n-1)! ≡ -1 (mod n) iff n is a prime number.",
+            "input_n": "Number (n)",
+            "calculate_button": "Evaluate",
+            "factorial_calc": "({{n}}-1)! = {{factOut}}",
+            "result_prime": "n is Prime! (Remainder is {{pMinus1}} ≡ -1)",
+            "result_composite": "n is Composite. (Remainder is {{rem}})",
+            "warning": "Warning: Factorials grow extremely fast! For n > 20, values become too large for normal calculation."
+        },
+        "mobius_function": {
+            "title": "Möbius Function μ(n)",
+            "simple_terms_title": "The Square-Free Detector",
+            "simple_terms_desc": "The Möbius function μ(n) categorizes numbers. If a number has a squared prime factor (like 4, 9, 12), it gets a <1>0</1>. If it's made of distinct prime factors, it gets <2>1</2> (even count) or <2>-1</2> (odd count).",
+            "description": "Calculate the Möbius function to determine the square-free factor parity of n.",
+            "input_n": "Enter a number",
+            "calculate": "Compute μ(n)",
+            "prime_factors": "Prime Factors",
+            "result_zero": "μ({{n}}) = 0 (Contains squared prime factors)",
+            "result_one": "μ({{n}}) = 1 (Even number of distinct primes)",
+            "result_neg_one": "μ({{n}}) = -1 (Odd number of distinct primes)"
+        },
+        "liouville_function": {
+            "title": "Liouville Function λ(n)",
+            "simple_terms_title": "The Parity Checker",
+            "simple_terms_desc": "The Liouville function λ(n) simply counts the total number of prime factors of n (including repeats). If there's an even amount of prime factors, it returns <1>1</1>. If there's an odd amount, it returns <1>-1</1>.",
+            "description": "Compute the Liouville function λ(n) = (-1)^Ω(n), where Ω(n) is the number of prime factors.",
+            "input_n": "Enter a number",
+            "calculate": "Compute λ(n)",
+            "prime_factors": "Prime Factors (Total: {{count}})",
+            "result_one": "λ({{n}}) = 1 (Even number of prime factors)",
+            "result_neg_one": "λ({{n}}) = -1 (Odd number of prime factors)",
+            "polya_conjecture": "Pólya Conjecture",
+            "polya_desc": "George Pólya conjectured that for any n, there are more numbers up to n with an odd number of prime factors than even. It seemed true, but was finally disproven in 1958 for a counterexample around n = 9.06 × 10⁸!"
+        },
+        "pells_equation": {
+            "title": "Pell's Equation",
+            "simple_terms_title": "The Infinite Staircase",
+            "simple_terms_desc": "Pell's equation looks like <1>x² - ny² = 1</1>, and the goal is to find integer solutions for <1>x</1> and <1>y</1> when <1>n</1> is not a perfect square. The amazing thing? If there's one solution, there are infinitely many, and they get staggeringly huge very fast!",
+            "description": "Find the fundamental solution to Pell's Equation x² - ny² = 1.",
+            "input_n": "Enter n (not a perfect square)",
+            "calculate": "Solve",
+            "result_success": "Fundamental Solution Found!",
+            "result_fail": "No non-trivial solution (n is a perfect square).",
+            "solution_x": "x = {{x}}",
+            "solution_y": "y = {{y}}",
+            "warning": "Warning: For some n, the fundamental solution variables have huge numbers of digits and are difficult to compute simply."
+        },
+        "bezouts_identity": {
+            "title": "Bézout's Identity",
+            "simple_terms_title": "The Balancing Act",
+            "simple_terms_desc": "Bézout's Identity states that for any two numbers <1>a</1> and <1>b</1>, you can always find integers <1>x</1> and <1>y</1> such that <2>ax + by = gcd(a,b)</2>. It's like finding exactly how many weights of size 'a' and 'b' you need to balance a scale with their greatest common divisor!",
+            "description": "Use the Extended Euclidean Algorithm to find Bézout coefficients.",
+            "input_a": "Number A",
+            "input_b": "Number B",
+            "calculate": "Find Coefficients",
+            "result_gcd": "GCD: {{gcd}}",
+            "equation": "Equation: {{a}}({{x}}) + {{b}}({{y}}) = {{gcd}}",
+            "coefficient_x": "x = {{x}}",
+            "coefficient_y": "y = {{y}}"
+        },
+        "farey_sequences": {
+            "title": "Farey Sequences",
+            "simple_terms_title": "The Fraction Tree",
+            "simple_terms_desc": "A Farey Sequence of order <1>n</1> is simply a list of all fully reduced fractions between <1>0</1> and <1>1</1> whose denominators are not greater than <1>n</1>, sorted by size. They have beautiful properties and connect deeply to the distribution of prime numbers!",
+            "description": "Generate the Farey sequence F_n for a given order n.",
+            "input_n": "Order (n)",
+            "calculate": "Generate Sequence",
+            "sequence_count": "Sequence Length: {{count}} fractions",
+            "warning_size": "Order limited to 20 to prevent excessive rendering."
+        },
+        "lucas_numbers": {
+            "title": "Lucas Numbers (L_n)",
+            "simple_terms_title": "Fibonacci's Sibling",
+            "simple_terms_desc": "Lucas numbers follow the exact same rule as Fibonacci numbers (add the last two to get the next), but they start with <1>2</1> and <1>1</1> instead of 0 and 1. They appear in nature and architecture just like their famous sibling!",
+            "description": "Generate the Lucas sequence and observe the ratio between consecutive terms.",
+            "input_n": "Number of terms (n)",
+            "calculate": "Generate",
+            "ratio_label": "Ratio L(n) / L(n-1) ≈ {{ratio}}",
+            "golden_ratio_note": "Just like Fibonacci, the ratio approaches the Golden Ratio (φ ≈ 1.618034)!"
+        },
+        "happy_numbers": {
+            "title": "Happy Numbers",
+            "simple_terms_title": "A Joyful Loop",
+            "simple_terms_desc": "Take any number. Square each of its digits and add them up. Do it again with the new number. If you eventually reach <1>1</1>, the number is <2>Happy</2>! If it gets stuck in an endless loop, it's <3>Sad</3> (or unhappy).",
+            "description": "Trace the sequence of sum of squared digits to see if a number is happy.",
+            "input_n": "Enter a number",
+            "calculate": "Trace Path",
+            "result_happy": "{{n}} is a Happy Number! 😄",
+            "result_sad": "{{n}} is a Sad Number! 😢 (Found a loop)",
+            "step_format": "Step {{step}}: {{calculation}} = {{result}}"
+        },
         "sieve": {
             "in_simple_terms": "In Simple Terms",
             "everyday_analogy": "Everyday Analogy",
@@ -742,6 +898,39 @@
             "error_min_sides": "Enter 3 or more sides to check constructability.",
             "known_fermat_primes": "Known Fermat Primes",
             "gauss_discovery": "Gauss's 1796 discovery showed that the heptadecagon (17 sides) is constructible, a feat that eluded mathematicians for 2000 years!"
+        },
+        "fermat_primality": {
+            "title": "Fermat Primality Test",
+            "simple_terms_title": "The Prime Impostors",
+            "simple_terms_desc": "Fermat's Little Theorem says if <1>p</1> is prime, then <2>aᵖ⁻¹ ≡ 1 (mod p)</2>. We can use this to <3>test</3> for primality! Pick a random 'a' and check the equation. If it fails, the number is <1>definitely composite</1>.",
+            "description": "A probabilistic test to determine whether a number is a probable prime.",
+            "input_label": "Number to Test (p)",
+            "base_label": "Base (a)",
+            "test_button": "Run Test",
+            "result_prime": "PROBABLE PRIME",
+            "result_composite": "COMPOSITE",
+            "equation_eval": "{{a}}^{{pMinus1}} ≡ {{result}} (mod {{p}})",
+            "pseudoprime_warning": "Warning: It passed the test, but could be a pseudoprime!"
+        },
+        "carmichael_numbers": {
+            "title": "Carmichael Numbers",
+            "simple_terms_title": "The Ultimate Liars",
+            "simple_terms_desc": "What if a composite number passes the Fermat test for <1>every</1> possible base? These rare numbers are called <2>Carmichael numbers</2>. The smallest one is <1>561</1> (3 × 11 × 17).",
+            "description": "Composite numbers that act like primes in Fermat's test for all bases coprime to them.",
+            "search_limit": "Search Limit",
+            "find_button": "Find Carmichael Numbers",
+            "found_count": "Found {{count}} numbers",
+            "factors_label": "Factors:"
+        },
+        "twin_primes": {
+            "title": "Twin Primes",
+            "simple_terms_title": "Prime Neighbors",
+            "simple_terms_desc": "Twin primes are pairs of primes that are exactly <1>2 apart</1> (like 11 and 13). Are there infinitely many? This is the famous, unsolved <2>Twin Prime Conjecture</2>!",
+            "description": "Visualize pairs of prime numbers that differ by exactly two.",
+            "search_limit": "Search Limit",
+            "find_button": "Find Twin Primes",
+            "found_count": "Found {{count}} pairs",
+            "pair_format": "({{p1}}, {{p2}})"
         },
         "privacy": {
             "title": "Privacy Policy",

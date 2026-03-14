@@ -43,6 +43,18 @@ import PythagoreanTriplesScreen from "../screens/PythagoreanTriplesScreen";
 import PrivacyPolicyScreen from "../screens/PrivacyPolicyScreen";
 import ModulusBasicsScreen from "../screens/ModulusBasicsScreen";
 import LanguageSelectionScreen from "../screens/LanguageSelectionScreen";
+import FermatPrimalityScreen from "../screens/FermatPrimalityScreen";
+import CarmichaelNumbersScreen from "../screens/CarmichaelNumbersScreen";
+import TwinPrimesScreen from "../screens/TwinPrimesScreen";
+import FermatsLittleTheoremScreen from "../screens/FermatsLittleTheoremScreen";
+import WilsonsTheoremScreen from "../screens/WilsonsTheoremScreen";
+import MobiusFunctionScreen from "../screens/MobiusFunctionScreen";
+import LiouvilleFunctionScreen from "../screens/LiouvilleFunctionScreen";
+import PellsEquationScreen from "../screens/PellsEquationScreen";
+import BezoutsIdentityScreen from "../screens/BezoutsIdentityScreen";
+import FareySequencesScreen from "../screens/FareySequencesScreen";
+import LucasNumbersScreen from "../screens/LucasNumbersScreen";
+import HappyNumbersScreen from "../screens/HappyNumbersScreen";
 import { useSettingsStore } from '../store/useSettingsStore';
 import { useTranslation } from 'react-i18next';
 
@@ -111,6 +123,18 @@ export default function AppNavigator() {
                 <Stack.Screen name="PythagoreanTriples" component={PythagoreanTriplesScreen} />
                 <Stack.Screen name="ConstructiblePolygons" component={ConstructiblePolygonsScreen} />
                 <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicyScreen} />
+                <Stack.Screen name="FermatPrimality" component={FermatPrimalityScreen} />
+                <Stack.Screen name="CarmichaelNumbers" component={CarmichaelNumbersScreen} />
+                <Stack.Screen name="TwinPrimes" component={TwinPrimesScreen} />
+                <Stack.Screen name="FermatsLittleTheorem" component={FermatsLittleTheoremScreen} />
+                <Stack.Screen name="WilsonsTheorem" component={WilsonsTheoremScreen} />
+                <Stack.Screen name="MobiusFunction" component={MobiusFunctionScreen} />
+                <Stack.Screen name="LiouvilleFunction" component={LiouvilleFunctionScreen} />
+                <Stack.Screen name="PellsEquation" component={PellsEquationScreen} />
+                <Stack.Screen name="BezoutsIdentity" component={BezoutsIdentityScreen} />
+                <Stack.Screen name="FareySequences" component={FareySequencesScreen} />
+                <Stack.Screen name="LucasNumbers" component={LucasNumbersScreen} />
+                <Stack.Screen name="HappyNumbers" component={HappyNumbersScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );

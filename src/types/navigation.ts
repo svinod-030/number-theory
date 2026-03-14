@@ -39,4 +39,16 @@ export type RootStackParamList = {
     PrivacyPolicy: undefined;
     ModulusBasics: undefined;
     LanguageSelection: undefined;
+    FermatPrimality: undefined;
+    CarmichaelNumbers: undefined;
+    TwinPrimes: undefined;
+    FermatsLittleTheorem: undefined;
+    WilsonsTheorem: undefined;
+    MobiusFunction: undefined;
+    LiouvilleFunction: undefined;
+    PellsEquation: undefined;
+    BezoutsIdentity: undefined;
+    FareySequences: undefined;
+    LucasNumbers: undefined;
+    HappyNumbers: undefined;
 };

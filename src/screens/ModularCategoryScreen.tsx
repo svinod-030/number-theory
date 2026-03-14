@@ -59,6 +59,26 @@ export default function ModularCategoryScreen() {
             screen: "Legendre",
             icon: "flash-outline",
         },
+        {
+            key: "fermats_little_theorem",
+            screen: "FermatsLittleTheorem",
+            icon: "flash-outline",
+        },
+        {
+            key: "wilsons_theorem",
+            screen: "WilsonsTheorem",
+            icon: "calculator-outline",
+        },
+        {
+            key: "mobius_function",
+            screen: "MobiusFunction",
+            icon: "options-outline",
+        },
+        {
+            key: "liouville_function",
+            screen: "LiouvilleFunction",
+            icon: "color-wand-outline",
+        },
     ];
 
     return (

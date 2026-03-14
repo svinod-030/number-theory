@@ -46,6 +46,18 @@ const ALL_TOOLS: ProjectTool[] = [
     { key: "legendre", screen: "Legendre", icon: "prism-outline", accent: "#f43f5e" },
     { key: "pythagorean", screen: "PythagoreanTriples", icon: "triangle-outline", accent: "#fbbf24" },
     { key: "constructible", screen: "ConstructiblePolygons", icon: "shapes-outline", accent: "#34d399" },
+    { key: "fermat_primality", screen: "FermatPrimality", icon: "shield-checkmark-outline", accent: "#34d399" },
+    { key: "carmichael_numbers", screen: "CarmichaelNumbers", icon: "bonfire-outline", accent: "#34d399" },
+    { key: "twin_primes", screen: "TwinPrimes", icon: "layers-outline", accent: "#34d399" },
+    { key: "fermats_little_theorem", screen: "FermatsLittleTheorem", icon: "flash-outline", accent: "#38bdf8" },
+    { key: "wilsons_theorem", screen: "WilsonsTheorem", icon: "calculator-outline", accent: "#38bdf8" },
+    { key: "mobius_function", screen: "MobiusFunction", icon: "options-outline", accent: "#38bdf8" },
+    { key: "liouville_function", screen: "LiouvilleFunction", icon: "color-wand-outline", accent: "#38bdf8" },
+    { key: "pells_equation", screen: "PellsEquation", icon: "infinite-outline", accent: "#fbbf24" },
+    { key: "bezouts_identity", screen: "BezoutsIdentity", icon: "swap-horizontal-outline", accent: "#fbbf24" },
+    { key: "farey_sequences", screen: "FareySequences", icon: "git-commit-outline", accent: "#fbbf24" },
+    { key: "lucas_numbers", screen: "LucasNumbers", icon: "sync-outline", accent: "#fbbf24" },
+    { key: "happy_numbers", screen: "HappyNumbers", icon: "happy-outline", accent: "#fbbf24" },
 ];
 
 const LANGUAGES = [
@@ -67,9 +79,9 @@ export default function HomeScreen() {
     const [langModalVisible, setLangModalVisible] = useState(false);
 
     const categories = [
-        { title: t('categories.primes'), count: 6, screen: "PrimesCategory", icon: "sparkles-outline", iconColor: "#34d399", bgColor: "bg-emerald-500/10", borderColor: "border-emerald-500/20" },
-        { title: t('categories.modular'), count: 9, screen: "ModularCategory", icon: "sync-circle-outline", iconColor: "#38bdf8", bgColor: "bg-sky-500/10", borderColor: "border-sky-500/20" },
-        { title: t('categories.divisibility'), count: 13, screen: "DivisibilityCategory", icon: "calculator-outline", iconColor: "#fbbf24", bgColor: "bg-amber-500/10", borderColor: "border-amber-500/20" },
+        { title: t('categories.primes'), count: 9, screen: "PrimesCategory", icon: "sparkles-outline", iconColor: "#34d399", bgColor: "bg-emerald-500/10", borderColor: "border-emerald-500/20" },
+        { title: t('categories.modular'), count: 13, screen: "ModularCategory", icon: "sync-circle-outline", iconColor: "#38bdf8", bgColor: "bg-sky-500/10", borderColor: "border-sky-500/20" },
+        { title: t('categories.divisibility'), count: 18, screen: "DivisibilityCategory", icon: "calculator-outline", iconColor: "#fbbf24", bgColor: "bg-amber-500/10", borderColor: "border-amber-500/20" },
         { title: t('categories.applications'), count: 4, screen: "ApplicationsCategory", icon: "shield-checkmark-outline", iconColor: "#f43f5e", bgColor: "bg-rose-500/10", borderColor: "border-rose-500/20" }
     ];
 

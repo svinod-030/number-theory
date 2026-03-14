@@ -44,6 +44,21 @@ export default function PrimesCategoryScreen() {
             screen: "AmicableNumbers",
             icon: "heart-outline",
         },
+        {
+            key: "fermat_primality",
+            screen: "FermatPrimality",
+            icon: "shield-checkmark-outline",
+        },
+        {
+            key: "carmichael_numbers",
+            screen: "CarmichaelNumbers",
+            icon: "bonfire-outline",
+        },
+        {
+            key: "twin_primes",
+            screen: "TwinPrimes",
+            icon: "layers-outline",
+        },
     ];
 
     return (

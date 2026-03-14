@@ -65,14 +65,34 @@ export default function DivisibilityCategoryScreen() {
             icon: "star-outline",
         },
         {
-            key: "partition",
-            screen: "Partition",
-            icon: "apps-outline",
-        },
-        {
             key: "pythagorean",
             screen: "PythagoreanTriples",
             icon: "triangle-outline",
+        },
+        {
+            key: "pells_equation",
+            screen: "PellsEquation",
+            icon: "infinite-outline",
+        },
+        {
+            key: "bezouts_identity",
+            screen: "BezoutsIdentity",
+            icon: "swap-horizontal-outline",
+        },
+        {
+            key: "farey_sequences",
+            screen: "FareySequences",
+            icon: "git-commit-outline",
+        },
+        {
+            key: "lucas_numbers",
+            screen: "LucasNumbers",
+            icon: "sync-outline",
+        },
+        {
+            key: "happy_numbers",
+            screen: "HappyNumbers",
+            icon: "happy-outline",
         },
         {
             key: "constructible",

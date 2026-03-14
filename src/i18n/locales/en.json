@@ -302,6 +302,54 @@
             "constructible_polygon": {
                 "term": "Constructible Polygon",
                 "definition": "A regular n-gon that can be constructed using only a ruler and compass. This requires n to be a power of 2 times distinct Fermat primes."
+            },
+            "fermat_primality_test": {
+                "term": "Fermat Primality Test",
+                "definition": "A probabilistic test to determine whether a number is a prime number."
+            },
+            "carmichael_number": {
+                "term": "Carmichael Number",
+                "definition": "A composite number that passes the Fermat primality test for all bases coprime to it."
+            },
+            "twin_primes": {
+                "term": "Twin Primes",
+                "definition": "A pair of prime numbers that differ by exactly two."
+            },
+            "fermats_little_theorem": {
+                "term": "Fermat's Little Theorem",
+                "definition": "States that if p is a prime number, then for any integer a, a^p - a is a multiple of p."
+            },
+            "wilsons_theorem": {
+                "term": "Wilson's Theorem",
+                "definition": "States that a natural number n > 1 is a prime number if and only if (n-1)! ≡ -1 (mod n)."
+            },
+            "mobius_function": {
+                "term": "Möbius Function μ(n)",
+                "definition": "An arithmetic function used in number theory to determine the square-free nature of a number."
+            },
+            "liouville_function": {
+                "term": "Liouville Function λ(n)",
+                "definition": "A function that returns 1 if the number of prime factors is even, and -1 if it is odd."
+            },
+            "pells_equation": {
+                "term": "Pell's Equation",
+                "definition": "Any Diophantine equation of the form x² - ny² = 1, where n is a non-square positive integer."
+            },
+            "bezouts_identity": {
+                "term": "Bézout's Identity",
+                "definition": "States that for integers a and b with gcd(a,b) = d, there exist integers x and y such that ax + by = d."
+            },
+            "farey_sequence": {
+                "term": "Farey Sequence",
+                "definition": "The sequence of completely reduced fractions between 0 and 1 which, when in lowest terms, have denominators less than or equal to n."
+            },
+            "lucas_numbers": {
+                "term": "Lucas Numbers",
+                "definition": "An integer sequence where each term is the sum of the two preceding ones, starting with 2 and 1."
+            },
+            "happy_number": {
+                "term": "Happy Number",
+                "definition": "A number which eventually reaches 1 when replaced by the sum of the square of each digit."
             }
         }
     },

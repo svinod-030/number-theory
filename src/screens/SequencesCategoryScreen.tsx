@@ -9,46 +9,51 @@ import ToolItem from '../components/ToolItem';
 
 import { useTranslation } from 'react-i18next';
 
-export default function DivisibilityCategoryScreen() {
+export default function SequencesCategoryScreen() {
     const { t } = useTranslation();
     const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
     const tools = [
         {
-            key: "toolbox",
-            screen: "Toolbox",
-            icon: "construct-outline",
+            key: "fibonacci",
+            screen: "Fibonacci",
+            icon: "infinite-outline",
         },
         {
-            key: "euclidean",
-            screen: "EuclideanVisualizer",
-            icon: "color-fill-outline",
+            key: "lucas_numbers",
+            screen: "LucasNumbers",
+            icon: "sync-outline",
         },
         {
-            key: "lcm",
-            screen: "LCM",
+            key: "happy_numbers",
+            screen: "HappyNumbers",
+            icon: "happy-outline",
+        },
+        {
+            key: "farey_sequences",
+            screen: "FareySequences",
             icon: "git-commit-outline",
         },
         {
-            key: "divisors",
-            screen: "Divisors",
-            icon: "layers-outline",
+            key: "pascal",
+            screen: "PascalTriangle",
+            icon: "triangle-outline",
         },
         {
-            key: "continued_fractions",
-            screen: "ContinuedFraction",
-            icon: "list-outline",
+            key: "collatz",
+            screen: "Collatz",
+            icon: "stats-chart-outline",
         },
         {
-            key: "bezouts_identity",
-            screen: "BezoutsIdentity",
-            icon: "swap-horizontal-outline",
+            key: "partition",
+            screen: "Partition",
+            icon: "apps-outline",
         },
     ];
 
     return (
         <SafeAreaView className="flex-1 bg-slate-950">
-            <ScreenHeader title={t('categories.divisibility')} />
+            <ScreenHeader title={t('categories.sequences')} />
 
             <ScrollView
                 className="flex-1"
@@ -64,7 +69,7 @@ export default function DivisibilityCategoryScreen() {
                             description={t(`tools.${tool.key}.description`)}
                             icon={tool.icon}
                             onPress={() => navigation.navigate(tool.screen as any)}
-                            accentColor="#fbbf24"
+                            accentColor="#818cf8"
                         />
                     ))}
                 </View>

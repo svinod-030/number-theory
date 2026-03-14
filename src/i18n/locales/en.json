@@ -16,7 +16,9 @@
     "categories": {
         "primes": "Prime Numbers",
         "modular": "Modular Arithmetic",
-        "divisibility": "Divisibility & Algorithms",
+        "divisibility": "Divisibility & GCD",
+        "sequences": "Sequences & Patterns",
+        "equations": "Classical Equations",
         "applications": "Applications"
     },
     "tools": {

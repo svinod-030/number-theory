@@ -1,7 +1,9 @@
 {
     "categories": {
         "applications": "అప్లికేషన్లు",
-        "divisibility": "విభాజ్యత మరియు అల్గారిథమ్స్",
+        "divisibility": "విభాజ్యత & GCD",
+        "sequences": "అనుక్రమాలు & నమూనాలు",
+        "equations": "శాస్త్రీయ సమీకరణాలు",
         "modular": "మాడ్యులర్ అరిథ్మెటిక్",
         "primes": "ప్రధాన సంఖ్యలు"
     },

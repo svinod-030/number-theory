@@ -81,7 +81,9 @@ export default function HomeScreen() {
     const categories = [
         { title: t('categories.primes'), count: 9, screen: "PrimesCategory", icon: "sparkles-outline", iconColor: "#34d399", bgColor: "bg-emerald-500/10", borderColor: "border-emerald-500/20" },
         { title: t('categories.modular'), count: 13, screen: "ModularCategory", icon: "sync-circle-outline", iconColor: "#38bdf8", bgColor: "bg-sky-500/10", borderColor: "border-sky-500/20" },
-        { title: t('categories.divisibility'), count: 18, screen: "DivisibilityCategory", icon: "calculator-outline", iconColor: "#fbbf24", bgColor: "bg-amber-500/10", borderColor: "border-amber-500/20" },
+        { title: t('categories.divisibility'), count: 6, screen: "DivisibilityCategory", icon: "calculator-outline", iconColor: "#fbbf24", bgColor: "bg-amber-500/10", borderColor: "border-amber-500/20" },
+        { title: t('categories.sequences'), count: 7, screen: "SequencesCategory", icon: "reorder-four-outline", iconColor: "#818cf8", bgColor: "bg-indigo-500/10", borderColor: "border-indigo-500/20" },
+        { title: t('categories.equations'), count: 5, screen: "EquationsCategory", icon: "link-outline", iconColor: "#a855f7", bgColor: "bg-purple-500/10", borderColor: "border-purple-500/20" },
         { title: t('categories.applications'), count: 4, screen: "ApplicationsCategory", icon: "shield-checkmark-outline", iconColor: "#f43f5e", bgColor: "bg-rose-500/10", borderColor: "border-rose-500/20" }
     ];
 

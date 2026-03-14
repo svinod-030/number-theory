@@ -1,7 +1,9 @@
 {
     "categories": {
         "applications": "பயன்பாடுகள்",
-        "divisibility": "வகுபடுதல் மற்றும் அல்காரிதம்கள்",
+        "divisibility": "வகுபடுதல் & GCD",
+        "sequences": "தொடர்கள் & வடிவங்கள்",
+        "equations": "கிளாசிக்கல் சமன்பாடுகள்",
         "modular": "மாடுலர் எண்கணிதம்",
         "primes": "பகா எண்கள்"
     },

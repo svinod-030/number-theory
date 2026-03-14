@@ -24,6 +24,8 @@ import ModularInverseScreen from '../screens/ModularInverseScreen';
 import PrimesCategoryScreen from '../screens/PrimesCategoryScreen';
 import ModularCategoryScreen from '../screens/ModularCategoryScreen';
 import DivisibilityCategoryScreen from '../screens/DivisibilityCategoryScreen';
+import SequencesCategoryScreen from '../screens/SequencesCategoryScreen';
+import EquationsCategoryScreen from '../screens/EquationsCategoryScreen';
 import CRTScreen from '../screens/CRTScreen';
 import DiophantineScreen from '../screens/DiophantineScreen';
 import QuadraticReciprocityScreen from '../screens/QuadraticReciprocityScreen';
@@ -106,6 +108,8 @@ export default function AppNavigator() {
                 <Stack.Screen name="PrimesCategory" component={PrimesCategoryScreen} />
                 <Stack.Screen name="ModularCategory" component={ModularCategoryScreen} />
                 <Stack.Screen name="DivisibilityCategory" component={DivisibilityCategoryScreen} />
+                <Stack.Screen name="SequencesCategory" component={SequencesCategoryScreen} />
+                <Stack.Screen name="EquationsCategory" component={EquationsCategoryScreen} />
                 <Stack.Screen name="CRT" component={CRTScreen} />
                 <Stack.Screen name="QuadraticReciprocity" component={QuadraticReciprocityScreen} />
                 <Stack.Screen name="Diophantine" component={DiophantineScreen} />

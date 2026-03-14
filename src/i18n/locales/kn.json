@@ -1,7 +1,9 @@
 {
     "categories": {
         "applications": "ಅನ್ವಯಗಳು",
-        "divisibility": "ಭಾಜ್ಯತೆ ಮತ್ತು ಅಲ್ಗಾರಿದಮ್‌ಗಳು",
+        "divisibility": "ಭಾಜ್ಯತೆ & GCD",
+        "sequences": "ಅನುಕ್ರಮಗಳು & ಮಾದರಿಗಳು",
+        "equations": "ಶಾಸ್ತ್ರೀಯ ಸಮೀಕರಣಗಳು",
         "modular": "ಮಾಡುಲರ್ ಅರಿಥ್ಮೆಟಿಕ್",
         "primes": "ಅವಿಭಾಜ್ಯ ಸಂಖ್ಯೆಗಳು"
     },

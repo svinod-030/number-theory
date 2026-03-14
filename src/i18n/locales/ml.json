@@ -1,7 +1,9 @@
 {
     "categories": {
         "applications": "അപ്ലിക്കേഷനുകൾ",
-        "divisibility": "ഭാജ്യതയും അൽഗോരിതങ്ങളും",
+        "divisibility": "വിഭാജ്യത & GCD",
+        "sequences": "ശ്രേണികളും മാതൃകകളും",
+        "equations": "ക്ലാസിക്കൽ സമവാക്യങ്ങൾ",
         "modular": "മോഡുലാർ അരിത്മെറ്റിക്",
         "primes": "അഭാജ്യാഖ്യകൾ"
     },

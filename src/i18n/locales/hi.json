@@ -16,7 +16,9 @@
     "categories": {
         "primes": "अभाज्य संख्याएँ",
         "modular": "मॉड्यूलर अंकगणित",
-        "divisibility": "विभाज्यता और एल्गोरिदम",
+        "divisibility": "विभाज्यता और GCD",
+        "sequences": "अनुक्रम और पैटर्न",
+        "equations": "शास्त्रीय समीकरण",
         "applications": "अनुप्रयोग"
     },
     "tools": {

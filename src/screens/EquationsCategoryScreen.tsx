@@ -9,46 +9,41 @@ import ToolItem from '../components/ToolItem';
 
 import { useTranslation } from 'react-i18next';
 
-export default function DivisibilityCategoryScreen() {
+export default function EquationsCategoryScreen() {
     const { t } = useTranslation();
     const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
     const tools = [
         {
-            key: "toolbox",
-            screen: "Toolbox",
-            icon: "construct-outline",
+            key: "diophantine",
+            screen: "Diophantine",
+            icon: "link-outline",
         },
         {
-            key: "euclidean",
-            screen: "EuclideanVisualizer",
-            icon: "color-fill-outline",
+            key: "pells_equation",
+            screen: "PellsEquation",
+            icon: "infinite-outline",
         },
         {
-            key: "lcm",
-            screen: "LCM",
-            icon: "git-commit-outline",
+            key: "pythagorean",
+            screen: "PythagoreanTriples",
+            icon: "triangle-outline",
         },
         {
-            key: "divisors",
-            screen: "Divisors",
-            icon: "layers-outline",
+            key: "perfect_numbers",
+            screen: "PerfectNumbers",
+            icon: "star-outline",
         },
         {
-            key: "continued_fractions",
-            screen: "ContinuedFraction",
-            icon: "list-outline",
-        },
-        {
-            key: "bezouts_identity",
-            screen: "BezoutsIdentity",
-            icon: "swap-horizontal-outline",
+            key: "constructible",
+            screen: "ConstructiblePolygons",
+            icon: "shapes-outline",
         },
     ];
 
     return (
         <SafeAreaView className="flex-1 bg-slate-950">
-            <ScreenHeader title={t('categories.divisibility')} />
+            <ScreenHeader title={t('categories.equations')} />
 
             <ScrollView
                 className="flex-1"
@@ -64,7 +59,7 @@ export default function DivisibilityCategoryScreen() {
                             description={t(`tools.${tool.key}.description`)}
                             icon={tool.icon}
                             onPress={() => navigation.navigate(tool.screen as any)}
-                            accentColor="#fbbf24"
+                            accentColor="#a855f7"
                         />
                     ))}
                 </View>

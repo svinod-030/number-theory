@@ -33,6 +33,18 @@ const GLOSSARY_DATA: GlossaryItem[] = [
     { key: "diophantine_equation", category: "divisibility" },
     { key: "pythagorean_triple", category: "patterns", formula: "a^2 + b^2 = c^2" },
     { key: "constructible_polygon", category: "patterns" },
+    { key: "fermat_primality_test", category: "primes" },
+    { key: "carmichael_number", category: "primes" },
+    { key: "twin_primes", category: "primes" },
+    { key: "fermats_little_theorem", category: "modular", formula: "a^p \\equiv a \\pmod{p}" },
+    { key: "wilsons_theorem", category: "modular", formula: "(n-1)! \\equiv -1 \\pmod{n}" },
+    { key: "mobius_function", category: "divisibility", formula: "\\mu(n)" },
+    { key: "liouville_function", category: "modular" },
+    { key: "pells_equation", category: "divisibility", formula: "x^2 - ny^2 = 1" },
+    { key: "bezouts_identity", category: "divisibility", formula: "ax + by = \\text{gcd}(a, b)" },
+    { key: "farey_sequence", category: "patterns" },
+    { key: "lucas_numbers", category: "patterns", formula: "L_n = L_{n-1} + L_{n-2}" },
+    { key: "happy_number", category: "patterns" },
 ];
 
 export default function GlossaryScreen() {

@@ -49,7 +49,7 @@ export default function SettingsScreen() {
 
                         <TouchableOpacity
                             onPress={() => {
-                                Linking.openURL('mailto:scricscore3@gmail.com?subject=Number Theory App Feedback');
+                                Linking.openURL(`mailto:vinod.sigadana.labs@gmail.com?subject=Number Theory App Feedback for Version ${APP_CONFIG.APP_VERSION}`);
                             }}
                             className="bg-slate-900 p-4 rounded-2xl border border-slate-800 flex-row items-center"
                         >

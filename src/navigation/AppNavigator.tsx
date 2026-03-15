@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useSettingsStore } from '../store/useSettingsStore';
 
 import HomeScreen from '../screens/HomeScreen';
@@ -69,6 +70,7 @@ const Tab = createBottomTabNavigator();
 
 function TabNavigator() {
     const { t } = useTranslation();
+    const insets = useSafeAreaInsets();
     return (
         <Tab.Navigator
             screenOptions={({ route }) => ({
@@ -87,9 +89,9 @@ function TabNavigator() {
                 tabBarStyle: {
                     backgroundColor: '#0f172a',
                     borderTopColor: '#1e293b',
-                    paddingBottom: 8,
+                    paddingBottom: 8 + insets.bottom,
                     paddingTop: 8,
-                    height: 64,
+                    height: 64 + insets.bottom,
                 },
                 tabBarLabelStyle: {
                     fontSize: 10,

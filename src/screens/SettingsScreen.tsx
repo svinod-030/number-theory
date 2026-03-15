@@ -33,7 +33,7 @@ export default function SettingsScreen() {
                 {/* Support & Feedback Section */}
                 <Animated.View entering={FadeInDown.delay(200)} className="mb-8">
                     <Text className="text-slate-500 text-[10px] font-black uppercase tracking-widest mb-4 ml-1">
-                        {t('visualizers.settings.support_title')}
+                        {t('settings.support_title')}
                     </Text>
                     <View style={{ gap: 10 }}>
                         <TouchableOpacity
@@ -43,7 +43,7 @@ export default function SettingsScreen() {
                             <View className="bg-amber-500/10 p-2 rounded-xl border border-amber-500/20 mr-4">
                                 <Ionicons name="star-outline" size={20} color="#fbbf24" />
                             </View>
-                            <Text className="text-white font-bold flex-1">{t('visualizers.settings.rate_title')}</Text>
+                            <Text className="text-white font-bold flex-1">{t('settings.rate_title')}</Text>
                             <Ionicons name="chevron-forward" size={16} color="#334155" />
                         </TouchableOpacity>
 
@@ -56,7 +56,7 @@ export default function SettingsScreen() {
                             <View className="bg-indigo-500/10 p-2 rounded-xl border border-indigo-500/20 mr-4">
                                 <Ionicons name="mail-outline" size={20} color="#818cf8" />
                             </View>
-                            <Text className="text-white font-bold flex-1">{t('visualizers.settings.contact_title')}</Text>
+                            <Text className="text-white font-bold flex-1">{t('settings.contact_title')}</Text>
                             <Ionicons name="chevron-forward" size={16} color="#334155" />
                         </TouchableOpacity>
 
@@ -67,7 +67,7 @@ export default function SettingsScreen() {
                             <View className="bg-slate-500/10 p-2 rounded-xl border border-slate-500/20 mr-4">
                                 <Ionicons name="shield-checkmark-outline" size={20} color="#94a3b8" />
                             </View>
-                            <Text className="text-white font-bold flex-1">{t('visualizers.settings.privacy_title')}</Text>
+                            <Text className="text-white font-bold flex-1">{t('settings.privacy_title')}</Text>
                             <Ionicons name="chevron-forward" size={16} color="#334155" />
                         </TouchableOpacity>
                     </View>
@@ -76,10 +76,10 @@ export default function SettingsScreen() {
                 {/* App Version Section */}
                 <Animated.View entering={FadeInDown.delay(400)} className="mt-4 items-center">
                     <Text className="text-white text-[12px] font-bold uppercase tracking-widest">
-                        {t('visualizers.settings.version_title')} {APP_CONFIG.APP_VERSION}
+                        {t('settings.version_title')} {APP_CONFIG.APP_VERSION}
                     </Text>
                     <Text className="text-white text-[10px] font-medium mt-1">
-                        {t('visualizers.settings.developer_title')}
+                        {t('settings.developer_title')}
                     </Text>
                 </Animated.View>
             </ScrollView>

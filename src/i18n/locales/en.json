@@ -29,6 +29,37 @@
         "equations": "Classical Equations",
         "applications": "Applications"
     },
+    "privacy": {
+        "title": "Privacy Policy",
+        "intro_title": "Introduction",
+        "intro_desc": "Welcome to Number Theory. We value your privacy and are committed to protecting it. This Privacy Policy explains how we handle your information.",
+        "data_collection_title": "Data Collection",
+        "data_collection_desc": "The Number Theory app does not collect, store, or transmit any personal data or usage information. All calculations and visualizations are performed locally on your device.",
+        "offline_title": "Offline Functionality",
+        "offline_desc": "The app is designed to work entirely offline. No internet connection is required for its core features, and no data is sent to external servers.",
+        "third_party_title": "Third-Party Services",
+        "third_party_desc": "The Number Theory app does not use any third-party analytics, advertising, or tracking services that collect your personal information.",
+        "changes_title": "Changes to This Policy",
+        "changes_desc": "We may update our Privacy Policy from time to time. Any changes will be posted on this screen, and your continued use of the app constitutes acceptance of those changes.",
+        "contact_title": "Contact Us",
+        "contact_desc": "If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at vinod.sigadana.labs@gmail.com."
+    },
+    "settings": {
+        "title": "Settings",
+        "language_title": "Language",
+        "language_desc": "Select your preferred language",
+        "support_title": "Support & Feedback",
+        "rate_title": "Rate Us",
+        "rate_desc": "Spread the love on Play Store",
+        "contact_title": "Contact Support",
+        "contact_desc": "Questions? Email us anytime",
+        "legal_title": "Legal",
+        "privacy_title": "Privacy Policy",
+        "privacy_desc": "How we handle your data",
+        "version_title": "Version",
+        "developer_title": "Built with ❤️ for you",
+        "developer_name": ""
+    },
     "tools": {
         "sieve": {
             "title": "Sieve of Eratosthenes",
@@ -987,39 +1018,7 @@
             "description": "Visualize pairs of prime numbers that differ by exactly two.",
             "search_limit": "Search Limit",
             "find_button": "Find Twin Primes",
-            "found_count": "Found {{count}} pairs",
-            "pair_format": "({{p1}}, {{p2}})"
-        },
-        "privacy": {
-            "title": "Privacy Policy",
-            "intro_title": "Introduction",
-            "intro_desc": "Welcome to Number Theory. We value your privacy and are committed to protecting it. This Privacy Policy explains how we handle your information.",
-            "data_collection_title": "Data Collection",
-            "data_collection_desc": "The Number Theory app does not collect, store, or transmit any personal data or usage information. All calculations and visualizations are performed locally on your device.",
-            "offline_title": "Offline Functionality",
-            "offline_desc": "The app is designed to work entirely offline. No internet connection is required for its core features, and no data is sent to external servers.",
-            "third_party_title": "Third-Party Services",
-            "third_party_desc": "The Number Theory app does not use any third-party analytics, advertising, or tracking services that collect your personal information.",
-            "changes_title": "Changes to This Policy",
-            "changes_desc": "We may update our Privacy Policy from time to time. Any changes will be posted on this screen, and your continued use of the app constitutes acceptance of those changes.",
-            "contact_title": "Contact Us",
-            "contact_desc": "If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at vinod.sigadana.labs@gmail.com."
-        },
-        "settings": {
-            "title": "Settings",
-            "language_title": "Language",
-            "language_desc": "Select your preferred language",
-            "support_title": "Support & Feedback",
-            "rate_title": "Rate Us",
-            "rate_desc": "Spread the love on Play Store",
-            "contact_title": "Contact Support",
-            "contact_desc": "Questions? Email us anytime",
-            "legal_title": "Legal",
-            "privacy_title": "Privacy Policy",
-            "privacy_desc": "How we handle your data",
-            "version_title": "Version",
-            "developer_title": "Built with ❤️ for you",
-            "developer_name": ""
+            "found_count": "Found {{count}} pairs"
         }
     }
 }

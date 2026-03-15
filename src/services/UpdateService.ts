@@ -14,6 +14,16 @@ export const UpdateService = {
      * Checks if a new version is available on the respective store.
      */
     async checkForUpdate(): Promise<VersionCheckResult> {
+        // Skip update check in development to avoid unnecessary noise and errors
+        if (__DEV__) {
+            return {
+                isUpdateAvailable: false,
+                latestVersion: APP_CONFIG.APP_VERSION,
+                currentVersion: APP_CONFIG.APP_VERSION,
+                storeUrl: '',
+            };
+        }
+
         try {
             const currentVersion = VersionCheck.getCurrentVersion();
             const latestVersion = await VersionCheck.getLatestVersion({
@@ -25,6 +35,15 @@ export const UpdateService = {
                 packageName: APP_CONFIG.ANDROID_PACKAGE_NAME,
                 appId: APP_CONFIG.IOS_APP_ID,
             });
+
+            if (!latestVersion) {
+                return {
+                    isUpdateAvailable: false,
+                    latestVersion: currentVersion,
+                    currentVersion,
+                    storeUrl: '',
+                };
+            }
 
             const isUpdateAvailable = await VersionCheck.needUpdate({
                 currentVersion,
@@ -39,12 +58,18 @@ export const UpdateService = {
 
             return {
                 isUpdateAvailable: !!isUpdateAvailable?.isNeeded,
-                latestVersion: latestVersion || currentVersion,
+                latestVersion: latestVersion,
                 currentVersion,
                 storeUrl: storeUrl || '',
             };
-        } catch (error) {
-            console.error('Error checking for version update:', error);
+        } catch (error: any) {
+            // Log as warning rather than error for "Parse Error" which usually means app is not published
+            if (error?.message?.includes('Parse Error')) {
+                console.warn('Update check: App not found on store or page structure changed (likely unpublished).');
+            } else {
+                console.error('Error checking for version update:', error);
+            }
+            
             return {
                 isUpdateAvailable: false,
                 latestVersion: APP_CONFIG.APP_VERSION,

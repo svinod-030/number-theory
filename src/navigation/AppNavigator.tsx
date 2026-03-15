@@ -2,7 +2,13 @@ import "../../global.css";
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Ionicons } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
+import { useSettingsStore } from '../store/useSettingsStore';
+
 import HomeScreen from '../screens/HomeScreen';
+import SettingsScreen from '../screens/SettingsScreen';
 import ModularPlaygroundScreen from '../screens/ModularPlaygroundScreen';
 import ToolboxScreen from '../screens/ToolboxScreen';
 import UlamSpiralScreen from '../screens/UlamSpiralScreen';
@@ -57,10 +63,53 @@ import BezoutsIdentityScreen from "../screens/BezoutsIdentityScreen";
 import FareySequencesScreen from "../screens/FareySequencesScreen";
 import LucasNumbersScreen from "../screens/LucasNumbersScreen";
 import HappyNumbersScreen from "../screens/HappyNumbersScreen";
-import { useSettingsStore } from '../store/useSettingsStore';
-import { useTranslation } from 'react-i18next';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
+const Tab = createBottomTabNavigator();
+
+function TabNavigator() {
+    const { t } = useTranslation();
+    return (
+        <Tab.Navigator
+            screenOptions={({ route }) => ({
+                headerShown: false,
+                tabBarIcon: ({ focused, color, size }) => {
+                    let iconName;
+                    if (route.name === 'HomeTab') {
+                        iconName = focused ? 'home' : 'home-outline';
+                    } else {
+                        iconName = focused ? 'settings' : 'settings-outline';
+                    }
+                    return <Ionicons name={iconName as any} size={size} color={color} />;
+                },
+                tabBarActiveTintColor: '#818cf8',
+                tabBarInactiveTintColor: '#64748b',
+                tabBarStyle: {
+                    backgroundColor: '#0f172a',
+                    borderTopColor: '#1e293b',
+                    paddingBottom: 8,
+                    paddingTop: 8,
+                    height: 64,
+                },
+                tabBarLabelStyle: {
+                    fontSize: 10,
+                    fontWeight: 'bold',
+                },
+            })}
+        >
+            <Tab.Screen
+                name="HomeTab"
+                component={HomeScreen}
+                options={{ tabBarLabel: t('common.home') }}
+            />
+            <Tab.Screen
+                name="Settings"
+                component={SettingsScreen}
+                options={{ tabBarLabel: t('common.settings') }}
+            />
+        </Tab.Navigator>
+    );
+}
 
 export default function AppNavigator() {
     const isFirstLaunch = useSettingsStore(state => state.isFirstLaunch);
@@ -74,7 +123,7 @@ export default function AppNavigator() {
         }
     }, [hasHydrated, language]);
 
-    if (!hasHydrated) return null; // Or a splash screen
+    if (!hasHydrated) return null;
 
     return (
         <NavigationContainer>
@@ -86,7 +135,7 @@ export default function AppNavigator() {
                 }}
             >
                 <Stack.Screen name="LanguageSelection" component={LanguageSelectionScreen} />
-                <Stack.Screen name="Home" component={HomeScreen} />
+                <Stack.Screen name="Home" component={TabNavigator} />
                 <Stack.Screen name="ModulusBasics" component={ModulusBasicsScreen} />
                 <Stack.Screen name="ModularPlayground" component={ModularPlaygroundScreen} />
                 <Stack.Screen name="Toolbox" component={ToolboxScreen} />

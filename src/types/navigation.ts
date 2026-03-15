@@ -53,4 +53,5 @@ export type RootStackParamList = {
     FareySequences: undefined;
     LucasNumbers: undefined;
     HappyNumbers: undefined;
+    Settings: undefined;
 };

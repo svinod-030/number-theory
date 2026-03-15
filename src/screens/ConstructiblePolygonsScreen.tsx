@@ -70,7 +70,7 @@ export default function ConstructiblePolygonsScreen() {
                                 </Text>
                             </View>
                             <Text className="text-slate-400 text-sm leading-5">
-                                {t(result.key, result.params)}
+                                {t(result.key, result.params) as string}
                             </Text>
                         </View>
 

@@ -11,7 +11,9 @@
         "glossary": "Glossary",
         "queen_of_math": "The Queen of Mathematics",
         "app_name": "Number Theory",
-        "select_language": "Select Language"
+        "select_language": "Select Language",
+        "home": "Home",
+        "settings": "Settings"
     },
     "updates": {
         "title": "Update Available",
@@ -555,22 +557,22 @@
             "divisors_sum": "Sum of Proper Divisors",
             "fun_fact": "Fun Fact",
             "euclids_formula": "Euclid's Formula",
-            "formula_desc": "Euclid discovered that <1>2\u1d56\u207b\u00b9(2\u1d56 - 1)</1> is a perfect number whenever <1>2\u1d56 - 1</1> is prime. These are called Mersenne Primes.",
+            "formula_desc": "Euclid discovered that <1>2ᵖ⁻¹(2ᵖ - 1)</1> is a perfect number whenever <1>2ᵖ - 1</1> is prime. These are called Mersenne Primes.",
             "classify_perfect": "Perfect",
             "classify_abundant": "Abundant",
             "classify_deficient": "Deficient"
         },
         "modular_playground": {
             "how_to_explore": "How to Explore",
-            "explore_desc": "Each dot on the circle is a number. A line from dot <1>i</1> goes to dot <1>(i \u00d7 k) mod n</1>. Change the multiplier k to watch <2>beautiful geometric patterns</2> emerge \u2014 cardioids, nephroids, and other shapes hidden inside modular arithmetic. Press play to animate!",
+            "explore_desc": "Each dot on the circle is a number. A line from dot <1>i</1> goes to dot <1>(i × k) mod n</1>. Change the multiplier k to watch <2>beautiful geometric patterns</2> emerge — cardioids, nephroids, and other shapes hidden inside modular arithmetic. Press play to animate!",
             "points_label": "Points (n)",
             "multiplier_label": "Multiplier (k)",
             "patterns_desc": "Showing lines connecting each point i to (i * k) mod n. This visualization reveals hidden symmetries in modular arithmetic."
         },
         "modular_inverse": {
             "analogy_title": "Everyday Analogy",
-            "undo_desc": "In regular math, <1>dividing by 3</1> is the same as multiplying by \u2153. But in modular arithmetic, there are no fractions! Instead, we find a number that \"undoes\" multiplication.\nExample: <2>3 \u00d7 4 = 12 \u2261 1 (mod 11)</2>. So 4 is the modular inverse of 3 (mod 11) \u2014 multiplying by 4 is like \"dividing\" by 3.",
-            "description": "Find an integer x such that ax \u2261 1 (mod m). This is the modular equivalent of division.",
+            "undo_desc": "In regular math, <1>dividing by 3</1> is the same as multiplying by ⅓. But in modular arithmetic, there are no fractions! Instead, we find a number that \"undoes\" multiplication.\nExample: <2>3 × 4 = 12 ≡ 1 (mod 11)</2>. So 4 is the modular inverse of 3 (mod 11) — multiplying by 4 is like \"dividing\" by 3.",
+            "description": "Find an integer x such that ax ≡ 1 (mod m). This is the modular equivalent of division.",
             "number_label": "Number (a)",
             "modulus_label": "Modulus (m)",
             "inverse_label": "Multiplicative Inverse",
@@ -584,7 +586,7 @@
         },
         "modular_exponentiation": {
             "the_shortcut": "The Shortcut",
-            "shortcut_desc": "What's <1>2\u00b9\u2070 mod 7</1>? You could compute 2\u00b9\u2070 = 1024, then divide by 7. But there's a faster way: <2>keep taking remainders at each step</2>.\n2\u21924\u21921\u21922\u21924\u21921\u2026 The answer cycles! This trick lets computers handle numbers with <1>hundreds of digits</1> \u2014 the basis of all modern encryption.",
+            "shortcut_desc": "What's <1>2¹⁰ mod 7</1>? You could compute 2¹⁰ = 1024, then divide by 7. But there's a faster way: <2>keep taking remainders at each step</2>.\n2→4→1→2→4→1… The answer cycles! This trick lets computers handle numbers with <1>hundreds of digits</1> — the basis of all modern encryption.",
             "description": "Calculate large powers modulo n efficiently. This is the foundation of modern cryptography like RSA.",
             "base_label": "Base (a)",
             "exp_label": "Exp (k)",
@@ -593,14 +595,14 @@
             "fermat_little": "Fermat's Little Theorem",
             "fermat_desc": "Since the modulus is prime, we can use this theorem to simplify calculations.",
             "power_reduction": "Power Reduction",
-            "fermat_theorem_desc": "If <1>p</1> is prime and does not divide <1>a</1>, then <2>a\u1d56\u207b\u00b9 \u2261 1 (mod p)</2>.",
+            "fermat_theorem_desc": "If <1>p</1> is prime and does not divide <1>a</1>, then <2>aᵖ⁻¹ ≡ 1 (mod p)</2>.",
             "algorithm_efficiency": "Algorithm Efficiency",
             "binary_exp": "Binary Exponentiation",
             "binary_exp_desc": "Calculates result in O(log k) steps using squaring and multiplication."
         },
         "modular_table": {
             "looking_at": "What You're Looking At",
-            "table_desc": "This is a <1>multiplication table, but with a twist</1> \u2014 every answer gets wrapped around using the modulus. Instead of 3 \u00d7 4 = 12, you get 3 \u00d7 4 = 12 mod 5 = <2>2</2>. Tap any cell to highlight all cells with the same remainder. Try prime moduli and notice that <1>every non-zero row is a perfect shuffle</1>!",
+            "table_desc": "This is a <1>multiplication table, but with a twist</1> — every answer gets wrapped around using the modulus. Instead of 3 × 4 = 12, you get 3 × 4 = 12 mod 5 = <2>2</2>. Tap any cell to highlight all cells with the same remainder. Try prime moduli and notice that <1>every non-zero row is a perfect shuffle</1>!",
             "mod_label": "Modulus (n)",
             "interactive_guide": "Interactive Guide",
             "guide_desc": "Tap any cell to highlight all occurrences of that remainder.\n\nNotice how prime moduli (like 7, 11, 13) create tables where every row (except zero) contains every number exactly once. This is because every non-zero element has a modular inverse!",
@@ -609,7 +611,7 @@
         },
         "crt": {
             "puzzle_title": "A Puzzle",
-            "puzzle_desc": "A farmer counts eggs: <1>2 left over</1> when grouped by 3, <1>3 left over</1> when grouped by 5, and <1>2 left over</1> when grouped by 7.\nHow many eggs? The CRT says there's a <2>unique answer</2>: 23 (and then 23+105, 23+210, \u2026).",
+            "puzzle_desc": "A farmer counts eggs: <1>2 left over</1> when grouped by 3, <1>3 left over</1> when grouped by 5, and <1>2 left over</1> when grouped by 7.\nHow many eggs? The CRT says there's a <2>unique answer</2>: 23 (and then 23+105, 23+210, …).",
             "system_title": "System of Congruences",
             "system_desc": "Find x that satisfies all equations simultaneously.",
             "add_congruence": "Add Congruence",
@@ -617,42 +619,42 @@
             "moduli_coprime": "Moduli must be pairwise coprime for a unique answer.",
             "steps_title": "Step-by-Step Construction",
             "steps_desc": "How we constructed the solution x:",
-            "mod_col": "Mod (n\u1d62)",
-            "m_col": "M\u1d62 (N/n\u1d62)",
-            "y_col": "y\u1d62 (Inv)",
+            "mod_col": "Mod (nᵢ)",
+            "m_col": "Mᵢ (N/nᵢ)",
+            "y_col": "yᵢ (Inv)",
             "term_col": "Term",
             "final_comp": "Final Computation"
         },
         "totient": {
             "analogy_title": "Everyday Analogy",
-            "analogy_desc": "Imagine <1>12 lockers</1> numbered 1-12. <2>\u03c6(12) asks: how many of these numbers share NO common factor with 12?</2>\n12 = 2\u00d72\u00d73, so cross off multiples of 2 and 3. What's left? <1>1, 5, 7, 11</1> \u2014 four numbers. So \u03c6(12) = 4.",
+            "analogy_desc": "Imagine <1>12 lockers</1> numbered 1-12. <2>φ(12) asks: how many of these numbers share NO common factor with 12?</2>\n12 = 2×2×3, so cross off multiples of 2 and 3. What's left? <1>1, 5, 7, 11</1> — four numbers. So φ(12) = 4.",
             "matters_title": "Why It Matters",
-            "matters_desc": "The totient function is the <1>heart of RSA encryption</1>. When you generate RSA keys, you compute \u03c6(n) to find the private key. Without it, public-key cryptography wouldn't work!",
-            "description": "Euler's totient function \u03c6(n) counts the positive integers up to n that are relatively prime to n.",
+            "matters_desc": "The totient function is the <1>heart of RSA encryption</1>. When you generate RSA keys, you compute φ(n) to find the private key. Without it, public-key cryptography wouldn't work!",
+            "description": "Euler's totient function φ(n) counts the positive integers up to n that are relatively prime to n.",
             "input_label": "Input Number",
             "coprime_title": "Coprime Numbers",
             "coprime_subtitle": "Numbers coprime to {{n}}",
             "dist_title": "Totient Distribution",
-            "dist_desc": "Visualizing \u03c6(n) for n = 1 to {{range}}:",
-            "prime_label": "Prime (\u03c6(p) = p-1)",
+            "dist_desc": "Visualizing φ(n) for n = 1 to {{range}}:",
+            "prime_label": "Prime (φ(p) = p-1)",
             "toggle_range": "Toggle Range",
             "did_you_know": "Did you know?",
-            "prime_prop": "Since {{n}} is prime, \u03c6({{n}}) = {{n}}-1 = {{phi}}.",
+            "prime_prop": "Since {{n}} is prime, φ({{n}}) = {{n}}-1 = {{phi}}.",
             "sharing_prop": "Numbers sharing prime factors with {{n}} are not coprime.",
             "properties": "Function Properties",
             "matters_desc_simple": "The totient function is a key component of the RSA encryption algorithm!"
         },
         "primitive_roots": {
             "analogy_title": "The Master Key",
-            "analogy_desc": "Think of a <1>combination lock with numbers 1\u20136</1>. A primitive root is like a single number that, when you keep multiplying it by itself (mod 7), visits <2>every number on the lock exactly once</2> before cycling back.\nFor example, 3 mod 7 \u2192 3, 2, 6, 4, 5, 1 \u2014 all six numbers!",
+            "analogy_desc": "Think of a <1>combination lock with numbers 1–6</1>. A primitive root is like a single number that, when you keep multiplying it by itself (mod 7), visits <2>every number on the lock exactly once</2> before cycling back.\nFor example, 3 mod 7 → 3, 2, 6, 4, 5, 1 — all six numbers!",
             "description": "A primitive root modulo n is a number that generates all numbers coprime to n through its powers.",
             "base_label": "Base (a)",
             "mod_label": "Modulo (n)",
             "is_root": "Primitive Root",
             "not_root": "Not a Generator",
             "residues_desc": "Powers of {{a}} mod {{n}} generate <1>{{count}}</1> unique values. {{status}}",
-            "is_root_status": "It generates the entire group of size \u03c6({{n}}) = {{phi}}!",
-            "not_root_status": "It falls short of \u03c6({{n}}) = {{phi}}.",
+            "is_root_status": "It generates the entire group of size φ({{n}}) = {{phi}}!",
+            "not_root_status": "It falls short of φ({{n}}) = {{phi}}.",
             "sequence_title": "Sequence of Powers",
             "sequence_desc": "Calculations for {{a}}^k mod {{n}}:",
             "others_title": "Other Candidates",
@@ -662,7 +664,7 @@
         },
         "quadratic_reciprocity": {
             "analogy_title": "Hidden Square Roots",
-            "analogy_desc": "In regular math, 9 has a square root (3). But in <1>modular arithmetic</1>, the question is trickier: does x\u00b2 \u2261 a (mod p) have any solution?\nFor example, <2>x\u00b2 \u2261 2 (mod 7)</2> \u2192 try 3: 3\u00b2 = 9 \u2261 2 (mod 7). \u2713 So 2 is a quadratic residue mod 7.\nThe Legendre symbol answers this <1>without testing every number</1>!",
+            "analogy_desc": "In regular math, 9 has a square root (3). But in <1>modular arithmetic</1>, the question is trickier: does x² ≡ a (mod p) have any solution?\nFor example, <2>x² ≡ 2 (mod 7)</2> → try 3: 3² = 9 ≡ 2 (mod 7). ✓ So 2 is a quadratic residue mod 7.\nThe Legendre symbol answers this <1>without testing every number</1>!",
             "description": "Determine if an integer 'a' is a quadratic residue modulo 'p' using the Legendre or Jacobi symbol.",
             "int_label": "Integer (a)",
             "mod_label": "Modulus (p)",
@@ -673,24 +675,24 @@
             "not_coprime_label": "Not Coprime",
             "reciprocity_title": "Law of Reciprocity",
             "reciprocity_desc": "Since {{a}} and {{p}} are both odd primes, the Law of Quadratic Reciprocity applies:",
-            "if_mod4_1": "If either {{a}} or {{p}} is \u2261 1 (mod 4), then ({{a}}/{{p}}) = ({{p}}/{{a}}).",
-            "if_mod4_3": "If both are \u2261 3 (mod 4), then ({{a}}/{{p}}) = -({{p}}/{{a}}).",
+            "if_mod4_1": "If either {{a}} or {{p}} is ≡ 1 (mod 4), then ({{a}}/{{p}}) = ({{p}}/{{a}}).",
+            "if_mod4_3": "If both are ≡ 3 (mod 4), then ({{a}}/{{p}}) = -({{p}}/{{a}}).",
             "meaning_title": "Residue Property",
-            "meaning_desc": "An integer <1>a</1> is a quadratic residue mod <1>p</1> if the equation <2>x\u00b2 \u2261 a (mod p)</2> has a solution x. This tool tells you if a solution exists without having to find it!"
+            "meaning_desc": "An integer <1>a</1> is a quadratic residue mod <1>p</1> if the equation <2>x² ≡ a (mod p)</2> has a solution x. This tool tells you if a solution exists without having to find it!"
         },
         "legendre": {
             "analogy_title": "Is It a Hidden Square?",
-            "analogy_desc": "In mod 7, is there a number whose square gives 2?  Try 3: <1>3\u00b2 = 9 \u2261 2 (mod 7)</1> \u2713\nThe Legendre symbol (a/p) answers <2>\"does x\u00b2 \u2261 a (mod p) have a solution?\"</2> \u2014 it returns 1 (yes), -1 (no), or 0 (a is divisible by p).",
+            "analogy_desc": "In mod 7, is there a number whose square gives 2?  Try 3: <1>3² = 9 ≡ 2 (mod 7)</1> ✓\nThe Legendre symbol (a/p) answers <2>\"does x² ≡ a (mod p) have a solution?\"</2> — it returns 1 (yes), -1 (no), or 0 (a is divisible by p).",
             "description": "The Legendre symbol (a/p) is a function that indicates whether 'a' is a quadratic residue modulo 'p'.",
             "int_label": "Integer a",
             "p_label": "Odd Prime p",
             "divisible_label": "Divisible by p",
             "legend_title": "Legend & Meaning",
-            "legend_1": "'a' is a square modulo 'p' (x\u00b2 \u2261 a mod p exists)",
+            "legend_1": "'a' is a square modulo 'p' (x² ≡ a mod p exists)",
             "legend_neg1": "'a' is NOT a square modulo 'p'",
             "legend_0": "'a' is a multiple of 'p'",
             "criterion_title": "Quick Calculation",
-            "criterion_desc": "Legendre symbols can be calculated using Euler's criterion:\n<1>(a/p) \u2261 a^((p-1)/2) mod p</1>\nThis is the method used by this tool!"
+            "criterion_desc": "Legendre symbols can be calculated using Euler's criterion:\n<1>(a/p) ≡ a^((p-1)/2) mod p</1>\nThis is the method used by this tool!"
         },
         "euclidean": {
             "title": "Euclidean Tiling",
@@ -712,20 +714,20 @@
             "title": "LCM Visualizer",
             "description": "Least Common Multiple is the smallest positive integer that is divisible by both numbers.",
             "analogy_title": "Bus Schedules",
-            "analogy_desc": "Bus A comes every <1>{{a}} minutes</1>, Bus B every <2>{{b}} minutes</2>. When will they arrive together?\nList multiples: A = 4, 8, <3>12</3>, 16\u2026 and B = 6, <3>12</3>, 18\u2026 The first overlap is <1>12</1> \u2014 that's the LCM!",
+            "analogy_desc": "Bus A comes every <1>{{a}} minutes</1>, Bus B every <2>{{b}} minutes</2>. When will they arrive together?\nList multiples: A = 4, 8, <3>12</3>, 16… and B = 6, <3>12</3>, 18… The first overlap is <1>12</1> — that's the LCM!",
             "input_a": "A",
             "input_b": "B",
             "calculate_button": "Calculate LCM",
             "result_label": "The LCM is",
             "multiples_label": "Multiples of {{n}}",
             "relationship_title": "The Relationship",
-            "relationship_desc": "LCM(a, b) = |a \u00d7 b| / GCD(a, b). For {{a}} and {{b}}, GCD is {{gcd}}."
+            "relationship_desc": "LCM(a, b) = |a × b| / GCD(a, b). For {{a}} and {{b}}, GCD is {{gcd}}."
         },
         "divisors": {
             "title": "Perfect & Divisors",
             "description": "A number's divisors are the numbers that divide it evenly.",
             "analogy_title": "Perfect Balance",
-            "analogy_desc": "A number's <1>divisors</1> are the numbers that divide it evenly. Add up all divisors except the number itself \u2014 if the sum <2>equals the number</2>, it's <1>Perfect</1>!\nExample: 28 \u2192 divisors 1, 2, 4, 7, 14 \u2192 sum = 28. \u2713 Only a handful of perfect numbers are known!",
+            "analogy_desc": "A number's <1>divisors</1> are the numbers that divide it evenly. Add up all divisors except the number itself — if the sum <2>equals the number</2>, it's <1>Perfect</1>!\nExample: 28 → divisors 1, 2, 4, 7, 14 → sum = 28. ✓ Only a handful of perfect numbers are known!",
             "input_label": "Input Number",
             "type_badge": "Type",
             "sum_label": "Sum of Proper Divisors",
@@ -742,15 +744,15 @@
         },
         "fibonacci": {
             "title": "Fibonacci & Spiral",
-            "summary": "The ratio of consecutive Fibonacci numbers converges to the Golden Ratio (\u03c6). This pattern appears in sunflower seeds, pinecones, and galaxies!",
+            "summary": "The ratio of consecutive Fibonacci numbers converges to the Golden Ratio (φ). This pattern appears in sunflower seeds, pinecones, and galaxies!",
             "golden_spiral": "Golden Spiral",
             "sequence": "Sequence",
             "analogy_title": "Nature's Math",
-            "analogy_desc": "Each number is simply the <1>sum of the two before it</1>: 1, 1, 2, 3, 5, 8, 13, 21\u2026 The ratio between consecutive terms gets closer and closer to <2>1.618 (the Golden Ratio)</2>.",
+            "analogy_desc": "Each number is simply the <1>sum of the two before it</1>: 1, 1, 2, 3, 5, 8, 13, 21… The ratio between consecutive terms gets closer and closer to <2>1.618 (the Golden Ratio)</2>.",
             "nature_code_title": "Nature's Code",
             "index_label": "Index {{n}}",
             "ratio_label": "Ratio: {{ratio}}",
-            "approaching_phi": "Approaching \u03c6 \u2248 1.618"
+            "approaching_phi": "Approaching φ ≈ 1.618"
         },
         "pascal": {
             "title": "Pascal's Triangle",
@@ -813,7 +815,7 @@
         "diophantine": {
             "title": "Diophantine Equations",
             "simple_terms_title": "The \"Whole Numbers Only\" Puzzle",
-            "simple_terms_desc": "You have ₹5 and ₹3 coins. Can you make exactly ₹23?\nThat's <1>5x + 3y = 23</1>. We need <2>whole number</2> answers only \u2014 no fractions allowed! If GCD(5,3)=1 divides 23, solutions exist. One answer: x=1, y=6 (check: 5+18=23 \u2713).",
+            "simple_terms_desc": "You have ₹5 and ₹3 coins. Can you make exactly ₹23?\nThat's <1>5x + 3y = 23</1>. We need <2>whole number</2> answers only — no fractions allowed! If GCD(5,3)=1 divides 23, solutions exist. One answer: x=1, y=6 (check: 5+18=23 ✓).",
             "description": "Solve linear equations of the form ax + by = c using the Extended Euclidean Algorithm.",
             "particular_solution_title": "Particular Solution",
             "particular_solution_desc": "A specific integer solution discovered by the algorithm:",
@@ -832,8 +834,8 @@
         "continued_fraction": {
             "title": "Continued Fractions",
             "simple_terms_title": "Russian Doll Fractions",
-            "simple_terms_desc": "Imagine peeling a fraction apart layer by layer. Take <1>13/8</1>: that's 1 + 5/8. Then 5/8 = 1/(8/5) = 1/(1 + 3/5). Keep going until there's nothing left.\nEach layer gives the <2>best possible approximation</2> at that level \u2014 that's why continued fractions are used to design calendars!",
-            "description": "Any rational number can be represented as a finite continued fraction [a₀; a\u2081, a\u2082, ...].",
+            "simple_terms_desc": "Imagine peeling a fraction apart layer by layer. Take <1>13/8</1>: that's 1 + 5/8. Then 5/8 = 1/(8/5) = 1/(1 + 3/5). Keep going until there's nothing left.\nEach layer gives the <2>best possible approximation</2> at that level — that's why continued fractions are used to design calendars!",
+            "description": "Any rational number can be represented as a finite continued fraction [a₀; a₁, a₂, ...].",
             "numerator_label": "Numerator",
             "denominator_label": "Denominator",
             "list_notation": "List Notation",
@@ -1001,7 +1003,23 @@
             "changes_title": "Changes to This Policy",
             "changes_desc": "We may update our Privacy Policy from time to time. Any changes will be posted on this screen, and your continued use of the app constitutes acceptance of those changes.",
             "contact_title": "Contact Us",
-            "contact_desc": "If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us."
+            "contact_desc": "If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at scricscore3@gmail.com."
+        },
+        "settings": {
+            "title": "Settings",
+            "language_title": "Language",
+            "language_desc": "Select your preferred language",
+            "support_title": "Support & Feedback",
+            "rate_title": "Rate Us",
+            "rate_desc": "Spread the love on Play Store",
+            "contact_title": "Contact Support",
+            "contact_desc": "Questions? Email us anytime",
+            "legal_title": "Legal",
+            "privacy_title": "Privacy Policy",
+            "privacy_desc": "How we handle your data",
+            "version_title": "Version",
+            "developer_title": "Built with ❤️ for you",
+            "developer_name": ""
         }
     }
 }

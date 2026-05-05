@@ -1021,7 +1021,8 @@
             "description": "Visualize pairs of prime numbers that differ by exactly two.",
             "search_limit": "Search Limit",
             "find_button": "Find Twin Primes",
-            "found_count": "Found {{count}} pairs"
+            "found_count": "Found {{count}} pairs",
+            "pair_format": "({{p1}}, {{p2}})"
         }
     },
     "games": {

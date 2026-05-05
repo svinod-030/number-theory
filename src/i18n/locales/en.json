@@ -13,6 +13,8 @@
         "app_name": "Number Theory",
         "select_language": "Select Language",
         "home": "Home",
+        "learn": "Learn",
+        "play": "Play",
         "settings": "Settings"
     },
     "updates": {
@@ -27,7 +29,8 @@
         "divisibility": "Divisibility & GCD",
         "sequences": "Sequences & Patterns",
         "equations": "Classical Equations",
-        "applications": "Applications"
+        "applications": "Applications",
+        "games": "Math Games"
     },
     "privacy": {
         "title": "Privacy Policy",
@@ -1019,6 +1022,27 @@
             "search_limit": "Search Limit",
             "find_button": "Find Twin Primes",
             "found_count": "Found {{count}} pairs"
+        }
+    },
+    "games": {
+        "guess_game": {
+            "title": "Guess the Number",
+            "description": "Guess the secret number between 1 and 100",
+            "input_label": "Enter your guess",
+            "guess_button": "Guess",
+            "reset_button": "New Game",
+            "guesses_label": "Guesses: {{count}}",
+            "history_label": "Previous Guesses",
+            "feedback_higher": "Higher! ⬆️",
+            "feedback_lower": "Lower! ⬇️",
+            "feedback_correct": "Correct! It was {{number}} 🎉",
+            "feedback_win": "You won in {{count}} guesses!",
+            "hint_button": "Get a Hint",
+            "hint_close": "You're close! (Within 10)",
+            "hint_very_close": "You're very close! (Within 5)",
+            "hint_unavailable": "Hint available after 5 guesses",
+            "simple_terms_title": "Binary Search in Action",
+            "simple_terms_desc": "This game is a fun way to understand <1>binary search</1>. By guessing the middle of the range (like 50), you eliminate <2>half</2> the possibilities every time. With this strategy, you can always find any number between 1 and 100 in at most <1>7 guesses</1>!"
         }
     }
 }

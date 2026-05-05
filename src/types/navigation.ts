@@ -54,4 +54,5 @@ export type RootStackParamList = {
     LucasNumbers: undefined;
     HappyNumbers: undefined;
     Settings: undefined;
+    GuessGame: undefined;
 };

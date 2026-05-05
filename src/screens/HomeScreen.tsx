@@ -60,6 +60,7 @@ const ALL_TOOLS: ProjectTool[] = [
     { key: "farey_sequences", screen: "FareySequences", icon: "git-commit-outline", accent: "#fbbf24" },
     { key: "lucas_numbers", screen: "LucasNumbers", icon: "sync-outline", accent: "#fbbf24" },
     { key: "happy_numbers", screen: "HappyNumbers", icon: "happy-outline", accent: "#fbbf24" },
+    { key: "guess_game", screen: "GuessGame", icon: "game-controller-outline", accent: "#818cf8" },
 ];
 
 const LANGUAGES = [

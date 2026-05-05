@@ -64,6 +64,8 @@ import BezoutsIdentityScreen from "../screens/BezoutsIdentityScreen";
 import FareySequencesScreen from "../screens/FareySequencesScreen";
 import LucasNumbersScreen from "../screens/LucasNumbersScreen";
 import HappyNumbersScreen from "../screens/HappyNumbersScreen";
+import GuessGameScreen from '../screens/GuessGameScreen';
+import PlayScreen from '../screens/PlayScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator();
@@ -77,8 +79,10 @@ function TabNavigator() {
                 headerShown: false,
                 tabBarIcon: ({ focused, color, size }) => {
                     let iconName;
-                    if (route.name === 'HomeTab') {
-                        iconName = focused ? 'home' : 'home-outline';
+                    if (route.name === 'LearnTab') {
+                        iconName = focused ? 'book' : 'book-outline';
+                    } else if (route.name === 'PlayTab') {
+                        iconName = focused ? 'game-controller' : 'game-controller-outline';
                     } else {
                         iconName = focused ? 'settings' : 'settings-outline';
                     }
@@ -100,9 +104,14 @@ function TabNavigator() {
             })}
         >
             <Tab.Screen
-                name="HomeTab"
+                name="LearnTab"
                 component={HomeScreen}
-                options={{ tabBarLabel: t('common.home') }}
+                options={{ tabBarLabel: t('common.learn') }}
+            />
+            <Tab.Screen
+                name="PlayTab"
+                component={PlayScreen}
+                options={{ tabBarLabel: t('common.play') }}
             />
             <Tab.Screen
                 name="Settings"
@@ -190,6 +199,7 @@ export default function AppNavigator() {
                 <Stack.Screen name="FareySequences" component={FareySequencesScreen} />
                 <Stack.Screen name="LucasNumbers" component={LucasNumbersScreen} />
                 <Stack.Screen name="HappyNumbers" component={HappyNumbersScreen} />
+                <Stack.Screen name="GuessGame" component={GuessGameScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );

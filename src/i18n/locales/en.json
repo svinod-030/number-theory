@@ -1044,6 +1044,27 @@
             "hint_unavailable": "Hint available after 5 guesses",
             "simple_terms_title": "Binary Search in Action",
             "simple_terms_desc": "This game is a fun way to understand <1>binary search</1>. By guessing the middle of the range (like 50), you eliminate <2>half</2> the possibilities every time. With this strategy, you can always find any number between 1 and 100 in at most <1>7 guesses</1>!"
+        },
+        "bulls_cows": {
+            "title": "Bulls and Cows",
+            "description": "Guess the 4-digit secret number with unique digits",
+            "input_label": "Enter a 4-digit guess",
+            "guess_button": "Guess",
+            "reset_button": "New Game",
+            "guesses_label": "Guesses: {{count}}",
+            "feedback_win": "You won! The secret number was {{number}} in {{count}} guesses!",
+            "feedback_lose": "Game Over! The secret number was {{number}}.",
+            "validation_length": "Must be exactly 4 digits",
+            "validation_numeric": "Must contain digits only",
+            "validation_unique": "Digits must be unique",
+            "history_title": "Guess History",
+            "hint_title": "Rule Book",
+            "code_cracked": "Code Cracked!",
+            "mission_failed": "Mission Failed",
+            "try_again": "Try Again",
+            "got_it": "Got It!",
+            "simple_terms_title": "Codebreaking Logic",
+            "simple_terms_desc": "Bulls and Cows is a classic code-breaking mind game. A <1>Bull (B)</1> means a digit is correct and in the right position. A <2>Cow (C)</2> means a digit is correct but in the wrong position. Use elimination and logical deduction to find the secret 4-digit combination in fewer than 10 attempts!"
         }
     }
 }

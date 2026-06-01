@@ -66,6 +66,7 @@ import LucasNumbersScreen from "../screens/LucasNumbersScreen";
 import HappyNumbersScreen from "../screens/HappyNumbersScreen";
 import GuessGameScreen from '../screens/GuessGameScreen';
 import PlayScreen from '../screens/PlayScreen';
+import BullsCowsGameScreen from "../screens/BullsCowsGameScreen";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator();
@@ -200,6 +201,7 @@ export default function AppNavigator() {
                 <Stack.Screen name="LucasNumbers" component={LucasNumbersScreen} />
                 <Stack.Screen name="HappyNumbers" component={HappyNumbersScreen} />
                 <Stack.Screen name="GuessGame" component={GuessGameScreen} />
+                <Stack.Screen name="BullsCowsGame" component={BullsCowsGameScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );

@@ -20,6 +20,14 @@ export default function PlayScreen() {
             color: "#818cf8",
             bgColor: "bg-indigo-500/10",
             borderColor: "border-indigo-500/20"
+        },
+        {
+            key: "bulls_cows",
+            screen: "BullsCowsGame" as keyof RootStackParamList,
+            icon: "lock-closed-outline",
+            color: "#f97316",
+            bgColor: "bg-orange-500/10",
+            borderColor: "border-orange-500/20"
         }
     ];
 

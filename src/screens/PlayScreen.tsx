@@ -43,11 +43,11 @@ export default function PlayScreen() {
                         {t('common.play')}
                     </Text>
                     <Text className="text-slate-500 font-medium mt-1">
-                        Learn through interactive math games
+                        {t('common.play_subtitle')}
                     </Text>
                 </Animated.View>
 
-                <View style={{ gap: 2 }}>
+                <View style={{ gap: 8 }}>
                     {games.map((game, index) => (
                         <Animated.View
                             key={game.key}

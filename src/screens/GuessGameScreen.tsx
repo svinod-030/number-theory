@@ -21,7 +21,7 @@ const WinDisplay = ({ totalGuesses, onReset }: { totalGuesses: number, onReset: 
                     className="bg-emerald-500 mt-6 px-8 py-4 rounded-2xl flex-row items-center"
                 >
                     <Ionicons name="refresh" size={20} color="white" />
-                    <Text className="text-white font-black ml-2 uppercase tracking-widest">New Game</Text>
+                    <Text className="text-white font-black ml-2 uppercase tracking-widest">{t('games.guess_game.reset_button')}</Text>
                 </TouchableOpacity>
             </View>
         </Animated.View>
@@ -29,24 +29,28 @@ const WinDisplay = ({ totalGuesses, onReset }: { totalGuesses: number, onReset: 
 };
 
 const SecretBubbleContent = ({ totalGuesses }: { totalGuesses: number }) => {
+    const { t } = useTranslation();
     return (
         <View className="items-center">
             <Text className="text-slate-500 text-4xl font-black">?</Text>
-            <Text className="text-slate-600 text-[9px] font-black uppercase mt-1">{totalGuesses} Guesses</Text>
+            <Text className="text-slate-600 text-[9px] font-black uppercase mt-1">{totalGuesses} {t('games.guess_game.guesses')}</Text>
         </View>
     );
 };
 
-const GuessDisplay = ({ guess }: { guess: string }) => (
-    <Animated.View entering={FadeInUp} className="mb-6">
-        <View className="bg-slate-900 rounded-3xl border border-slate-800 p-6 items-center">
-            <Text className="text-slate-500 text-[10px] font-black uppercase tracking-[4px] mb-2">Current Guess</Text>
-            <Text className={`text-6xl font-black tracking-tighter ${guess.trim() ? 'text-white' : 'text-slate-800'}`}>
-                {guess.trim() || '---'}
-            </Text>
-        </View>
-    </Animated.View>
-);
+const GuessDisplay = ({ guess }: { guess: string }) => {
+    const { t } = useTranslation();
+    return (
+        <Animated.View entering={FadeInUp} className="mb-6">
+            <View className="bg-slate-900 rounded-3xl border border-slate-800 p-6 items-center">
+                <Text className="text-slate-500 text-[10px] font-black uppercase tracking-[4px] mb-2">{t('games.guess_game.current_guess')}</Text>
+                <Text className={`text-6xl font-black tracking-tighter ${guess.trim() ? 'text-white' : 'text-slate-800'}`}>
+                    {guess.trim() || '---'}
+                </Text>
+            </View>
+        </Animated.View>
+    );
+};
 
 export default function GuessGameScreen() {
     const { t } = useTranslation();
@@ -103,7 +107,7 @@ export default function GuessGameScreen() {
                     <View className="flex-1 bg-slate-900/50 rounded-[32px] border border-slate-800 p-4 overflow-hidden">
                         <View className="flex-row items-center justify-center mb-4 opacity-40">
                             <Ionicons name="arrow-up" size={12} color="#f43f5e" />
-                            <Text className="text-rose-400 text-[10px] font-black uppercase ml-1">Higher Than Secret</Text>
+                            <Text className="text-rose-400 text-[10px] font-black uppercase ml-1">{t('games.guess_game.higher_than_secret')}</Text>
                         </View>
                         <ScrollView showsVerticalScrollIndicator={false}>
                             <View className="flex-wrap flex-row justify-center gap-2">
@@ -136,7 +140,7 @@ export default function GuessGameScreen() {
                         </ScrollView>
                         <View className="flex-row items-center justify-center mb-4 opacity-40">
                             <Ionicons name="arrow-down" size={12} color="#38bdf8" />
-                            <Text className="text-sky-400 text-[10px] font-black uppercase ml-1">Lower Than Secret</Text>
+                            <Text className="text-sky-400 text-[10px] font-black uppercase ml-1">{t('games.guess_game.lower_than_secret')}</Text>
                         </View>
                     </View>
                 </View>

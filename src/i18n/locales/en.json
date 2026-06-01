@@ -1043,7 +1043,11 @@
             "hint_very_close": "You're very close! (Within 5)",
             "hint_unavailable": "Hint available after 5 guesses",
             "simple_terms_title": "Binary Search in Action",
-            "simple_terms_desc": "This game is a fun way to understand <1>binary search</1>. By guessing the middle of the range (like 50), you eliminate <2>half</2> the possibilities every time. With this strategy, you can always find any number between 1 and 100 in at most <1>7 guesses</1>!"
+            "simple_terms_desc": "This game is a fun way to understand <1>binary search</1>. By guessing the middle of the range (like 50), you eliminate <2>half</2> the possibilities every time. With this strategy, you can always find any number between 1 and 100 in at most <1>7 guesses</1>!",
+            "current_guess": "Current Guess",
+            "higher_than_secret": "Higher Than Secret",
+            "lower_than_secret": "Lower Than Secret",
+            "guesses": "Guesses"
         },
         "bulls_cows": {
             "title": "Bulls and Cows",
